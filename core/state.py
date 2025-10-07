@@ -1,3 +1,5 @@
+from ast import Constant
+from sqlite3 import PrepareProtocol
 import cv2
 import numpy as np
 import re
@@ -20,6 +22,7 @@ bot_lock = threading.Lock()
 
 MINIMUM_MOOD = None
 PRIORITIZE_G1_RACE = None
+USE_OPTIMAL_EVENT_CHOICES = None
 IS_AUTO_BUY_SKILL = None
 SKILL_PTS_CHECK = None
 PRIORITY_STAT = None
@@ -28,6 +31,8 @@ STAT_CAPS = None
 SKILL_LIST = None
 CANCEL_CONSECUTIVE_RACE = None
 SLEEP_TIME_MULTIPLIER = 1
+HINT_POINT = None
+TRAINEE = None
 
 def load_config():
   with open("config.json", "r", encoding="utf-8") as file:
@@ -39,6 +44,7 @@ def reload_config():
   global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, PREFERRED_POSITION
   global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER
   global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
+  global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE
 
   config = load_config()
 
@@ -65,6 +71,9 @@ def reload_config():
   WINDOW_NAME = config["window_name"]
   RACE_SCHEDULE = config["race_schedule"]
   CONFIG_NAME = config["config_name"]
+  USE_OPTIMAL_EVENT_CHOICES = config["use_optimal_event_choices"]
+  HINT_POINT = config["hint_point"]
+  TRAINEE = config["trainee"]
 
 # Get Stat
 def stat_state():
@@ -105,6 +114,7 @@ def check_support_card(threshold=0.8, target="none"):
   }
 
   count_result["total_supports"] = 0
+  count_result["total_non_maxed_support"] = 0
   count_result["total_hints"] = 0
   count_result["total_friendship_levels"] = {}
   count_result["hints_per_friend_level"] = {}
@@ -150,6 +160,8 @@ def check_support_card(threshold=0.8, target="none"):
             count_result["total_hints"] += 1
             count_result[key]["hints"] += 1
             count_result["hints_per_friend_level"][friend_level] +=1
+
+  count_result["total_non_maxed_support"] = count_result["total_supports"] - (count_result["total_friendship_levels"]["yellow"] + count_result["total_friendship_levels"]["max"])
 
   return count_result
 
@@ -397,3 +409,25 @@ def debug_window(screen, x=-1400, y=-100):
   cv2.moveWindow("image", x, y)
   cv2.imshow("image", screen)
   cv2.waitKey(0)
+
+# Get event name
+def get_event_name():
+  img = enhanced_screenshot(constants.EVENT_NAME_REGION)
+  text = extract_text(img)
+  return text
+
+def stop_bot():
+    global is_bot_running, bot_thread, stop_event
+    debug("[BOT] Stopping...")
+    stop_event.set()
+    is_bot_running = False
+
+    if bot_thread and bot_thread.is_alive():
+        debug("[BOT] Waiting for bot to stop...")
+        bot_thread.join(timeout=3)
+        if bot_thread.is_alive():
+            debug("[BOT] Bot still running, please wait...")
+        else:
+            debug("[BOT] Bot stopped completely")
+
+    bot_thread = None

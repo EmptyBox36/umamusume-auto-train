@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 import os
 
 from server.utils import load_config, save_config
@@ -25,6 +26,7 @@ def update_config(new_config: dict):
   return {"status": "success", "data": new_config}
 
 PATH = "web/dist"
+DATA_PATH = "data"
 
 @app.get("/")
 async def root_index():
@@ -33,6 +35,19 @@ async def root_index():
     "Pragma": "no-cache",
     "Expires": "0"
   })
+
+@app.get("/data/{path:path}")
+async def get_data(path: str):
+  file_path = os.path.join(DATA_PATH, path)
+  headers = {
+    "Cache-Control": "no-cache, no-store, must-revalidate",
+    "Pragma": "no-cache",
+    "Expires": "0"
+  }
+  if os.path.isfile(file_path):
+    return FileResponse(file_path, headers=headers)
+  from fastapi import HTTPException
+  raise HTTPException(status_code=404, detail="Not found")
 
 @app.get("/{path:path}")
 async def fallback(path: str):

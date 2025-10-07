@@ -24,6 +24,9 @@ import PositionByRace from "./components/race/PositionByRace";
 import WindowName from "./components/WindowName";
 import SleepMultiplier from "./components/SleepMultiplier";
 import RaceSchedule from "./components/race/RaceSchedule";
+import HintPoint from "./components/training/HintPoint";
+import TraineeSelect from "./components/Trainee/TraineeSelect.tsx";
+import OptionalEvent from "./components/training/OptionalEvent.tsx"
 import { BarChart3, BrainCircuit, ChevronsRight, Cog, Trophy } from "lucide-react";
 
 function App() {
@@ -31,6 +34,7 @@ function App() {
   const { activeIndex, activeConfig, presets, setActiveIndex, setNamePreset, savePreset } = useConfigPreset();
   const { config, setConfig, saveConfig } = useConfig(activeConfig ?? defaultConfig);
   const [presetName, setPresetName] = useState<string>("");
+  const [traineeOptions, setTraineeOptions] = useState<string[]>([]);
 
   useEffect(() => {
     if (presets[activeIndex]) {
@@ -42,6 +46,13 @@ function App() {
     }
   }, [activeIndex, presets, setConfig]);
 
+    useEffect(() => {
+        fetch("/data/characters.json", { cache: "no-store" })
+            .then(r => r.json())
+            .then(j => setTraineeOptions(Object.keys(j).sort()))
+            .catch(() => setTraineeOptions([]));
+    }, []);
+
   const {
     priority_stat,
     priority_weights,
@@ -51,6 +62,8 @@ function App() {
     skip_infirmary_unless_missing_energy,
     minimum_mood,
     priority_weight,
+    hint_point,
+    use_optimal_event_choices,
     minimum_mood_junior_year,
     maximum_failure,
     prioritize_g1_race,
@@ -61,6 +74,7 @@ function App() {
     positions_by_race,
     race_schedule,
     stat_caps,
+    trainee,
     skill,
     window_name,
   } = config;
@@ -104,18 +118,40 @@ function App() {
           ))}
         </div>
 
-        <div className="mb-8">
-          <Input
-            className="w-full sm:w-72 bg-card border-2 border-primary/20 focus:border-primary/50"
-            placeholder="Preset Name"
-            value={presetName}
-            onChange={(e) => {
-              const val = e.target.value;
-              setPresetName(val);
-              updateConfig("config_name", val);
-            }}
-          />
+        {/* Preset Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
+                {/* fixed-height label row */}
+                <div className="flex items-center gap-2 min-h-[28px]">
+                    <span className="text-xl font-semibold text-primary leading-none">Preset Name</span>
+                </div>
+                <Input
+                    className="mt-2 w-full bg-card border-2 border-primary/20 focus:border-primary/50"
+                    placeholder="Preset Name"
+                    value={presetName}
+                    onChange={(e) => {
+                        const val = e.target.value;
+                        setPresetName(val);
+                        updateConfig("config_name", val);
+                    }}
+                />
+            </div>
+
+          <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
+            <label className="text-xl font-semibold mb-2 text-primary">Trainee</label>
+            <div className="relative flex items-center w-full gap-2">
+              <div className="flex-grow">
+                <TraineeSelect
+                  trainee={trainee ?? ""}
+                  setTrainee={(v) => updateConfig("trainee", v)}
+                  options={traineeOptions}
+                />
+              </div>
+            </div>
+          </div>
         </div>
+
+        
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 flex flex-col gap-8">
@@ -132,7 +168,11 @@ function App() {
                   }}
                 />
                 <PriorityWeight priorityWeight={priority_weight} setPriorityWeight={(val) => updateConfig("priority_weight", val)} />
-                <FailChance maximumFailure={maximum_failure} setFail={(val) => updateConfig("maximum_failure", isNaN(val) ? 0 : val)} />
+                <div className="flex flex-col gap-4">
+                    <HintPoint hintPoint={hint_point ?? 0} setHintPoint={(val) => updateConfig("hint_point", val)}/>
+                    <FailChance maximumFailure={maximum_failure} setFail={(val) => updateConfig("maximum_failure", isNaN(val) ? 0 : val)} />
+                    <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("use_optimal_event_choices", val)} />
+                </div>
               </div>
               <div className="mt-8">
                 <StatCaps statCaps={stat_caps} setStatCaps={(key, val) => updateConfig("stat_caps", { ...stat_caps, [key]: isNaN(val) ? 0 : val })} />

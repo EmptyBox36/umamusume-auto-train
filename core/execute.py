@@ -15,6 +15,7 @@ import utils.constants as constants
 from core.recognizer import is_btn_active, match_template, multi_match_templates
 from utils.scenario import ura
 from core.skill import buy_skill
+from core.events import get_optimal_choice
 
 templates = {
   "event": "assets/icons/event_choice_1.png",
@@ -83,7 +84,7 @@ def check_training():
   results = {}
 
   # failcheck enum "train","no_train","check_all"
-  failcheck="check_all"
+  # failcheck="check_all"
   margin=5
   for key, icon_path in training_types.items():
     if state.stop_event.is_set():
@@ -95,31 +96,31 @@ def check_training():
       pyautogui.mouseDown()
       support_card_results = check_support_card()
 
-      if key != "wit":
-        if failcheck == "check_all":
-          failure_chance = check_failure()
-          if failure_chance > (state.MAX_FAILURE + margin):
-            info("Failure rate too high skip to check wit")
-            failcheck="no_train"
-            failure_chance = state.MAX_FAILURE + margin
-          elif failure_chance < (state.MAX_FAILURE - margin):
-            info("Failure rate is low enough, skipping the rest of failure checks.")
-            failcheck="train"
-            failure_chance = 0
-        elif failcheck == "no_train":
-          failure_chance = state.MAX_FAILURE + margin
-        elif failcheck == "train":
-          failure_chance = 0
-      else:
-        if failcheck == "train":
-          failure_chance = 0
-        else:
-          failure_chance = check_failure()
+      #if key != "wit":
+      #  if failcheck == "check_all":
+      #    failure_chance = check_failure()
+      #    if failure_chance > (state.MAX_FAILURE + margin):
+      #      info("Failure rate too high skip to check wit")
+      #      failcheck="no_train"
+      #      failure_chance = state.MAX_FAILURE + margin
+      #    elif failure_chance < (state.MAX_FAILURE - margin):
+      #      info("Failure rate is low enough, skipping the rest of failure checks.")
+      #      failcheck="train"
+      #      failure_chance = 0
+      #  elif failcheck == "no_train":
+      #    failure_chance = state.MAX_FAILURE + margin
+      #  elif failcheck == "train":
+      #    failure_chance = 0
+      #else:
+      #  if failcheck == "train":
+      #    failure_chance = 0
+      #  else:
+      failure_chance = check_failure()
 
       support_card_results["failure"] = failure_chance
       results[key] = support_card_results
 
-      debug(f"[{key.upper()}] → Total Supports {support_card_results['total_supports']}, Levels:{support_card_results['total_friendship_levels']} , Fail: {failure_chance}%")
+      debug(f"[{key.upper()}] → Total Supports: {support_card_results['total_supports']}, Total Non-Maxed Supports: {support_card_results['total_non_maxed_support']}, Levels:{support_card_results['total_friendship_levels']}, Fail: {failure_chance}%, Hint: {support_card_results['total_hints']}")
       sleep(0.1)
 
   pyautogui.mouseUp()
@@ -366,6 +367,36 @@ def auto_buy_skill():
     info("No matching skills found. Going back.")
     click(img="assets/buttons/back_btn.png")
 
+def event_choice():
+  event_choice_1 = pyautogui.locateCenterOnScreen("assets/icons/event_choice_1.png", confidence=0.8, minSearchTime=0.2)
+
+  if not event_choice_1:
+    return False
+
+  if not state.USE_OPTIMAL_EVENT_CHOICES:
+    info("Event found, automatically select top choice.")
+    pyautogui.moveTo(event_choice_1, duration=0.2)
+    pyautogui.click(event_choice_1)
+    return True
+
+  event_name = get_event_name()
+
+  if event_name:
+    total_choices, choice = get_optimal_choice(event_name)
+
+    if not total_choices:
+      pyautogui.moveTo(event_choice_1, duration=0.2)
+      pyautogui.click(event_choice_1)
+      return True
+
+    info(f"Selecting optimal choice: {choice}")
+    pyautogui.moveTo(300, 750 - 111 * (total_choices - choice), duration=0.175)
+    pyautogui.click()
+    return True
+
+  return False
+
+
 PREFERRED_POSITION_SET = False
 def career_lobby():
   # Program start
@@ -375,7 +406,7 @@ def career_lobby():
     screen = ImageGrab.grab()
     matches = multi_match_templates(templates, screen=screen)
 
-    if click(boxes=matches["event"], text="Event found, selecting top choice."):
+    if event_choice():
       continue
     if click(boxes=matches["inspiration"], text="Inspiration found."):
       continue
@@ -394,16 +425,6 @@ def career_lobby():
       continue
 
     energy_level, max_energy = check_energy_level()
-
-    skipped_infirmary=False
-    if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
-      # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
-      if max(0, (max_energy - energy_level)) >= state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
-        click(boxes=matches["infirmary"][0], text="Character debuffed, going to infirmary.")
-        continue
-      else:
-        info("Skipping infirmary because of high energy.")
-        skipped_infirmary=True
 
     mood = check_mood()
     mood_index = constants.MOOD_LIST.index(mood)
@@ -445,27 +466,95 @@ def career_lobby():
       race_day()
       continue
 
-    # Mood check
+    # If Prioritize G1 Race is true, check G1 race every turn
+    if state.PRIORITIZE_G1_RACE and "Pre-Debut" not in year and len(year_parts) > 3 and year_parts[3] not in ["Jul", "Aug"]:
+      race_done = False
+      for race_list in state.RACE_SCHEDULE:
+        if state.stop_event.is_set():
+          break
+        if len(race_list):
+          if race_list['year'] in year and race_list['date'] in year:
+            debug(f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}")
+            if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
+              race_done = True
+              break
+            else:
+              click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
+              sleep(0.5)
+      if race_done:
+        continue
+
+    # Mood & Infirmary check
     if year_parts[0] == "Junior":
       mood_check = minimum_mood_junior_year
     else:
       mood_check = minimum_mood
+
     if mood_index < mood_check:
-      if skipped_infirmary:
-        info("Since we skipped infirmary due to energy, check full stats for statuses.")
+      info("Check condition before choose to recreation or infirmary.")
+      if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
+        sleep(0.5)
+        conditions, total_severity = check_status_effects()
+        click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
+        sleep(0.5)
+        if total_severity > 1:
+          info("Urgent condition found, visiting infirmary.")
+          click(boxes=matches["infirmary"][0])
+          continue
+        else:
+          info("Mood is low, trying recreation to increase mood")
+          do_recreation()
+          continue
+      else:
+        warning("Coulnd't find full stats button.")
+        stop_bot()
+        continue
+        
+    # Mood check
+    # skipped_infirmary=False
+    # if year_parts[0] == "Junior":
+    #   mood_check = minimum_mood_junior_year
+    # else:
+    #   mood_check = minimum_mood
+    # if mood_index < mood_check:
+    #   if skipped_infirmary:
+    #     info("Since we skipped infirmary due to energy, check full stats for statuses.")
+    #     if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
+    #       sleep(0.5)
+    #       conditions, total_severity = check_status_effects()
+    #       click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
+    #       if total_severity > 1:
+    #         info("Severe condition found, visiting infirmary even though we will waste some energy.")
+    #         click(boxes=matches["infirmary"][0])
+    #         continue
+    #     else:
+    #       warning("Coulnd't find full stats button.")
+    #   else:
+    #     info("Mood is low, trying recreation to increase mood")
+    #     do_recreation()
+    #     continue
+
+    # Infirmary
+    skipped_infirmary=False
+    if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
+      # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
+      if max(0, (max_energy - energy_level)) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
+        info("Check for urgent condition.")
         if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
           sleep(0.5)
           conditions, total_severity = check_status_effects()
           click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
           if total_severity > 1:
-            info("Severe condition found, visiting infirmary even though we will waste some energy.")
+            info("Urgent condition found, visiting infirmary immediately.")
             click(boxes=matches["infirmary"][0])
             continue
+          else:
+            info(f"Non-urgent condition found, skipping infirmary because of high energy.")
+            skipped_infirmary=True
         else:
           warning("Coulnd't find full stats button.")
       else:
-        info("Mood is low, trying recreation to increase mood")
-        do_recreation()
+        click(boxes=matches["infirmary"][0], text="Character debuffed, going to infirmary.")
         continue
 
     # If Prioritize G1 Race is true, check G1 race every turn

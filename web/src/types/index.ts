@@ -20,13 +20,16 @@ export type RaceScheduleType = {
 
 export type Config = {
   config_name: string;
+  trainee: string;
   priority_stat: string[];
   priority_weights: number[];
+  hint_point: number;
+  use_optimal_event_choices: boolean;
   sleep_time_multiplier: number;
   skip_training_energy: number;
-  never_rest_energy: number;
   skip_infirmary_unless_missing_energy: number;
   priority_weight: string;
+  never_rest_energy: number;
   minimum_mood: string;
   minimum_mood_junior_year: string;
   maximum_failure: number;

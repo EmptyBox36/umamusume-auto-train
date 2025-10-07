@@ -1,4 +1,5 @@
 import core.state as state
+from core.state import HINT_WEIGHT
 from core.state import check_current_year, stat_state, check_energy_level, check_aptitudes
 from utils.log import info, warning, error, debug
 import utils.constants as constants
@@ -35,8 +36,18 @@ def most_support_card(results):
     return "wit"
 
   filtered_results = {
-    k: v for k, v in results.items() if int(v["failure"]) <= state.MAX_FAILURE
-  }
+    k: {
+        **v,
+        "total_non_maxed_support": v["total_supports"] - (
+            v["total_friendship_levels"]["yellow"] + v["total_friendship_levels"]["max"]
+        )
+    }
+    for k, v in results.items() if int(v["failure"]) <= state.MAX_FAILURE
+    }
+
+  all_zero_non_maxed = all(
+    v.get("total_non_maxed_support", 0) == 0 for v in filtered_results.values()
+    )
 
   if not filtered_results:
     info("No safe training found. All failure chances are too high.")
@@ -47,7 +58,7 @@ def most_support_card(results):
   best_training = max(filtered_results.items(), key=training_score)
 
   best_key, best_data = best_training
-
+  
   if best_data["total_supports"] <= 1:
     if int(best_data["failure"]) == 0:
       # WIT must be at least 2 support cards
@@ -68,7 +79,7 @@ def most_support_card(results):
         info("Low value training (only 1 support). Choosing to rest.")
         return None
 
-  info(f"Best training: {best_key.upper()} with {best_data['total_supports']} support cards and {best_data['failure']}% fail chance")
+  info(f"Best training: {best_key.upper()} with {best_data['total_supports']} support cards, {best_data['total_non_maxed_support']} non-maxed support cards with {best_data['failure']}% fail chance and {best_data['total_hints']} total hint.")
   return best_key
 
 PRIORITY_WEIGHTS_LIST={
@@ -78,12 +89,18 @@ PRIORITY_WEIGHTS_LIST={
   "NONE": 0
 }
 
-def training_score(x):
-  global PRIORITY_WEIGHTS_LIST
+def training_score(x, all_zero_non_maxed=False):
+  global PRIORITY_WEIGHTS_LIST, HINT_POINT
   priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
-  base = x[1]["total_supports"]
+
+  if all_zero_non_maxed:
+      # If all "total_non_maxed_support" are zero, use "total_supports" as criteria.
+      base = x[1]["total_supports"]
+  else:
+      # If all "total_non_maxed_support" are not zero, use "total_non_maxed_support" as criteria.
+      base = x[1]["total_non_maxed_support"] 
   if x[1]["total_hints"] > 0:
-      base += 0.5
+      base += state.HINT_POINT
   multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(x[0])] * priority_weight
   total = base * multiplier
 
@@ -106,9 +123,9 @@ def focus_max_friendships(results):
     data = filtered_results[stat_name]
     # order of importance gray > blue > green, because getting greens to max is easier than blues (gray is very low blue)
     possible_friendship = (
-                            data["total_friendship_levels"]["green"]
-                            + data["total_friendship_levels"]["blue"] * 1.01
-                            + data["total_friendship_levels"]["gray"] * 1.02
+                            data["total_friendship_levels"]["green"] * 1.01
+                            + data["total_friendship_levels"]["blue"] * 1.02
+                            + data["total_friendship_levels"]["gray"] * 1.03
                           )
 
     # hints are worth a little more than half a training
@@ -130,24 +147,37 @@ def focus_max_friendships(results):
 def rainbow_training(results):
   global PRIORITY_WEIGHTS_LIST
   priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
-  # 2 points for rainbow supports, 1 point for normal supports, stat priority tie breaker
+  # 2 points for rainbow supports, 1 point for normal supports, 1.5 point for non-maxed supports, +0.5 For Hint, stat priority tie breaker
+
+  custom_fail_chance = state.MAX_FAILURE
+
   rainbow_candidates = results
   for stat_name in rainbow_candidates:
     multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
     data = rainbow_candidates[stat_name]
     total_rainbow_friends = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
+    total_non_maxed_support = data["total_supports"] - ( data["total_friendship_levels"]["yellow"] + data["total_friendship_levels"]["max"] )
     #adding total rainbow friends on top of total supports for two times value nudging the formula towards more rainbows
-    rainbow_points = total_rainbow_friends + data["total_supports"]
+    rainbow_points = total_rainbow_friends + data["total_supports"] + ( 0.5 * total_non_maxed_support )
+    if data["total_hints"] > 0:
+        rainbow_points = rainbow_points + state.HINT_POINT
     if total_rainbow_friends > 0:
       rainbow_points = rainbow_points + 0.5
+
+    if rainbow_points > 5:
+      custom_fail_chance = 40
+      info(f"Due to high rainbow point, set maximum failure to {custom_fail_chance}%.")
+
     rainbow_points = rainbow_points * multiplier
     rainbow_candidates[stat_name]["rainbow_points"] = rainbow_points
     rainbow_candidates[stat_name]["total_rainbow_friends"] = total_rainbow_friends
 
+    info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Rainbow point: {rainbow_points}")
+
   # Get rainbow training
   rainbow_candidates = {
     stat: data for stat, data in results.items()
-    if int(data["failure"]) <= state.MAX_FAILURE
+    if int(data["failure"]) <= custom_fail_chance
        and data["rainbow_points"] >= 2
        and not (stat == "wit" and data["total_rainbow_friends"] < 1)
   }

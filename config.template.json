@@ -1,5 +1,6 @@
 {
   "config_name": "Preset",
+  "trainee":  "",
   "priority_stat": [
     "spd",
     "sta",
@@ -20,9 +21,11 @@
   "skip_infirmary_unless_missing_energy": 20,
   "minimum_mood": "NORMAL",
   "priority_weight": "LIGHT",
+  "hint_point":  0.5,
   "minimum_mood_junior_year": "NORMAL",
   "maximum_failure": 15,
   "prioritize_g1_race": false,
+  "use_optimal_event_choices": true,
   "cancel_consecutive_race": true,
   "position_selection_enabled": false,
   "enable_positions_by_race": false,

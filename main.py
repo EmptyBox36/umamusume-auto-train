@@ -82,20 +82,21 @@ def hotkey_listener():
     keyboard.wait(hotkey)
     with state.bot_lock:
       if state.is_bot_running:
-        debug("[BOT] Stopping...")
-        state.stop_event.set()
-        state.is_bot_running = False
+        state.stop_bot()
+        # debug("[BOT] Stopping...")
+        # state.stop_event.set()
+        # state.is_bot_running = False
 
-        if state.bot_thread and state.bot_thread.is_alive():
-          debug("[BOT] Waiting for bot to stop...")
-          state.bot_thread.join(timeout=3)
+        # if state.bot_thread and state.bot_thread.is_alive():
+        #   debug("[BOT] Waiting for bot to stop...")
+        #   state.bot_thread.join(timeout=3)
 
-          if state.bot_thread.is_alive():
-            debug("[BOT] Bot still running, please wait...")
-          else:
-            debug("[BOT] Bot stopped completely")
+        #   if state.bot_thread.is_alive():
+        #     debug("[BOT] Bot still running, please wait...")
+        #   else:
+        #     debug("[BOT] Bot stopped completely")
 
-        state.bot_thread = None
+        # state.bot_thread = None
       else:
         debug("[BOT] Starting...")
         state.is_bot_running = True
