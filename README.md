@@ -2,13 +2,9 @@
 
 Like the title says, this is a simple auto training for Umamusume.
 
-This project is inspired by [shiokaze/UmamusumeAutoTrainer](https://github.com/shiokaze/UmamusumeAutoTrainer)
+Original project [samsulpanjul/umamusume-auto-train](https://github.com/samsulpanjul/umamusume-auto-train)
 
-Join our [discord server](https://discord.gg/vKKmYUNZuk)
-
-[Demo video](https://youtu.be/CXSYVD-iMJk)
-
-![Screenshot](screenshot.png)
+And this project also inspired by [steve1316/uma-android-automation](https://github.com/steve1316/uma-android-automation)
 
 # ⚠️ USE IT AT YOUR OWN RISK ⚠️
 
