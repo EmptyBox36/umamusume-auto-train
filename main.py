@@ -1,4 +1,4 @@
-from utils.tools import sleep
+﻿from utils.tools import sleep
 import pygetwindow as gw
 import threading
 import uvicorn
@@ -10,7 +10,6 @@ import traceback
 import utils.constants as constants
 from utils.log import info, warning, error, debug
 
-from core.execute import career_lobby
 import core.state as state
 from server.main import app
 from update_config import update_config
@@ -61,21 +60,26 @@ def focus_umamusume():
   return True
 
 def main():
-  print("Uma Auto!")
-  try:
-    state.reload_config()
-    state.stop_event.clear()
+    print("Uma Auto!")
+    try:
+        state.reload_config()
+        state.stop_event.clear()
 
-    if focus_umamusume():
-      info(f"Config: {state.CONFIG_NAME}")
-      career_lobby()
-    else:
-      error("Failed to focus Umamusume window")
-  except Exception as e:
-    error_message = traceback.format_exc()
-    error(f"Error in main thread: {error_message}")
-  finally:
-    debug("[BOT] Stopped.")
+        from core.EventsDatabase import load_event_databases, dump_event
+        load_event_databases()
+
+        from core.execute import career_lobby
+        if focus_umamusume():
+            info(f"Config: {state.CONFIG_NAME}")
+            career_lobby()
+        else:
+            error("Failed to focus Umamusume window")
+    except Exception as e:
+        error_message = traceback.format_exc()
+        error(f"Error in main thread: {error_message}")
+    finally:
+        debug("[BOT] Stopped.")
+
 
 def hotkey_listener():
   while True:

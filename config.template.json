@@ -1,6 +1,6 @@
 {
   "config_name": "Preset",
-  "trainee":  "",
+  "trainee": "",
   "priority_stat": [
     "spd",
     "sta",
@@ -21,11 +21,26 @@
   "skip_infirmary_unless_missing_energy": 20,
   "minimum_mood": "NORMAL",
   "priority_weight": "LIGHT",
-  "hint_point":  0.5,
+  "hint_point": 0.5,
   "minimum_mood_junior_year": "NORMAL",
   "maximum_failure": 15,
   "prioritize_g1_race": false,
   "use_optimal_event_choices": true,
+
+  "choice_weight": {
+    "spd": 1,
+    "sta": 1,
+    "pwr": 1,
+    "guts": 1,
+    "wit": 1,
+    "hp": 5,
+    "max_energy": 3,
+    "skillpts": 0.5,
+    "bond": 2,
+    "mood": 10
+  },
+
+  "use_priority_on_choice": false,
   "cancel_consecutive_race": true,
   "position_selection_enabled": false,
   "enable_positions_by_race": false,

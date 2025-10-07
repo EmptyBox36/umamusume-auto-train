@@ -26,7 +26,7 @@ def update_config(new_config: dict):
   return {"status": "success", "data": new_config}
 
 PATH = "web/dist"
-DATA_PATH = "data"
+DATA_PATH = "scraper/data"
 
 @app.get("/")
 async def root_index():
@@ -36,7 +36,7 @@ async def root_index():
     "Expires": "0"
   })
 
-@app.get("/data/{path:path}")
+@app.get("/scraper/data/{path:path}")
 async def get_data(path: str):
   file_path = os.path.join(DATA_PATH, path)
   headers = {

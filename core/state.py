@@ -32,7 +32,8 @@ SKILL_LIST = None
 CANCEL_CONSECUTIVE_RACE = None
 SLEEP_TIME_MULTIPLIER = 1
 HINT_POINT = None
-TRAINEE = None
+TRAINEE_NAME = None
+CHOICE_WEIGHT = None
 
 def load_config():
   with open("config.json", "r", encoding="utf-8") as file:
@@ -44,7 +45,7 @@ def reload_config():
   global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, PREFERRED_POSITION
   global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER
   global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
-  global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE
+  global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT
 
   config = load_config()
 
@@ -72,8 +73,9 @@ def reload_config():
   RACE_SCHEDULE = config["race_schedule"]
   CONFIG_NAME = config["config_name"]
   USE_OPTIMAL_EVENT_CHOICES = config["use_optimal_event_choices"]
+  CHOICE_WEIGHT = config["choice_weight"]
   HINT_POINT = config["hint_point"]
-  TRAINEE = config["trainee"]
+  TRAINEE_NAME = config["trainee"]
 
 # Get Stat
 def stat_state():
@@ -418,16 +420,16 @@ def get_event_name():
 
 def stop_bot():
     global is_bot_running, bot_thread, stop_event
-    debug("[BOT] Stopping...")
+    info("[BOT] Stopping...")
     stop_event.set()
     is_bot_running = False
 
     if bot_thread and bot_thread.is_alive():
-        debug("[BOT] Waiting for bot to stop...")
+        info("[BOT] Waiting for bot to stop...")
         bot_thread.join(timeout=3)
         if bot_thread.is_alive():
-            debug("[BOT] Bot still running, please wait...")
+            info("[BOT] Bot still running, please wait...")
         else:
-            debug("[BOT] Bot stopped completely")
+            info("[BOT] Bot stopped completely")
 
     bot_thread = None

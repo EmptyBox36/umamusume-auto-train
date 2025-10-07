@@ -18,6 +18,19 @@ export type RaceScheduleType = {
   date: string;
 };
 
+export type ChoiceWeight = {
+    spd: number;
+    sta: number;
+    pwr: number;
+    guts: number;
+    wit: number;
+    hp: number;
+    max_energy: number;
+    skillpts: number;
+    bond: number;
+    mood: number;
+};
+
 export type Config = {
   config_name: string;
   trainee: string;
@@ -25,6 +38,8 @@ export type Config = {
   priority_weights: number[];
   hint_point: number;
   use_optimal_event_choices: boolean;
+  choice_weight: ChoiceWeight;
+  use_priority_on_choice: boolean;
   sleep_time_multiplier: number;
   skip_training_energy: number;
   skip_infirmary_unless_missing_energy: number;

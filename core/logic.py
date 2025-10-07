@@ -1,7 +1,9 @@
-import core.state as state
-from core.state import HINT_WEIGHT
+from core.state import HINT_POINT
 from core.state import check_current_year, stat_state, check_energy_level, check_aptitudes
 from utils.log import info, warning, error, debug
+from utils.tools import sleep
+
+import core.state as state
 import utils.constants as constants
 
 # Get priority stat from config
@@ -45,10 +47,6 @@ def most_support_card(results):
     for k, v in results.items() if int(v["failure"]) <= state.MAX_FAILURE
     }
 
-  all_zero_non_maxed = all(
-    v.get("total_non_maxed_support", 0) == 0 for v in filtered_results.values()
-    )
-
   if not filtered_results:
     info("No safe training found. All failure chances are too high.")
     return None
@@ -58,19 +56,31 @@ def most_support_card(results):
   best_training = max(filtered_results.items(), key=training_score)
 
   best_key, best_data = best_training
+  year = check_current_year()
   
   if best_data["total_supports"] <= 1:
     if int(best_data["failure"]) == 0:
-      # WIT must be at least 2 support cards
-      if best_key == "wit":
-        if energy_level > state.NEVER_REST_ENERGY:
-          info(f"Only 1 support and it's WIT but energy is too high for resting to be worth it. Still training.")
-          return "wit"
-        else:
-          info(f"Only 1 support and it's WIT. Skipping.")
-          return None
-      info(f"Only 1 support but 0% failure. Prioritizing based on priority list: {best_key.upper()}")
-      return best_key
+      if energy_level < 50 and "Junior Year" not in year:
+          # WIT must be at least 2 support cards
+          if best_key == "wit":
+            if energy_level > state.NEVER_REST_ENERGY:
+                info(f"Only 1 support and it's WIT but energy is too high for resting to be worth it. Still training.")
+                return "wit"
+            else:
+              info(f"Only 1 support and it's WIT. Skipping.")
+              return None
+          info(f"Only 1 support but 0% failure. Prioritizing based on priority list: {best_key.upper()}")
+          return best_key
+      else:
+          from core.execute import do_race
+          do_race()
+          if do_race():
+              info("Support card is too low and have high energy. Try to do race.")
+              return None
+          else:
+              from core.execute import click
+              sleep(0.5)
+              click(img="assets/buttons/back_btn.png")
     else:
       if energy_level > state.NEVER_REST_ENERGY:
         info(f"Energy is over {state.NEVER_REST_ENERGY}, train anyway.")
@@ -164,15 +174,30 @@ def rainbow_training(results):
     if total_rainbow_friends > 0:
       rainbow_points = rainbow_points + 0.5
 
-    if rainbow_points > 5:
-      custom_fail_chance = 40
-      info(f"Due to high rainbow point, set maximum failure to {custom_fail_chance}%.")
+    rainbow_candidates[stat_name]["rainbow_no_multiplier"] = rainbow_points
 
     rainbow_points = rainbow_points * multiplier
     rainbow_candidates[stat_name]["rainbow_points"] = rainbow_points
     rainbow_candidates[stat_name]["total_rainbow_friends"] = total_rainbow_friends
 
     info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Rainbow point: {rainbow_points}")
+
+  highest_points = max(
+      rainbow_candidates.items(),
+      key=lambda kv: (
+          kv[1]["rainbow_no_multiplier"],
+          -get_stat_priority(kv[0])
+      ),
+  )
+
+  best_stat, best_point = highest_points
+  if best_point["rainbow_no_multiplier"] > 5:
+      custom_fail_chance = 40
+      info(f"Due to {best_stat.upper()} have high ({best_point["rainbow_no_multiplier"]}) rainbow point, set maximum failure to {custom_fail_chance}%.")
+
+  if best_point["rainbow_no_multiplier"] < 1.5:
+      custom_fail_chance = 10
+      info(f"Due to {best_stat.upper()} have low ({best_point["rainbow_no_multiplier"]}) rainbow point, set maximum failure to {custom_fail_chance}%.")
 
   # Get rainbow training
   rainbow_candidates = {
@@ -196,6 +221,17 @@ def rainbow_training(results):
   )
 
   best_key, best_data = best_rainbow
+  if best_data["rainbow_points"] < 1.5:
+      from core.execute import do_race
+      do_race()
+      if do_race():
+          info("Rainbow point is too low, try to do race.")
+          return None
+      else:
+          from core.execute import click
+          sleep(0.5)
+          click(img="assets/buttons/back_btn.png")
+
   if best_key == "wit":
     #if we get to wit, we must have at least 1 rainbow friend
     if data["total_rainbow_friends"] < 1:

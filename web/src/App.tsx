@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+﻿import { useEffect, useState } from "react";
 import rawConfig from "../../config.json";
 import { useConfigPreset } from "./hooks/useConfigPreset";
 import { useConfig } from "./hooks/useConfig";
 import type { Config } from "./types";
 import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
+import Tooltips from "./components/_c/Tooltips";
 import SkillList from "./components/skill/SkillList";
 import PriorityStat from "./components/training/PriorityStat";
 import StatCaps from "./components/training/StatCaps";
@@ -25,9 +26,11 @@ import WindowName from "./components/WindowName";
 import SleepMultiplier from "./components/SleepMultiplier";
 import RaceSchedule from "./components/race/RaceSchedule";
 import HintPoint from "./components/training/HintPoint";
-import TraineeSelect from "./components/Trainee/TraineeSelect.tsx";
-import OptionalEvent from "./components/training/OptionalEvent.tsx"
-import { BarChart3, BrainCircuit, ChevronsRight, Cog, Trophy } from "lucide-react";
+import TraineeSelect from "./components/Trainee/TraineeSelect";
+import OptionalEvent from "./components/Event/OptionalEvent";
+import ChoiceWeight from "./components/Event/ChoiceWeight";
+import PriorityOnChoice from "./components/Event/PriorityOnChoice";
+import { BarChart3, BrainCircuit, ChevronsRight, Cog, Trophy, MessageCircleMore } from "lucide-react";
 
 function App() {
   const defaultConfig = rawConfig as Config;
@@ -46,11 +49,11 @@ function App() {
     }
   }, [activeIndex, presets, setConfig]);
 
-    useEffect(() => {
-        fetch("/data/characters.json", { cache: "no-store" })
-            .then(r => r.json())
-            .then(j => setTraineeOptions(Object.keys(j).sort()))
-            .catch(() => setTraineeOptions([]));
+  useEffect(() => {
+    fetch("/scraper/data/characters.json", { cache: "no-store" })
+      .then(r => r.json())
+      .then(j => setTraineeOptions(Object.keys(j).sort()))
+      .catch(() => setTraineeOptions([]));
     }, []);
 
   const {
@@ -64,6 +67,8 @@ function App() {
     priority_weight,
     hint_point,
     use_optimal_event_choices,
+    choice_weight,
+    use_priority_on_choice,
     minimum_mood_junior_year,
     maximum_failure,
     prioritize_g1_race,
@@ -171,7 +176,6 @@ function App() {
                 <div className="flex flex-col gap-4">
                     <HintPoint hintPoint={hint_point ?? 0} setHintPoint={(val) => updateConfig("hint_point", val)}/>
                     <FailChance maximumFailure={maximum_failure} setFail={(val) => updateConfig("maximum_failure", isNaN(val) ? 0 : val)} />
-                    <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("use_optimal_event_choices", val)} />
                 </div>
               </div>
               <div className="mt-8">
@@ -254,6 +258,19 @@ function App() {
                 }
                 clearRaceSchedule={() => updateConfig("race_schedule", [])}
               />
+            </div>
+            <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
+                <div className="flex flex-col gap-6">
+                    <div className="flex gap-2 items-center">
+                        <h2 className="text-3xl font-semibold flex items-center gap-3"><MessageCircleMore className="text-primary" />Event</h2>
+                        <Tooltips>Skill hint → Score System → Custom Choice.</Tooltips> 
+                    </div>
+                    <div className="flex flex-col gap-6">
+                        <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("use_optimal_event_choices", val)} />
+                        <ChoiceWeight choiceWeight={choice_weight} setChoiceWeight={(key, val) => updateConfig("choice_weight", { ...choice_weight, [key]: isNaN(val) ? 0 : val })} />
+                        <PriorityOnChoice priorityOnChoice={use_priority_on_choice} setPriorityOnChoice={(val) => updateConfig("use_priority_on_choice", val)} />
+                    </div>
+                </div>
             </div>
           </div>
         </div>

@@ -16,6 +16,7 @@ from core.recognizer import is_btn_active, match_template, multi_match_templates
 from utils.scenario import ura
 from core.skill import buy_skill
 from core.events import get_optimal_choice
+from core.state import get_event_name, stop_bot
 
 templates = {
   "event": "assets/icons/event_choice_1.png",
