@@ -86,7 +86,7 @@ def score_choice(ev_key, choice_row):
 
     energy_gain = float(choice_row.get("HP", 0) or 0)
 
-    if (max_energy - energy_level) <= energy_gain:
+    if (max_energy - energy_level) >= energy_gain:
         choice_score += choice_weight["hp"] * energy_gain * 1
     else:
         choice_score += choice_weight["hp"] * energy_gain * 0.1
