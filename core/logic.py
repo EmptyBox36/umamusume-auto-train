@@ -120,6 +120,9 @@ def training_score(x, all_zero_non_maxed=False):
   return (total, -get_stat_priority(x[0]))
 
 def focus_max_friendships(results):
+  global PRIORITY_WEIGHTS_LIST
+  priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
+
   filtered_results = {
       stat: data for stat, data in results.items()
       if int(data["failure"]) <= state.MAX_FAILURE
@@ -130,13 +133,14 @@ def focus_max_friendships(results):
       return None, 0
 
   for stat_name in filtered_results:
+    multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
     data = filtered_results[stat_name]
     # order of importance gray > blue > green, because getting greens to max is easier than blues (gray is very low blue)
     possible_friendship = (
                             data["total_friendship_levels"]["green"] * 1.01
                             + data["total_friendship_levels"]["blue"] * 1.02
                             + data["total_friendship_levels"]["gray"] * 1.03
-                          )
+                          ) * multiplier
 
     # hints are worth a little more than half a training
     if data["total_hints"] > 0:
