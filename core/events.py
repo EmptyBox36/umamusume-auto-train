@@ -86,7 +86,7 @@ def score_choice(ev_key, choice_row):
 
     energy_gain = float(choice_row.get("HP", 0) or 0)
 
-    if (max_energy - energy_level) >= energy_gain:
+    if (max_energy - energy_level) >= energy_gain or energy_gain < 0:
         choice_score += choice_weight["hp"] * energy_gain * 1
     else:
         choice_score += choice_weight["hp"] * energy_gain * 0.1
@@ -97,6 +97,7 @@ def score_choice(ev_key, choice_row):
 
     mood = check_mood()
     mood_index = constants.MOOD_LIST.index(mood)
+    mood_gain = float(choice_row.get("Mood", 0) or 0)
     minimum_mood = constants.MOOD_LIST.index(state.MINIMUM_MOOD)
     minimum_mood_junior_year = constants.MOOD_LIST.index(state.MINIMUM_MOOD_JUNIOR_YEAR)
     year = check_current_year()
@@ -107,10 +108,10 @@ def score_choice(ev_key, choice_row):
     else:
       mood_check = minimum_mood
 
-    if mood_index < mood_check:
-        choice_score += choice_weight["mood"] * float(choice_row.get("Mood", 0) or 0)
+    if mood_index < mood_check or mood_gain < 0:
+        choice_score += choice_weight["mood"] * mood_gain
     else:
-        choice_score += choice_weight["mood"] * float(choice_row.get("Mood", 0) or 0) * 0.1
+        choice_score += choice_weight["mood"] * mood_gain * 0.1
 
     return choice_score
 
