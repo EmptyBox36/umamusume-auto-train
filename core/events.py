@@ -115,7 +115,7 @@ def score_choice(ev_key, choice_row):
     if mood_index < mood_check or mood_gain < 0:
         choice_score += choice_weight["mood"] * mood_gain
     else:
-        choice_score += choice_weight["mood"] * mood_gain * 0.1
+        choice_score += choice_weight["mood"] * mood_gain * 0.05
 
     return choice_score
 

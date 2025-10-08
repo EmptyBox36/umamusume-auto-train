@@ -414,9 +414,9 @@ def career_lobby():
     screen = ImageGrab.grab()
     matches = multi_match_templates(templates, screen=screen)
 
-    if event_choice():
-      continue
     if click(boxes=matches["acupuncture"]):
+      continue
+    if event_choice():
       continue
     if click(boxes=matches["inspiration"], text="Inspiration found."):
       continue
