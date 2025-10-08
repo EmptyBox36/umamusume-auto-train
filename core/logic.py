@@ -223,8 +223,13 @@ def rainbow_training(results):
     )
   )
 
+  if state.ENABLE_CUSTOM_LOW_FAILURE:
+      low_point = state.LOW_FAILURE_CONDITION["point"]
+  else:
+      low_point = 1.5
+
   best_key, best_data = best_rainbow
-  if best_data["rainbow_points"] < state.LOW_FAILURE_CONDITION["point"]:
+  if best_data["rainbow_points"] < low_point:
       from core.execute import do_race
       do_race()
       if do_race():
