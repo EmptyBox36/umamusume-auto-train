@@ -26,7 +26,8 @@ def get_optimal_choice(event_name):
 
     # 1. Select choice in JSON database
     db = CHARACTERS_EVENT_DATABASE if key in CHARACTERS_EVENT_DATABASE else \
-         SUPPORT_EVENT_DATABASE if key in SUPPORT_EVENT_DATABASE else None
+         SUPPORT_EVENT_DATABASE if key in SUPPORT_EVENT_DATABASE else \
+         SCENARIOS_EVENT_DATABASE if key in SCENARIOS_EVENT_DATABASE else None
     if db:
         # Select choice by skill hint
         result_hint = pick_choice_by_skill_hint(key, desired_skills, db)

@@ -2,7 +2,6 @@
 
 COMMON_EVENT_TITLES = {
   "Extra Training",
-  "At Summer Camp (Year 2)",
   "Just an Acupuncturist, No Worries! ☆",
   "Get Well Soon!",
   "Don't Overdo It!",
