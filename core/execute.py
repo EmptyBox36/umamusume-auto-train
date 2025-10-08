@@ -158,6 +158,12 @@ def do_recreation():
 
   if recreation_btn:
     click(boxes=recreation_btn)
+    sleep(0.1)
+    
+    tazuna_event = pyautogui.pyautogui.locateOnScreen("/assets/icons/tazuna.png", confidence=0.8)
+    if tazuna_event:
+        click(boxes=tazuna_event)
+
   elif recreation_summer_btn:
     click(boxes=recreation_summer_btn)
 
