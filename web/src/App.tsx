@@ -26,7 +26,7 @@ import WindowName from "./components/WindowName";
 import SleepMultiplier from "./components/SleepMultiplier";
 import RaceSchedule from "./components/race/RaceSchedule";
 import HintPoint from "./components/training/HintPoint";
-import TraineeSelect from "./components/Trainee/TraineeSelect";
+import TraineeSelect from "./components/setting/TraineeSelect";
 import OptionalEvent from "./components/Event/OptionalEvent";
 import ChoiceWeight from "./components/Event/ChoiceWeight";
 import PriorityOnChoice from "./components/Event/PriorityOnChoice";
@@ -36,6 +36,7 @@ import IsCustomHighFailChance from "./components/training/IsCustomHighFailChance
 import CustomLowFailChance from "./components/training/CustomLowFailChance";
 import CustomHighFailChance from "./components/training/CustomHighFailChance";
 import { BarChart3, BrainCircuit, ChevronsRight, Cog, Trophy, MessageCircleMore } from "lucide-react";
+import ScenarioSelect from "./components/setting/ScenarioSelect";
 
 function App() {
   const defaultConfig = rawConfig as Config;
@@ -43,6 +44,7 @@ function App() {
   const { config, setConfig, saveConfig } = useConfig(activeConfig ?? defaultConfig);
   const [presetName, setPresetName] = useState<string>("");
   const [traineeOptions, setTraineeOptions] = useState<string[]>([]);
+  const [scenarioOptions, setScenarioOptions] = useState<string[]>([]);
 
   useEffect(() => {
     if (presets[activeIndex]) {
@@ -61,12 +63,19 @@ function App() {
       .catch(() => setTraineeOptions([]));
   }, []);
 
-    useEffect(() => {
-        if (!config.enable_custom_failure) {
-            updateConfig("enable_custom_low_failure", false);
-            updateConfig("enable_custom_high_failure", false);
-        }
-    }, [config.enable_custom_failure]);
+  useEffect(() => {
+    fetch("/data/scenarios.json", { cache: "no-store" })
+      .then(r => r.json())
+      .then(j => setScenarioOptions(Object.keys(j).sort()))
+      .catch(() => setScenarioOptions([]));
+  }, []);
+
+  useEffect(() => {
+      if (!config.enable_custom_failure) {
+          updateConfig("enable_custom_low_failure", false);
+          updateConfig("enable_custom_high_failure", false);
+      }
+  }, [config.enable_custom_failure]);
 
   const {
     priority_stat,
@@ -92,6 +101,7 @@ function App() {
     race_schedule,
     stat_caps,
     trainee,
+    scenario,
     skill,
     window_name,
     enable_custom_failure,
@@ -142,22 +152,22 @@ function App() {
 
         {/* Preset Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-            <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
-                {/* fixed-height label row */}
-                <div className="flex items-center gap-2 min-h-[28px]">
-                    <span className="text-xl font-semibold text-primary leading-none">Preset Name</span>
-                </div>
-                <Input
-                    className="mt-2 w-full bg-card border-2 border-primary/20 focus:border-primary/50"
-                    placeholder="Preset Name"
-                    value={presetName}
-                    onChange={(e) => {
-                        const val = e.target.value;
-                        setPresetName(val);
-                        updateConfig("config_name", val);
-                    }}
-                />
-            </div>
+          <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
+              {/* fixed-height label row */}
+              <div className="flex items-center gap-2 min-h-[28px]">
+                  <span className="text-xl font-semibold text-primary leading-none">Preset Name</span>
+              </div>
+              <Input
+                  className="mt-2 w-full bg-card border-2 border-primary/20 focus:border-primary/50"
+                  placeholder="Preset Name"
+                  value={presetName}
+                  onChange={(e) => {
+                      const val = e.target.value;
+                      setPresetName(val);
+                      updateConfig("config_name", val);
+                  }}
+              />
+          </div>
 
           <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
             <label className="text-xl font-semibold mb-2 text-primary">Trainee</label>
@@ -167,6 +177,18 @@ function App() {
                   trainee={trainee ?? ""}
                   setTrainee={(v) => updateConfig("trainee", v)}
                   options={traineeOptions}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
+            <label className="text-xl font-semibold mb-2 text-primary">Scenario</label>
+            <div className="relative flex items-center w-full gap-2">
+              <div className="flex-grow">
+                <ScenarioSelect
+                  scenario={scenario ?? ""}
+                  setScenario={(v) => updateConfig("scenario", v)}
+                  options={scenarioOptions}
                 />
               </div>
             </div>

@@ -1,0 +1,112 @@
+{
+  "URA Finals": {
+    "Exhilarating! What a Scoop!": {
+      "choices": {
+        "1": "Top Option",
+        "2": "Bottom Option"
+      },
+      "stats": {
+        "1": {
+          "Friendship": 5.0,
+          "Guts": 0.0,
+          "HP": 0.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 0.0,
+          "Skill": 0.0,
+          "Skill Hint": "",
+          "Skill Pts": 0.0,
+          "Speed": 0.0,
+          "Stamina": 10.0,
+          "Wit": 0.0
+        },
+        "2": {
+          "Friendship": 5.0,
+          "Guts": 10.0,
+          "HP": 0.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 0.0,
+          "Skill": 0.0,
+          "Skill Hint": "",
+          "Skill Pts": 0.0,
+          "Speed": 0.0,
+          "Stamina": 0.0,
+          "Wit": 0.0
+        }
+      }
+    },
+    "A Trainer's Knowledge": {
+      "choices": {
+        "1": "Top Option",
+        "2": "Bottom Option"
+      },
+      "stats": {
+        "1": {
+          "Friendship": 5.0,
+          "Guts": 0.0,
+          "HP": 0.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 10.0,
+          "Skill": 0.0,
+          "Skill Hint": "",
+          "Skill Pts": 0.0,
+          "Speed": 0.0,
+          "Stamina": 0.0,
+          "Wit": 0.0
+        },
+        "2": {
+          "Friendship": 5.0,
+          "Guts": 0.0,
+          "HP": 0.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 0.0,
+          "Skill": 0.0,
+          "Skill Hint": "",
+          "Skill Pts": 0.0,
+          "Speed": 10.0,
+          "Stamina": 0.0,
+          "Wit": 0.0
+        }
+      }
+    },
+    "Best Foot Forward!": {
+      "choices": {
+        "1": "Top Option",
+        "2": "Bottom Option"
+      },
+      "stats": {
+        "1": {
+          "Friendship": 0.0,
+          "Guts": 20.0,
+          "HP": -10.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 20.0,
+          "Skill": 0.0,
+          "Skill Hint": "Beeline Burst",
+          "Skill Pts": 0.0,
+          "Speed": 0.0,
+          "Stamina": 0.0,
+          "Wit": 0.0
+        },
+        "2": {
+          "Friendship": 0.0,
+          "Guts": 0.0,
+          "HP": 30.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 0.0,
+          "Skill": 0.0,
+          "Skill Hint": "Breath of Fresh Air",
+          "Skill Pts": 0.0,
+          "Speed": 0.0,
+          "Stamina": 20.0,
+          "Wit": 0.0
+        }
+      }
+    }
+  }
+}

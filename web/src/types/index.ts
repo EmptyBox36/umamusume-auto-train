@@ -44,6 +44,7 @@ export type HighFailCondition = {
 export type Config = {
   config_name: string;
   trainee: string;
+  scenario: string;
   priority_stat: string[];
   priority_weights: number[];
   hint_point: number;

@@ -12,6 +12,7 @@ SKILL_HINT_BY_EVENT = {}
 CHARACTER_BY_EVENT = {}
 CHARACTERS_EVENT_DATABASE = {}
 SUPPORT_EVENT_DATABASE = {}
+SCENARIOS_EVENT_DATABASE = {}
 
 def load_event_databases():
     # hard reset all indices and views
@@ -31,6 +32,9 @@ def load_event_databases():
 
     SUPPORT_EVENT_DATABASE.clear()
     SUPPORT_EVENT_DATABASE.update(index_json("./scraper/data/supports.json"))
+
+    SCENARIOS_EVENT_DATABASE.clear()
+    SCENARIOS_EVENT_DATABASE.update(index_json("./data/scenarios.json"))
 
     chars = sorted({c for c in CHARACTER_BY_EVENT.values() if c})
     info(f"characters indexed: {len(chars)} -> {chars[:5]}{'...' if len(chars)>5 else ''}")
@@ -101,7 +105,8 @@ def find_closest_event(event_name, max_distance=8):
   all_event_names = (
         list(COMMON_EVENT_DATABASE.keys()) +
         list(CHARACTERS_EVENT_DATABASE.keys()) +
-        list(SUPPORT_EVENT_DATABASE.keys())
+        list(SUPPORT_EVENT_DATABASE.keys()) +
+        list(SCENARIOS_EVENT_DATABASE.keys())
     )
 
   for db_event_name in all_event_names:

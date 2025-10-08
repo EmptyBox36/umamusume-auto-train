@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -27,6 +27,7 @@ def update_config(new_config: dict):
 
 PATH = "web/dist"
 DATA_PATH = "scraper/data"
+DATA_PATH_2 = "data"
 
 @app.get("/")
 async def root_index():
@@ -46,7 +47,20 @@ async def get_data(path: str):
   }
   if os.path.isfile(file_path):
     return FileResponse(file_path, headers=headers)
-  from fastapi import HTTPException
+
+  raise HTTPException(status_code=404, detail="Not found")
+
+@app.get("/data/{path:path}")
+async def get_data_2(path: str):
+  file_path = os.path.join(DATA_PATH_2, path)
+  headers = {
+    "Cache-Control": "no-cache, no-store, must-revalidate",
+    "Pragma": "no-cache",
+    "Expires": "0"
+  }
+  if os.path.isfile(file_path):
+    return FileResponse(file_path, headers=headers)
+
   raise HTTPException(status_code=404, detail="Not found")
 
 @app.get("/{path:path}")

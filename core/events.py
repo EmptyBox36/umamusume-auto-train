@@ -2,7 +2,7 @@
 
 from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
-from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, EVENT_TOTALS, find_closest_event
+from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, find_closest_event
 from core.state import STAT_CAPS, check_energy_level, stat_state, check_mood, check_current_year
 from core.logic import get_stat_priority
 import utils.constants as constants
@@ -15,7 +15,10 @@ def get_optimal_choice(event_name):
     desired_skills = {s.casefold() for s in (state.SKILL_LIST or [])}
 
     # Optional fuzzy correction
-    if key not in COMMON_EVENT_DATABASE.keys() and key not in CHARACTERS_EVENT_DATABASE.keys() and key not in SUPPORT_EVENT_DATABASE.keys():
+    if key not in COMMON_EVENT_DATABASE.keys() \
+        and key not in CHARACTERS_EVENT_DATABASE.keys() \
+        and key not in SUPPORT_EVENT_DATABASE.keys() \
+        and key not in SCENARIOS_EVENT_DATABASE.keys():
         best_match = find_closest_event(key)
         if best_match:
             key = best_match

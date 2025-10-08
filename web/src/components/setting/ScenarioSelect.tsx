@@ -2,18 +2,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import Tooltips from "../_c/Tooltips";
 
 type Props = {
-    trainee: string;
-    setTrainee: (val: string) => void;
+    scenario: string;
+    setScenario: (val: string) => void;
     options?: string[];
-    description?: string;
 };
 
-export default function TraineeSelect({ trainee, setTrainee, options = []}: Props) {
+export default function ScenarioSelect({ scenario, setScenario, options = [] }: Props) {
     return (
-        <div className="flex items-center gap-2">
-            <Select value={trainee ?? ""} onValueChange={setTrainee}>
+        <div className="flex gap-2 items-center">
+            <Select value={scenario ?? ""} onValueChange={setScenario}>
                 <SelectTrigger className="mt-2 w-full bg-card border-2 border-primary/20">
-                    <SelectValue placeholder="Select Trainee" />
+                    <SelectValue placeholder="Select Scenario" />
                 </SelectTrigger>
                 <SelectContent className="max-h-72 overflow-y-auto">
                     {options.map((name) => (
@@ -21,7 +20,7 @@ export default function TraineeSelect({ trainee, setTrainee, options = []}: Prop
                     ))}
                 </SelectContent>
             </Select>
-            <Tooltips>Choose the character to train. Used by event and hint logic.</Tooltips>
+            <Tooltips>Choose Scenario. Used by event logic.</Tooltips>
         </div>
     );
 }
