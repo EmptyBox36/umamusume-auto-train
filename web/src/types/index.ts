@@ -31,6 +31,16 @@ export type ChoiceWeight = {
     mood: number;
 };
 
+export type LowFailCondition = {
+    point: number;
+    failure: number;
+}
+
+export type HighFailCondition = {
+    point: number;
+    failure: number;
+}
+
 export type Config = {
   config_name: string;
   trainee: string;
@@ -48,6 +58,11 @@ export type Config = {
   minimum_mood: string;
   minimum_mood_junior_year: string;
   maximum_failure: number;
+  enable_custom_failure: boolean;
+  enable_custom_low_failure: boolean;
+  low_failure_condition: LowFailCondition;
+  enable_custom_high_failure: boolean;
+  high_failure_condition: HighFailCondition;
   prioritize_g1_race: boolean;
   cancel_consecutive_race: boolean;
   position_selection_enabled: boolean;

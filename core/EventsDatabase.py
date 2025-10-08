@@ -99,7 +99,7 @@ def find_closest_event(event_name, max_distance=8):
   best_distance = 99
 
   all_event_names = (
-        list(CUSTOM_EVENT_DATABASE.keys()) +
+        list(COMMON_EVENT_DATABASE.keys()) +
         list(CHARACTERS_EVENT_DATABASE.keys()) +
         list(SUPPORT_EVENT_DATABASE.keys())
     )
@@ -121,7 +121,7 @@ def find_closest_event(event_name, max_distance=8):
 
 # Fail safe
 # "event_name": (total_choices, selected_choice)
-CUSTOM_EVENT_DATABASE = {
+COMMON_EVENT_DATABASE = {
 
   # [Common Events]
   "Extra Training": (2, 1),

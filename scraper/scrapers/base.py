@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, WebDriverException
 from selenium.webdriver.remote.webelement import WebElement
 
-from utils.utils import clean_event_title, STAT_KEYS, ALIASES, DIVIDER_RE, IGNORE_PATTERNS, ALL_STATS, COMMON_EVENT_TITLES
+from utils.utils import clean_event_title, STAT_KEYS, ALIASES, DIVIDER_RE, IGNORE_PATTERNS, ALL_STATS, COMMON_EVENT_TITLES, RAND_SPLIT_RE
 
 # ---- helpers ----
 def blank_stats():
@@ -79,15 +79,25 @@ def parse_outcome_block(text: str) -> dict:
     return _finish(d)
 
 def parse_randomly(text: str) -> dict:
+    # drop the header line
     body = re.sub(r"^\s*Randomly either.*?\n", "", text, flags=re.I|re.S)
-    parts = [p.strip() for p in DIVIDER_RE.split(body) if p.strip()]
-    worst, score = None, float("inf")
+    # split on dashed dividers OR an 'or' line (with optional percentage)
+    parts = [p.strip() for p in RAND_SPLIT_RE.split(body) if p.strip()]
+    if not parts:
+        return parse_outcome_block(text)
+
+    # choose worst: most negative single delta, then lowest sum
+    worst_d, worst_key = None, (0, float("inf"))
     for part in parts:
-        dd = parse_outcome_block(part)
-        s = sum(v for k, v in dd.items() if isinstance(v, (int, float)))
-        if s < score:
-            worst, score = dd, s
-    return _finish(worst or blank_stats())
+        d = parse_outcome_block(part)
+        nums = [v for v in d.values() if isinstance(v, (int, float))]
+        if not nums:
+            continue
+        key = (min(nums), sum(nums))
+        if key < worst_key:
+            worst_d, worst_key = d, key
+
+    return _finish(worst_d or blank_stats())
 
 def parse_outcome(text: str) -> dict:
     return parse_randomly(text) if "Randomly either" in text else parse_outcome_block(text)

@@ -46,6 +46,7 @@ def reload_config():
   global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER
   global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
   global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT
+  global ENABLE_CUSTOM_FAILURE_CHANCE, ENABLE_CUSTOM_LOW_FAILURE, ENABLE_CUSTOM_HIGH_FAILURE, LOW_FAILURE_CONDITION, HIGH_FAILURE_CONDITION
 
   config = load_config()
 
@@ -76,6 +77,11 @@ def reload_config():
   CHOICE_WEIGHT = config["choice_weight"]
   HINT_POINT = config["hint_point"]
   TRAINEE_NAME = config["trainee"]
+  ENABLE_CUSTOM_FAILURE_CHANCE = config["enable_custom_failure"]
+  ENABLE_CUSTOM_LOW_FAILURE = config["enable_custom_low_failure"]
+  ENABLE_CUSTOM_HIGH_FAILURE = config["enable_custom_high_failure"]
+  LOW_FAILURE_CONDITION = config["low_failure_condition"]
+  HIGH_FAILURE_CONDITION = config["high_failure_condition"]
 
 # Get Stat
 def stat_state():

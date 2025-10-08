@@ -30,6 +30,11 @@ import TraineeSelect from "./components/Trainee/TraineeSelect";
 import OptionalEvent from "./components/Event/OptionalEvent";
 import ChoiceWeight from "./components/Event/ChoiceWeight";
 import PriorityOnChoice from "./components/Event/PriorityOnChoice";
+import IsCustomFailChance from "./components/training/IsCustomFailChance";
+import IsCustomLowFailChance from "./components/training/IsCustomLowFailChance";
+import IsCustomHighFailChance from "./components/training/IsCustomHighFailChance";
+import CustomLowFailChance from "./components/training/CustomLowFailChance";
+import CustomHighFailChance from "./components/training/CustomHighFailChance";
 import { BarChart3, BrainCircuit, ChevronsRight, Cog, Trophy, MessageCircleMore } from "lucide-react";
 
 function App() {
@@ -54,7 +59,14 @@ function App() {
       .then(r => r.json())
       .then(j => setTraineeOptions(Object.keys(j).sort()))
       .catch(() => setTraineeOptions([]));
-    }, []);
+  }, []);
+
+    useEffect(() => {
+        if (!config.enable_custom_failure) {
+            updateConfig("enable_custom_low_failure", false);
+            updateConfig("enable_custom_high_failure", false);
+        }
+    }, [config.enable_custom_failure]);
 
   const {
     priority_stat,
@@ -82,6 +94,11 @@ function App() {
     trainee,
     skill,
     window_name,
+    enable_custom_failure,
+    enable_custom_low_failure,
+    enable_custom_high_failure,
+    low_failure_condition,
+    high_failure_condition,
   } = config;
   const { is_auto_buy_skill, skill_pts_check, skill_list } = skill;
 
@@ -175,11 +192,20 @@ function App() {
                 <PriorityWeight priorityWeight={priority_weight} setPriorityWeight={(val) => updateConfig("priority_weight", val)} />
                 <div className="flex flex-col gap-4">
                     <HintPoint hintPoint={hint_point ?? 0} setHintPoint={(val) => updateConfig("hint_point", val)}/>
-                    <FailChance maximumFailure={maximum_failure} setFail={(val) => updateConfig("maximum_failure", isNaN(val) ? 0 : val)} />
                 </div>
               </div>
               <div className="mt-8">
-                <StatCaps statCaps={stat_caps} setStatCaps={(key, val) => updateConfig("stat_caps", { ...stat_caps, [key]: isNaN(val) ? 0 : val })} />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <StatCaps statCaps={stat_caps} setStatCaps={(key, val) => updateConfig("stat_caps", { ...stat_caps, [key]: isNaN(val) ? 0 : val })} />
+                    <div className="flex flex-col gap-4">
+                        <FailChance maximumFailure={maximum_failure} setFail={(val) => updateConfig("maximum_failure", isNaN(val) ? 0 : val)} />
+                        <IsCustomFailChance enableCustomFailure={enable_custom_failure} setCustomFailChance={(val) => updateConfig("enable_custom_failure", val)} />
+                        <IsCustomLowFailChance CustomFailureEnabled={enable_custom_failure} enableCustomLowFailure={enable_custom_low_failure} setCustomLowFailChance={(val) => updateConfig("enable_custom_low_failure", val)} />
+                        <CustomLowFailChance LowFailChanceEnabled={enable_custom_low_failure} customLowCondition={low_failure_condition} setLowCondition={(key, val) => updateConfig("low_failure_condition", { ...low_failure_condition, [key]: isNaN(val) ? 0 : val })} /> 
+                        <IsCustomHighFailChance CustomFailureEnabled={enable_custom_failure} enableCustomHighFailure={enable_custom_high_failure} setCustomHighFailChance={(val) => updateConfig("enable_custom_high_failure", val)} />
+                        <CustomHighFailChance HighFailChanceEnabled={enable_custom_high_failure} customHighCondition={high_failure_condition} setHighCondition={(key, val) => updateConfig("high_failure_condition", { ...high_failure_condition, [key]: isNaN(val) ? 0 : val })} /> 
+                    </div>
+                </div>
               </div>
             </div>
 
@@ -267,8 +293,8 @@ function App() {
                     </div>
                     <div className="flex flex-col gap-6">
                         <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("use_optimal_event_choices", val)} />
-                        <ChoiceWeight choiceWeight={choice_weight} setChoiceWeight={(key, val) => updateConfig("choice_weight", { ...choice_weight, [key]: isNaN(val) ? 0 : val })} />
                         <PriorityOnChoice priorityOnChoice={use_priority_on_choice} setPriorityOnChoice={(val) => updateConfig("use_priority_on_choice", val)} />
+                        <ChoiceWeight choiceWeight={choice_weight} setChoiceWeight={(key, val) => updateConfig("choice_weight", { ...choice_weight, [key]: isNaN(val) ? 0 : val })} />
                     </div>
                 </div>
             </div>

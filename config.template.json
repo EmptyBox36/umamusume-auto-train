@@ -24,6 +24,17 @@
   "hint_point": 0.5,
   "minimum_mood_junior_year": "NORMAL",
   "maximum_failure": 15,
+  "enable_custom_failure": false,
+  "enable_custom_low_failure": false,
+  "low_failure_condition": {
+    "point": 1.5,
+    "failure": 10
+  },
+  "enable_custom_high_failure": false,
+  "high_failure_condition": {
+    "point": 5,
+    "failure": 40
+  },
   "prioritize_g1_race": false,
   "use_optimal_event_choices": true,
 
@@ -34,7 +45,7 @@
     "guts": 1,
     "wit": 1,
     "hp": 5,
-    "max_energy": 3,
+    "max_energy": 10,
     "skillpts": 0.5,
     "bond": 2,
     "mood": 10

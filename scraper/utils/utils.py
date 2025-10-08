@@ -38,7 +38,8 @@ ALIASES = {
 }
 
 ALL_STATS = ["Speed","Stamina","Power","Guts","Wit","Skill"]
-DIVIDER_RE = re.compile(r"\n[\-─—]{3,}\n", re.U)
+DIVIDER_RE = re.compile(r"\n[-─—]{3,}\n", re.U)
+RAND_SPLIT_RE = re.compile(r"\n(?:[-─—]{3,}\n|\s*or(?:\s*\([^)]+\))?\s*\n)", re.I)
 
 IGNORE_PATTERNS = (
     "Get ", "status", "Nothing happens", "or (~", "Last trained stat",

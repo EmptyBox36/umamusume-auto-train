@@ -191,13 +191,16 @@ def rainbow_training(results):
   )
 
   best_stat, best_point = highest_points
-  if best_point["rainbow_no_multiplier"] > 5:
-      custom_fail_chance = 40
-      info(f"Due to {best_stat.upper()} have high ({best_point["rainbow_no_multiplier"]}) rainbow point, set maximum failure to {custom_fail_chance}%.")
+  if state.ENABLE_CUSTOM_FAILURE_CHANCE:
+      if state.ENABLE_CUSTOM_HIGH_FAILURE:
+          if best_point["rainbow_no_multiplier"] > state.HIGH_FAILURE_CONDITION["point"]:
+              custom_fail_chance = state.HIGH_FAILURE_CONDITION["failure"]
+              info(f"Due to {best_stat.upper()} have high ({best_point["rainbow_no_multiplier"]}) rainbow point, set maximum failure to {custom_fail_chance}%.")
 
-  if best_point["rainbow_no_multiplier"] < 1.5:
-      custom_fail_chance = 10
-      info(f"Due to {best_stat.upper()} have low ({best_point["rainbow_no_multiplier"]}) rainbow point, set maximum failure to {custom_fail_chance}%.")
+      if state.ENABLE_CUSTOM_LOW_FAILURE:
+          if best_point["rainbow_no_multiplier"] < state.LOW_FAILURE_CONDITION["point"]:
+              custom_fail_chance = state.LOW_FAILURE_CONDITION["failure"]
+              info(f"Due to {best_stat.upper()} have low ({best_point["rainbow_no_multiplier"]}) rainbow point, set maximum failure to {custom_fail_chance}%.")
 
   # Get rainbow training
   rainbow_candidates = {
@@ -221,7 +224,7 @@ def rainbow_training(results):
   )
 
   best_key, best_data = best_rainbow
-  if best_data["rainbow_points"] < 1.5:
+  if best_data["rainbow_points"] < state.LOW_FAILURE_CONDITION["point"]:
       from core.execute import do_race
       do_race()
       if do_race():

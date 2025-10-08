@@ -1598,42 +1598,6 @@
             }
         }
     },
-    "Aiming for the City Spots": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 10.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 1.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "Corner Acceleration ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "Paying It Forward": {
         "choices": {
             "1": "Top Option",
@@ -2426,6 +2390,42 @@
             }
         }
     },
+    "Conquering the Crowds": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 5.0,
+                "Skill": 15.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "Nakayama Racecourse ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
     "Just a Little Closer": {
         "choices": {
             "1": "Top Option",
@@ -2873,6 +2873,42 @@
             }
         }
     },
+    "A Friendly Daytime Discussion": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "Frenzied Pace Chasers",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "Target in Sight ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
     "Uma-me": {
         "choices": {
             "1": "Top Option",
@@ -2902,42 +2938,6 @@
                 "Power": 0.0,
                 "Skill": 0.0,
                 "Skill Hint": "Stamina to Spare",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Blazing Fire!": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 10.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 20.0,
-                "Skill": 0.0,
-                "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -4323,6 +4323,42 @@
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Chomp Attack!": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill": 15.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "Unyielding Spirit",
+                "Skill Pts": 0.0,
+                "Speed": 3.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
             }
@@ -5783,6 +5819,42 @@
             }
         }
     },
+    "Aiming for the City Spots": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 10.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "Corner Acceleration ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
     "The Correlation between Sleep and Efficiency": {
         "choices": {
             "1": "Top Option",
@@ -6323,42 +6395,6 @@
             }
         }
     },
-    "Chomp Attack!": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 15.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "Unyielding Spirit",
-                "Skill Pts": 0.0,
-                "Speed": 3.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "For an Adorable Younger Student": {
         "choices": {
             "1": "Top Option",
@@ -6428,42 +6464,6 @@
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 5.0
-            }
-        }
-    },
-    "Conquering the Crowds": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 0.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 5.0,
-                "Skill": 15.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 0.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "Nakayama Racecourse ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
             }
         }
     },
@@ -6539,7 +6539,7 @@
             }
         }
     },
-    "A Friendly Daytime Discussion": {
+    "Blazing Fire!": {
         "choices": {
             "1": "Top Option",
             "2": "Bottom Option"
@@ -6553,21 +6553,21 @@
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill": 0.0,
-                "Skill Hint": "Frenzied Pace Chasers",
+                "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
-                "Stamina": 0.0,
+                "Stamina": 10.0,
                 "Wit": 0.0
             },
             "2": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": 0.0,
+                "HP": -10.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 0.0,
+                "Power": 20.0,
                 "Skill": 0.0,
-                "Skill Hint": "Target in Sight ○",
+                "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
