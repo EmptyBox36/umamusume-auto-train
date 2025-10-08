@@ -20,6 +20,7 @@ from core.state import get_event_name, stop_bot
 
 templates = {
   "event": "assets/icons/event_choice_1.png",
+  "acupuncture": "assets/icons/acupuncture_confirm.png",
   "inspiration": "assets/buttons/inspiration_btn.png",
   "next": "assets/buttons/next_btn.png",
   "next2": "assets/buttons/next2_btn.png",
@@ -408,6 +409,8 @@ def career_lobby():
     matches = multi_match_templates(templates, screen=screen)
 
     if event_choice():
+      continue
+    if click(boxes=matches["acupuncture"]):
       continue
     if click(boxes=matches["inspiration"], text="Inspiration found."):
       continue
