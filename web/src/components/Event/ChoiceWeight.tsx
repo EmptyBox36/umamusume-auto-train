@@ -30,7 +30,7 @@ export default function ChoiceWeight({ choiceWeight, setChoiceWeight }: Props) {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                             <span className="inline-block w-16">{stat.toUpperCase()}</span>
                         </div>
-                        <Input type="number" value={val} onChange={(e) => setChoiceWeight(stat, e.target.valueAsNumber)} />
+                        <Input type="number" value={val} step={0.1} onChange={(e) => setChoiceWeight(stat, e.target.valueAsNumber)} />
                     </label>
                 ))}
             </div>

@@ -27,7 +27,7 @@ def get_optimal_choice(event_name):
     if db:
         # Select choice by skill hint
         result_hint = pick_choice_by_skill_hint(key, desired_skills, db)
-        if result_hint:
+        if result_hint is not None:
             return result_hint
 
         # Select choice by score
