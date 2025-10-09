@@ -1,3 +1,4 @@
+from pickle import TRUE
 from core.state import HINT_POINT
 from core.state import check_current_year, stat_state, check_energy_level, check_aptitudes
 from utils.log import info, warning, error, debug
@@ -132,15 +133,19 @@ def focus_max_friendships(results):
       debug("No trainings under MAX_FAILURE, falling back to most_support_card.")
       return None, 0
 
+  if state.JUNIOR_YEAR_STAT_PRIORITIZE:
+    junior_year_multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
+  else:
+    junior_year_multiplier = 1
+
   for stat_name in filtered_results:
-    multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
     data = filtered_results[stat_name]
     # order of importance gray > blue > green, because getting greens to max is easier than blues (gray is very low blue)
     possible_friendship = (
                             data["total_friendship_levels"]["green"] * 1.01
                             + data["total_friendship_levels"]["blue"] * 1.02
                             + data["total_friendship_levels"]["gray"] * 1.03
-                          ) * multiplier
+                          ) * junior_year_multiplier
 
     # hints are worth a little more than half a training
     if data["total_hints"] > 0:

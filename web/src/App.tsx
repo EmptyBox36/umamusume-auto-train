@@ -35,6 +35,7 @@ import IsCustomLowFailChance from "./components/training/IsCustomLowFailChance";
 import IsCustomHighFailChance from "./components/training/IsCustomHighFailChance";
 import CustomLowFailChance from "./components/training/CustomLowFailChance";
 import CustomHighFailChance from "./components/training/CustomHighFailChance";
+import JuniorPrioritize from "./components/training/PrioritizeWeightOnJunior";
 import { BarChart3, BrainCircuit, ChevronsRight, Cog, Trophy, MessageCircleMore } from "lucide-react";
 import ScenarioSelect from "./components/setting/ScenarioSelect";
 
@@ -109,6 +110,7 @@ function App() {
     enable_custom_high_failure,
     low_failure_condition,
     high_failure_condition,
+    use_prioritize_on_junior,
   } = config;
   const { is_auto_buy_skill, skill_pts_check, skill_list } = skill;
 
@@ -213,6 +215,7 @@ function App() {
                 />
                 <PriorityWeight priorityWeight={priority_weight} setPriorityWeight={(val) => updateConfig("priority_weight", val)} />
                 <div className="flex flex-col gap-4">
+                    <JuniorPrioritize juniorPrioritize={use_prioritize_on_junior} setJuniorPrioritize={(val) => updateConfig("use_prioritize_on_junior", val)} />
                     <HintPoint hintPoint={hint_point ?? 0} setHintPoint={(val) => updateConfig("hint_point", val)}/>
                 </div>
               </div>

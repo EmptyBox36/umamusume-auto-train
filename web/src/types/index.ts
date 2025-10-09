@@ -49,6 +49,7 @@ export type Config = {
   priority_weights: number[];
   hint_point: number;
   use_optimal_event_choices: boolean;
+  use_prioritize_on_junior: boolean;
   choice_weight: ChoiceWeight;
   use_priority_on_choice: boolean;
   sleep_time_multiplier: number;

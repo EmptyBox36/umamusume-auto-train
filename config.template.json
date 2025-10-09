@@ -38,6 +38,7 @@
   },
   "prioritize_g1_race": false,
   "use_optimal_event_choices": true,
+  "use_prioritize_on_junior": false,
 
   "choice_weight": {
     "spd": 1,
