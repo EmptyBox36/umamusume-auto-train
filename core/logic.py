@@ -70,8 +70,9 @@ def most_support_card(results):
       #         return None
       #     else:
       #         from core.execute import click
+      #         click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="Proceeding to training.")
       #         sleep(0.5)
-      #         click(img="assets/buttons/back_btn.png")
+
       # WIT must be at least 2 support cards
       if best_key == "wit":
           if energy_level > state.NEVER_REST_ENERGY:
@@ -246,8 +247,9 @@ def rainbow_training(results):
   #         return None
   #     else:
   #         from core.execute import click
+  #         click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="Proceeding to training.")
   #         sleep(0.5)
-  #         click(img="assets/buttons/back_btn.png")
+
 
   if best_key == "wit":
     #if we get to wit, we must have at least 1 rainbow friend
@@ -270,6 +272,8 @@ def all_values_equal(dictionary):
 
 # Decide training
 def do_something(results):
+  global current_stats
+
   year = check_current_year()
   current_stats = stat_state()
   info(f"Current stats: {current_stats}")

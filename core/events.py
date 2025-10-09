@@ -4,7 +4,7 @@ from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
 from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, find_closest_event
 from core.state import STAT_CAPS, check_energy_level, stat_state, check_mood, check_current_year
-from core.logic import get_stat_priority
+from core.logic import get_stat_priority, current_stats
 import utils.constants as constants
 
 def get_optimal_choice(event_name):
@@ -66,11 +66,9 @@ def score_choice(ev_key, choice_row):
     global caps
     energy_level, max_energy = check_energy_level()
 
-    current_stats = stat_state()  # dict: spd, sta, pwr, guts, wit
     choice_weight = state.CHOICE_WEIGHT
     caps = STAT_CAPS
 
-    # normalized stats
     choice_score = 0.0
     for k_map, key in [("spd","Speed"),("sta","Stamina"),("pwr","Power"),
                        ("guts","Guts"),("wit","Wit")]:
@@ -78,7 +76,7 @@ def score_choice(ev_key, choice_row):
         cap  = float(caps[k_map])
         current = float(current_stats[k_map])
 
-        norm = gain * max(0.0, cap - current) / cap
+        norm = gain * (max(0.0, cap - current) / cap)
 
         if state.USE_PRIORITY_ON_CHOICE:
             multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(k_map)]
