@@ -58,30 +58,30 @@ def most_support_card(results):
 
   best_key, best_data = best_training
   year = check_current_year()
+  year_parts = year.split(" ")
   
   if best_data["total_supports"] <= 1:
     if int(best_data["failure"]) == 0:
-      if energy_level < 50 and "Junior Year" not in year:
-          # WIT must be at least 2 support cards
-          if best_key == "wit":
-            if energy_level > state.NEVER_REST_ENERGY:
-                info(f"Only 1 support and it's WIT but energy is too high for resting to be worth it. Still training.")
-                return "wit"
-            else:
-              info(f"Only 1 support and it's WIT. Skipping.")
-              return None
-          info(f"Only 1 support but 0% failure. Prioritizing based on priority list: {best_key.upper()}")
-          return best_key
-      else:
-          from core.execute import do_race
-          do_race()
-          if do_race():
-              info("Support card is too low and have high energy. Try to do race.")
-              return None
+      # if energy_level > 50 and year_parts[0] != "Junior":
+      #     from core.execute import do_race
+      #     do_race()
+      #     if do_race():
+      #         info("Support card is too low and have high energy. Try to do race.")
+      #         return None
+      #     else:
+      #         from core.execute import click
+      #         sleep(0.5)
+      #         click(img="assets/buttons/back_btn.png")
+      # WIT must be at least 2 support cards
+      if best_key == "wit":
+          if energy_level > state.NEVER_REST_ENERGY:
+              info(f"Only 1 support and it's WIT but energy is too high for resting to be worth it. Still training.")
+              return "wit"
           else:
-              from core.execute import click
-              sleep(0.5)
-              click(img="assets/buttons/back_btn.png")
+            info(f"Only 1 support and it's WIT. Skipping.")
+            return None
+      info(f"Only 1 support but 0% failure. Prioritizing based on priority list: {best_key.upper()}")
+      return best_key
     else:
       if energy_level > state.NEVER_REST_ENERGY:
         info(f"Energy is over {state.NEVER_REST_ENERGY}, train anyway.")
@@ -232,22 +232,22 @@ def rainbow_training(results):
     )
   )
 
-  if state.ENABLE_CUSTOM_LOW_FAILURE:
-      low_point = state.LOW_FAILURE_CONDITION["point"]
-  else:
-      low_point = 1.5
+  # if state.ENABLE_CUSTOM_LOW_FAILURE:
+  #     low_point = state.LOW_FAILURE_CONDITION["point"]
+  # else:
+  #     low_point = 1.5
 
   best_key, best_data = best_rainbow
-  if best_data["rainbow_points"] < low_point:
-      from core.execute import do_race
-      do_race()
-      if do_race():
-          info("Rainbow point is too low, try to do race.")
-          return None
-      else:
-          from core.execute import click
-          sleep(0.5)
-          click(img="assets/buttons/back_btn.png")
+  # if best_data["rainbow_points"] < low_point:
+  #     from core.execute import do_race
+  #     do_race()
+  #     if do_race():
+  #         info("Rainbow point is too low, try to do race.")
+  #         return None
+  #     else:
+  #         from core.execute import click
+  #         sleep(0.5)
+  #         click(img="assets/buttons/back_btn.png")
 
   if best_key == "wit":
     #if we get to wit, we must have at least 1 rainbow friend
