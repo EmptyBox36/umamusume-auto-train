@@ -4,7 +4,7 @@ from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
 from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, find_closest_event
 from core.state import STAT_CAPS, check_energy_level, stat_state, check_mood, check_current_year
-from core.logic import get_stat_priority, current_stats
+from core.logic import get_stat_priority
 import utils.constants as constants
 
 def get_optimal_choice(event_name):
@@ -63,6 +63,7 @@ def pick_choice_by_skill_hint(key: str, desired_skills: set[str], hint_map: dict
     return None
 
 def score_choice(ev_key, choice_row):
+    from core.execute import current_stats
     global caps
     energy_level, max_energy = check_energy_level()
 

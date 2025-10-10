@@ -6,7 +6,7 @@ pyautogui.useImageNotFoundException(False)
 
 import re
 import core.state as state
-from core.state import check_support_card, check_failure, check_turn, check_mood, check_current_year, check_criteria, check_skill_pts, check_energy_level, get_race_type, check_status_effects, check_aptitudes
+from core.state import check_support_card, check_failure, check_turn, check_mood, check_current_year, check_criteria, check_skill_pts, check_energy_level, get_race_type, check_status_effects, check_aptitudes, stat_state
 from core.logic import do_something, decide_race_for_goal
 
 from utils.log import info, warning, error, debug
@@ -408,7 +408,7 @@ def event_choice():
 PREFERRED_POSITION_SET = False
 def career_lobby():
   # Program start
-  global PREFERRED_POSITION_SET
+  global PREFERRED_POSITION_SET, current_stats
   PREFERRED_POSITION_SET = False
   while state.is_bot_running and not state.stop_event.is_set():
     screen = ImageGrab.grab()
@@ -444,6 +444,7 @@ def career_lobby():
     year = check_current_year()
     criteria = check_criteria()
     year_parts = year.split(" ")
+    current_stats = stat_state()
 
     print("\n=======================================================================================\n")
     info(f"Year: {year}")

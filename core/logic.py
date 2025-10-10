@@ -272,8 +272,6 @@ def all_values_equal(dictionary):
 
 # Decide training
 def do_something(results):
-  global current_stats
-
   year = check_current_year()
   current_stats = stat_state()
   info(f"Current stats: {current_stats}")
