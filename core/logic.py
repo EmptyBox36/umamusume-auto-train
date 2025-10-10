@@ -134,12 +134,12 @@ def focus_max_friendships(results):
       debug("No trainings under MAX_FAILURE, falling back to most_support_card.")
       return None, 0
 
-  if state.JUNIOR_YEAR_STAT_PRIORITIZE:
-    junior_year_multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
-  else:
-    junior_year_multiplier = 1
-
   for stat_name in filtered_results:
+    if state.JUNIOR_YEAR_STAT_PRIORITIZE:
+      junior_year_multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
+    else:
+      junior_year_multiplier = 1
+
     data = filtered_results[stat_name]
     # order of importance gray > blue > green, because getting greens to max is easier than blues (gray is very low blue)
     possible_friendship = (
