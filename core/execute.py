@@ -406,6 +406,7 @@ def event_choice():
 
 
 PREFERRED_POSITION_SET = False
+current_stats = stat_state()
 def career_lobby():
   # Program start
   global PREFERRED_POSITION_SET, current_stats
