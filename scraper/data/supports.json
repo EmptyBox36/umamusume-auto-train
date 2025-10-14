@@ -546,17 +546,17 @@
         },
         "stats": {
             "1": {
-                "Friendship": 10.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": -20.0,
+                "HP": -10.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill": 0.0,
-                "Skill Hint": "Innate Experience",
+                "Skill Hint": "Inside Scoop",
                 "Skill Pts": 0.0,
-                "Speed": 15.0,
-                "Stamina": 15.0,
+                "Speed": 5.0,
+                "Stamina": 5.0,
                 "Wit": 0.0
             },
             "2": {
@@ -655,17 +655,17 @@
         },
         "stats": {
             "1": {
-                "Friendship": 10.0,
-                "Guts": 20.0,
-                "HP": -50.0,
+                "Friendship": 0.0,
+                "Guts": 10.0,
+                "HP": -20.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 20.0,
+                "Power": 0.0,
                 "Skill": 0.0,
-                "Skill Hint": "Homestretch Haste",
+                "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
-                "Stamina": 30.0,
+                "Stamina": 10.0,
                 "Wit": 0.0
             },
             "2": {
@@ -871,42 +871,6 @@
                 "Power": 0.0,
                 "Skill": 0.0,
                 "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Princess Escape!": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "Steadfast",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -1137,7 +1101,7 @@
         },
         "stats": {
             "1": {
-                "Friendship": 10.0,
+                "Friendship": 5.0,
                 "Guts": 15.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
@@ -1147,7 +1111,7 @@
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
-                "Stamina": 15.0,
+                "Stamina": 0.0,
                 "Wit": 0.0
             },
             "2": {
@@ -1173,17 +1137,17 @@
         },
         "stats": {
             "1": {
-                "Friendship": 10.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": -30.0,
+                "HP": -15.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill": 15.0,
+                "Skill": 5.0,
                 "Skill Hint": "Prepared to Pass",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
-                "Stamina": 30.0,
+                "Stamina": 10.0,
                 "Wit": 0.0
             },
             "2": {
@@ -1598,6 +1562,42 @@
             }
         }
     },
+    "Aiming for the City Spots": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 10.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "Corner Acceleration ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
     "Paying It Forward": {
         "choices": {
             "1": "Top Option",
@@ -1727,9 +1727,9 @@
                 "Wit": 10.0
             },
             "2": {
-                "Friendship": 5.0,
+                "Friendship": 0.0,
                 "Guts": 20.0,
-                "HP": 15.0,
+                "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": -1.0,
                 "Power": 0.0,
@@ -1737,7 +1737,7 @@
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
-                "Stamina": 10.0,
+                "Stamina": 0.0,
                 "Wit": 0.0
             }
         }
@@ -2145,7 +2145,7 @@
         },
         "stats": {
             "1": {
-                "Friendship": 5.0,
+                "Friendship": 0.0,
                 "Guts": 0.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
@@ -2154,7 +2154,7 @@
                 "Skill": 0.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
-                "Speed": 20.0,
+                "Speed": 10.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
             },
@@ -2181,16 +2181,16 @@
         },
         "stats": {
             "1": {
-                "Friendship": 5.0,
+                "Friendship": 0.0,
                 "Guts": 0.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill": 0.0,
-                "Skill Hint": "Leader's Pride",
+                "Skill Hint": "",
                 "Skill Pts": 0.0,
-                "Speed": 25.0,
+                "Speed": 10.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
             },
@@ -2217,16 +2217,16 @@
         },
         "stats": {
             "1": {
-                "Friendship": 5.0,
+                "Friendship": 0.0,
                 "Guts": 0.0,
-                "HP": -20.0,
+                "HP": -10.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill": 0.0,
-                "Skill Hint": "Taking the Lead",
+                "Skill Hint": "Early Lead",
                 "Skill Pts": 0.0,
-                "Speed": 30.0,
+                "Speed": 5.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
             },
@@ -2361,13 +2361,13 @@
         },
         "stats": {
             "1": {
-                "Friendship": 10.0,
-                "Guts": 15.0,
+                "Friendship": 5.0,
+                "Guts": 5.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 25.0,
-                "Skill": 25.0,
+                "Power": 10.0,
+                "Skill": 10.0,
                 "Skill Hint": "Furious Feat",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
@@ -2822,18 +2822,18 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 10.0,
-                "Guts": 10.0,
+                "Friendship": 5.0,
+                "Guts": 5.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 10.0,
+                "Power": 5.0,
                 "Skill": 0.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 15.0
+                "Wit": 5.0
             }
         }
     },
@@ -2938,6 +2938,42 @@
                 "Power": 0.0,
                 "Skill": 0.0,
                 "Skill Hint": "Stamina to Spare",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Blazing Fire!": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 10.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 20.0,
+                "Skill": 0.0,
+                "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -4157,16 +4193,16 @@
             "1": {
                 "Friendship": 0.0,
                 "Guts": 0.0,
-                "HP": 10.0,
+                "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill": 10.0,
+                "Skill": 0.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
-                "Speed": 5.0,
+                "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 15.0
+                "Wit": 10.0
             },
             "2": {
                 "Friendship": 0.0,
@@ -5108,11 +5144,11 @@
             "1": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": -35.0,
+                "HP": -20.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill": 80.0,
+                "Skill": 40.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
@@ -5819,42 +5855,6 @@
             }
         }
     },
-    "Aiming for the City Spots": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 10.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 1.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "Corner Acceleration ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "The Correlation between Sleep and Efficiency": {
         "choices": {
             "1": "Top Option",
@@ -6164,11 +6164,11 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 10.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": -10.0,
+                "HP": -20.0,
                 "Max Energy": 0.0,
-                "Mood": 1.0,
+                "Mood": 0.0,
                 "Power": 0.0,
                 "Skill": 0.0,
                 "Skill Hint": "Right-Handed ○",
@@ -6272,18 +6272,18 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 5.0,
-                "Guts": 5.0,
+                "Friendship": 0.0,
+                "Guts": 0.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
-                "Mood": 1.0,
+                "Mood": 0.0,
                 "Power": 0.0,
                 "Skill": 0.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 5.0
             }
         }
     },
@@ -6380,16 +6380,52 @@
                 "Wit": 6.0
             },
             "2": {
-                "Friendship": 10.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
-                "Mood": 1.0,
+                "Mood": 0.0,
                 "Power": 0.0,
-                "Skill": 72.0,
+                "Skill": 18.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
-                "Speed": 6.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Princess Escape!": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill": 0.0,
+                "Skill Hint": "Steadfast",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
             }
@@ -6539,42 +6575,6 @@
             }
         }
     },
-    "Blazing Fire!": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 10.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 20.0,
-                "Skill": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "Etude to Victory": {
         "choices": {
             "1": "Top Option",
@@ -6604,42 +6604,6 @@
                 "Power": 5.0,
                 "Skill": 15.0,
                 "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Beyond Our Limited Time": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 0.0,
-                "Guts": 0.0,
-                "HP": 10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 15.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 0.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill": 0.0,
-                "Skill Hint": "Non-Standard Distance ○",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,

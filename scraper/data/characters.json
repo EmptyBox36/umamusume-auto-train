@@ -447,6 +447,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -1137,6 +1173,42 @@
                     "Skill Hint": "",
                     "Skill Pts": 0.0,
                     "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0
                 }
@@ -1837,6 +1909,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -2118,6 +2226,483 @@
                     "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 10.0
+                }
+            }
+        },
+        "Ms. Worldwide": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Thanks for the Lesson ♪": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": -10.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 20.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "Frenzied Late Surgers",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Wanna Eat Together?": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 10.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 5.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 30.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 5.0,
+                    "Skill": 10.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": -5.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Making Friends": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 10.0
+                }
+            }
+        },
+        "Making Connections": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Universal Cutie": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Middle Option",
+                "3": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 5.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 5.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "3": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 5.0,
+                    "Stamina": 0.0,
+                    "Wit": 5.0
+                }
+            }
+        },
+        "A Nostalgic Flavor": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 10.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Rattle, Rattle, Clunk": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 10.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 10.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Dance Lesson": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "New Year's Resolutions": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Middle Option",
+                "3": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 20.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "3": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 20.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "New Year's Shrine Visit": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Middle Option",
+                "3": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 30.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 5.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 5.0,
+                    "Skill": 5.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 5.0,
+                    "Stamina": 5.0,
+                    "Wit": 5.0
+                },
+                "3": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 35.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
                 }
             }
         }
@@ -2603,6 +3188,42 @@
                     "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 5.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
                 }
             }
         },
@@ -3193,6 +3814,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -3549,42 +4206,6 @@
                 }
             }
         },
-        "Act 1: Smile": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 10.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 10.0,
-                    "Skill": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                }
-            }
-        },
         "A Gracious Doorkeeper": {
             "choices": {
                 "1": "Top Option",
@@ -3915,6 +4536,42 @@
                     "Max Energy": 0.0,
                     "Mood": 0.0,
                     "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
                     "Skill": 0.0,
                     "Skill Hint": "",
                     "Skill Pts": 0.0,
@@ -4538,6 +5195,42 @@
                     "Max Energy": 0.0,
                     "Mood": 0.0,
                     "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
                     "Skill": 0.0,
                     "Skill Hint": "",
                     "Skill Pts": 0.0,
@@ -5242,6 +5935,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -5523,6 +6252,42 @@
                     "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 5.0
+                }
+            }
+        },
+        "Beauteaful": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 15.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 5.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
                 }
             }
         },
@@ -5829,6 +6594,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -6071,42 +6872,6 @@
                     "Skill Pts": 0.0,
                     "Speed": 0.0,
                     "Stamina": 10.0,
-                    "Wit": 0.0
-                }
-            }
-        },
-        "Beauteaful": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill": 15.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 5.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 10.0,
-                    "Stamina": 0.0,
                     "Wit": 0.0
                 }
             }
@@ -6556,6 +7321,42 @@
                     "Skill Pts": 0.0,
                     "Speed": 0.0,
                     "Stamina": 10.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
                     "Wit": 0.0
                 }
             }
@@ -7143,6 +7944,42 @@
                     "Skill Pts": 0.0,
                     "Speed": 0.0,
                     "Stamina": 10.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
                     "Wit": 0.0
                 }
             }
@@ -7801,6 +8638,42 @@
                     "Skill Hint": "",
                     "Skill Pts": 0.0,
                     "Speed": 5.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0
                 }
@@ -8501,6 +9374,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -9084,6 +9993,42 @@
                     "Skill Pts": 0.0,
                     "Speed": 5.0,
                     "Stamina": 5.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
                     "Wit": 0.0
                 }
             }
@@ -9675,6 +10620,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -10067,114 +11048,6 @@
                 }
             }
         },
-        "Resolve and Duty": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 10.0,
-                    "Stamina": 0.0,
-                    "Wit": 10.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 20.0,
-                    "Skill": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                }
-            }
-        },
-        "Late-Night Fanservice Training": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 20.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 20.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                }
-            }
-        },
-        "Elegance": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 10.0,
-                    "Skill": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 10.0,
-                    "Wit": 0.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 20.0
-                }
-            }
-        },
         "It's Called a Sea Pineapple!": {
             "choices": {
                 "1": "Top Option",
@@ -10514,6 +11387,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -10649,6 +11558,114 @@
                     "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0
+                }
+            }
+        },
+        "Resolve and Duty": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 10.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 20.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Late-Night Fanservice Training": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 20.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 20.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Elegance": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 10.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 20.0
                 }
             }
         }
@@ -11098,6 +12115,42 @@
                     "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 10.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
                 }
             }
         },
@@ -11724,6 +12777,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -12008,6 +13097,42 @@
                 }
             }
         },
+        "Transcendence": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 5.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 5.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Ability": {
             "choices": {
                 "1": "Top Option",
@@ -12142,6 +13267,42 @@
                     "Skill Pts": 0.0,
                     "Speed": -5.0,
                     "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "A Lone Wolf's Diet": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 5.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 5.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 10.0,
                     "Wit": 0.0
                 }
             }
@@ -12333,6 +13494,180 @@
                     "Mood": 0.0,
                     "Power": 0.0,
                     "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Dance Lesson": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 10.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 10.0
+                }
+            }
+        },
+        "New Year's Resolutions": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Middle Option",
+                "3": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 20.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "3": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 20.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "New Year's Shrine Visit": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Middle Option",
+                "3": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 30.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 5.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 5.0,
+                    "Skill": 5.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 5.0,
+                    "Stamina": 5.0,
+                    "Wit": 5.0
+                },
+                "3": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 35.0,
                     "Skill Hint": "",
                     "Skill Pts": 0.0,
                     "Speed": 0.0,
@@ -12887,6 +14222,42 @@
                     "Skill Hint": "",
                     "Skill Pts": 0.0,
                     "Speed": 5.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0
                 }
@@ -13474,6 +14845,42 @@
                     "Skill Hint": "",
                     "Skill Pts": 0.0,
                     "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0
                 }
@@ -14102,6 +15509,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -14378,6 +15821,483 @@
                     "Mood": 0.0,
                     "Power": 0.0,
                     "Skill": 15.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Wonderful New Worlds": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 10.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 5.0,
+                    "Stamina": 0.0,
+                    "Wit": 5.0
+                }
+            }
+        },
+        "Looking on the Bright Side": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 5.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "Firm Conditions ○",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "A Page about Apples": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 10.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 5.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 30.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 5.0,
+                    "Skill": 10.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": -5.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Even When the Ladybugs Are Gone": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 10.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 10.0
+                }
+            }
+        },
+        "Even When Clouds Cover the Sky": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 5.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 5.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "My Sun": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Middle Option",
+                "3": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 5.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 5.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 5.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 5.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "3": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 10.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "I've Got This!": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "A Page about Sunsets": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 5.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 5.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 5.0,
+                    "Wit": 5.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "Dance Lesson": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 10.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "New Year's Resolutions": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Middle Option",
+                "3": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 20.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "3": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 20.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "New Year's Shrine Visit": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Middle Option",
+                "3": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 30.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 5.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 5.0,
+                    "Skill": 5.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 5.0,
+                    "Stamina": 5.0,
+                    "Wit": 5.0
+                },
+                "3": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 35.0,
                     "Skill Hint": "",
                     "Skill Pts": 0.0,
                     "Speed": 0.0,
@@ -14831,6 +16751,42 @@
                     "Skill Pts": 0.0,
                     "Speed": 0.0,
                     "Stamina": 10.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
                     "Wit": 0.0
                 }
             }
@@ -15473,6 +17429,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -16056,6 +18048,42 @@
                     "Skill Pts": 0.0,
                     "Speed": 0.0,
                     "Stamina": 10.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
                     "Wit": 0.0
                 }
             }
@@ -16647,6 +18675,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -17227,6 +19291,42 @@
                     "Power": 0.0,
                     "Skill": 0.0,
                     "Skill Hint": "Nakayama Racecourse ○",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
                     "Skill Pts": 0.0,
                     "Speed": 0.0,
                     "Stamina": 0.0,
@@ -17853,6 +19953,42 @@
                     "Skill Pts": 0.0,
                     "Speed": 0.0,
                     "Stamina": 10.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
                     "Wit": 0.0
                 }
             }
@@ -18552,6 +20688,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -19211,6 +21383,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -19786,6 +21994,42 @@
                     "Friendship": 0.0,
                     "Guts": 0.0,
                     "HP": 10.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
                     "Max Energy": 0.0,
                     "Mood": 0.0,
                     "Power": 0.0,
@@ -20452,6 +22696,42 @@
                     "Skill Hint": "",
                     "Skill Pts": 0.0,
                     "Speed": 10.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0
                 }
@@ -21152,6 +23432,42 @@
                 }
             }
         },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
         "Dance Lesson": {
             "choices": {
                 "1": "Top Option",
@@ -21730,6 +24046,42 @@
                     "Max Energy": 0.0,
                     "Mood": 1.0,
                     "Power": 5.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                }
+            }
+        },
+        "At Summer Camp (Year 2)": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 10.0,
+                    "Skill": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 10.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
                     "Skill": 0.0,
                     "Skill Hint": "",
                     "Skill Pts": 0.0,
