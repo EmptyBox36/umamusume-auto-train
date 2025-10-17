@@ -34,10 +34,10 @@ def load_event_databases():
     CHARACTERS_EVENT_DATABASE.update(index_json("./scraper/data/characters.json", trainee))
 
     SUPPORT_EVENT_DATABASE.clear()
-    SUPPORT_EVENT_DATABASE.update(index_json("./scraper/data/supports.json", scenario))
+    SUPPORT_EVENT_DATABASE.update(index_json("./scraper/data/supports.json"))
 
     SCENARIOS_EVENT_DATABASE.clear()
-    SCENARIOS_EVENT_DATABASE.update(index_json("./data/scenarios.json"))
+    SCENARIOS_EVENT_DATABASE.update(index_json("./data/scenarios.json", scenario))
 
     chars = sorted({c for c in CHARACTER_BY_EVENT.values() if c})
     info(f"characters indexed: {len(chars)} -> {chars[:5]}{'...' if len(chars)>5 else ''}")

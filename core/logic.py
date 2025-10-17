@@ -195,7 +195,7 @@ def rainbow_training(results):
   highest_points = max(
       rainbow_candidates.items(),
       key=lambda kv: (
-          kv[1]["rainbow_no_multiplier"],
+          kv[1]["rainbow_points"],
           -get_stat_priority(kv[0])
       ),
   )
