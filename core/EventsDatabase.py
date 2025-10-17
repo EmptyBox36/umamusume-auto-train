@@ -127,6 +127,17 @@ def find_closest_event(event_name, max_distance=8):
   else: 
     None
 
+def _norm(s: str) -> str:
+    return ''.join(c for c in str(s).lower() if c.isalnum())
+
+# normalized event -> {choice_idx:int -> normalized_hint:str}
+HINTS_NORM = { _norm(ev): {int(i): _norm(v.get("Skill Hint","") if isinstance(v,dict) else v)}
+               for ev, m in SKILL_HINT_BY_EVENT.items()
+               for i, v in m.items() }
+
+# optional: normalized event key totals
+EVENT_TOTALS_NORM = { _norm(k): v for k, v in EVENT_TOTALS.items() }
+
 # Fail safe
 # "event_name": (total_choices, selected_choice)
 COMMON_EVENT_DATABASE = {

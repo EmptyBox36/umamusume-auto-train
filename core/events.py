@@ -3,8 +3,9 @@ import re
 
 from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
-from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, SKILL_HINT_BY_EVENT, find_closest_event
-from core.state import STAT_CAPS, check_energy_level, stat_state, check_mood, check_current_year
+from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, HINTS_NORM, EVENT_TOTALS_NORM
+from core.EventsDatabase import find_closest_event, _norm
+from core.state import STAT_CAPS, check_energy_level, check_mood, check_current_year
 from core.logic import get_stat_priority
 import utils.constants as constants
 
@@ -33,7 +34,7 @@ def get_optimal_choice(event_name):
     if db:
 
         # Select choice by skill hint
-        result_hint = pick_choice_by_skill_hint(key, desired_skills, db)
+        result_hint = pick_choice_by_skill_hint(key, desired_skills)
         if result_hint is not None:
             return result_hint
 
@@ -49,35 +50,24 @@ def get_optimal_choice(event_name):
     warning(f"No match found for {key}. Defaulting to top choice.")
     return (False, 1)
 
-
-def pick_choice_by_skill_hint(key: str, desired_skills: set[str], hint_map: dict):
+def pick_choice_by_skill_hint(key: str, desired_skills: set[str]):
     """
-    Returns (total_choices, choice_idx) or None.
-    Normalizes event key, fuzzy-matches keys, and tolerates hint key variants.
+    Return (total_choices, choice_idx) if this event has a desired skill hint.
+    Uses only SKILL_HINT_BY_EVENT and EVENT_TOTALS.
     """
     if not desired_skills:
         return None
 
-    k = _norm_seen_event(key)
-    hints = hint_map.get(k)
-
-    if not hints:
-        # fuzzy to handle punctuation/case differences
-        best = _closest_key(k, hint_map.keys())
-        if best:
-            k = best
-            hints = hint_map[best]
-
+    k = _norm(key)
+    hints = HINTS_NORM.get(k)
     if not hints:
         return None
 
-    for idx, raw in hints.items():
-        hint_name = _extract_hint_name(raw)
-        # debug(f"[HINT DEBUG] {key} → map:{k} choice {idx} hint='{hint_name}'")
-        if hint_name and hint_name.casefold() in desired_skills:
-            total = EVENT_TOTALS.get(k, len(hints))
-            info(f"[HINT] {key} → choose {idx} ({hint_name}) [mapped:{k}]")
-            return (total, int(idx))
+    wanted = {_norm(s) for s in desired_skills}
+    for idx, hint in hints.items():
+        if hint and hint in wanted:
+            total = EVENT_TOTALS_NORM.get(k, EVENT_TOTALS.get(key, 2))
+            return (total, idx)
 
     return None
 
@@ -162,36 +152,3 @@ def pick_choice_by_score(key: str, db: dict):
             best_idx = i
 
     return (total, best_idx)
-
-def _extract_hint_name(hint) -> str:
-    if isinstance(hint, dict):
-        m = {k.lower().replace(" ", ""): v for k, v in hint.items()}
-        val = m.get("skillhint", "")
-    else:
-        val = str(hint or "")
-    val = val.strip()
-    return "" if not val or val.lower() == "(random)" else val
-
-def _lev(a: str, b: str) -> int:
-    n, m = len(a), len(b)
-    if n > m: a, b, n, m = b, a, m, n
-    prev = list(range(m + 1))
-    for i, ca in enumerate(a, 1):
-        cur = [i]
-        for j, cb in enumerate(b, 1):
-            cur.append(min(prev[j] + 1, cur[j-1] + 1, prev[j-1] + (ca != cb)))
-        prev = cur
-    return prev[m]
-
-def _closest_key(key: str, keys, max_d: int = 3):
-    best, best_d = None, max_d + 1
-    for k in keys:
-        d = _lev(key, k)
-        if d < best_d:
-            best, best_d = k, d
-    return best if best_d <= max_d else None
-
-def _norm_seen_event(name: str) -> str:
-    k = clean_event_name(name)
-    # strip UI junk like "... choice", "... event"
-    return re.sub(r"\b(choice|event)\b", "", k).strip()
