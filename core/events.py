@@ -4,7 +4,7 @@ import re
 from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
 from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, HINTS_NORM, EVENT_TOTALS_NORM
-from core.EventsDatabase import find_closest_event, _norm
+from core.EventsDatabase import find_closest_event, _norm, _norm_set
 from core.state import STAT_CAPS, check_energy_level, check_mood, check_current_year
 from core.logic import get_stat_priority
 import utils.constants as constants
@@ -34,7 +34,7 @@ def get_optimal_choice(event_name):
     if db:
 
         # Select choice by skill hint
-        result_hint = pick_choice_by_skill_hint(key, desired_skills)
+        result_hint = pick_choice_by_skill_hint(key, desired_skills, db)
         if result_hint is not None:
             return result_hint
 
@@ -50,25 +50,50 @@ def get_optimal_choice(event_name):
     warning(f"No match found for {key}. Defaulting to top choice.")
     return (False, 1)
 
-def pick_choice_by_skill_hint(key: str, desired_skills: set[str]):
+def pick_choice_by_skill_hint(event_name: str,
+                              desired_skills: set[str],
+                              db: dict[str, dict]|None=None):
     """
-    Return (total_choices, choice_idx) if this event has a desired skill hint.
-    Uses only SKILL_HINT_BY_EVENT and EVENT_TOTALS.
+    Returns (total_choices, choice_idx) or None.
+    Tries normalized hint map first, then falls back to DB payload scan.
     """
     if not desired_skills:
         return None
 
-    k = _norm(key)
-    hints = HINTS_NORM.get(k)
-    if not hints:
-        return None
+    key_n = _norm(event_name)
+    wanted = _norm_set(desired_skills)
 
-    wanted = {_norm(s) for s in desired_skills}
-    for idx, hint in hints.items():
-        if hint and hint in wanted:
-            total = EVENT_TOTALS_NORM.get(k, EVENT_TOTALS.get(key, 2))
-            return (total, idx)
+    # 1) Fast path: prebuilt hint map
+    hints = HINTS_NORM.get(key_n)
+    if hints:
+        for idx, hint_n in hints.items():
+            if hint_n and hint_n in wanted:
+                total = EVENT_TOTALS_NORM.get(key_n, EVENT_TOTALS.get(event_name, 2))
+                info(f"[HINT] map hit: {event_name} -> choice {idx}")
+                return (total, idx)
 
+    # 2) Fallback: scan DB payload (characters/supports/scenarios/common)
+    if db is not None and event_name in db:
+        payload = db[event_name]
+    else:
+        payload = (CHARACTERS_EVENT_DATABASE.get(event_name)
+                   or SUPPORT_EVENT_DATABASE.get(event_name)
+                   or SCENARIOS_EVENT_DATABASE.get(event_name))
+
+    if payload:
+        # payload["stats"] is a map "1"->row, "2"->row, ...
+        for k, row in (payload.get("stats") or {}).items():
+            idx = int(k)
+            raw = row.get("Skill Hint", "")
+            if raw and _norm(raw) in wanted:
+                total = payload.get("choices") and len(payload["choices"]) or EVENT_TOTALS.get(event_name, 2)
+                info(f"[HINT] payload hit: {event_name} -> choice {idx} ({raw})")
+                return (total, idx)
+
+    # 3) Miss: log what we compared
+    miss_from_map = HINTS_NORM.get(key_n, {})
+    debug(f"[HINT MISS] event='{event_name}' norm='{key_n}' "
+          f"hints={miss_from_map} wanted={list(wanted)}")
     return None
 
 def score_choice(ev_key, choice_row):

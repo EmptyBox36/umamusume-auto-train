@@ -127,16 +127,24 @@ def find_closest_event(event_name, max_distance=8):
   else: 
     None
 
+# --- helpers (put near your DB utilities) ---
 def _norm(s: str) -> str:
-    return ''.join(c for c in str(s).lower() if c.isalnum())
+    return ''.join(ch for ch in str(s).lower() if ch.isalnum())
 
-# normalized event -> {choice_idx:int -> normalized_hint:str}
-HINTS_NORM = { _norm(ev): {int(i): _norm(v.get("Skill Hint","") if isinstance(v,dict) else v)}
-               for ev, m in SKILL_HINT_BY_EVENT.items()
-               for i, v in m.items() }
+def _norm_set(items) -> set[str]:
+    return {_norm(x) for x in items}
 
-# optional: normalized event key totals
-EVENT_TOTALS_NORM = { _norm(k): v for k, v in EVENT_TOTALS.items() }
+# Build once after SKILL_HINT_BY_EVENT and EVENT_TOTALS exist
+HINTS_NORM: dict[str, dict[int, str]] = {}
+for ev_name, m in SKILL_HINT_BY_EVENT.items():
+    k = _norm(ev_name)
+    HINTS_NORM[k] = {}
+    for idx, v in m.items():
+        # v can be dict or str or ""
+        hint = v.get("Skill Hint", "") if isinstance(v, dict) else v
+        HINTS_NORM[k][int(idx)] = _norm(hint)
+
+EVENT_TOTALS_NORM = {_norm(k): v for k, v in EVENT_TOTALS.items()}
 
 # Fail safe
 # "event_name": (total_choices, selected_choice)
