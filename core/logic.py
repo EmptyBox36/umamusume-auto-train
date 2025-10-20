@@ -143,9 +143,9 @@ def focus_max_friendships(results):
     data = filtered_results[stat_name]
     # order of importance gray > blue > green, because getting greens to max is easier than blues (gray is very low blue)
     possible_friendship = (
-                            data["total_friendship_levels"]["green"] * 1.01
-                            + data["total_friendship_levels"]["blue"] * 1.02
-                            + data["total_friendship_levels"]["gray"] * 1.03
+                            data["total_friendship_levels"]["green"] * 1.0
+                            + data["total_friendship_levels"]["blue"] * 1.01
+                            + data["total_friendship_levels"]["gray"] * 1.02
                           ) * junior_year_multiplier
 
     # hints are worth a little more than half a training
@@ -179,12 +179,14 @@ def rainbow_training(results):
     total_non_maxed_support = data["total_supports"] - ( data["total_friendship_levels"]["yellow"] + data["total_friendship_levels"]["max"] )
     #adding total rainbow friends on top of total supports for two times value nudging the formula towards more rainbows
     rainbow_points = total_rainbow_friends + data["total_supports"] + ( 0.5 * total_non_maxed_support )
-    if data["total_hints"] > 0:
-        rainbow_points = rainbow_points + state.HINT_POINT
+    
     if total_rainbow_friends > 0:
       rainbow_points = rainbow_points + 0.5
 
     rainbow_candidates[stat_name]["rainbow_no_multiplier"] = rainbow_points
+
+    if data["total_hints"] > 0:
+        rainbow_points = rainbow_points + state.HINT_POINT
 
     rainbow_points = rainbow_points * multiplier
     rainbow_candidates[stat_name]["rainbow_points"] = rainbow_points
