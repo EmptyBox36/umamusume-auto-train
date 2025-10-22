@@ -141,11 +141,13 @@ def focus_max_friendships(results):
       junior_year_multiplier = 1
 
     data = filtered_results[stat_name]
+    total_rainbow_friends = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
     # order of importance gray > blue > green, because getting greens to max is easier than blues (gray is very low blue)
     possible_friendship = (
                             data["total_friendship_levels"]["green"] * 1.0
                             + data["total_friendship_levels"]["blue"] * 1.01
                             + data["total_friendship_levels"]["gray"] * 1.02
+                            + total_rainbow_friends * 0.5
                           ) * junior_year_multiplier
 
     # hints are worth a little more than half a training
@@ -187,6 +189,13 @@ def rainbow_training(results):
 
     if data["total_hints"] > 0:
         rainbow_points = rainbow_points + state.HINT_POINT
+    if total_rainbow_friends > 1:
+        rainbow_points = rainbow_points + (1 * total_rainbow_friends)
+ 
+    # Temporary because im lazy to change high/low failure
+    # Now, Normal = 1, Non-maxed = 2.5, Rainbow = 2, if more than 1 rainbow (1 Rainbow = 3)
+    # These value NOT EFFECT the custom failure for now
+    rainbow_points = rainbow_points + (1 * total_non_maxed_support)
 
     rainbow_points = rainbow_points * multiplier
     rainbow_candidates[stat_name]["rainbow_points"] = rainbow_points
