@@ -1,4 +1,6 @@
-def clean_event_name(event_name):
-  cleaned = event_name.replace("`", "'")  # apostrophe variations
-  cleaned = " ".join(cleaned.split())  # multiple spaces
-  return cleaned
+﻿import re
+def clean_event_name(s):
+    s = s.replace("`", "'")
+    s = re.sub(r"[^\w\s]", " ", s)   # drop punctuation (e.g., ! ☆ , .)
+    s = " ".join(s.split()).lower()  # collapse spaces + lowercase
+    return s

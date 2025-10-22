@@ -1,6 +1,7 @@
 import Levenshtein
 import json
 from pathlib import Path
+from rapidfuzz import fuzz
 
 from utils.log import info, warning, error, debug
 from main import info
@@ -99,33 +100,22 @@ def dump_event(event_name: str):
     for idx, row in (payload.get('stats') or {}).items():
         info(f"  choice {idx}: {row}")
 
-def find_closest_event(event_name, max_distance=8):
-  if not event_name:
-    return None
-  best_match = None
-  best_distance = 99
-
-  all_event_names = (
-        list(COMMON_EVENT_DATABASE.keys()) +
-        list(CHARACTERS_EVENT_DATABASE.keys()) +
-        list(SUPPORT_EVENT_DATABASE.keys()) +
-        list(SCENARIOS_EVENT_DATABASE.keys())
+def find_closest_event(event_name, threshold=0.8):
+    if not event_name:
+        return None
+    all_event_names = (
+        list(COMMON_EVENT_DATABASE.keys())
+        + list(CHARACTERS_EVENT_DATABASE.keys())
+        + list(SUPPORT_EVENT_DATABASE.keys())
+        + list(SCENARIOS_EVENT_DATABASE.keys())
     )
-
-  for db_event_name in all_event_names:
-    distance = Levenshtein.distance(
-      s1=event_name.lower(),
-      s2=db_event_name.lower(),
-      weights=(1, 1, 1)  # insertion, deletion, substitution
-    )
-    if distance < best_distance:
-      best_distance = distance
-      best_match = db_event_name
-  
-  if best_distance <= max_distance:
-    return best_match  
-  else: 
-    None
+    best_match, best_score = None, 0
+    for db_event in all_event_names:
+        score = fuzz.token_sort_ratio(event_name.lower(), db_event.lower()) / 100
+        if score > best_score:
+            best_score = score
+            best_match = db_event
+    return best_match if best_score >= threshold else None
 
 # Fail safe
 # "event_name": (total_choices, selected_choice)

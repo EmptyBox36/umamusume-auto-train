@@ -1,8 +1,10 @@
 ﻿import core.state as state
+import re
 
 from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
-from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, find_closest_event
+from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, SKILL_HINT_BY_EVENT
+from core.EventsDatabase import find_closest_event
 from core.state import STAT_CAPS, check_energy_level, stat_state, check_mood, check_current_year
 from core.logic import get_stat_priority
 import utils.constants as constants
@@ -30,7 +32,7 @@ def get_optimal_choice(event_name):
          SCENARIOS_EVENT_DATABASE if key in SCENARIOS_EVENT_DATABASE else None
     if db:
         # Select choice by skill hint
-        result_hint = pick_choice_by_skill_hint(key, desired_skills, db)
+        result_hint = pick_choice_by_skill_hint(key, desired_skills)
         if result_hint is not None:
             return result_hint
 
@@ -46,20 +48,21 @@ def get_optimal_choice(event_name):
     warning(f"No match found for {key}. Defaulting to top choice.")
     return (False, 1)
 
+def _norm_hint(s: str) -> str:
+    # strip common decorations like "○" and normalize case/space
+    s = re.sub(r"[^\w\s'!-]", " ", s)   # drop symbols e.g. ○ ☆
+    return " ".join(s.split()).casefold()
 
-def pick_choice_by_skill_hint(key: str, desired_skills: set[str], hint_map: dict):
-    hints = hint_map.get(key, {})
-    if hints and desired_skills:
-        for idx, hint in hints.items():
-            if isinstance(hint, dict):
-                hint_name = hint.get("Skill Hint", "").strip()
-            else:
-                hint_name = str(hint).strip()
-
-            if hint_name in desired_skills:
-                total = EVENT_TOTALS.get(key, len(hints))
-                info(f"Event skill hint match → {key}: choice {idx} ({hint_name})")
-                return (total, idx)
+def pick_choice_by_skill_hint(key: str, desired_skills: set[str]):
+    hints = SKILL_HINT_BY_EVENT.get(key, {})
+    if not hints or not desired_skills:
+        return None
+    desired_norm = {_norm_hint(x) for x in desired_skills}
+    for idx, hint in hints.items():
+        if _norm_hint(str(hint)) in desired_norm:
+            total = EVENT_TOTALS.get(key, len(hints))
+            info(f"Event skill hint match → {key}: choice {idx} ({hint})")
+            return (total, idx)
     return None
 
 def score_choice(ev_key, choice_row):
