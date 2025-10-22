@@ -90,8 +90,8 @@ Starting from the second year, it switches to the second logic. If there’s no 
 
 - Some Uma that has special event/target goals (like Restricted Train Goldship or ~~2 G1 Race Oguri Cap~~) may not working. For Oguri Cap G1 race event goal, you need to set the races in the race schedule that match the dates of her G1 goal events.
 - OCR might misread failure chance (e.g., reads 33% as 3%) and proceeds with training anyway.
-- Automatically picks the top option during chain events. Be careful with Acupuncture event, it always picks the top option.
-- If you bring a friend support card (like Tazuna/Aoi Kiryuin) and do recreation, the bot can't decide whether to date with the friend support card or the Uma.
+- Automatically picks event choice base on desire hint (hint in auto buy list), and stats.
+- If you bring a friend support card (like Tazuna/Aoi Kiryuin) and do recreation, the bot always date with the friend support card.
 
 ### Contribute
 
