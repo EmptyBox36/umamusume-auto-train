@@ -23,6 +23,8 @@ Use responsibly and at your own discretion.
 - Auto-purchase skill
 - Web Interface for easier configuration
 - Select running style position
+- Auto pick event choice
+- Detailed config
 
 ## Getting Started
 
