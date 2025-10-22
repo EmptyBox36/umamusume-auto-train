@@ -569,23 +569,23 @@ def career_lobby():
         click(boxes=matches["infirmary"][0], text="Character debuffed, going to infirmary.")
         continue
 
-    # If Prioritize G1 Race is true, check G1 race every turn
-    if state.PRIORITIZE_G1_RACE and "Pre-Debut" not in year and len(year_parts) > 3 and year_parts[3] not in ["Jul", "Aug"]:
-      race_done = False
-      for race_list in state.RACE_SCHEDULE:
-        if state.stop_event.is_set():
-          break
-        if len(race_list):
-          if race_list['year'] in year and race_list['date'] in year:
-            debug(f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}")
-            if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
-              race_done = True
-              break
-            else:
-              click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
-              sleep(0.5)
-      if race_done:
-        continue
+    # # If Prioritize G1 Race is true, check G1 race every turn
+    # if state.PRIORITIZE_G1_RACE and "Pre-Debut" not in year and len(year_parts) > 3 and year_parts[3] not in ["Jul", "Aug"]:
+    #   race_done = False
+    #   for race_list in state.RACE_SCHEDULE:
+    #     if state.stop_event.is_set():
+    #       break
+    #     if len(race_list):
+    #       if race_list['year'] in year and race_list['date'] in year:
+    #         debug(f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}")
+    #         if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
+    #           race_done = True
+    #           break
+    #         else:
+    #           click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
+    #           sleep(0.5)
+    #   if race_done:
+    #     continue
 
     # Check if we need to race for goal
     if not "Achieved" in criteria:

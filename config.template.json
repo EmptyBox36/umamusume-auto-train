@@ -48,7 +48,7 @@
     "wit": 1,
     "hp": 5,
     "max_energy": 10,
-    "skillpts": 0.5,
+    "skillpts": 1,
     "bond": 2,
     "mood": 10
   },
