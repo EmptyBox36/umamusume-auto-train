@@ -123,10 +123,6 @@ COMMON_EVENT_DATABASE = {
 
   # [Common Events]
   "Extra Training": (2, 1),
-  "At Summer (Year 2) Camp": (2, 1),
-  "Dance Lesson": (2, 1),
-  "New Year's Resolutions": (3, 2),
-  "New Year's Shrine Visit": (3, 1),
   "Just an Acupuncturist, No Worries!": (5, 3),
   "Get Well Soon!": (2, 1),
   "Don't Overdo It!": (2, 1),

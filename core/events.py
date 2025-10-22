@@ -66,6 +66,7 @@ def pick_choice_by_skill_hint(key: str, desired_skills: set[str]):
     return None
 
 def score_choice(ev_key, choice_row):
+    # Score from Stat
     from core.execute import current_stats
     global caps
     energy_level, max_energy = check_energy_level()
@@ -89,17 +90,17 @@ def score_choice(ev_key, choice_row):
 
         choice_score += choice_weight[k_map] * norm * multiplier
 
+    # Score from Energy
     energy_gain = float(choice_row.get("HP", 0) or 0)
 
     if (max_energy - energy_level) >= energy_gain or energy_gain < 0:
-        choice_score += choice_weight["hp"] * energy_gain * 1
+        energy_penalty = 1 # 1 = No Penalty
     else:
-        choice_score += choice_weight["hp"] * energy_gain * 0.1
+        energy_penalty = 0.1
 
-    choice_score += choice_weight["max_energy"] * float(choice_row.get("Max Energy", 0) or 0)
-    choice_score += choice_weight["skillpts"] * float(choice_row.get("Skill Pts", 0) or 0)
-    choice_score += choice_weight["bond"] * float(choice_row.get("Friendship", 0) or 0)
+    choice_score += choice_weight["hp"] * energy_gain * energy_penalty
 
+    # Score from Mood
     mood = check_mood()
     mood_index = constants.MOOD_LIST.index(mood)
     mood_gain = float(choice_row.get("Mood", 0) or 0)
@@ -114,9 +115,16 @@ def score_choice(ev_key, choice_row):
       mood_check = minimum_mood
 
     if mood_index < mood_check or mood_gain < 0:
-        choice_score += choice_weight["mood"] * mood_gain
+        mood_penalty = 1 # 1 = No Penalty
     else:
-        choice_score += choice_weight["mood"] * mood_gain * 0.05
+        mood_penalty = 0.05
+
+    choice_score += choice_weight["mood"] * mood_gain * mood_penalty
+
+    # Score from Other factors
+    choice_score += choice_weight["max_energy"] * float(choice_row.get("Max Energy", 0) or 0)
+    choice_score += choice_weight["skillpts"] * float(choice_row.get("Skill Pts", 0) or 0)
+    choice_score += choice_weight["bond"] * float(choice_row.get("Friendship", 0) or 0)
 
     return choice_score
 
