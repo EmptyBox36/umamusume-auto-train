@@ -24,6 +24,7 @@ def add(d: dict, k: str, v: float):
 
         
 def _finish(d: dict) -> dict:
+    d.pop("Skill", None)
     for k in STAT_KEYS:
         if k not in d:
             d[k] = "" if k == "Skill Hint" else 0.0
@@ -64,6 +65,11 @@ def parse_outcome_block(text: str) -> dict:
             val = float(m.group(1))
             for k in ALL_STATS:
                 add(d, k, val)
+            continue
+
+        m = re.search(r"\bSkill(?:\s+Points?|\s+points?)?\s*([+-]?\d+)", ln, re.I)
+        if m:
+            add(d, "Skill Pts", float(m.group(1)))
             continue
 
         # Generic stat line (supports ranges like -5/-20)

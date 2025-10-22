@@ -12,7 +12,7 @@ COMMON_EVENT_TITLES = {
 }
 
 STAT_KEYS = ["Friendship","Guts","HP","Max Energy","Mood","Power",
-             "Skill","Skill Hint","Skill Pts","Speed","Stamina","Wit"]
+             "Skill Hint","Skill Pts","Speed","Stamina","Wit"]
 
 PREFIX_EVENTS = {
     "Acupuncture",
@@ -36,7 +36,7 @@ ALIASES = {
     "Skill Hint": "Skill Hint",
 }
 
-ALL_STATS = ["Speed","Stamina","Power","Guts","Wit","Skill"]
+ALL_STATS = ["Speed","Stamina","Power","Guts","Wit"]
 DIVIDER_RE = re.compile(r"\n[-─—]{3,}\n", re.U)
 RAND_SPLIT_RE = re.compile(r"\n(?:[-─—]{3,}\n|\s*or(?:\s*\([^)]+\))?\s*\n)", re.I)
 
