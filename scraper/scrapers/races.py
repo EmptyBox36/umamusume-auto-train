@@ -99,7 +99,7 @@ class RaceScraper(BaseScraper):
         ]
 
         ad_closed = False
-        for i, link in enumerate(links):
+        for i, link in enumerate(links, start=1):
             ad_closed = self.handle_ad_banner(driver, ad_closed)
             logging.info(f"Opening race ({i+1}/{len(links)})")
             link.click(); time.sleep(0.5)
@@ -128,6 +128,7 @@ class RaceScraper(BaseScraper):
                 if m2: fans_gained = int(m2.group(1))
 
             payload = {
+                "id": 10000 + i,
                 "date": _format_date(date_header),
                 "racetrack": info.get("Racetrack"),
                 "terrain": info.get("Terrain"),

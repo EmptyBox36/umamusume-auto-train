@@ -1,6 +1,7 @@
 {
     "Junior Year": {
         "Chukyo Junior Stakes": {
+            "id": 10001,
             "date": "Late Jul",
             "racetrack": "Chukyo",
             "terrain": "Turf",
@@ -15,6 +16,7 @@
             "grade": "OP"
         },
         "Hakodate Junior Stakes": {
+            "id": 10002,
             "date": "Late Jul",
             "racetrack": "Hakodate",
             "terrain": "Turf",
@@ -29,6 +31,7 @@
             "grade": "G3"
         },
         "Cosmos Sho": {
+            "id": 10003,
             "date": "Early Aug",
             "racetrack": "Sapporo",
             "terrain": "Turf",
@@ -43,6 +46,7 @@
             "grade": "OP"
         },
         "Dahlia Sho": {
+            "id": 10004,
             "date": "Early Aug",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -57,6 +61,7 @@
             "grade": "OP"
         },
         "Phoenix Sho": {
+            "id": 10005,
             "date": "Early Aug",
             "racetrack": "Kokura",
             "terrain": "Turf",
@@ -71,6 +76,7 @@
             "grade": "OP"
         },
         "Clover Sho": {
+            "id": 10006,
             "date": "Late Aug",
             "racetrack": "Sapporo",
             "terrain": "Turf",
@@ -85,6 +91,7 @@
             "grade": "OP"
         },
         "Niigata Junior Stakes": {
+            "id": 10007,
             "date": "Late Aug",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -99,6 +106,7 @@
             "grade": "G3"
         },
         "Aster Sho": {
+            "id": 10008,
             "date": "Early Sep",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -113,6 +121,7 @@
             "grade": "Pre-OP"
         },
         "Kokura Junior Stakes": {
+            "id": 10009,
             "date": "Early Sep",
             "racetrack": "Kokura",
             "terrain": "Turf",
@@ -127,6 +136,7 @@
             "grade": "G3"
         },
         "Nojigiku Stakes": {
+            "id": 10010,
             "date": "Early Sep",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -141,6 +151,7 @@
             "grade": "OP"
         },
         "Sapporo Junior Stakes": {
+            "id": 10011,
             "date": "Early Sep",
             "racetrack": "Sapporo",
             "terrain": "Turf",
@@ -155,6 +166,7 @@
             "grade": "G3"
         },
         "Suzuran Sho": {
+            "id": 10012,
             "date": "Early Sep",
             "racetrack": "Sapporo",
             "terrain": "Turf",
@@ -169,6 +181,7 @@
             "grade": "OP"
         },
         "Canna Stakes": {
+            "id": 10013,
             "date": "Late Sep",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -183,6 +196,7 @@
             "grade": "OP"
         },
         "Fuyo Stakes": {
+            "id": 10014,
             "date": "Late Sep",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -197,6 +211,7 @@
             "grade": "OP"
         },
         "Kikyo Stakes": {
+            "id": 10015,
             "date": "Late Sep",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -211,6 +226,7 @@
             "grade": "OP"
         },
         "Saffron Sho": {
+            "id": 10016,
             "date": "Late Sep",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -225,6 +241,7 @@
             "grade": "Pre-OP"
         },
         "Momiji Stakes": {
+            "id": 10017,
             "date": "Early Oct",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -239,6 +256,7 @@
             "grade": "OP"
         },
         "Platanus Sho": {
+            "id": 10018,
             "date": "Early Oct",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -253,6 +271,7 @@
             "grade": "Pre-OP"
         },
         "Rindo Sho": {
+            "id": 10019,
             "date": "Early Oct",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -267,6 +286,7 @@
             "grade": "Pre-OP"
         },
         "Saudi Arabia Royal Cup": {
+            "id": 10020,
             "date": "Early Oct",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -281,6 +301,7 @@
             "grade": "G3"
         },
         "Shigiku Sho": {
+            "id": 10021,
             "date": "Early Oct",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -295,6 +316,7 @@
             "grade": "Pre-OP"
         },
         "Artemis Stakes": {
+            "id": 10022,
             "date": "Late Oct",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -309,6 +331,7 @@
             "grade": "G3"
         },
         "Hagi Stakes": {
+            "id": 10023,
             "date": "Late Oct",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -323,6 +346,7 @@
             "grade": "OP"
         },
         "Ivy Stakes": {
+            "id": 10024,
             "date": "Late Oct",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -337,6 +361,7 @@
             "grade": "OP"
         },
         "Nadeshiko Sho": {
+            "id": 10025,
             "date": "Late Oct",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -351,6 +376,7 @@
             "grade": "Pre-OP"
         },
         "Daily Hai Junior Stakes": {
+            "id": 10026,
             "date": "Early Nov",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -365,6 +391,7 @@
             "grade": "G2"
         },
         "Fantasy Stakes": {
+            "id": 10027,
             "date": "Early Nov",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -379,6 +406,7 @@
             "grade": "G3"
         },
         "Fukushima Junior Stakes": {
+            "id": 10028,
             "date": "Early Nov",
             "racetrack": "Fukushima",
             "terrain": "Turf",
@@ -393,6 +421,7 @@
             "grade": "OP"
         },
         "Hyakunichiso Tokubetsu": {
+            "id": 10029,
             "date": "Early Nov",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -407,6 +436,7 @@
             "grade": "Pre-OP"
         },
         "Keio Hai Junior Stakes": {
+            "id": 10030,
             "date": "Early Nov",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -421,6 +451,7 @@
             "grade": "G2"
         },
         "Kigiku Sho": {
+            "id": 10031,
             "date": "Early Nov",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -435,6 +466,7 @@
             "grade": "Pre-OP"
         },
         "Kimmokusei Tokubetsu": {
+            "id": 10032,
             "date": "Early Nov",
             "racetrack": "Fukushima",
             "terrain": "Turf",
@@ -449,6 +481,7 @@
             "grade": "Pre-OP"
         },
         "Oxalis Sho": {
+            "id": 10033,
             "date": "Early Nov",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -463,6 +496,7 @@
             "grade": "Pre-OP"
         },
         "Akamatsu Sho": {
+            "id": 10034,
             "date": "Late Nov",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -477,6 +511,7 @@
             "grade": "Pre-OP"
         },
         "Begonia Sho": {
+            "id": 10035,
             "date": "Late Nov",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -491,6 +526,7 @@
             "grade": "Pre-OP"
         },
         "Cattleya Sho": {
+            "id": 10036,
             "date": "Late Nov",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -505,6 +541,7 @@
             "grade": "Pre-OP"
         },
         "Habotan Sho": {
+            "id": 10037,
             "date": "Late Nov",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -519,6 +556,7 @@
             "grade": "Pre-OP"
         },
         "Koyamaki Sho": {
+            "id": 10038,
             "date": "Late Nov",
             "racetrack": "Chukyo",
             "terrain": "Turf",
@@ -533,6 +571,7 @@
             "grade": "Pre-OP"
         },
         "Kyoto Junior Stakes": {
+            "id": 10039,
             "date": "Late Nov",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -547,6 +586,7 @@
             "grade": "G3"
         },
         "Mochinoki Sho": {
+            "id": 10040,
             "date": "Late Nov",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -561,6 +601,7 @@
             "grade": "Pre-OP"
         },
         "Shiragiku Sho": {
+            "id": 10041,
             "date": "Late Nov",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -575,6 +616,7 @@
             "grade": "Pre-OP"
         },
         "Shumeigiku Sho": {
+            "id": 10042,
             "date": "Late Nov",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -589,6 +631,7 @@
             "grade": "Pre-OP"
         },
         "Tokyo Sports Hai Junior Stakes": {
+            "id": 10043,
             "date": "Late Nov",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -603,6 +646,7 @@
             "grade": "G3"
         },
         "Asahi Hai Futurity Stakes": {
+            "id": 10044,
             "date": "Early Dec",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -621,6 +665,7 @@
             ]
         },
         "Erica Sho": {
+            "id": 10045,
             "date": "Early Dec",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -635,6 +680,7 @@
             "grade": "Pre-OP"
         },
         "Hanshin Juvenile Fillies": {
+            "id": 10046,
             "date": "Early Dec",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -653,6 +699,7 @@
             ]
         },
         "Hiiragi Sho": {
+            "id": 10047,
             "date": "Early Dec",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -667,6 +714,7 @@
             "grade": "Pre-OP"
         },
         "Kantsubaki Sho": {
+            "id": 10048,
             "date": "Early Dec",
             "racetrack": "Chukyo",
             "terrain": "Dirt",
@@ -681,6 +729,7 @@
             "grade": "Pre-OP"
         },
         "Kuromatsu Sho": {
+            "id": 10049,
             "date": "Early Dec",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -695,6 +744,7 @@
             "grade": "Pre-OP"
         },
         "Manryo Sho": {
+            "id": 10050,
             "date": "Early Dec",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -709,6 +759,7 @@
             "grade": "Pre-OP"
         },
         "Sazanka Sho": {
+            "id": 10051,
             "date": "Early Dec",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -723,6 +774,7 @@
             "grade": "Pre-OP"
         },
         "Tsuwabuki Sho": {
+            "id": 10052,
             "date": "Early Dec",
             "racetrack": "Chukyo",
             "terrain": "Turf",
@@ -737,6 +789,7 @@
             "grade": "Pre-OP"
         },
         "Christmas Rose Stakes": {
+            "id": 10053,
             "date": "Late Dec",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -751,6 +804,7 @@
             "grade": "OP"
         },
         "Hopeful Stakes": {
+            "id": 10054,
             "date": "Late Dec",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -769,6 +823,7 @@
             ]
         },
         "Senryo Sho": {
+            "id": 10055,
             "date": "Late Dec",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -785,6 +840,7 @@
     },
     "Classic Year": {
         "Fairy Stakes": {
+            "id": 10056,
             "date": "Early Jan",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -799,6 +855,7 @@
             "grade": "G3"
         },
         "Junior Cup": {
+            "id": 10057,
             "date": "Early Jan",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -813,6 +870,7 @@
             "grade": "OP"
         },
         "Keisei Hai": {
+            "id": 10058,
             "date": "Early Jan",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -827,6 +885,7 @@
             "grade": "G3"
         },
         "Kobai Stakes": {
+            "id": 10059,
             "date": "Early Jan",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -841,6 +900,7 @@
             "grade": "OP"
         },
         "Shinzan Kinen": {
+            "id": 10060,
             "date": "Early Jan",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -855,6 +915,7 @@
             "grade": "G3"
         },
         "Crocus Stakes": {
+            "id": 10061,
             "date": "Late Jan",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -869,6 +930,7 @@
             "grade": "OP"
         },
         "Wakagoma Stakes": {
+            "id": 10062,
             "date": "Late Jan",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -883,6 +945,7 @@
             "grade": "OP"
         },
         "Elfin Stakes": {
+            "id": 10063,
             "date": "Early Feb",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -897,6 +960,7 @@
             "grade": "OP"
         },
         "Kisaragi Sho": {
+            "id": 10064,
             "date": "Early Feb",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -911,6 +975,7 @@
             "grade": "G3"
         },
         "Kyodo News Hai": {
+            "id": 10065,
             "date": "Early Feb",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -925,6 +990,7 @@
             "grade": "G3"
         },
         "Queen Cup": {
+            "id": 10066,
             "date": "Early Feb",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -939,6 +1005,7 @@
             "grade": "G3"
         },
         "Hyacinth Stakes": {
+            "id": 10067,
             "date": "Late Feb",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -953,6 +1020,7 @@
             "grade": "OP"
         },
         "Marguerite Stakes": {
+            "id": 10068,
             "date": "Late Feb",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -967,6 +1035,7 @@
             "grade": "OP"
         },
         "Sumire Stakes": {
+            "id": 10069,
             "date": "Late Feb",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -981,6 +1050,7 @@
             "grade": "OP"
         },
         "Anemone Stakes": {
+            "id": 10070,
             "date": "Early Mar",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -995,6 +1065,7 @@
             "grade": "OP"
         },
         "Fillies' Revue": {
+            "id": 10071,
             "date": "Early Mar",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1009,6 +1080,7 @@
             "grade": "G2"
         },
         "Shoryu Stakes": {
+            "id": 10072,
             "date": "Early Mar",
             "racetrack": "Chukyo",
             "terrain": "Dirt",
@@ -1023,6 +1095,7 @@
             "grade": "OP"
         },
         "Tulip Sho": {
+            "id": 10073,
             "date": "Early Mar",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1037,6 +1110,7 @@
             "grade": "G2"
         },
         "Yayoi Sho": {
+            "id": 10074,
             "date": "Early Mar",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -1051,6 +1125,7 @@
             "grade": "G2"
         },
         "Falcon Stakes": {
+            "id": 10075,
             "date": "Late Mar",
             "racetrack": "Chukyo",
             "terrain": "Turf",
@@ -1065,6 +1140,7 @@
             "grade": "G3"
         },
         "Flower Cup": {
+            "id": 10076,
             "date": "Late Mar",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -1079,6 +1155,7 @@
             "grade": "G3"
         },
         "Mainichi Hai": {
+            "id": 10077,
             "date": "Late Mar",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1093,6 +1170,7 @@
             "grade": "G3"
         },
         "Spring Stakes": {
+            "id": 10078,
             "date": "Late Mar",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -1107,6 +1185,7 @@
             "grade": "G2"
         },
         "Wakaba Stakes": {
+            "id": 10079,
             "date": "Late Mar",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1121,6 +1200,7 @@
             "grade": "OP"
         },
         "Arlington Cup": {
+            "id": 10080,
             "date": "Early Apr",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1135,6 +1215,7 @@
             "grade": "G3"
         },
         "Fukuryu Stakes": {
+            "id": 10081,
             "date": "Early Apr",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -1149,6 +1230,7 @@
             "grade": "OP"
         },
         "New Zealand Trophy": {
+            "id": 10082,
             "date": "Early Apr",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -1163,6 +1245,7 @@
             "grade": "G2"
         },
         "Oka Sho": {
+            "id": 10083,
             "date": "Early Apr",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1181,6 +1264,7 @@
             ]
         },
         "Satsuki Sho": {
+            "id": 10084,
             "date": "Early Apr",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -1199,6 +1283,7 @@
             ]
         },
         "Wasurenagusa Sho": {
+            "id": 10085,
             "date": "Early Apr",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1213,6 +1298,7 @@
             "grade": "OP"
         },
         "Aoba Sho": {
+            "id": 10086,
             "date": "Late Apr",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -1227,6 +1313,7 @@
             "grade": "G2"
         },
         "Flora Stakes": {
+            "id": 10087,
             "date": "Late Apr",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -1241,6 +1328,7 @@
             "grade": "G2"
         },
         "Sweetpea Stakes": {
+            "id": 10088,
             "date": "Late Apr",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -1255,6 +1343,7 @@
             "grade": "OP"
         },
         "Tachibana Stakes": {
+            "id": 10089,
             "date": "Late Apr",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -1269,6 +1358,7 @@
             "grade": "OP"
         },
         "Tango Stakes": {
+            "id": 10090,
             "date": "Late Apr",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -1283,6 +1373,7 @@
             "grade": "OP"
         },
         "Kyoto Shimbun Hai": {
+            "id": 10091,
             "date": "Early May",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -1297,6 +1388,7 @@
             "grade": "G2"
         },
         "NHK Mile Cup": {
+            "id": 10092,
             "date": "Early May",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -1315,6 +1407,7 @@
             ]
         },
         "Principal Stakes": {
+            "id": 10093,
             "date": "Early May",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -1329,6 +1422,7 @@
             "grade": "OP"
         },
         "Seiryu Stakes": {
+            "id": 10094,
             "date": "Early May",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -1343,6 +1437,7 @@
             "grade": "OP"
         },
         "Aoi Stakes": {
+            "id": 10095,
             "date": "Late May",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -1357,6 +1452,7 @@
             "grade": "G3"
         },
         "Hosu Stakes": {
+            "id": 10096,
             "date": "Late May",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -1371,6 +1467,7 @@
             "grade": "OP"
         },
         "Japanese Oaks": {
+            "id": 10097,
             "date": "Late May",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -1389,6 +1486,7 @@
             ]
         },
         "Shirayuri Stakes": {
+            "id": 10098,
             "date": "Late May",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -1403,6 +1501,7 @@
             "grade": "OP"
         },
         "Tokyo Yushun (Japanese Derby)": {
+            "id": 10099,
             "date": "Late May",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -1421,6 +1520,7 @@
             ]
         },
         "Epsom Cup": {
+            "id": 10279,
             "date": "Early Jun",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -1435,6 +1535,7 @@
             "grade": "G3"
         },
         "Mermaid Stakes": {
+            "id": 10280,
             "date": "Early Jun",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1449,6 +1550,7 @@
             "grade": "G3"
         },
         "Naruo Kinen": {
+            "id": 10281,
             "date": "Early Jun",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1463,6 +1565,7 @@
             "grade": "G3"
         },
         "Sleipnir Stakes": {
+            "id": 10282,
             "date": "Early Jun",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -1477,6 +1580,7 @@
             "grade": "OP"
         },
         "Tempozan Stakes": {
+            "id": 10283,
             "date": "Early Jun",
             "racetrack": "Hanshin",
             "terrain": "Dirt",
@@ -1491,6 +1595,7 @@
             "grade": "OP"
         },
         "Yasuda Kinen": {
+            "id": 10284,
             "date": "Early Jun",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -1509,6 +1614,7 @@
             ]
         },
         "Akhalteke Stakes": {
+            "id": 10285,
             "date": "Late Jun",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -1523,6 +1629,7 @@
             "grade": "OP"
         },
         "Hakodate Sprint Stakes": {
+            "id": 10286,
             "date": "Late Jun",
             "racetrack": "Hakodate",
             "terrain": "Turf",
@@ -1537,6 +1644,7 @@
             "grade": "G3"
         },
         "Onuma Stakes": {
+            "id": 10287,
             "date": "Late Jun",
             "racetrack": "Hakodate",
             "terrain": "Dirt",
@@ -1551,6 +1659,7 @@
             "grade": "OP"
         },
         "Paradise Stakes": {
+            "id": 10288,
             "date": "Late Jun",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -1565,6 +1674,7 @@
             "grade": "OP"
         },
         "Sannomiya Stakes": {
+            "id": 10289,
             "date": "Late Jun",
             "racetrack": "Hanshin",
             "terrain": "Dirt",
@@ -1579,6 +1689,7 @@
             "grade": "OP"
         },
         "Takarazuka Kinen": {
+            "id": 10290,
             "date": "Late Jun",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1597,6 +1708,7 @@
             ]
         },
         "Unicorn Stakes": {
+            "id": 10112,
             "date": "Late Jun",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -1611,6 +1723,7 @@
             "grade": "G3"
         },
         "Yonago Stakes": {
+            "id": 10292,
             "date": "Late Jun",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -1625,6 +1738,7 @@
             "grade": "OP"
         },
         "CBC Sho": {
+            "id": 10293,
             "date": "Early Jul",
             "racetrack": "Chukyo",
             "terrain": "Turf",
@@ -1639,6 +1753,7 @@
             "grade": "G3"
         },
         "Hakodate Kinen": {
+            "id": 10294,
             "date": "Early Jul",
             "racetrack": "Hakodate",
             "terrain": "Turf",
@@ -1653,6 +1768,7 @@
             "grade": "G3"
         },
         "Japan Dirt Derby": {
+            "id": 10116,
             "date": "Early Jul",
             "racetrack": "Ooi",
             "terrain": "Dirt",
@@ -1671,6 +1787,7 @@
             ]
         },
         "Marine Stakes": {
+            "id": 10295,
             "date": "Early Jul",
             "racetrack": "Hakodate",
             "terrain": "Dirt",
@@ -1685,6 +1802,7 @@
             "grade": "OP"
         },
         "Meitetsu Hai": {
+            "id": 10296,
             "date": "Early Jul",
             "racetrack": "Chukyo",
             "terrain": "Dirt",
@@ -1699,6 +1817,7 @@
             "grade": "OP"
         },
         "Procyon Stakes": {
+            "id": 10297,
             "date": "Early Jul",
             "racetrack": "Chukyo",
             "terrain": "Dirt",
@@ -1713,6 +1832,7 @@
             "grade": "G3"
         },
         "Radio Nikkei Sho": {
+            "id": 10120,
             "date": "Early Jul",
             "racetrack": "Fukushima",
             "terrain": "Turf",
@@ -1727,6 +1847,7 @@
             "grade": "G3"
         },
         "Tanabata Sho": {
+            "id": 10298,
             "date": "Early Jul",
             "racetrack": "Fukushima",
             "terrain": "Turf",
@@ -1741,6 +1862,7 @@
             "grade": "G3"
         },
         "Tomoe Sho": {
+            "id": 10299,
             "date": "Early Jul",
             "racetrack": "Hakodate",
             "terrain": "Turf",
@@ -1755,6 +1877,7 @@
             "grade": "OP"
         },
         "Chukyo Kinen": {
+            "id": 10300,
             "date": "Late Jul",
             "racetrack": "Chukyo",
             "terrain": "Turf",
@@ -1769,6 +1892,7 @@
             "grade": "G3"
         },
         "Fukushima TV Open": {
+            "id": 10301,
             "date": "Late Jul",
             "racetrack": "Fukushima",
             "terrain": "Turf",
@@ -1783,6 +1907,7 @@
             "grade": "OP"
         },
         "Ibis Summer Dash": {
+            "id": 10302,
             "date": "Late Jul",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -1797,6 +1922,7 @@
             "grade": "G3"
         },
         "Queen Stakes": {
+            "id": 10303,
             "date": "Late Jul",
             "racetrack": "Sapporo",
             "terrain": "Turf",
@@ -1811,6 +1937,7 @@
             "grade": "G3"
         },
         "Aso Stakes": {
+            "id": 10304,
             "date": "Early Aug",
             "racetrack": "Kokura",
             "terrain": "Dirt",
@@ -1825,6 +1952,7 @@
             "grade": "OP"
         },
         "Elm Stakes": {
+            "id": 10305,
             "date": "Early Aug",
             "racetrack": "Sapporo",
             "terrain": "Dirt",
@@ -1839,6 +1967,7 @@
             "grade": "G3"
         },
         "Kanetsu Stakes": {
+            "id": 10306,
             "date": "Early Aug",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -1853,6 +1982,7 @@
             "grade": "OP"
         },
         "Kokura Kinen": {
+            "id": 10307,
             "date": "Early Aug",
             "racetrack": "Kokura",
             "terrain": "Turf",
@@ -1867,6 +1997,7 @@
             "grade": "G3"
         },
         "Leopard Stakes": {
+            "id": 10131,
             "date": "Early Aug",
             "racetrack": "Niigata",
             "terrain": "Dirt",
@@ -1881,6 +2012,7 @@
             "grade": "G3"
         },
         "Sapporo Nikkei Open": {
+            "id": 10308,
             "date": "Early Aug",
             "racetrack": "Sapporo",
             "terrain": "Turf",
@@ -1895,6 +2027,7 @@
             "grade": "OP"
         },
         "Sekiya Kinen": {
+            "id": 10309,
             "date": "Early Aug",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -1909,6 +2042,7 @@
             "grade": "G3"
         },
         "UHB Sho": {
+            "id": 10310,
             "date": "Early Aug",
             "racetrack": "Sapporo",
             "terrain": "Turf",
@@ -1923,6 +2057,7 @@
             "grade": "OP"
         },
         "BSN Sho": {
+            "id": 10311,
             "date": "Late Aug",
             "racetrack": "Niigata",
             "terrain": "Dirt",
@@ -1937,6 +2072,7 @@
             "grade": "OP"
         },
         "Keeneland Cup": {
+            "id": 10312,
             "date": "Late Aug",
             "racetrack": "Sapporo",
             "terrain": "Turf",
@@ -1951,6 +2087,7 @@
             "grade": "G3"
         },
         "Kitakyushu Kinen": {
+            "id": 10313,
             "date": "Late Aug",
             "racetrack": "Kokura",
             "terrain": "Turf",
@@ -1965,6 +2102,7 @@
             "grade": "G3"
         },
         "Kokura Nikkei Open": {
+            "id": 10314,
             "date": "Late Aug",
             "racetrack": "Kokura",
             "terrain": "Turf",
@@ -1979,6 +2117,7 @@
             "grade": "OP"
         },
         "NST Sho": {
+            "id": 10315,
             "date": "Late Aug",
             "racetrack": "Niigata",
             "terrain": "Dirt",
@@ -1993,6 +2132,7 @@
             "grade": "OP"
         },
         "Sapporo Kinen": {
+            "id": 10316,
             "date": "Late Aug",
             "racetrack": "Sapporo",
             "terrain": "Turf",
@@ -2007,6 +2147,7 @@
             "grade": "G2"
         },
         "Toki Stakes": {
+            "id": 10317,
             "date": "Late Aug",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -2021,6 +2162,7 @@
             "grade": "OP"
         },
         "Centaur Stakes": {
+            "id": 10318,
             "date": "Early Sep",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -2035,6 +2177,7 @@
             "grade": "G2"
         },
         "Enif Stakes": {
+            "id": 10319,
             "date": "Early Sep",
             "racetrack": "Hanshin",
             "terrain": "Dirt",
@@ -2049,6 +2192,7 @@
             "grade": "OP"
         },
         "Keisei Hai Autumn Handicap": {
+            "id": 10320,
             "date": "Early Sep",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -2063,6 +2207,7 @@
             "grade": "G3"
         },
         "Niigata Kinen": {
+            "id": 10321,
             "date": "Early Sep",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -2077,6 +2222,7 @@
             "grade": "G3"
         },
         "Radio Nippon Sho": {
+            "id": 10322,
             "date": "Early Sep",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -2091,6 +2237,7 @@
             "grade": "OP"
         },
         "Rose Stakes": {
+            "id": 10147,
             "date": "Early Sep",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -2105,6 +2252,7 @@
             "grade": "G2"
         },
         "Shion Stakes": {
+            "id": 10148,
             "date": "Early Sep",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -2119,6 +2267,7 @@
             "grade": "G3"
         },
         "Tancho Stakes": {
+            "id": 10323,
             "date": "Early Sep",
             "racetrack": "Sapporo",
             "terrain": "Turf",
@@ -2133,6 +2282,7 @@
             "grade": "OP"
         },
         "All Comers": {
+            "id": 10324,
             "date": "Late Sep",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -2147,6 +2297,7 @@
             "grade": "G2"
         },
         "Kobe Shimbun Hai": {
+            "id": 10151,
             "date": "Late Sep",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -2161,6 +2312,7 @@
             "grade": "G2"
         },
         "Nagatsuki Stakes": {
+            "id": 10325,
             "date": "Late Sep",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -2175,6 +2327,7 @@
             "grade": "OP"
         },
         "Port Island Stakes": {
+            "id": 10326,
             "date": "Late Sep",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -2189,6 +2342,7 @@
             "grade": "OP"
         },
         "Sirius Stakes": {
+            "id": 10327,
             "date": "Late Sep",
             "racetrack": "Hanshin",
             "terrain": "Dirt",
@@ -2203,6 +2357,7 @@
             "grade": "G3"
         },
         "Sprinters Stakes": {
+            "id": 10328,
             "date": "Late Sep",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -2221,6 +2376,7 @@
             ]
         },
         "St. Lite Kinen": {
+            "id": 10156,
             "date": "Late Sep",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -2235,6 +2391,7 @@
             "grade": "G2"
         },
         "Fuchu Umamusume Stakes": {
+            "id": 10329,
             "date": "Early Oct",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -2249,6 +2406,7 @@
             "grade": "G2"
         },
         "Green Channel Cup": {
+            "id": 10330,
             "date": "Early Oct",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -2263,6 +2421,7 @@
             "grade": "OP"
         },
         "Kyoto Daishoten": {
+            "id": 10331,
             "date": "Early Oct",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -2277,6 +2436,7 @@
             "grade": "G2"
         },
         "Mainichi Okan": {
+            "id": 10332,
             "date": "Early Oct",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -2291,6 +2451,7 @@
             "grade": "G2"
         },
         "October Stakes": {
+            "id": 10333,
             "date": "Early Oct",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -2305,6 +2466,7 @@
             "grade": "OP"
         },
         "Opal Stakes": {
+            "id": 10334,
             "date": "Early Oct",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -2319,6 +2481,7 @@
             "grade": "OP"
         },
         "Shinetsu Stakes": {
+            "id": 10335,
             "date": "Early Oct",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -2333,6 +2496,7 @@
             "grade": "OP"
         },
         "Uzumasa Stakes": {
+            "id": 10336,
             "date": "Early Oct",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -2347,6 +2511,7 @@
             "grade": "OP"
         },
         "Brazil Cup": {
+            "id": 10337,
             "date": "Late Oct",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -2361,6 +2526,7 @@
             "grade": "OP"
         },
         "Cassiopeia Stakes": {
+            "id": 10338,
             "date": "Late Oct",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -2375,6 +2541,7 @@
             "grade": "OP"
         },
         "Fuji Stakes": {
+            "id": 10339,
             "date": "Late Oct",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -2389,6 +2556,7 @@
             "grade": "G2"
         },
         "Kikuka Sho": {
+            "id": 10168,
             "date": "Late Oct",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -2407,6 +2575,7 @@
             ]
         },
         "Lumiere Autumn Dash": {
+            "id": 10340,
             "date": "Late Oct",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -2421,6 +2590,7 @@
             "grade": "OP"
         },
         "Muromachi Stakes": {
+            "id": 10341,
             "date": "Late Oct",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -2435,6 +2605,7 @@
             "grade": "OP"
         },
         "Shuka Sho": {
+            "id": 10171,
             "date": "Late Oct",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -2453,6 +2624,7 @@
             ]
         },
         "Swan Stakes": {
+            "id": 10342,
             "date": "Late Oct",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -2467,6 +2639,7 @@
             "grade": "G2"
         },
         "Tenno Sho (Autumn)": {
+            "id": 10343,
             "date": "Late Oct",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -2485,6 +2658,7 @@
             ]
         },
         "Copa Republica Argentina": {
+            "id": 10344,
             "date": "Early Nov",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -2499,6 +2673,7 @@
             "grade": "G2"
         },
         "Fukushima Kinen": {
+            "id": 10345,
             "date": "Early Nov",
             "racetrack": "Fukushima",
             "terrain": "Turf",
@@ -2513,6 +2688,7 @@
             "grade": "G3"
         },
         "JBC Classic": {
+            "id": 10346,
             "date": "Early Nov",
             "racetrack": "Ooi",
             "terrain": "Dirt",
@@ -2531,6 +2707,7 @@
             ]
         },
         "JBC Ladies’ Classic": {
+            "id": 10347,
             "date": "Early Nov",
             "racetrack": "Ooi",
             "terrain": "Dirt",
@@ -2549,6 +2726,7 @@
             ]
         },
         "JBC Sprint": {
+            "id": 10348,
             "date": "Early Nov",
             "racetrack": "Ooi",
             "terrain": "Dirt",
@@ -2567,6 +2745,7 @@
             ]
         },
         "Miyako Stakes": {
+            "id": 10349,
             "date": "Early Nov",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -2581,6 +2760,7 @@
             "grade": "G3"
         },
         "Musashino Stakes": {
+            "id": 10350,
             "date": "Early Nov",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -2595,6 +2775,7 @@
             "grade": "G3"
         },
         "Oro Cup": {
+            "id": 10351,
             "date": "Early Nov",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -2609,6 +2790,7 @@
             "grade": "OP"
         },
         "Queen Elizabeth II Cup": {
+            "id": 10352,
             "date": "Early Nov",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -2627,6 +2809,7 @@
             ]
         },
         "Andromeda Stakes": {
+            "id": 10353,
             "date": "Late Nov",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -2641,6 +2824,7 @@
             "grade": "OP"
         },
         "Autumn Leaf Stakes": {
+            "id": 10354,
             "date": "Late Nov",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -2655,6 +2839,7 @@
             "grade": "OP"
         },
         "Capital Stakes": {
+            "id": 10355,
             "date": "Late Nov",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -2669,6 +2854,7 @@
             "grade": "OP"
         },
         "Fukushima Minyu Cup": {
+            "id": 10356,
             "date": "Late Nov",
             "racetrack": "Fukushima",
             "terrain": "Dirt",
@@ -2683,6 +2869,7 @@
             "grade": "OP"
         },
         "Japan Cup": {
+            "id": 10357,
             "date": "Late Nov",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -2701,6 +2888,7 @@
             ]
         },
         "Keihan Hai": {
+            "id": 10358,
             "date": "Late Nov",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -2715,6 +2903,7 @@
             "grade": "G3"
         },
         "Mile Championship": {
+            "id": 10359,
             "date": "Late Nov",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -2733,6 +2922,7 @@
             ]
         },
         "Shimotsuki Stakes": {
+            "id": 10360,
             "date": "Late Nov",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -2747,6 +2937,7 @@
             "grade": "OP"
         },
         "Capella Stakes": {
+            "id": 10361,
             "date": "Early Dec",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -2761,6 +2952,7 @@
             "grade": "G3"
         },
         "Challenge Cup": {
+            "id": 10362,
             "date": "Early Dec",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -2775,6 +2967,7 @@
             "grade": "G3"
         },
         "Champions Cup": {
+            "id": 10363,
             "date": "Early Dec",
             "racetrack": "Chukyo",
             "terrain": "Dirt",
@@ -2793,6 +2986,7 @@
             ]
         },
         "Chunichi Shimbun Hai": {
+            "id": 10364,
             "date": "Early Dec",
             "racetrack": "Chukyo",
             "terrain": "Turf",
@@ -2807,6 +3001,7 @@
             "grade": "G3"
         },
         "December Stakes": {
+            "id": 10365,
             "date": "Early Dec",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -2821,6 +3016,7 @@
             "grade": "OP"
         },
         "Lapis Lazuli Stakes": {
+            "id": 10366,
             "date": "Early Dec",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -2835,6 +3031,7 @@
             "grade": "OP"
         },
         "Rigel Stakes": {
+            "id": 10367,
             "date": "Early Dec",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -2849,6 +3046,7 @@
             "grade": "OP"
         },
         "Shiwasu Stakes": {
+            "id": 10368,
             "date": "Early Dec",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -2863,6 +3061,7 @@
             "grade": "OP"
         },
         "Stayers Stakes": {
+            "id": 10369,
             "date": "Early Dec",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -2877,6 +3076,7 @@
             "grade": "G2"
         },
         "Tanzanite Stakes": {
+            "id": 10370,
             "date": "Early Dec",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -2891,6 +3091,7 @@
             "grade": "OP"
         },
         "Turquoise Stakes": {
+            "id": 10371,
             "date": "Early Dec",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -2905,6 +3106,7 @@
             "grade": "G3"
         },
         "Arima Kinen": {
+            "id": 10372,
             "date": "Late Dec",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -2923,6 +3125,7 @@
             ]
         },
         "Betelgeuse Stakes": {
+            "id": 10373,
             "date": "Late Dec",
             "racetrack": "Hanshin",
             "terrain": "Dirt",
@@ -2937,6 +3140,7 @@
             "grade": "OP"
         },
         "Galaxy Stakes": {
+            "id": 10374,
             "date": "Late Dec",
             "racetrack": "Hanshin",
             "terrain": "Dirt",
@@ -2951,6 +3155,7 @@
             "grade": "OP"
         },
         "Hanshin Cup": {
+            "id": 10375,
             "date": "Late Dec",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -2965,6 +3170,7 @@
             "grade": "G2"
         },
         "Tokyo Daishoten": {
+            "id": 10376,
             "date": "Late Dec",
             "racetrack": "Ooi",
             "terrain": "Dirt",
@@ -2985,6 +3191,7 @@
     },
     "Senior Year": {
         "Aichi Hai": {
+            "id": 10207,
             "date": "Early Jan",
             "racetrack": "Chukyo",
             "terrain": "Turf",
@@ -2999,6 +3206,7 @@
             "grade": "G3"
         },
         "Carbuncle Stakes": {
+            "id": 10208,
             "date": "Early Jan",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3013,6 +3221,7 @@
             "grade": "OP"
         },
         "January Stakes": {
+            "id": 10209,
             "date": "Early Jan",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -3027,6 +3236,7 @@
             "grade": "OP"
         },
         "Kyoto Kimpai": {
+            "id": 10210,
             "date": "Early Jan",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3041,6 +3251,7 @@
             "grade": "G3"
         },
         "Manyo Stakes": {
+            "id": 10211,
             "date": "Early Jan",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3055,6 +3266,7 @@
             "grade": "OP"
         },
         "Nakayama Kimpai": {
+            "id": 10212,
             "date": "Early Jan",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3069,6 +3281,7 @@
             "grade": "G3"
         },
         "New Year Stakes": {
+            "id": 10213,
             "date": "Early Jan",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3083,6 +3296,7 @@
             "grade": "OP"
         },
         "Nikkei Shinshun Hai": {
+            "id": 10214,
             "date": "Early Jan",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3097,6 +3311,7 @@
             "grade": "G2"
         },
         "Pollux Stakes": {
+            "id": 10215,
             "date": "Early Jan",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -3111,6 +3326,7 @@
             "grade": "OP"
         },
         "Yodo Tankyori Stakes": {
+            "id": 10216,
             "date": "Early Jan",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3125,6 +3341,7 @@
             "grade": "OP"
         },
         "American JCC": {
+            "id": 10217,
             "date": "Late Jan",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3139,6 +3356,7 @@
             "grade": "G2"
         },
         "Negishi Stakes": {
+            "id": 10218,
             "date": "Late Jan",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -3153,6 +3371,7 @@
             "grade": "G3"
         },
         "Shirafuji Stakes": {
+            "id": 10219,
             "date": "Late Jan",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -3167,6 +3386,7 @@
             "grade": "OP"
         },
         "Silk Road Stakes": {
+            "id": 10220,
             "date": "Late Jan",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3181,6 +3401,7 @@
             "grade": "G3"
         },
         "Subaru Stakes": {
+            "id": 10221,
             "date": "Late Jan",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -3195,6 +3416,7 @@
             "grade": "OP"
         },
         "Tokai Stakes": {
+            "id": 10222,
             "date": "Late Jan",
             "racetrack": "Chukyo",
             "terrain": "Dirt",
@@ -3209,6 +3431,7 @@
             "grade": "G2"
         },
         "Aldebaran Stakes": {
+            "id": 10223,
             "date": "Early Feb",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -3223,6 +3446,7 @@
             "grade": "OP"
         },
         "Kyoto Kinen": {
+            "id": 10224,
             "date": "Early Feb",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3237,6 +3461,7 @@
             "grade": "G2"
         },
         "Rakuyo Stakes": {
+            "id": 10225,
             "date": "Early Feb",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3251,6 +3476,7 @@
             "grade": "OP"
         },
         "Tokyo Shimbun Hai": {
+            "id": 10226,
             "date": "Early Feb",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -3265,6 +3491,7 @@
             "grade": "G3"
         },
         "Valentine Stakes": {
+            "id": 10227,
             "date": "Early Feb",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -3279,6 +3506,7 @@
             "grade": "OP"
         },
         "Yamato Stakes": {
+            "id": 10228,
             "date": "Early Feb",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -3293,6 +3521,7 @@
             "grade": "OP"
         },
         "Diamond Stakes": {
+            "id": 10229,
             "date": "Late Feb",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -3307,6 +3536,7 @@
             "grade": "G3"
         },
         "February Stakes": {
+            "id": 10230,
             "date": "Late Feb",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -3325,6 +3555,7 @@
             ]
         },
         "Hankyu Hai": {
+            "id": 10231,
             "date": "Late Feb",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -3339,6 +3570,7 @@
             "grade": "G3"
         },
         "Kitakyushu Tankyori Stakes": {
+            "id": 10232,
             "date": "Late Feb",
             "racetrack": "Kokura",
             "terrain": "Turf",
@@ -3353,6 +3585,7 @@
             "grade": "OP"
         },
         "Kokura Daishoten": {
+            "id": 10233,
             "date": "Late Feb",
             "racetrack": "Kokura",
             "terrain": "Turf",
@@ -3367,6 +3600,7 @@
             "grade": "G3"
         },
         "Kyoto Umamusume Stakes": {
+            "id": 10234,
             "date": "Late Feb",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3381,6 +3615,7 @@
             "grade": "G3"
         },
         "Nakayama Kinen": {
+            "id": 10235,
             "date": "Late Feb",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3395,6 +3630,7 @@
             "grade": "G2"
         },
         "Sobu Stakes": {
+            "id": 10236,
             "date": "Late Feb",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -3409,6 +3645,7 @@
             "grade": "OP"
         },
         "Kinko Sho": {
+            "id": 10237,
             "date": "Early Mar",
             "racetrack": "Chukyo",
             "terrain": "Turf",
@@ -3423,6 +3660,7 @@
             "grade": "G2"
         },
         "Kochi Stakes": {
+            "id": 10238,
             "date": "Early Mar",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3437,6 +3675,7 @@
             "grade": "OP"
         },
         "Nakayama Umamusume Stakes": {
+            "id": 10239,
             "date": "Early Mar",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3451,6 +3690,7 @@
             "grade": "G3"
         },
         "Nigawa Stakes": {
+            "id": 10240,
             "date": "Early Mar",
             "racetrack": "Hanshin",
             "terrain": "Dirt",
@@ -3465,6 +3705,7 @@
             "grade": "OP"
         },
         "Ocean Stakes": {
+            "id": 10241,
             "date": "Early Mar",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3479,6 +3720,7 @@
             "grade": "G3"
         },
         "Osakajo Stakes": {
+            "id": 10242,
             "date": "Early Mar",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -3493,6 +3735,7 @@
             "grade": "OP"
         },
         "Polaris Stakes": {
+            "id": 10243,
             "date": "Early Mar",
             "racetrack": "Hanshin",
             "terrain": "Dirt",
@@ -3507,6 +3750,7 @@
             "grade": "OP"
         },
         "Chiba Stakes": {
+            "id": 10244,
             "date": "Late Mar",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -3521,6 +3765,7 @@
             "grade": "OP"
         },
         "Hanshin Daishoten": {
+            "id": 10245,
             "date": "Late Mar",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -3535,6 +3780,7 @@
             "grade": "G2"
         },
         "March Stakes": {
+            "id": 10246,
             "date": "Late Mar",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -3549,6 +3795,7 @@
             "grade": "G3"
         },
         "Nikkei Sho": {
+            "id": 10247,
             "date": "Late Mar",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3563,6 +3810,7 @@
             "grade": "G2"
         },
         "Osaka Hai": {
+            "id": 10248,
             "date": "Late Mar",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -3581,6 +3829,7 @@
             ]
         },
         "Rokko Stakes": {
+            "id": 10249,
             "date": "Late Mar",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -3595,6 +3844,7 @@
             "grade": "OP"
         },
         "Takamatsunomiya Kinen": {
+            "id": 10250,
             "date": "Late Mar",
             "racetrack": "Chukyo",
             "terrain": "Turf",
@@ -3613,6 +3863,7 @@
             ]
         },
         "Antares Stakes": {
+            "id": 10251,
             "date": "Early Apr",
             "racetrack": "Hanshin",
             "terrain": "Dirt",
@@ -3627,6 +3878,7 @@
             "grade": "G3"
         },
         "Azumakofuji Stakes": {
+            "id": 10252,
             "date": "Early Apr",
             "racetrack": "Fukushima",
             "terrain": "Dirt",
@@ -3641,6 +3893,7 @@
             "grade": "OP"
         },
         "Coral Stakes": {
+            "id": 10253,
             "date": "Early Apr",
             "racetrack": "Hanshin",
             "terrain": "Dirt",
@@ -3655,6 +3908,7 @@
             "grade": "OP"
         },
         "Fukushima Mimpo Hai": {
+            "id": 10254,
             "date": "Early Apr",
             "racetrack": "Fukushima",
             "terrain": "Turf",
@@ -3669,6 +3923,7 @@
             "grade": "OP"
         },
         "Hanshin Umamusume Stakes": {
+            "id": 10255,
             "date": "Early Apr",
             "racetrack": "Hanshin",
             "terrain": "Turf",
@@ -3683,6 +3938,7 @@
             "grade": "G2"
         },
         "Keiyo Stakes": {
+            "id": 10256,
             "date": "Early Apr",
             "racetrack": "Nakayama",
             "terrain": "Dirt",
@@ -3697,6 +3953,7 @@
             "grade": "OP"
         },
         "Lord Derby Challenge Trophy": {
+            "id": 10257,
             "date": "Early Apr",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3711,6 +3968,7 @@
             "grade": "G3"
         },
         "Shunrai Stakes": {
+            "id": 10258,
             "date": "Early Apr",
             "racetrack": "Nakayama",
             "terrain": "Turf",
@@ -3725,6 +3983,7 @@
             "grade": "OP"
         },
         "Fukushima Umamusume Stakes": {
+            "id": 10259,
             "date": "Late Apr",
             "racetrack": "Fukushima",
             "terrain": "Turf",
@@ -3739,6 +3998,7 @@
             "grade": "G3"
         },
         "Milers Cup": {
+            "id": 10260,
             "date": "Late Apr",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3753,6 +4013,7 @@
             "grade": "G2"
         },
         "Oasis Stakes": {
+            "id": 10261,
             "date": "Late Apr",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -3767,6 +4028,7 @@
             "grade": "OP"
         },
         "Tenno Sho (Spring)": {
+            "id": 10262,
             "date": "Late Apr",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3785,6 +4047,7 @@
             ]
         },
         "Tennozan Stakes": {
+            "id": 10263,
             "date": "Late Apr",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -3799,6 +4062,7 @@
             "grade": "OP"
         },
         "Brilliant Stakes": {
+            "id": 10264,
             "date": "Early May",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -3813,6 +4077,7 @@
             "grade": "OP"
         },
         "Keio Hai Spring Cup": {
+            "id": 10265,
             "date": "Early May",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -3827,6 +4092,7 @@
             "grade": "G2"
         },
         "Kurama Stakes": {
+            "id": 10266,
             "date": "Early May",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3841,6 +4107,7 @@
             "grade": "OP"
         },
         "Metropolitan Stakes": {
+            "id": 10267,
             "date": "Early May",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -3855,6 +4122,7 @@
             "grade": "OP"
         },
         "Miyakooji Stakes": {
+            "id": 10268,
             "date": "Early May",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3869,6 +4137,7 @@
             "grade": "OP"
         },
         "Niigata Daishoten": {
+            "id": 10269,
             "date": "Early May",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -3883,6 +4152,7 @@
             "grade": "G3"
         },
         "Ritto Stakes": {
+            "id": 10270,
             "date": "Early May",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -3897,6 +4167,7 @@
             "grade": "OP"
         },
         "Tanigawadake Stakes": {
+            "id": 10271,
             "date": "Early May",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -3911,6 +4182,7 @@
             "grade": "OP"
         },
         "Victoria Mile": {
+            "id": 10272,
             "date": "Early May",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -3929,6 +4201,7 @@
             ]
         },
         "Azuchijo Stakes": {
+            "id": 10273,
             "date": "Late May",
             "racetrack": "Kyoto",
             "terrain": "Turf",
@@ -3943,6 +4216,7 @@
             "grade": "OP"
         },
         "Heian Stakes": {
+            "id": 10274,
             "date": "Late May",
             "racetrack": "Kyoto",
             "terrain": "Dirt",
@@ -3957,6 +4231,7 @@
             "grade": "G3"
         },
         "Idaten Stakes": {
+            "id": 10275,
             "date": "Late May",
             "racetrack": "Niigata",
             "terrain": "Turf",
@@ -3971,6 +4246,7 @@
             "grade": "OP"
         },
         "Keyaki Stakes": {
+            "id": 10276,
             "date": "Late May",
             "racetrack": "Tokyo",
             "terrain": "Dirt",
@@ -3985,6 +4261,7 @@
             "grade": "OP"
         },
         "May Stakes": {
+            "id": 10277,
             "date": "Late May",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -3999,6 +4276,7 @@
             "grade": "OP"
         },
         "Meguro Kinen": {
+            "id": 10278,
             "date": "Late May",
             "racetrack": "Tokyo",
             "terrain": "Turf",
@@ -4013,6 +4291,7 @@
             "grade": "G2"
         },
         "Teio Sho": {
+            "id": 10291,
             "date": "Late Jun",
             "racetrack": "Ooi",
             "terrain": "Dirt",
