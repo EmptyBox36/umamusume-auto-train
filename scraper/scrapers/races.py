@@ -169,13 +169,21 @@ class RaceScraper(BaseScraper):
                 payload_copy["date"] = _format_date(date_text)
 
                 self.data.setdefault(bucket, {})
-                arr = self.data[bucket].setdefault(race_name, [])
 
-                # skip if same date+meters already recorded for this race in this bucket
-                if not any(x["date"] == payload_copy["date"] and
-                           x["distance"]["meters"] == payload_copy["distance"]["meters"]
-                           for x in arr):
-                    arr.append(payload_copy)
+                prev = self.data[bucket].get(race_name)
+                if prev is None:
+                    self.data[bucket][race_name] = payload_copy
+                elif isinstance(prev, list):
+                    # only add if not a duplicate (same date + meters)
+                    if not any(e["date"] == payload_copy["date"] and
+                               e["distance"]["meters"] == payload_copy["distance"]["meters"]
+                               for e in prev):
+                        prev.append(payload_copy)
+                else:
+                    # prev is a single object; turn into list only if new is different
+                    if not (prev["date"] == payload_copy["date"] and
+                            prev["distance"]["meters"] == payload_copy["distance"]["meters"]):
+                        self.data[bucket][race_name] = [prev, payload_copy]
 
             def _parse_date_order(t: str) -> int:
                 t = (t or "").strip()
@@ -188,43 +196,42 @@ class RaceScraper(BaseScraper):
                 i = mon.get(m.group(2).title(), 99)
                 return i * 2 + half
 
-            def sort_races_bucket(bucket_dict: dict, year_label: str) -> dict:
-                # year offset to keep Junior < Classic < Senior globally
-                yoff = 0 if year_label == "Junior Year" else (1000 if year_label == "Classic Year" else 2000)
-
-                # sort entries of each race, then sort race names by earliest entry
-                def entry_key(e):
-                    return yoff + _parse_date_order(e.get("date","")) + (e.get("id", 0) / 1e6)
-
-                sorted_bucket = {}
-                for rn, entries in bucket_dict.items():
-                    se = sorted(entries, key=entry_key)
-                    sorted_bucket[rn] = se
-
-                # sort race names by their earliest entry
-                return dict(sorted(sorted_bucket.items(),
-                                   key=lambda kv: entry_key(kv[1][0]) if kv[1] else 99999))
+            def sort_races_bucket(bucket_dict: dict) -> dict:
+                out = {}
+                for name, val in bucket_dict.items():
+                    arr = val if isinstance(val, list) else [val]
+                    arr.sort(key=lambda e: _parse_date_order(e["date"]))
+                    out[name] = arr if len(arr) > 1 else arr[0]
+                return out
 
             # close dialog
             driver.find_element(By.XPATH, "//div[contains(@class,'sc-f83b4a49-1')]").click()
             time.sleep(0.3)
 
-        # sort buckets like GameTora
         sorted_data = {}
+        # sort buckets like GameTora
         for y in ["Junior Year", "Classic Year", "Senior Year"]:
             if y in self.data:
-                sorted_data[y] = sort_races_bucket(self.data[y], y)
+                sorted_data[y] = sort_races_bucket(self.data[y])
 
         # assign IDs after sorting
         rid = 10001
         for y in ["Junior Year", "Classic Year", "Senior Year"]:
-            if y not in sorted_data:
+            bucket = sorted_data.get(y)
+            if not bucket:
                 continue
-            for _, entries in sorted_data[y].items():
-                for e in entries:
-                    e["id"] = rid
+            for race_name, entry in bucket.items():
+                if isinstance(entry, list):
+                    for e in entry:
+                        if isinstance(e, dict):
+                            e["id"] = rid
+                            rid += 1
+                elif isinstance(entry, dict):
+                    entry["id"] = rid
                     rid += 1
 
+        # use the sorted + id-tagged data
         self.data = sorted_data
         self.save_data()
+
         driver.quit()
