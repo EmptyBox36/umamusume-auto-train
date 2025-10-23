@@ -1,0 +1,4034 @@
+{
+    "Junior Year": {
+        "Chukyo Junior Stakes": {
+            "date": "Late Jul",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Hakodate Junior Stakes": {
+            "date": "Late Jul",
+            "racetrack": "Hakodate",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 3100
+            },
+            "grade": "G3"
+        },
+        "Cosmos Sho": {
+            "date": "Early Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Dahlia Sho": {
+            "date": "Early Aug",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Phoenix Sho": {
+            "date": "Early Aug",
+            "racetrack": "Kokura",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Clover Sho": {
+            "date": "Late Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1500
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Niigata Junior Stakes": {
+            "date": "Late Aug",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 3100
+            },
+            "grade": "G3"
+        },
+        "Aster Sho": {
+            "date": "Early Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Kokura Junior Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Kokura",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 3100
+            },
+            "grade": "G3"
+        },
+        "Nojigiku Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Sapporo Junior Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 3100
+            },
+            "grade": "G3"
+        },
+        "Suzuran Sho": {
+            "date": "Early Sep",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Canna Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Fuyo Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Kikyo Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Saffron Sho": {
+            "date": "Late Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Momiji Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Platanus Sho": {
+            "date": "Early Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Rindo Sho": {
+            "date": "Early Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Saudi Arabia Royal Cup": {
+            "date": "Early Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 3300
+            },
+            "grade": "G3"
+        },
+        "Shigiku Sho": {
+            "date": "Early Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Artemis Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2900
+            },
+            "grade": "G3"
+        },
+        "Hagi Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1700
+            },
+            "grade": "OP"
+        },
+        "Ivy Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1700
+            },
+            "grade": "OP"
+        },
+        "Nadeshiko Sho": {
+            "date": "Late Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Daily Hai Junior Stakes": {
+            "date": "Early Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 375,
+                "gained": 3800
+            },
+            "grade": "G2"
+        },
+        "Fantasy Stakes": {
+            "date": "Early Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2900
+            },
+            "grade": "G3"
+        },
+        "Fukushima Junior Stakes": {
+            "date": "Early Nov",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Hyakunichiso Tokubetsu": {
+            "date": "Early Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Keio Hai Junior Stakes": {
+            "date": "Early Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 375,
+                "gained": 3800
+            },
+            "grade": "G2"
+        },
+        "Kigiku Sho": {
+            "date": "Early Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Kimmokusei Tokubetsu": {
+            "date": "Early Nov",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Oxalis Sho": {
+            "date": "Early Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Akamatsu Sho": {
+            "date": "Late Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Begonia Sho": {
+            "date": "Late Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Cattleya Sho": {
+            "date": "Late Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Habotan Sho": {
+            "date": "Late Nov",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Koyamaki Sho": {
+            "date": "Late Nov",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Kyoto Junior Stakes": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 3300
+            },
+            "grade": "G3"
+        },
+        "Mochinoki Sho": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Shiragiku Sho": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Shumeigiku Sho": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Tokyo Sports Hai Junior Stakes": {
+            "date": "Late Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 3300
+            },
+            "grade": "G3"
+        },
+        "Asahi Hai Futurity Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 7000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Speed",
+                "Guts"
+            ]
+        },
+        "Erica Sho": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Hanshin Juvenile Fillies": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 6500
+            },
+            "grade": "G1",
+            "sparks": [
+                "Speed",
+                "Power"
+            ]
+        },
+        "Hiiragi Sho": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Kantsubaki Sho": {
+            "date": "Early Dec",
+            "racetrack": "Chukyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Kuromatsu Sho": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Manryo Sho": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Sazanka Sho": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Tsuwabuki Sho": {
+            "date": "Early Dec",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        },
+        "Christmas Rose Stakes": {
+            "date": "Late Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1600
+            },
+            "grade": "OP"
+        },
+        "Hopeful Stakes": {
+            "date": "Late Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 7000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Speed",
+                "Stamina"
+            ]
+        },
+        "Senryo Sho": {
+            "date": "Late Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1000
+            },
+            "grade": "Pre-OP"
+        }
+    },
+    "Classic Year": {
+        "Fairy Stakes": {
+            "date": "Early Jan",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 750,
+                "gained": 3500
+            },
+            "grade": "G3"
+        },
+        "Junior Cup": {
+            "date": "Early Jan",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Keisei Hai": {
+            "date": "Early Jan",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Kobai Stakes": {
+            "date": "Early Jan",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Shinzan Kinen": {
+            "date": "Early Jan",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Crocus Stakes": {
+            "date": "Late Jan",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Wakagoma Stakes": {
+            "date": "Late Jan",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Elfin Stakes": {
+            "date": "Early Feb",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Kisaragi Sho": {
+            "date": "Early Feb",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Kyodo News Hai": {
+            "date": "Early Feb",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Queen Cup": {
+            "date": "Early Feb",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 750,
+                "gained": 3500
+            },
+            "grade": "G3"
+        },
+        "Hyacinth Stakes": {
+            "date": "Late Feb",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1900
+            },
+            "grade": "OP"
+        },
+        "Marguerite Stakes": {
+            "date": "Late Feb",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Sumire Stakes": {
+            "date": "Late Feb",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Anemone Stakes": {
+            "date": "Early Mar",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Fillies' Revue": {
+            "date": "Early Mar",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 1750,
+                "gained": 5200
+            },
+            "grade": "G2"
+        },
+        "Shoryu Stakes": {
+            "date": "Early Mar",
+            "racetrack": "Chukyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1800
+            },
+            "grade": "OP"
+        },
+        "Tulip Sho": {
+            "date": "Early Mar",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1750,
+                "gained": 5200
+            },
+            "grade": "G2"
+        },
+        "Yayoi Sho": {
+            "date": "Early Mar",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1750,
+                "gained": 5400
+            },
+            "grade": "G2"
+        },
+        "Falcon Stakes": {
+            "date": "Late Mar",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Flower Cup": {
+            "date": "Late Mar",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 750,
+                "gained": 3500
+            },
+            "grade": "G3"
+        },
+        "Mainichi Hai": {
+            "date": "Late Mar",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Spring Stakes": {
+            "date": "Late Mar",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1750,
+                "gained": 5400
+            },
+            "grade": "G2"
+        },
+        "Wakaba Stakes": {
+            "date": "Late Mar",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Arlington Cup": {
+            "date": "Early Apr",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Fukuryu Stakes": {
+            "date": "Early Apr",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1800
+            },
+            "grade": "OP"
+        },
+        "New Zealand Trophy": {
+            "date": "Early Apr",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1750,
+                "gained": 5400
+            },
+            "grade": "G2"
+        },
+        "Oka Sho": {
+            "date": "Early Apr",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 4500,
+                "gained": 10500
+            },
+            "grade": "G1",
+            "sparks": [
+                "Hanshin Racecourse ○",
+                "Hanshin Racecourse ○"
+            ]
+        },
+        "Satsuki Sho": {
+            "date": "Early Apr",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 4500,
+                "gained": 11000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Nakayama Racecourse ○",
+                "Nakayama Racecourse ○"
+            ]
+        },
+        "Wasurenagusa Sho": {
+            "date": "Early Apr",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Aoba Sho": {
+            "date": "Late Apr",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2400
+            },
+            "fans": {
+                "required": 1800,
+                "gained": 5400
+            },
+            "grade": "G2"
+        },
+        "Flora Stakes": {
+            "date": "Late Apr",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1750,
+                "gained": 5200
+            },
+            "grade": "G2"
+        },
+        "Sweetpea Stakes": {
+            "date": "Late Apr",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Tachibana Stakes": {
+            "date": "Late Apr",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Tango Stakes": {
+            "date": "Late Apr",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1800
+            },
+            "grade": "OP"
+        },
+        "Kyoto Shimbun Hai": {
+            "date": "Early May",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 1750,
+                "gained": 5400
+            },
+            "grade": "G2"
+        },
+        "NHK Mile Cup": {
+            "date": "Early May",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 5000,
+                "gained": 10500
+            },
+            "grade": "G1",
+            "sparks": [
+                "Speed",
+                "Power"
+            ]
+        },
+        "Principal Stakes": {
+            "date": "Early May",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Seiryu Stakes": {
+            "date": "Early May",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1800
+            },
+            "grade": "OP"
+        },
+        "Aoi Stakes": {
+            "date": "Late May",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Hosu Stakes": {
+            "date": "Late May",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 1900
+            },
+            "grade": "OP"
+        },
+        "Japanese Oaks": {
+            "date": "Late May",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2400
+            },
+            "fans": {
+                "required": 6000,
+                "gained": 11000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Tokyo Racecourse ○",
+                "Tokyo Racecourse ○"
+            ]
+        },
+        "Shirayuri Stakes": {
+            "date": "Late May",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2000
+            },
+            "grade": "OP"
+        },
+        "Tokyo Yushun (Japanese Derby)": {
+            "date": "Late May",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2400
+            },
+            "fans": {
+                "required": 6000,
+                "gained": 20000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Tokyo Racecourse ○",
+                "Tokyo Racecourse ○"
+            ]
+        },
+        "Epsom Cup": {
+            "date": "Early Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Mermaid Stakes": {
+            "date": "Early Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Naruo Kinen": {
+            "date": "Early Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Sleipnir Stakes": {
+            "date": "Early Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2100
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Tempozan Stakes": {
+            "date": "Early Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Yasuda Kinen": {
+            "date": "Early Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 15000,
+                "gained": 13000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Tokyo Racecourse ○",
+                "Tokyo Racecourse ○"
+            ]
+        },
+        "Akhalteke Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Hakodate Sprint Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Hakodate",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "Onuma Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Hakodate",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Paradise Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Sannomiya Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Takarazuka Kinen": {
+            "date": "Late Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 20000,
+                "gained": 15000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Summer Runner ○",
+                "Summer Runner ○"
+            ]
+        },
+        "Unicorn Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 750,
+                "gained": 3500
+            },
+            "grade": "G3"
+        },
+        "Yonago Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "CBC Sho": {
+            "date": "Early Jul",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "Hakodate Kinen": {
+            "date": "Early Jul",
+            "racetrack": "Hakodate",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Japan Dirt Derby": {
+            "date": "Early Jul",
+            "racetrack": "Ooi",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 4000,
+                "gained": 4500
+            },
+            "grade": "G1",
+            "sparks": [
+                "Oi Racecourse ○",
+                "Oi Racecourse ○"
+            ]
+        },
+        "Marine Stakes": {
+            "date": "Early Jul",
+            "racetrack": "Hakodate",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Meitetsu Hai": {
+            "date": "Early Jul",
+            "racetrack": "Chukyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Procyon Stakes": {
+            "date": "Early Jul",
+            "racetrack": "Chukyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Radio Nikkei Sho": {
+            "date": "Early Jul",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Tanabata Sho": {
+            "date": "Early Jul",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Tomoe Sho": {
+            "date": "Early Jul",
+            "racetrack": "Hakodate",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2400
+            },
+            "grade": "OP"
+        },
+        "Chukyo Kinen": {
+            "date": "Late Jul",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "Fukushima TV Open": {
+            "date": "Late Jul",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Ibis Summer Dash": {
+            "date": "Late Jul",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1000
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "Queen Stakes": {
+            "date": "Late Jul",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Aso Stakes": {
+            "date": "Early Aug",
+            "racetrack": "Kokura",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Elm Stakes": {
+            "date": "Early Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Kanetsu Stakes": {
+            "date": "Early Aug",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2400
+            },
+            "grade": "OP"
+        },
+        "Kokura Kinen": {
+            "date": "Early Aug",
+            "racetrack": "Kokura",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Leopard Stakes": {
+            "date": "Early Aug",
+            "racetrack": "Niigata",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 4000
+            },
+            "grade": "G3"
+        },
+        "Sapporo Nikkei Open": {
+            "date": "Early Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 2600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP"
+        },
+        "Sekiya Kinen": {
+            "date": "Early Aug",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "UHB Sho": {
+            "date": "Early Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "BSN Sho": {
+            "date": "Late Aug",
+            "racetrack": "Niigata",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Keeneland Cup": {
+            "date": "Late Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Kitakyushu Kinen": {
+            "date": "Late Aug",
+            "racetrack": "Kokura",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "Kokura Nikkei Open": {
+            "date": "Late Aug",
+            "racetrack": "Kokura",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2400
+            },
+            "grade": "OP"
+        },
+        "NST Sho": {
+            "date": "Late Aug",
+            "racetrack": "Niigata",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Sapporo Kinen": {
+            "date": "Late Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 7000
+            },
+            "grade": "G2"
+        },
+        "Toki Stakes": {
+            "date": "Late Aug",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Centaur Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 5900
+            },
+            "grade": "G2"
+        },
+        "Enif Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Keisei Hai Autumn Handicap": {
+            "date": "Early Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "Niigata Kinen": {
+            "date": "Early Sep",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Radio Nippon Sho": {
+            "date": "Early Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Rose Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1750,
+                "gained": 5200
+            },
+            "grade": "G2"
+        },
+        "Shion Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3500
+            },
+            "grade": "G3"
+        },
+        "Tancho Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 2600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2400
+            },
+            "grade": "OP"
+        },
+        "All Comers": {
+            "date": "Late Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2"
+        },
+        "Kobe Shimbun Hai": {
+            "date": "Late Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2400
+            },
+            "fans": {
+                "required": 1750,
+                "gained": 5400
+            },
+            "grade": "G2"
+        },
+        "Nagatsuki Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Port Island Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Sirius Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Sprinters Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 15000,
+                "gained": 13000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Standard Distance ○",
+                "Standard Distance ○"
+            ]
+        },
+        "St. Lite Kinen": {
+            "date": "Late Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 1750,
+                "gained": 5400
+            },
+            "grade": "G2"
+        },
+        "Fuchu Umamusume Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1800,
+                "gained": 5500
+            },
+            "grade": "G2"
+        },
+        "Green Channel Cup": {
+            "date": "Early Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Kyoto Daishoten": {
+            "date": "Early Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2400
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2"
+        },
+        "Mainichi Okan": {
+            "date": "Early Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2"
+        },
+        "October Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP"
+        },
+        "Opal Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Shinetsu Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Uzumasa Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Brazil Cup": {
+            "date": "Late Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2100
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Cassiopeia Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP"
+        },
+        "Fuji Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 5900
+            },
+            "grade": "G2"
+        },
+        "Kikuka Sho": {
+            "date": "Late Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 3000
+            },
+            "fans": {
+                "required": 7500,
+                "gained": 12000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Kyoto Racecourse ○",
+                "Kyoto Racecourse ○"
+            ]
+        },
+        "Lumiere Autumn Dash": {
+            "date": "Late Oct",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Muromachi Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Shuka Sho": {
+            "date": "Late Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 7500,
+                "gained": 10000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Kyoto Racecourse ○",
+                "Kyoto Racecourse ○"
+            ]
+        },
+        "Swan Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 5900
+            },
+            "grade": "G2"
+        },
+        "Tenno Sho (Autumn)": {
+            "date": "Late Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 20000,
+                "gained": 15000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Fall Runner ○",
+                "Fall Runner ○"
+            ]
+        },
+        "Copa Republica Argentina": {
+            "date": "Early Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 2500
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 5700
+            },
+            "grade": "G2"
+        },
+        "Fukushima Kinen": {
+            "date": "Early Nov",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "JBC Classic": {
+            "date": "Early Nov",
+            "racetrack": "Ooi",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 8000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Stamina",
+                "Guts"
+            ]
+        },
+        "JBC Ladies’ Classic": {
+            "date": "Early Nov",
+            "racetrack": "Ooi",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 4100
+            },
+            "grade": "G1",
+            "sparks": [
+                "Speed",
+                "Guts"
+            ]
+        },
+        "JBC Sprint": {
+            "date": "Early Nov",
+            "racetrack": "Ooi",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 6000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Power",
+                "Guts"
+            ]
+        },
+        "Miyako Stakes": {
+            "date": "Early Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 750,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Musashino Stakes": {
+            "date": "Early Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Oro Cup": {
+            "date": "Early Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Queen Elizabeth II Cup": {
+            "date": "Early Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 10000,
+                "gained": 10500
+            },
+            "grade": "G1",
+            "sparks": [
+                "Non-Standard Distance ○",
+                "Non-Standard Distance ○"
+            ]
+        },
+        "Andromeda Stakes": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP"
+        },
+        "Autumn Leaf Stakes": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Capital Stakes": {
+            "date": "Late Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Fukushima Minyu Cup": {
+            "date": "Late Nov",
+            "racetrack": "Fukushima",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Japan Cup": {
+            "date": "Late Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2400
+            },
+            "fans": {
+                "required": 25000,
+                "gained": 30000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Tokyo Racecourse ○",
+                "Tokyo Racecourse ○"
+            ]
+        },
+        "Keihan Hai": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "Mile Championship": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 15000,
+                "gained": 11000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Standard Distance ○",
+                "Standard Distance ○"
+            ]
+        },
+        "Shimotsuki Stakes": {
+            "date": "Late Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Capella Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Challenge Cup": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Champions Cup": {
+            "date": "Early Dec",
+            "racetrack": "Chukyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 10000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Chukyo Racecourse ○",
+                "Chukyo Racecourse ○"
+            ]
+        },
+        "Chunichi Shimbun Hai": {
+            "date": "Early Dec",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "December Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP"
+        },
+        "Lapis Lazuli Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Rigel Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Shiwasu Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Stayers Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 3600
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6200
+            },
+            "grade": "G2"
+        },
+        "Tanzanite Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Turquoise Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Arima Kinen": {
+            "date": "Late Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 2500
+            },
+            "fans": {
+                "required": 25000,
+                "gained": 30000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Nakayama Racecourse ○",
+                "Nakayama Racecourse ○"
+            ]
+        },
+        "Betelgeuse Stakes": {
+            "date": "Late Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Galaxy Stakes": {
+            "date": "Late Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Hanshin Cup": {
+            "date": "Late Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2"
+        },
+        "Tokyo Daishoten": {
+            "date": "Late Dec",
+            "racetrack": "Ooi",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 8000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Oi Racecourse ○",
+                "Oi Racecourse ○"
+            ]
+        }
+    },
+    "Senior Year": {
+        "Aichi Hai": {
+            "date": "Early Jan",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 750,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Carbuncle Stakes": {
+            "date": "Early Jan",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "January Stakes": {
+            "date": "Early Jan",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Kyoto Kimpai": {
+            "date": "Early Jan",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Manyo Stakes": {
+            "date": "Early Jan",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 3000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2400
+            },
+            "grade": "OP"
+        },
+        "Nakayama Kimpai": {
+            "date": "Early Jan",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "New Year Stakes": {
+            "date": "Early Jan",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Nikkei Shinshun Hai": {
+            "date": "Early Jan",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2400
+            },
+            "fans": {
+                "required": 1800,
+                "gained": 5700
+            },
+            "grade": "G2"
+        },
+        "Pollux Stakes": {
+            "date": "Early Jan",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Yodo Tankyori Stakes": {
+            "date": "Early Jan",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "American JCC": {
+            "date": "Late Jan",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 6200
+            },
+            "grade": "G2"
+        },
+        "Negishi Stakes": {
+            "date": "Late Jan",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Shirafuji Stakes": {
+            "date": "Late Jan",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP"
+        },
+        "Silk Road Stakes": {
+            "date": "Late Jan",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "Subaru Stakes": {
+            "date": "Late Jan",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Tokai Stakes": {
+            "date": "Late Jan",
+            "racetrack": "Chukyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1800,
+                "gained": 5500
+            },
+            "grade": "G2"
+        },
+        "Aldebaran Stakes": {
+            "date": "Early Feb",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 1900
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Kyoto Kinen": {
+            "date": "Early Feb",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 6200
+            },
+            "grade": "G2"
+        },
+        "Rakuyo Stakes": {
+            "date": "Early Feb",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Tokyo Shimbun Hai": {
+            "date": "Early Feb",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "Valentine Stakes": {
+            "date": "Early Feb",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Yamato Stakes": {
+            "date": "Early Feb",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Diamond Stakes": {
+            "date": "Late Feb",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 3400
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "February Stakes": {
+            "date": "Late Feb",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 10000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Winter Runner ○",
+                "Winter Runner ○"
+            ]
+        },
+        "Hankyu Hai": {
+            "date": "Late Feb",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Kitakyushu Tankyori Stakes": {
+            "date": "Late Feb",
+            "racetrack": "Kokura",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Kokura Daishoten": {
+            "date": "Late Feb",
+            "racetrack": "Kokura",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Kyoto Umamusume Stakes": {
+            "date": "Late Feb",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 750,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Nakayama Kinen": {
+            "date": "Late Feb",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 6700
+            },
+            "grade": "G2"
+        },
+        "Sobu Stakes": {
+            "date": "Late Feb",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Kinko Sho": {
+            "date": "Early Mar",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2"
+        },
+        "Kochi Stakes": {
+            "date": "Early Mar",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Nakayama Umamusume Stakes": {
+            "date": "Early Mar",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Nigawa Stakes": {
+            "date": "Early Mar",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Ocean Stakes": {
+            "date": "Early Mar",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Osakajo Stakes": {
+            "date": "Early Mar",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP"
+        },
+        "Polaris Stakes": {
+            "date": "Early Mar",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Chiba Stakes": {
+            "date": "Late Mar",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Hanshin Daishoten": {
+            "date": "Late Mar",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 3000
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2"
+        },
+        "March Stakes": {
+            "date": "Late Mar",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Nikkei Sho": {
+            "date": "Late Mar",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 2500
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2"
+        },
+        "Osaka Hai": {
+            "date": "Late Mar",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 20000,
+                "gained": 13500
+            },
+            "grade": "G1",
+            "sparks": [
+                "Standard Distance ○",
+                "Standard Distance ○"
+            ]
+        },
+        "Rokko Stakes": {
+            "date": "Late Mar",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Takamatsunomiya Kinen": {
+            "date": "Late Mar",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 15000,
+                "gained": 13000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Chukyo Racecourse ○",
+                "Chukyo Racecourse ○"
+            ]
+        },
+        "Antares Stakes": {
+            "date": "Early Apr",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Azumakofuji Stakes": {
+            "date": "Early Apr",
+            "racetrack": "Fukushima",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Coral Stakes": {
+            "date": "Early Apr",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Fukushima Mimpo Hai": {
+            "date": "Early Apr",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP"
+        },
+        "Hanshin Umamusume Stakes": {
+            "date": "Early Apr",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1800,
+                "gained": 5500
+            },
+            "grade": "G2"
+        },
+        "Keiyo Stakes": {
+            "date": "Early Apr",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Lord Derby Challenge Trophy": {
+            "date": "Early Apr",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3"
+        },
+        "Shunrai Stakes": {
+            "date": "Early Apr",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Fukushima Umamusume Stakes": {
+            "date": "Late Apr",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3800
+            },
+            "grade": "G3"
+        },
+        "Milers Cup": {
+            "date": "Late Apr",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 5900
+            },
+            "grade": "G2"
+        },
+        "Oasis Stakes": {
+            "date": "Late Apr",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Tenno Sho (Spring)": {
+            "date": "Late Apr",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 3200
+            },
+            "fans": {
+                "required": 20000,
+                "gained": 15000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Spring Runner ○",
+                "Spring Runner ○"
+            ]
+        },
+        "Tennozan Stakes": {
+            "date": "Late Apr",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "Brilliant Stakes": {
+            "date": "Early May",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2100
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Keio Hai Spring Cup": {
+            "date": "Early May",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 5900
+            },
+            "grade": "G2"
+        },
+        "Kurama Stakes": {
+            "date": "Early May",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Metropolitan Stakes": {
+            "date": "Early May",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP"
+        },
+        "Miyakooji Stakes": {
+            "date": "Early May",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP"
+        },
+        "Niigata Daishoten": {
+            "date": "Early May",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3"
+        },
+        "Ritto Stakes": {
+            "date": "Early May",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Tanigawadake Stakes": {
+            "date": "Early May",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Victoria Mile": {
+            "date": "Early May",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 10000,
+                "gained": 10500
+            },
+            "grade": "G1",
+            "sparks": [
+                "Speed",
+                "Power"
+            ]
+        },
+        "Azuchijo Stakes": {
+            "date": "Late May",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP"
+        },
+        "Heian Stakes": {
+            "date": "Late May",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 1900
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3"
+        },
+        "Idaten Stakes": {
+            "date": "Late May",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP"
+        },
+        "Keyaki Stakes": {
+            "date": "Late May",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP"
+        },
+        "May Stakes": {
+            "date": "Late May",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2400
+            },
+            "grade": "OP"
+        },
+        "Meguro Kinen": {
+            "date": "Late May",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 2500
+            },
+            "fans": {
+                "required": 1800,
+                "gained": 5700
+            },
+            "grade": "G2"
+        },
+        "Teio Sho": {
+            "date": "Late Jun",
+            "racetrack": "Ooi",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 6000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Oi Racecourse ○",
+                "Oi Racecourse ○"
+            ]
+        }
+    }
+}

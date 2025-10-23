@@ -10,7 +10,7 @@ scrapers = {
     # "skills": [SkillScraper],
     "characters": [CharacterScraper],
     "supports": [SupportCardScraper],
-    # "races": [RaceScraper],
+    "races": [RaceScraper],
 }
 
 
