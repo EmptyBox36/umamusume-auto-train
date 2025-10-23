@@ -1,0 +1,1118 @@
+{
+    "Chukyo Junior Stakes": {
+        "id": 10001,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4068_00.png"
+    },
+    "Hakodate Junior Stakes": {
+        "id": 10002,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3041_00.png"
+    },
+    "Cosmos Sho": {
+        "id": 10003,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4075_00.png"
+    },
+    "Dahlia Sho": {
+        "id": 10004,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4070_00.png"
+    },
+    "Phoenix Sho": {
+        "id": 10005,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4074_00.png"
+    },
+    "Clover Sho": {
+        "id": 10006,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4077_00.png"
+    },
+    "Niigata Junior Stakes": {
+        "id": 10007,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3049_00.png"
+    },
+    "Aster Sho": {
+        "id": 10008,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4501_00.png"
+    },
+    "Kokura Junior Stakes": {
+        "id": 10009,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3052_00.png"
+    },
+    "Nojigiku Stakes": {
+        "id": 10010,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4085_00.png"
+    },
+    "Sapporo Junior Stakes": {
+        "id": 10011,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3051_00.png"
+    },
+    "Suzuran Sho": {
+        "id": 10012,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4083_00.png"
+    },
+    "Canna Stakes": {
+        "id": 10013,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4089_00.png"
+    },
+    "Fuyo Stakes": {
+        "id": 10014,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4088_00.png"
+    },
+    "Kikyo Stakes": {
+        "id": 10015,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4087_00.png"
+    },
+    "Saffron Sho": {
+        "id": 10016,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4502_00.png"
+    },
+    "Momiji Stakes": {
+        "id": 10017,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4093_00.png"
+    },
+    "Platanus Sho": {
+        "id": 10018,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4505_00.png"
+    },
+    "Rindo Sho": {
+        "id": 10019,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4503_00.png"
+    },
+    "Saudi Arabia Royal Cup": {
+        "id": 10020,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3057_00.png"
+    },
+    "Shigiku Sho": {
+        "id": 10021,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4504_00.png"
+    },
+    "Artemis Stakes": {
+        "id": 10022,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3059_00.png"
+    },
+    "Hagi Stakes": {
+        "id": 10023,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4099_00.png"
+    },
+    "Ivy Stakes": {
+        "id": 10024,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4096_00.png"
+    },
+    "Nadeshiko Sho": {
+        "id": 10025,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4506_00.png"
+    },
+    "Daily Hai Junior Stakes": {
+        "id": 10026,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2032_00.png"
+    },
+    "Fantasy Stakes": {
+        "id": 10027,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3060_00.png"
+    },
+    "Fukushima Junior Stakes": {
+        "id": 10028,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4103_00.png"
+    },
+    "Hyakunichiso Tokubetsu": {
+        "id": 10029,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4507_00.png"
+    },
+    "Keio Hai Junior Stakes": {
+        "id": 10030,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2030_00.png"
+    },
+    "Kigiku Sho": {
+        "id": 10031,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4510_00.png"
+    },
+    "Kimmokusei Tokubetsu": {
+        "id": 10032,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4508_00.png"
+    },
+    "Oxalis Sho": {
+        "id": 10033,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4509_00.png"
+    },
+    "Akamatsu Sho": {
+        "id": 10034,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4512_00.png"
+    },
+    "Begonia Sho": {
+        "id": 10035,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4515_00.png"
+    },
+    "Cattleya Sho": {
+        "id": 10036,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4514_00.png"
+    },
+    "Habotan Sho": {
+        "id": 10037,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4517_00.png"
+    },
+    "Koyamaki Sho": {
+        "id": 10038,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4518_00.png"
+    },
+    "Kyoto Junior Stakes": {
+        "id": 10039,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3065_00.png"
+    },
+    "Mochinoki Sho": {
+        "id": 10040,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4511_00.png"
+    },
+    "Shiragiku Sho": {
+        "id": 10041,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4516_00.png"
+    },
+    "Shumeigiku Sho": {
+        "id": 10042,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4513_00.png"
+    },
+    "Tokyo Sports Hai Junior Stakes": {
+        "id": 10043,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3064_00.png"
+    },
+    "Asahi Hai Futurity Stakes": {
+        "id": 10044,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1022_00.png"
+    },
+    "Erica Sho": {
+        "id": 10045,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4521_00.png"
+    },
+    "Hanshin Juvenile Fillies": {
+        "id": 10046,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1021_00.png"
+    },
+    "Hiiragi Sho": {
+        "id": 10047,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4523_00.png"
+    },
+    "Kantsubaki Sho": {
+        "id": 10048,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4525_00.png"
+    },
+    "Kuromatsu Sho": {
+        "id": 10049,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4520_00.png"
+    },
+    "Manryo Sho": {
+        "id": 10050,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4519_00.png"
+    },
+    "Sazanka Sho": {
+        "id": 10051,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4524_00.png"
+    },
+    "Tsuwabuki Sho": {
+        "id": 10052,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4522_00.png"
+    },
+    "Christmas Rose Stakes": {
+        "id": 10053,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4114_00.png"
+    },
+    "Hopeful Stakes": {
+        "id": 10054,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1024_00.png"
+    },
+    "Senryo Sho": {
+        "id": 10055,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4526_00.png"
+    },
+    "Fairy Stakes": {
+        "id": 10056,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3004_00.png"
+    },
+    "Junior Cup": {
+        "id": 10057,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4002_00.png"
+    },
+    "Keisei Hai": {
+        "id": 10058,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3006_00.png"
+    },
+    "Kobai Stakes": {
+        "id": 10059,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4007_00.png"
+    },
+    "Shinzan Kinen": {
+        "id": 10060,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3003_00.png"
+    },
+    "Crocus Stakes": {
+        "id": 10061,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4012_00.png"
+    },
+    "Wakagoma Stakes": {
+        "id": 10062,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4009_00.png"
+    },
+    "Elfin Stakes": {
+        "id": 10063,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4014_00.png"
+    },
+    "Kisaragi Sho": {
+        "id": 10064,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3009_00.png"
+    },
+    "Kyodo News Hai": {
+        "id": 10065,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3012_00.png"
+    },
+    "Queen Cup": {
+        "id": 10066,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3011_00.png"
+    },
+    "Hyacinth Stakes": {
+        "id": 10067,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4018_00.png"
+    },
+    "Marguerite Stakes": {
+        "id": 10068,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4032_00.png"
+    },
+    "Sumire Stakes": {
+        "id": 10069,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4020_00.png"
+    },
+    "Anemone Stakes": {
+        "id": 10070,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4024_00.png"
+    },
+    "Fillies' Revue": {
+        "id": 10071,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2008_00.png"
+    },
+    "Shoryu Stakes": {
+        "id": 10072,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4025_00.png"
+    },
+    "Tulip Sho": {
+        "id": 10073,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3018_00.png"
+    },
+    "Yayoi Sho": {
+        "id": 10074,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2006_00.png"
+    },
+    "Falcon Stakes": {
+        "id": 10075,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3021_00.png"
+    },
+    "Flower Cup": {
+        "id": 10076,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3022_00.png"
+    },
+    "Mainichi Hai": {
+        "id": 10077,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3023_00.png"
+    },
+    "Spring Stakes": {
+        "id": 10078,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2010_00.png"
+    },
+    "Wakaba Stakes": {
+        "id": 10079,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4027_00.png"
+    },
+    "Arlington Cup": {
+        "id": 10080,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3016_00.png"
+    },
+    "Fukuryu Stakes": {
+        "id": 10081,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4033_00.png"
+    },
+    "New Zealand Trophy": {
+        "id": 10082,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2013_00.png"
+    },
+    "Oka Sho": {
+        "id": 10083,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1004_00.png"
+    },
+    "Satsuki Sho": {
+        "id": 10084,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1005_00.png"
+    },
+    "Wasurenagusa Sho": {
+        "id": 10085,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4035_00.png"
+    },
+    "Aoba Sho": {
+        "id": 10086,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2016_00.png"
+    },
+    "Flora Stakes": {
+        "id": 10087,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2015_00.png"
+    },
+    "Sweetpea Stakes": {
+        "id": 10088,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4043_00.png"
+    },
+    "Tachibana Stakes": {
+        "id": 10089,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4039_00.png"
+    },
+    "Tango Stakes": {
+        "id": 10090,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4042_00.png"
+    },
+    "Kyoto Shimbun Hai": {
+        "id": 10091,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2017_00.png"
+    },
+    "NHK Mile Cup": {
+        "id": 10092,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1007_00.png"
+    },
+    "Principal Stakes": {
+        "id": 10093,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4045_00.png"
+    },
+    "Seiryu Stakes": {
+        "id": 10094,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4052_00.png"
+    },
+    "Aoi Stakes": {
+        "id": 10095,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4050_00.png"
+    },
+    "Hosu Stakes": {
+        "id": 10096,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4054_00.png"
+    },
+    "Japanese Oaks": {
+        "id": 10097,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1009_00.png"
+    },
+    "Shirayuri Stakes": {
+        "id": 10098,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4056_00.png"
+    },
+    "Tokyo Yushun (Japanese Derby)": {
+        "id": 10099,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1010_00.png"
+    },
+    "Epsom Cup": {
+        "id": 10279,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3032_00.png"
+    },
+    "Mermaid Stakes": {
+        "id": 10280,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3031_00.png"
+    },
+    "Naruo Kinen": {
+        "id": 10281,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3030_00.png"
+    },
+    "Sleipnir Stakes": {
+        "id": 10282,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4119_00.png"
+    },
+    "Tempozan Stakes": {
+        "id": 10283,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4060_00.png"
+    },
+    "Yasuda Kinen": {
+        "id": 10284,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1011_00.png"
+    },
+    "Akhalteke Stakes": {
+        "id": 10285,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4059_00.png"
+    },
+    "Hakodate Sprint Stakes": {
+        "id": 10286,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3034_00.png"
+    },
+    "Onuma Stakes": {
+        "id": 10287,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4062_00.png"
+    },
+    "Paradise Stakes": {
+        "id": 10288,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4063_00.png"
+    },
+    "Sannomiya Stakes": {
+        "id": 10289,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4120_00.png"
+    },
+    "Takarazuka Kinen": {
+        "id": 10290,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1012_00.png"
+    },
+    "Unicorn Stakes": {
+        "id": 10112,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3033_00.png"
+    },
+    "Yonago Stakes": {
+        "id": 10292,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4061_00.png"
+    },
+    "CBC Sho": {
+        "id": 10293,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3035_00.png"
+    },
+    "Hakodate Kinen": {
+        "id": 10294,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3039_00.png"
+    },
+    "Japan Dirt Derby": {
+        "id": 10116,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1102_00.png"
+    },
+    "Marine Stakes": {
+        "id": 10295,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4065_00.png"
+    },
+    "Meitetsu Hai": {
+        "id": 10296,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4066_00.png"
+    },
+    "Procyon Stakes": {
+        "id": 10297,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3037_00.png"
+    },
+    "Radio Nikkei Sho": {
+        "id": 10120,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3036_00.png"
+    },
+    "Tanabata Sho": {
+        "id": 10298,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3038_00.png"
+    },
+    "Tomoe Sho": {
+        "id": 10299,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4064_00.png"
+    },
+    "Chukyo Kinen": {
+        "id": 10300,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3040_00.png"
+    },
+    "Fukushima TV Open": {
+        "id": 10301,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4069_00.png"
+    },
+    "Ibis Summer Dash": {
+        "id": 10302,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3042_00.png"
+    },
+    "Queen Stakes": {
+        "id": 10303,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3043_00.png"
+    },
+    "Aso Stakes": {
+        "id": 10304,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4073_00.png"
+    },
+    "Elm Stakes": {
+        "id": 10305,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3047_00.png"
+    },
+    "Kanetsu Stakes": {
+        "id": 10306,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4121_00.png"
+    },
+    "Kokura Kinen": {
+        "id": 10307,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3044_00.png"
+    },
+    "Leopard Stakes": {
+        "id": 10131,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3045_00.png"
+    },
+    "Sapporo Nikkei Open": {
+        "id": 10308,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4071_00.png"
+    },
+    "Sekiya Kinen": {
+        "id": 10309,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3046_00.png"
+    },
+    "UHB Sho": {
+        "id": 10310,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4072_00.png"
+    },
+    "BSN Sho": {
+        "id": 10311,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4079_00.png"
+    },
+    "Keeneland Cup": {
+        "id": 10312,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3050_00.png"
+    },
+    "Kitakyushu Kinen": {
+        "id": 10313,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3048_00.png"
+    },
+    "Kokura Nikkei Open": {
+        "id": 10314,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4080_00.png"
+    },
+    "NST Sho": {
+        "id": 10315,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4076_00.png"
+    },
+    "Sapporo Kinen": {
+        "id": 10316,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2020_00.png"
+    },
+    "Toki Stakes": {
+        "id": 10317,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4081_00.png"
+    },
+    "Centaur Stakes": {
+        "id": 10318,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2021_00.png"
+    },
+    "Enif Stakes": {
+        "id": 10319,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4084_00.png"
+    },
+    "Keisei Hai Autumn Handicap": {
+        "id": 10320,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3055_00.png"
+    },
+    "Niigata Kinen": {
+        "id": 10321,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3053_00.png"
+    },
+    "Radio Nippon Sho": {
+        "id": 10322,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4086_00.png"
+    },
+    "Rose Stakes": {
+        "id": 10147,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2022_00.png"
+    },
+    "Shion Stakes": {
+        "id": 10148,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3054_00.png"
+    },
+    "Tancho Stakes": {
+        "id": 10323,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4082_00.png"
+    },
+    "All Comers": {
+        "id": 10324,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2025_00.png"
+    },
+    "Kobe Shimbun Hai": {
+        "id": 10151,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2024_00.png"
+    },
+    "Nagatsuki Stakes": {
+        "id": 10325,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4122_00.png"
+    },
+    "Port Island Stakes": {
+        "id": 10326,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4090_00.png"
+    },
+    "Sirius Stakes": {
+        "id": 10327,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3056_00.png"
+    },
+    "Sprinters Stakes": {
+        "id": 10328,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1013_00.png"
+    },
+    "St. Lite Kinen": {
+        "id": 10156,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2023_00.png"
+    },
+    "Fuchu Umamusume Stakes": {
+        "id": 10329,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2028_00.png"
+    },
+    "Green Channel Cup": {
+        "id": 10330,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4092_00.png"
+    },
+    "Kyoto Daishoten": {
+        "id": 10331,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2027_00.png"
+    },
+    "Mainichi Okan": {
+        "id": 10332,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2026_00.png"
+    },
+    "October Stakes": {
+        "id": 10333,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4094_00.png"
+    },
+    "Opal Stakes": {
+        "id": 10334,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4091_00.png"
+    },
+    "Shinetsu Stakes": {
+        "id": 10335,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4095_00.png"
+    },
+    "Uzumasa Stakes": {
+        "id": 10336,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4123_00.png"
+    },
+    "Brazil Cup": {
+        "id": 10337,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4098_00.png"
+    },
+    "Cassiopeia Stakes": {
+        "id": 10338,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4100_00.png"
+    },
+    "Fuji Stakes": {
+        "id": 10339,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3058_00.png"
+    },
+    "Kikuka Sho": {
+        "id": 10168,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1015_00.png"
+    },
+    "Lumiere Autumn Dash": {
+        "id": 10340,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4101_00.png"
+    },
+    "Muromachi Stakes": {
+        "id": 10341,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4097_00.png"
+    },
+    "Shuka Sho": {
+        "id": 10171,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1014_00.png"
+    },
+    "Swan Stakes": {
+        "id": 10342,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2029_00.png"
+    },
+    "Tenno Sho (Autumn)": {
+        "id": 10343,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1016_00.png"
+    },
+    "Copa Republica Argentina": {
+        "id": 10344,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2031_00.png"
+    },
+    "Fukushima Kinen": {
+        "id": 10345,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3063_00.png"
+    },
+    "JBC Classic": {
+        "id": 10346,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1105_00.png"
+    },
+    "JBC Ladies’ Classic": {
+        "id": 10347,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1103_00.png"
+    },
+    "JBC Sprint": {
+        "id": 10348,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1104_00.png"
+    },
+    "Miyako Stakes": {
+        "id": 10349,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3061_00.png"
+    },
+    "Musashino Stakes": {
+        "id": 10350,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3062_00.png"
+    },
+    "Oro Cup": {
+        "id": 10351,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4102_00.png"
+    },
+    "Queen Elizabeth II Cup": {
+        "id": 10352,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1017_00.png"
+    },
+    "Andromeda Stakes": {
+        "id": 10353,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4104_00.png"
+    },
+    "Autumn Leaf Stakes": {
+        "id": 10354,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4108_00.png"
+    },
+    "Capital Stakes": {
+        "id": 10355,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4107_00.png"
+    },
+    "Fukushima Minyu Cup": {
+        "id": 10356,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4106_00.png"
+    },
+    "Japan Cup": {
+        "id": 10357,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1019_00.png"
+    },
+    "Keihan Hai": {
+        "id": 10358,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3066_00.png"
+    },
+    "Mile Championship": {
+        "id": 10359,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1018_00.png"
+    },
+    "Shimotsuki Stakes": {
+        "id": 10360,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4105_00.png"
+    },
+    "Capella Stakes": {
+        "id": 10361,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3069_00.png"
+    },
+    "Challenge Cup": {
+        "id": 10362,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3067_00.png"
+    },
+    "Champions Cup": {
+        "id": 10363,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1020_00.png"
+    },
+    "Chunichi Shimbun Hai": {
+        "id": 10364,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3068_00.png"
+    },
+    "December Stakes": {
+        "id": 10365,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4113_00.png"
+    },
+    "Lapis Lazuli Stakes": {
+        "id": 10366,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4109_00.png"
+    },
+    "Rigel Stakes": {
+        "id": 10367,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4111_00.png"
+    },
+    "Shiwasu Stakes": {
+        "id": 10368,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4110_00.png"
+    },
+    "Stayers Stakes": {
+        "id": 10369,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2033_00.png"
+    },
+    "Tanzanite Stakes": {
+        "id": 10370,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4112_00.png"
+    },
+    "Turquoise Stakes": {
+        "id": 10371,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3070_00.png"
+    },
+    "Arima Kinen": {
+        "id": 10372,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1023_00.png"
+    },
+    "Betelgeuse Stakes": {
+        "id": 10373,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4116_00.png"
+    },
+    "Galaxy Stakes": {
+        "id": 10374,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4115_00.png"
+    },
+    "Hanshin Cup": {
+        "id": 10375,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2034_00.png"
+    },
+    "Tokyo Daishoten": {
+        "id": 10376,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1106_00.png"
+    },
+    "Aichi Hai": {
+        "id": 10207,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3005_00.png"
+    },
+    "Carbuncle Stakes": {
+        "id": 10208,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4010_00.png"
+    },
+    "January Stakes": {
+        "id": 10209,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4005_00.png"
+    },
+    "Kyoto Kimpai": {
+        "id": 10210,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3001_00.png"
+    },
+    "Manyo Stakes": {
+        "id": 10211,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4001_00.png"
+    },
+    "Nakayama Kimpai": {
+        "id": 10212,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3002_00.png"
+    },
+    "New Year Stakes": {
+        "id": 10213,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4006_00.png"
+    },
+    "Nikkei Shinshun Hai": {
+        "id": 10214,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2001_00.png"
+    },
+    "Pollux Stakes": {
+        "id": 10215,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4004_00.png"
+    },
+    "Yodo Tankyori Stakes": {
+        "id": 10216,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4003_00.png"
+    },
+    "American JCC": {
+        "id": 10217,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2003_00.png"
+    },
+    "Negishi Stakes": {
+        "id": 10218,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3008_00.png"
+    },
+    "Shirafuji Stakes": {
+        "id": 10219,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4011_00.png"
+    },
+    "Silk Road Stakes": {
+        "id": 10220,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3007_00.png"
+    },
+    "Subaru Stakes": {
+        "id": 10221,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4008_00.png"
+    },
+    "Tokai Stakes": {
+        "id": 10222,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2002_00.png"
+    },
+    "Aldebaran Stakes": {
+        "id": 10223,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4016_00.png"
+    },
+    "Kyoto Kinen": {
+        "id": 10224,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2004_00.png"
+    },
+    "Rakuyo Stakes": {
+        "id": 10225,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4015_00.png"
+    },
+    "Tokyo Shimbun Hai": {
+        "id": 10226,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3010_00.png"
+    },
+    "Valentine Stakes": {
+        "id": 10227,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4017_00.png"
+    },
+    "Yamato Stakes": {
+        "id": 10228,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4013_00.png"
+    },
+    "Diamond Stakes": {
+        "id": 10229,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3014_00.png"
+    },
+    "February Stakes": {
+        "id": 10230,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1001_00.png"
+    },
+    "Hankyu Hai": {
+        "id": 10231,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3017_00.png"
+    },
+    "Kitakyushu Tankyori Stakes": {
+        "id": 10232,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4117_00.png"
+    },
+    "Kokura Daishoten": {
+        "id": 10233,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3015_00.png"
+    },
+    "Kyoto Umamusume Stakes": {
+        "id": 10234,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3013_00.png"
+    },
+    "Nakayama Kinen": {
+        "id": 10235,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2005_00.png"
+    },
+    "Sobu Stakes": {
+        "id": 10236,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4019_00.png"
+    },
+    "Kinko Sho": {
+        "id": 10237,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2007_00.png"
+    },
+    "Kochi Stakes": {
+        "id": 10238,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4026_00.png"
+    },
+    "Nakayama Umamusume Stakes": {
+        "id": 10239,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3020_00.png"
+    },
+    "Nigawa Stakes": {
+        "id": 10240,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4023_00.png"
+    },
+    "Ocean Stakes": {
+        "id": 10241,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3019_00.png"
+    },
+    "Osakajo Stakes": {
+        "id": 10242,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4021_00.png"
+    },
+    "Polaris Stakes": {
+        "id": 10243,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4022_00.png"
+    },
+    "Chiba Stakes": {
+        "id": 10244,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4028_00.png"
+    },
+    "Hanshin Daishoten": {
+        "id": 10245,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2009_00.png"
+    },
+    "March Stakes": {
+        "id": 10246,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3024_00.png"
+    },
+    "Nikkei Sho": {
+        "id": 10247,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2011_00.png"
+    },
+    "Osaka Hai": {
+        "id": 10248,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1003_00.png"
+    },
+    "Rokko Stakes": {
+        "id": 10249,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4030_00.png"
+    },
+    "Takamatsunomiya Kinen": {
+        "id": 10250,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1002_00.png"
+    },
+    "Antares Stakes": {
+        "id": 10251,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3026_00.png"
+    },
+    "Azumakofuji Stakes": {
+        "id": 10252,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4118_00.png"
+    },
+    "Coral Stakes": {
+        "id": 10253,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4031_00.png"
+    },
+    "Fukushima Mimpo Hai": {
+        "id": 10254,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4038_00.png"
+    },
+    "Hanshin Umamusume Stakes": {
+        "id": 10255,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2012_00.png"
+    },
+    "Keiyo Stakes": {
+        "id": 10256,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4036_00.png"
+    },
+    "Lord Derby Challenge Trophy": {
+        "id": 10257,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3025_00.png"
+    },
+    "Shunrai Stakes": {
+        "id": 10258,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4037_00.png"
+    },
+    "Fukushima Umamusume Stakes": {
+        "id": 10259,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3027_00.png"
+    },
+    "Milers Cup": {
+        "id": 10260,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2014_00.png"
+    },
+    "Oasis Stakes": {
+        "id": 10261,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4040_00.png"
+    },
+    "Tenno Sho (Spring)": {
+        "id": 10262,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1006_00.png"
+    },
+    "Tennozan Stakes": {
+        "id": 10263,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4041_00.png"
+    },
+    "Brilliant Stakes": {
+        "id": 10264,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4048_00.png"
+    },
+    "Keio Hai Spring Cup": {
+        "id": 10265,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2018_00.png"
+    },
+    "Kurama Stakes": {
+        "id": 10266,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4047_00.png"
+    },
+    "Metropolitan Stakes": {
+        "id": 10267,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4046_00.png"
+    },
+    "Miyakooji Stakes": {
+        "id": 10268,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4049_00.png"
+    },
+    "Niigata Daishoten": {
+        "id": 10269,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3028_00.png"
+    },
+    "Ritto Stakes": {
+        "id": 10270,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4051_00.png"
+    },
+    "Tanigawadake Stakes": {
+        "id": 10271,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4044_00.png"
+    },
+    "Victoria Mile": {
+        "id": 10272,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1008_00.png"
+    },
+    "Azuchijo Stakes": {
+        "id": 10273,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4058_00.png"
+    },
+    "Heian Stakes": {
+        "id": 10274,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_3029_00.png"
+    },
+    "Idaten Stakes": {
+        "id": 10275,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4055_00.png"
+    },
+    "Keyaki Stakes": {
+        "id": 10276,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4057_00.png"
+    },
+    "May Stakes": {
+        "id": 10277,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_4053_00.png"
+    },
+    "Meguro Kinen": {
+        "id": 10278,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_2019_00.png"
+    },
+    "Teio Sho": {
+        "id": 10291,
+        "icon_url": "https://gametora.com/images/umamusume/en/race_banners/thum_race_rt_000_1101_00.png"
+    }
+}
