@@ -185,34 +185,40 @@ class RaceScraper(BaseScraper):
                             prev["distance"]["meters"] == payload_copy["distance"]["meters"]):
                         self.data[bucket][race_name] = [prev, payload_copy]
 
-            def _parse_date_order(t: str) -> int:
-                t = (t or "").strip()
-                mon = {"Jan":1,"Feb":2,"Mar":3,"Apr":4,"May":5,"Jun":6,
-                       "Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12}
-                m = re.search(r"(Early|Late)\s+([A-Za-z]{3})", t)
-                if not m:
-                    return 999
-                half = 0 if m.group(1) == "Early" else 1
-                i = mon.get(m.group(2).title(), 99)
-                return i * 2 + half
+            MONTH = {"Jan":1,"Feb":2,"Mar":3,"Apr":4,"May":5,"Jun":6,
+                     "Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12}
 
-            def sort_races_bucket(bucket_dict: dict) -> dict:
-                out = {}
-                for name, val in bucket_dict.items():
-                    arr = val if isinstance(val, list) else [val]
-                    arr.sort(key=lambda e: _parse_date_order(e["date"]))
-                    out[name] = arr if len(arr) > 1 else arr[0]
-                return out
+            def _date_key(txt: str, start_month: int = 1) -> int:
+                # start_month = 1 -> calendar Jan..Dec
+                # change to 3 if you ever want Mar..Feb, etc.
+                m = re.search(r"(Early|Late)\s+([A-Za-z]{3})", txt or "")
+                if not m:
+                    return 10_000
+                half = 0 if m.group(1) == "Early" else 1
+                mon  = MONTH.get(m.group(2).title(), 99)
+                shifted = (mon - start_month) % 12          # 0..11
+                return shifted * 2 + half                    # 0..23, stable
+
+            def _sort_bucket(bkt: dict, start_month: int = 1) -> dict:
+                packed = []
+                for name, val in bkt.items():
+                    entries = val if isinstance(val, list) else [val]
+                    first = min(_date_key(e["date"], start_month) for e in entries)
+                    packed.append((first, name, entries))
+                packed.sort()
+                # keep your “no [] when single” shape
+                return {name: (entries if len(entries) > 1 else entries[0])
+                        for _, name, entries in packed}
 
             # close dialog
             driver.find_element(By.XPATH, "//div[contains(@class,'sc-f83b4a49-1')]").click()
             time.sleep(0.3)
 
         sorted_data = {}
-        # sort buckets like GameTora
-        for y in ["Junior Year", "Classic Year", "Senior Year"]:
-            if y in self.data:
-                sorted_data[y] = sort_races_bucket(self.data[y])
+        for year in ["Junior Year", "Classic Year", "Senior Year"]:
+            if year in self.data:
+                sorted_data[year] = _sort_bucket(self.data[year], start_month=1)  # Jan..Dec
+        self.data = sorted_data
 
         # assign IDs after sorting
         rid = 10001
