@@ -92,8 +92,9 @@ def score_choice(ev_key, choice_row):
 
     # Score from Energy
     energy_gain = float(choice_row.get("HP", 0) or 0)
-
-    if (max_energy - energy_level) >= energy_gain or energy_gain < 0:
+    if energy_gain < 0:
+        energy_penalty = 0 # if choice give negative energy not have effect on score
+    elif (max_energy - energy_level) >= energy_gain:
         energy_penalty = 1 # 1 = No Penalty
     else:
         energy_penalty = 0.1
@@ -114,7 +115,9 @@ def score_choice(ev_key, choice_row):
     else:
       mood_check = minimum_mood
 
-    if mood_index < mood_check or mood_gain < 0:
+    if mood_gain < 0:
+        mood_penalty = 0 # if choice give negative mood not have effect on score
+    elif mood_index < mood_check:
         mood_penalty = 1 # 1 = No Penalty
     else:
         mood_penalty = 0.05
