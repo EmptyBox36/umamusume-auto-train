@@ -269,8 +269,10 @@ def training_logic(results):
               click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found. Proceeding to training.")
               sleep(0.5)
               return "wit"
-      else:
+      elif energy_level > state.NEVER_REST_ENERGY:
           return "wit"
+      else:
+          return False
 
   # if best_key == "wit":
   #   #if we get to wit, we must have at least 1 rainbow friend
