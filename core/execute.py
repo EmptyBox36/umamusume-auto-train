@@ -447,6 +447,12 @@ def career_lobby():
     year_parts = year.split(" ")
     current_stats = stat_state()
 
+    state.CURRENT_ENERGY_LEVEL = energy_level
+    state.MAX_ENERGY = max_energy
+    state.CURRENT_MOOD_INDEX = mood_index
+    state.CURRENT_STATS = current_stats
+    state.CURRENT_YEAR = year
+
     print("\n=======================================================================================\n")
     info(f"Year: {year}")
     info(f"Mood: {mood}")

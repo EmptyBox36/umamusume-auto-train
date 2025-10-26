@@ -34,6 +34,11 @@ SLEEP_TIME_MULTIPLIER = 1
 HINT_POINT = None
 TRAINEE_NAME = None
 CHOICE_WEIGHT = None
+CURRENT_ENERGY_LEVEL=None
+MAX_ENERGY = None
+CURRENT_MOOD_INDEX = None
+CURRENT_STATS = {}
+CURRENT_YEAR = None
 
 def load_config():
   with open("config.json", "r", encoding="utf-8") as file:
