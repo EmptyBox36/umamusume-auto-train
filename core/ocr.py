@@ -25,26 +25,25 @@ def extract_number(pil_img: Image.Image) -> int:
   return -1
 
 def extract_percent(pil_img: Image.Image) -> int:
-    """
-    Reads OCR text and extracts the most plausible percent (0–100).
-    Returns -1 if no valid percent found.
-    """
-    img_np = np.array(pil_img)
-    result = reader.readtext(img_np, allowlist="0123456789%")
-    texts = [t[1] for t in result]
-    txt = "".join(texts)
+  # read only digits and % to cut noise
+  result = reader.readtext(np.array(pil_img), allowlist="0123456789%")  # keeps '%', drops letters:contentReference[oaicite:0]{index=0}
+  s = " ".join(t[1] for t in result)
 
-    import re
-    matches = re.findall(r"\d{1,3}", txt)
-    if not matches:
-        return -1
+  # capture up to 3 digits immediately before % allowing spaces between digits
+  matches = re.findall(r'(\d(?:\s?\d){0,2})\s*%', s)
+  if not matches:
+      return -1
 
-    vals = [int(m) for m in matches if 0 <= int(m) <= 100]
-    if not vals:
-        return -1
+  # normalize spaces, keep 0–100, prefer 2–3 digit candidates
+  cands = []
+  for m in matches:
+      v = int(re.sub(r'\s+', '', m))
+      if 0 <= v <= 100:
+          cands.append(v)
+  if not cands:
+      return -1
 
-    # pick the largest plausible value to avoid OCR truncation like 3→33
-    v = max(vals)
-    if v < 5:   # discard small isolated misreads
-        return -1
-    return v
+  # prefer longer numbers to avoid 3 from 33
+  cands.sort(key=lambda x: (len(str(x)), x), reverse=True)
+  v = cands[0]
+  return v if v >= 5 else -1
