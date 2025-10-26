@@ -293,7 +293,7 @@ def training_logic(results):
 
           if energy_level >= state.NEVER_REST_ENERGY:
               info(f"Energy is higher than never rest energy. Do WIT training")
-              return "wit"
+              return None
           else:
               return False
       info(f"{best_key.upper()} have Friend Value = 1, train {best_key.upper()}.")
