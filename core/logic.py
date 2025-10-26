@@ -171,6 +171,7 @@ def training_score(x, all_zero_non_maxed=False):
 def training_logic(results):
   global PRIORITY_WEIGHTS_LIST
   year = check_current_year()
+  year_parts = year.split(" ")
   energy_level, max_energy = check_energy_level()
   priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
   # 2 points for rainbow supports, 1 point for normal supports, 1.5 point for non-maxed supports, +0.5 For Hint, stat priority tie breaker
@@ -270,12 +271,12 @@ def training_logic(results):
   best_key, best_data = best_rainbow
   if best_data["easy_point"] < 1.5:
       info(f"Max Friend Value less or equal to 1")
-      if training_candidates["wit"]["easy_point"] >= 1:
+      if training_candidates.get("wit", {}).get("easy_point", 0) >= 1:
           info(f"WIT have Friend Value = 1, train WIT.")
           return "wit"
       elif best_data["easy_point"] == 0:
           if energy_level > 50:
-              if "Junior Year" not in year:
+              if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
                   from core.execute import do_race
                   info("Training point is too low and have high energy, try to do race.")
                   race = do_race()

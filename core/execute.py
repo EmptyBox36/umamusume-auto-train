@@ -626,5 +626,10 @@ def career_lobby():
       sleep(0.5)
       do_train(best_training)
     else:
-      do_rest(energy_level)
+      if year_parts[0] == "Finale" and "Finals" in criteria:
+        go_to_training()
+        sleep(0.5)
+        do_train("wit")
+      else:
+        do_rest(energy_level)
     sleep(1)
