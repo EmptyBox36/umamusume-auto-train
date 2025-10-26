@@ -179,10 +179,6 @@ def check_support_card(threshold=0.8, target="none"):
 # Get failure chance (idk how to get energy value)
 def check_failure():
   failure = enhanced_screenshot(constants.FAILURE_REGION)
-  # use new OCR that protects against "33%" → "3%" errors
-  val = extract_percent(failure)
-  if val != -1:
-    return int(val)
   failure_text = extract_text(failure).lower()
 
   if not failure_text.startswith("failure"):
@@ -193,6 +189,11 @@ def check_failure():
   match_percent = re.search(r"failure\s+(\d{1,3})%", failure_text)
   if match_percent:
     return int(match_percent.group(1))
+
+  # use new OCR that protects against misread errors
+  val = extract_percent(failure)
+  if val != -1:
+    return int(val)
 
   # 2. If there is no %, but there is a 9, extract digits before the 9
   match_number = re.search(r"failure\s+(\d+)", failure_text)
