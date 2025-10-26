@@ -229,10 +229,10 @@ def training_logic(results):
               custom_fail_chance = state.HIGH_FAILURE_CONDITION["failure"]
               info(f"Due to {best_stat.upper()} have high ({best_point['easy_point']}) rainbow point, set maximum failure to {custom_fail_chance}%.")
 
-      if state.ENABLE_CUSTOM_LOW_FAILURE:
-          if best_point["easy_point"] < state.LOW_FAILURE_CONDITION["point"]:
-              custom_fail_chance = state.LOW_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have low ({best_point['easy_point']}) rainbow point, set maximum failure to {custom_fail_chance}%.")
+      # if state.ENABLE_CUSTOM_LOW_FAILURE:
+      #     if best_point["easy_point"] < state.LOW_FAILURE_CONDITION["point"]:
+      #         custom_fail_chance = state.LOW_FAILURE_CONDITION["failure"]
+      #         info(f"Due to {best_stat.upper()} have low ({best_point['easy_point']}) rainbow point, set maximum failure to {custom_fail_chance}%.")
 
   # Get training
   training_candidates = {
@@ -244,16 +244,16 @@ def training_logic(results):
     info("Every training have high failure. Do rest.")
     return False
 
-  training_candidates = {
-    stat: data for stat, data in results.items()
-    if int(data["failure"]) <= custom_fail_chance
-       and data["easy_point"] >= 1
-       and not (stat == "wit" and data["easy_point"] < 1)
-  }
+  # training_candidates = {
+  #   stat: data for stat, data in results.items()
+  #   if int(data["failure"]) <= custom_fail_chance
+  #      and data["easy_point"] >= 1
+  #      and not (stat == "wit" and data["easy_point"] < 1)
+  # }
 
-  if not training_candidates:
-    info("No suitable training found under failure threshold.")
-    return None
+  # if not training_candidates:
+  #   info("No suitable training found under failure threshold.")
+  #   return None
 
   # Find support card in training
   best_rainbow = max(
@@ -264,31 +264,37 @@ def training_logic(results):
     )
   )
 
-  if state.ENABLE_CUSTOM_FAILURE_CHANCE and state.ENABLE_CUSTOM_LOW_FAILURE:
-      low_point = state.LOW_FAILURE_CONDITION["point"]
-  else:
-      low_point = 1.5
-
   best_key, best_data = best_rainbow
-  if best_data["easy_point"] < low_point and "Junior Year" not in year:
-      if energy_level > 50:
-          from core.execute import do_race
-          info("Rainbow point is too low and have high energy, try to do race.")
-          race = do_race()
-          if race is True:
-              return False
-          else:
-              from core.execute import click
-              click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found. Proceeding to training.")
-              sleep(0.5)
+  if best_data["easy_point"] < 1.5:
+      info(f"Max Friend Value less or equal to 1")
+      if training_candidates["wit"]["easy_point"] >= 1:
+          info(f"WIT have Friend Value = 1, train WIT.")
+          return "wit"
+      elif best_data["easy_point"] == 0:
+          if energy_level > 50:
+              if "Junior Year" not in year:
+                  from core.execute import do_race
+                  info("Training point is too low and have high energy, try to do race.")
+                  race = do_race()
+                  if race is True:
+                      return False
+                  else:
+                      from core.execute import click
+                      click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found. Proceeding to most support training.")
+                      sleep(0.5)
+                      return None
+              else:
+                  info(f"Proceeding to most support training.")
+                  return None
 
-      if energy_level > state.NEVER_REST_ENERGY:
-          if training_candidates["wit"]["easy_point"] >= 1:
+          if energy_level > state.NEVER_REST_ENERGY:
+              info(f"Energy is higher than never rest energy. Do WIT training")
               return "wit"
-      else:
-          return False
+          else:
+              return False
+      info(f"{best_key.upper()} have Friend Value = 1, train {best_key.upper()}.")
 
-  info(f"Rainbow training selected: {best_key.upper()} with {best_data['total_points']} rainbow points and {best_data['failure']}% fail chance")
+  info(f"Training logic selected: {best_key.upper()} with {best_data['total_points']} points and {best_data['failure']}% fail chance")
   return best_key
 
 def filter_by_stat_caps(results, current_stats):
