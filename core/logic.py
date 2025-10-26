@@ -179,7 +179,7 @@ def training_logic(results):
     total_rainbow_friends = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
     total_non_maxed_support = data["total_supports"] - ( data["total_friendship_levels"]["yellow"] + data["total_friendship_levels"]["max"] )
 
-    if "Junior Year" in year:
+    if "Junior Year" in year and not state.JUNIOR_YEAR_STAT_PRIORITIZE:
       multiplier = 1
     else:
       multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
