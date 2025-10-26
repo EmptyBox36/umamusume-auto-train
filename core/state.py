@@ -178,33 +178,39 @@ def check_support_card(threshold=0.8, target="none"):
 
 # Get failure chance (idk how to get energy value)
 def check_failure():
-  failure = enhanced_screenshot(constants.FAILURE_REGION)
-  failure_text = extract_text(failure).lower()
-
-  if not failure_text.startswith("failure"):
+  failure_text = enhanced_screenshot(constants.FAILURE_REGION)
+  failure_percent = enhanced_screenshot(constants.FAILURE_PERCENT_REGION)
+  # # use new OCR that protects against misread errors
+  # val = extract_percent(failure_percent)
+  # if val != -1:
+  #   return int(val)
+  # 0) verify we're on a Failure badge
+  label = extract_text(failure_text).lower()
+  if not label.startswith("failure"):
     return -1
 
-  # SAFE CHECK
-  # 1. If there is a %, extract the number before the %
-  match_percent = re.search(r"failure\s+(\d{1,3})%", failure_text)
-  if match_percent:
-    return int(match_percent.group(1))
+  # 1) read percent from the badge region only
+  pct_text = extract_text(failure_percent)
+  hits = list(re.finditer(r'(\d(?:\s?\d){0,2})\s*%', pct_text))  # e.g. "3 %", "39%"
+  if hits:
+    v = int(hits[-1].group(1).replace(" ", ""))               # rightmost match
+    if 0 <= v <= 100:
+      return v
 
-  # use new OCR that protects against misread errors
-  val = extract_percent(failure)
-  if val != -1:
-    return int(val)
+  # 2) legacy fallbacks on the full label text (kept from your original)
+  m = re.search(r"failure\s+(\d{1,3})\s*%", label)
+  if m:
+    return int(m.group(1))
 
-  # 2. If there is no %, but there is a 9, extract digits before the 9
-  match_number = re.search(r"failure\s+(\d+)", failure_text)
-  if match_number:
-    digits = match_number.group(1)
+  m = re.search(r"failure\s+(\d+)", label)
+  if m:
+    digits = m.group(1)
     idx = digits.find("9")
     if idx > 0:
       num = digits[:idx]
       return int(num) if num.isdigit() else -1
-    elif digits.isdigit():
-      return int(digits)  # fallback
+    if digits.isdigit():
+      return int(digits)
 
   return -1
 

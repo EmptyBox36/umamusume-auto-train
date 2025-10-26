@@ -29,8 +29,9 @@ def extract_percent(pil_img: Image.Image) -> int:
   result = reader.readtext(np.array(pil_img), allowlist="0123456789%")  # keeps '%', drops letters:contentReference[oaicite:0]{index=0}
   s = " ".join(t[1] for t in result)
 
+  s = s.replace("O", "0").replace("o", "0").replace("l", "1")
   # capture up to 3 digits immediately before % allowing spaces between digits
-  matches = re.findall(r'(\d(?:\s?\d){0,2})\s*%', s)
+  matches = re.findall(r"(\d{1,3})\s*%?", s)
   if not matches:
       return -1
 
