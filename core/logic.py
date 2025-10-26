@@ -241,10 +241,11 @@ def training_logic(results):
     and not (stat == "wit" and data["easy_point"] < 1)}
 
   if not training_candidates:
-    info("Every training have high failure. Do rest.")
+    info(f"Every training have high failure. Do rest.")
     return False
-  
-  if energy_level < state.NEVER_REST_ENERGY:
+
+  if energy_level <= state.SKIP_TRAINING_ENERGY:
+    info(f"Energy level is lower that skip training energy. Do rest.")
     return False
 
   # training_candidates = {
