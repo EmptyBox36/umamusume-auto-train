@@ -1,4 +1,5 @@
 from pickle import TRUE
+from statistics import StatisticsError
 from core.state import HINT_POINT
 from core.state import check_current_year, stat_state, check_energy_level, check_aptitudes
 from utils.log import info, warning, error, debug
@@ -168,6 +169,7 @@ def training_score(x, all_zero_non_maxed=False):
 def training_logic(results):
   global PRIORITY_WEIGHTS_LIST
   year = check_current_year()
+  energy_level, max_energy = check_energy_level()
   priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
   # 2 points for rainbow supports, 1 point for normal supports, 1.5 point for non-maxed supports, +0.5 For Hint, stat priority tie breaker
 
@@ -256,16 +258,19 @@ def training_logic(results):
 
   best_key, best_data = best_rainbow
   if best_data["total_points"] < low_point:
-      from core.execute import do_race
-      info("Rainbow point is too low, try to do race.")
-      do_race()
-      if do_race():
-          return None
+      if energy_level > 50:
+          from core.execute import do_race
+          info("Rainbow point is too low and have high energy, try to do race.")
+          race = do_race()
+          if race is True:
+              return False
+          else:
+              from core.execute import click
+              click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found. Proceeding to training.")
+              sleep(0.5)
+              return "wit"
       else:
-          from core.execute import click
-          click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found. Proceeding to training.")
-          sleep(0.5)
-          return None
+          return "wit"
 
   # if best_key == "wit":
   #   #if we get to wit, we must have at least 1 rainbow friend
