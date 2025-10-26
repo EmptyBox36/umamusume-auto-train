@@ -179,14 +179,13 @@ def training_logic(results):
 
   training_candidates = results
   for stat_name in training_candidates:
+    multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
     data = training_candidates[stat_name]
     total_rainbow_friends = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
     total_non_maxed_support = data["total_supports"] - ( data["total_friendship_levels"]["yellow"] + data["total_friendship_levels"]["max"] )
 
     if "Junior Year" in year:
-        if state.JUNIOR_YEAR_STAT_PRIORITIZE:
-            multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
-        else:
+        if not state.JUNIOR_YEAR_STAT_PRIORITIZE:
             multiplier = 1
 
     #adding total rainbow friends on top of total supports for two times value nudging the formula towards more rainbows
@@ -212,7 +211,7 @@ def training_logic(results):
     training_candidates[stat_name]["total_points"] = total_points
     training_candidates[stat_name]["total_rainbow_friends"] = total_rainbow_friends
 
-    info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Rainbow point: {total_points}")
+    info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Training point: {total_points}")
 
   highest_points = max(
       training_candidates.items(),
