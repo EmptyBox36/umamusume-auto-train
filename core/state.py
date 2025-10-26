@@ -10,7 +10,7 @@ from math import floor
 from utils.log import info, warning, error, debug
 
 from utils.screenshot import capture_region, enhanced_screenshot
-from core.ocr import extract_text, extract_number
+from core.ocr import extract_text, extract_number, extract_percent
 from core.recognizer import match_template, count_pixels_of_color, find_color_of_pixel, closest_color, multi_match_templates
 
 import utils.constants as constants
@@ -179,6 +179,10 @@ def check_support_card(threshold=0.8, target="none"):
 # Get failure chance (idk how to get energy value)
 def check_failure():
   failure = enhanced_screenshot(constants.FAILURE_REGION)
+  # use new OCR that protects against "33%" → "3%" errors
+  val = extract_percent(failure)
+  if val != -1:
+    return int(val)
   failure_text = extract_text(failure).lower()
 
   if not failure_text.startswith("failure"):
