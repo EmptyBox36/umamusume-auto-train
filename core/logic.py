@@ -234,7 +234,7 @@ def training_logic(results):
       #         custom_fail_chance = state.LOW_FAILURE_CONDITION["failure"]
       #         info(f"Due to {best_stat.upper()} have low ({best_point['easy_point']}) rainbow point, set maximum failure to {custom_fail_chance}%.")
 
-  # Get training
+  # Filter out high failure
   training_candidates = {
     stat: data for stat, data in results.items()
     if int(data["failure"]) <= custom_fail_chance
@@ -242,6 +242,9 @@ def training_logic(results):
 
   if not training_candidates:
     info("Every training have high failure. Do rest.")
+    return False
+  
+  if energy_level < state.NEVER_REST_ENERGY:
     return False
 
   # training_candidates = {
@@ -287,13 +290,13 @@ def training_logic(results):
                   info(f"Proceeding to most support training.")
                   return None
 
-          if energy_level > state.NEVER_REST_ENERGY:
+          if energy_level >= state.NEVER_REST_ENERGY:
               info(f"Energy is higher than never rest energy. Do WIT training")
               return "wit"
           else:
               return False
       info(f"{best_key.upper()} have Friend Value = 1, train {best_key.upper()}.")
-
+      
   info(f"Training logic selected: {best_key.upper()} with {best_data['total_points']} points and {best_data['failure']}% fail chance")
   return best_key
 
