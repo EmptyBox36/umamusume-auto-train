@@ -188,12 +188,12 @@ def training_logic(results):
     total_points = ( 1.5 * total_rainbow_friends) + ( 1 * total_non_maxed_support )
 
     if data["total_hints"] > 0:
-        total_points = total_points + 1
+      total_points = total_points + 1
     
     training_candidates[stat_name]["easy_rainbow"] = total_points
 
     if data["total_hints"] > 0:
-        total_points = total_points + state.HINT_POINT - 1
+      total_points = total_points + state.HINT_POINT - 1
     if total_rainbow_friends > 1:
       total_points = total_points + (1 * total_rainbow_friends)
     if total_non_maxed_support > 2:
@@ -233,6 +233,7 @@ def training_logic(results):
   training_candidates = {
     stat: data for stat, data in results.items()
     if int(data["failure"]) <= custom_fail_chance
+       and not (stat == "wit" and data["total_points"] < 1)
   }
 
   if not training_candidates:
