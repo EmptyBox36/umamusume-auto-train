@@ -247,10 +247,9 @@ def training_logic(results):
       return False
 
   if len(training_candidates) == 1 and "wit" in training_candidates:
-      if year_parts[0] == "Junior":
-          if any_nonmaxed:
-              info(f"Fallback to most support training to avoid training too much wit on junior year.")
-              return None
+    if any_nonmaxed:
+        info(f"Fallback to most support training to avoid training too much wit on junior year.")
+        return None
 
   # training_candidates = {
   #   stat: data for stat, data in results.items()
