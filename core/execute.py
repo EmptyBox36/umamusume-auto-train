@@ -249,7 +249,7 @@ def race_select(prioritize_g1=False, img=None, use_banner=True, allowed_grades=N
 
     # --- banner recognition (targeted when img is given) ---
     if use_banner and isinstance(img, str):
-        info(f"[NEWER] Looking for {img}.")
+        info(f"Looking for {img}.")
         for _ in range(6):  # pages to scan
             if state.stop_event.is_set():
                 return False
@@ -258,7 +258,7 @@ def race_select(prioritize_g1=False, img=None, use_banner=True, allowed_grades=N
             if not match:
                 if click(img=f"assets/races_icon/{img}.png",
                                 minSearch=get_secs(0.7),
-                                text=f"{img} found.",
+                                text=f"Original Logic Found {img}.",
                                 region=constants.RACE_LIST_BOX_REGION):
                     match = True
 
@@ -273,6 +273,7 @@ def race_select(prioritize_g1=False, img=None, use_banner=True, allowed_grades=N
                             click_x = x + bx + bw // 2
                             click_y = y + by + bh // 2
                             pyautogui.click(click_x, click_y)
+                            info(f"New Logic Found {img}.")
                             match = True
                             break
                 
