@@ -204,8 +204,13 @@ def training_logic(results):
     total_points = total_points * multiplier
     training_candidates[stat_name]["total_points"] = total_points
     training_candidates[stat_name]["total_rainbow_friends"] = total_rainbow_friends
+    training_candidates[stat_name]["total_non_maxed_support"] = total_non_maxed_support
 
-    info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Training point: {total_points}")
+    info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Total Rainbow Supports: {total_rainbow_friends}, Training point: {total_points}")
+
+  any_nonmaxed = any(
+    data.get("total_non_maxed_support", 0) > 0 
+    for data in training_candidates.values())
 
   highest_points = max(
       training_candidates.items(),
@@ -240,6 +245,12 @@ def training_logic(results):
     if energy_level <= state.SKIP_TRAINING_ENERGY:
       info(f"Energy level is lower that skip training energy. Do rest.")
       return False
+
+  if len(training_candidates) == 1 and "wit" in training_candidates:
+      if year_parts[0] == "Junior":
+          if any_nonmaxed:
+              info(f"Fallback to most support training to avoid training too much wit on junior year.")
+              return None
 
   # training_candidates = {
   #   stat: data for stat, data in results.items()
