@@ -1,4 +1,4 @@
-﻿import re, time, logging, calendar
+﻿import re, time, logging, calendar, unicodedata
 from selenium.webdriver.common.by import By
 from .base import BaseScraper, create_chromedriver
 
@@ -77,6 +77,21 @@ class RaceScraper(BaseScraper):
         return mapping
 
     def start(self):
+
+        def normalize_race_name(name: str) -> str:
+            s = unicodedata.normalize("NFKC", name)
+            # unify punctuation you see on GameTora
+            s = (s.replace("’", "'")
+                   .replace("“", '"').replace("”", '"')
+                   .replace("–", "-").replace("—", "-"))
+            # kill filesystem-hostile chars
+            s = re.sub(r'[\\/|:*?<>]', "-", s)
+            # strip any stray hash or quotes that sneaked in
+            s = s.replace("#", "").replace('"', "")
+            # collapse whitespace
+            s = re.sub(r"\s+", " ", s).strip()
+            return s
+
         driver = create_chromedriver()
         driver.get(self.url)
         time.sleep(5)
@@ -118,6 +133,7 @@ class RaceScraper(BaseScraper):
             info = {c.text.strip(): v.text.strip() for c, v in zip(caps, vals)}
 
             race_name = dialog.find_element(By.XPATH, ".//div[contains(@class,'races_det_header')]").text.strip()
+            race_name = normalize_race_name(race_name)
             date_header = dialog.find_element(By.XPATH, ".//div[contains(@class,'races_schedule_header')]").text.replace("\n", " ").strip()
             grade = info.get("Grade")
 

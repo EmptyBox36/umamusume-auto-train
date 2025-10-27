@@ -2883,7 +2883,6 @@
             "id": 10176
         },
         "JBC Ladies’ Classic": {
-            "id": 10347,
             "date": "Early Nov",
             "racetrack": "Ooi",
             "terrain": "Dirt",
@@ -2896,10 +2895,7 @@
                 "gained": 4100
             },
             "grade": "G1",
-            "sparks": [
-                "Speed",
-                "Guts"
-            ],
+            "sparks": [],
             "id": 10177
         },
         "JBC Sprint": {
@@ -5613,7 +5609,7 @@
             ],
             "id": 10346
         },
-        "JBC Ladies’ Classic": {
+        "JBC Ladies' Classic": {
             "date": "Early Nov",
             "racetrack": "Ooi",
             "terrain": "Dirt",
@@ -5626,10 +5622,7 @@
                 "gained": 4100
             },
             "grade": "G1",
-            "sparks": [
-                "Speed",
-                "Guts"
-            ],
+            "sparks": [],
             "id": 10347
         },
         "JBC Sprint": {

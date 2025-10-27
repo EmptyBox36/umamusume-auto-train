@@ -7,5 +7,6 @@ if /i "%choice%"=="y" (
     echo Skipping update...
 )
 
+pip install -r requirements.txt
 python main.py
 pause
