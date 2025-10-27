@@ -255,7 +255,7 @@ def race_select(prioritize_g1=False, img=None, use_banner=True, allowed_grades=N
                 return False
 
             match = False
-            if match:
+            if not match:
                 frame = screenshot_bgr()  # fresh per page
                 new_found = False
                 original_found = click(img=f"assets/races_icon/{img}.png",
