@@ -194,10 +194,10 @@ def training_logic(results):
     if total_non_maxed_support > 2:
       total_points = total_points + (2 * total_non_maxed_support)
  
-    # Temporary because im lazy to change high/low failure
-    # Now, Non-maxed = 1, Rainbow = 1.5, if more than 1 rainbow (1 Rainbow = 2.5), if more than 2 non-maxed (1 non-maxed = 3)
+    # Now, Non-maxed = 1, Rainbow = 1.5, if more than 1 rainbow (1 Rainbow = 2.5), if more than 2 non-maxed (1 non-maxed = 3), 0.25 per maxed supports
     # use this training logic: https://docs.google.com/spreadsheets/d/e/2PACX-1vRwrUHivwEYuyROD3oxp5VaKAzpQLUBszAImv38tjEq64_7KiTsktXyDgJA0XEWlU4STFwTPPWw2ONu/pubhtml?gid=0&single=true
 
+    total_points = total_points + (0.25 * (data["total_supports"] - total_rainbow_friends - total_non_maxed_support))
     total_points = total_points * multiplier
     training_candidates[stat_name]["total_points"] = total_points
     training_candidates[stat_name]["total_rainbow_friends"] = total_rainbow_friends
