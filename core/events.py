@@ -5,7 +5,6 @@ from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
 from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, SKILL_HINT_BY_EVENT
 from core.EventsDatabase import find_closest_event
-from core.state import STAT_CAPS, check_energy_level, stat_state, check_mood, check_current_year
 from core.logic import get_stat_priority
 import utils.constants as constants
 
@@ -67,12 +66,9 @@ def pick_choice_by_skill_hint(key: str, desired_skills: set[str]):
 
 def score_choice(ev_key, choice_row):
     # Score from Stat
-    from core.execute import current_stats
-    global caps
-    energy_level, max_energy = check_energy_level()
-
+    current_stats = state.CURRENT_STATS
     choice_weight = state.CHOICE_WEIGHT
-    caps = STAT_CAPS
+    caps = state.STAT_CAPS
 
     choice_score = 0.0
     for k_map, key in [("spd","Speed"),("sta","Stamina"),("pwr","Power"),
@@ -91,9 +87,12 @@ def score_choice(ev_key, choice_row):
         choice_score += choice_weight[k_map] * norm * multiplier
 
     # Score from Energy
+    max_energy = state.MAX_ENERGY
+    energy_level = state.CURRENT_ENERGY_LEVEL
     energy_gain = float(choice_row.get("HP", 0) or 0)
-
-    if (max_energy - energy_level) >= energy_gain or energy_gain < 0:
+    if energy_gain < 0:
+        energy_penalty = 0 # if choice give negative energy not have effect on score
+    elif (max_energy - energy_level) >= energy_gain:
         energy_penalty = 1 # 1 = No Penalty
     else:
         energy_penalty = 0.1
@@ -101,12 +100,11 @@ def score_choice(ev_key, choice_row):
     choice_score += choice_weight["hp"] * energy_gain * energy_penalty
 
     # Score from Mood
-    mood = check_mood()
-    mood_index = constants.MOOD_LIST.index(mood)
+    mood_index = state.CURRENT_MOOD_INDEX
     mood_gain = float(choice_row.get("Mood", 0) or 0)
     minimum_mood = constants.MOOD_LIST.index(state.MINIMUM_MOOD)
     minimum_mood_junior_year = constants.MOOD_LIST.index(state.MINIMUM_MOOD_JUNIOR_YEAR)
-    year = check_current_year()
+    year = state.CURRENT_YEAR
     year_parts = year.split(" ")
 
     if year_parts[0] == "Junior":
@@ -114,7 +112,9 @@ def score_choice(ev_key, choice_row):
     else:
       mood_check = minimum_mood
 
-    if mood_index < mood_check or mood_gain < 0:
+    if mood_gain < 0:
+        mood_penalty = 0 # if choice give negative mood not have effect on score
+    elif mood_index < mood_check:
         mood_penalty = 1 # 1 = No Penalty
     else:
         mood_penalty = 0.05

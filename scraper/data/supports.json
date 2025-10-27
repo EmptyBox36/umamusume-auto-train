@@ -373,40 +373,6 @@
             }
         }
     },
-    "Lone Wolf": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 3.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 3.0,
-                "Stamina": 3.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Lone Wolf",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "Flustered Afternoon Tea!": {
         "choices": {
             "1": "Top Option",
@@ -438,6 +404,40 @@
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 10.0
+            }
+        }
+    },
+    "My Muscles and Me, Onward to Tomorrow!": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 15.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 5.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
             }
         }
     },
@@ -2257,40 +2257,6 @@
             }
         }
     },
-    "Optimistic Escapism": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 15.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Wet Conditions ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "I'm Not Afraid!": {
         "choices": {
             "1": "Top Option",
@@ -2427,40 +2393,6 @@
             }
         }
     },
-    "I'm All Fired Up!": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 15.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Early Lead",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "How Should I Respond?": {
         "choices": {
             "1": "Top Option",
@@ -2522,6 +2454,40 @@
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Conquering the Crowds": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 5.0,
+                "Skill Hint": "",
+                "Skill Pts": 15.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Nakayama Racecourse ○",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -2713,6 +2679,40 @@
             }
         }
     },
+    "What Should I Do?": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 5.0,
+                "Wit": 5.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Left-Handed ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
     "My Way, Or...": {
         "choices": {
             "1": "Top Option",
@@ -2795,6 +2795,40 @@
                 "Mood": 0.0,
                 "Power": 10.0,
                 "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 5.0,
+                "Skill Hint": "",
+                "Skill Pts": 15.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Enemies on Main Street": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Nimble Navigator",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -3305,6 +3339,40 @@
             }
         }
     },
+    "//Verification Required": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 5.0,
+                "HP": 10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 10.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 5.0,
+                "Wit": 0.0
+            }
+        }
+    },
     "//Absolute Desire": {
         "choices": {
             "1": "Top Option",
@@ -3436,6 +3504,40 @@
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Enough to Break into a Dash!": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Gap Closer",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 5.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 10.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
             }
@@ -5495,40 +5597,6 @@
             }
         }
     },
-    "My Muscles and Me, Onward to Tomorrow!": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 15.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 5.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "The Correlation between Sleep and Efficiency": {
         "choices": {
             "1": "Top Option",
@@ -6039,7 +6107,75 @@
             }
         }
     },
-    "What Should I Do?": {
+    "Trainer Tip: Always Improve Your Coaching": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 14.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 18.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 6.0,
+                "Stamina": 0.0,
+                "Wit": 6.0
+            }
+        }
+    },
+    "The Search for a Hobby\nDating starts": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 28.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 18.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": -5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": -1.0,
+                "Power": 0.0,
+                "Skill Hint": "Maverick ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Lone Wolf": {
         "choices": {
             "1": "Top Option",
             "2": "Bottom Option"
@@ -6051,12 +6187,12 @@
                 "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 0.0,
+                "Power": 3.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 5.0,
-                "Wit": 5.0
+                "Speed": 3.0,
+                "Stamina": 3.0,
+                "Wit": 0.0
             },
             "2": {
                 "Friendship": 5.0,
@@ -6065,7 +6201,75 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "Left-Handed ○",
+                "Skill Hint": "Lone Wolf",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Optimistic Escapism": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 15.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Wet Conditions ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "I'm All Fired Up!": {
+        "choices": {
+            "1": "Top Option",
+            "2": "Bottom Option"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 15.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Early Lead",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -6138,74 +6342,6 @@
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 5.0
-            }
-        }
-    },
-    "Conquering the Crowds": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 0.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 5.0,
-                "Skill Hint": "",
-                "Skill Pts": 15.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 0.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Nakayama Racecourse ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Enemies on Main Street": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Nimble Navigator",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 5.0,
-                "Skill Hint": "",
-                "Skill Pts": 15.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
             }
         }
     },
@@ -6413,71 +6549,37 @@
             }
         }
     },
-    "Enough to Break into a Dash!": {
+    "My Chosen Way of Life": {
         "choices": {
             "1": "Top Option",
             "2": "Bottom Option"
         },
         "stats": {
             "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 13.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Gap Closer",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 5.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 10.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "//Verification Required": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 5.0,
-                "HP": 10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
+                "Mood": 1.0,
                 "Power": 0.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 10.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 6.0
             }
         }
     }

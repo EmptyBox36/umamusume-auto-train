@@ -447,6 +447,13 @@ def career_lobby():
     year_parts = year.split(" ")
     current_stats = stat_state()
 
+    state.CURRENT_ENERGY_LEVEL = energy_level
+    state.MAX_ENERGY = max_energy
+    state.CURRENT_MOOD_INDEX = mood_index
+    state.CURRENT_STATS = current_stats
+    state.CURRENT_YEAR = year
+    state.CUSTOM_FAILURE = state.MAX_FAILURE
+
     print("\n=======================================================================================\n")
     info(f"Year: {year}")
     info(f"Mood: {mood}")
@@ -626,5 +633,10 @@ def career_lobby():
       sleep(0.5)
       do_train(best_training)
     else:
-      do_rest(energy_level)
+      if year_parts[0] == "Finale" and "Finals" in criteria:
+        go_to_training()
+        sleep(0.5)
+        do_train("wit")
+      else:
+        do_rest(energy_level)
     sleep(1)

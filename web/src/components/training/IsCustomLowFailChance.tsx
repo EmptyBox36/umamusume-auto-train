@@ -12,7 +12,7 @@ export default function IsCustomLowFailChance({ CustomFailureEnabled, enableCust
         <label htmlFor="is-custom-low-failure" className="flex gap-2 items-center">
             <Checkbox disabled={!CustomFailureEnabled} id="is-custom-low-failure" checked={enableCustomLowFailure} onCheckedChange={() => setCustomLowFailChance(!enableCustomLowFailure)} />
             <span className="text-lg font-medium shrink-0">Use Low Point Condition?</span>
-            <Tooltips>Rainbow Friendship = 2 points<br />Friendship If Not Maxed After Junior Year = 1.5 point<br />Normal Friendship = 1 Point<br />If Have Skill Hint = Hint Point</Tooltips>
+            <Tooltips>Each Rainbow Friendship = 1.5 points<br />Each Non-Maxed Friendship = 1 point<br />Each Orange or Maxed Friendship = 0 Point<br />If have hint, point + 1<br />Recommend Low Point = 1<br />These Score Use to Set Condition Only Not Final Score</Tooltips>
         </label>
     );
 }

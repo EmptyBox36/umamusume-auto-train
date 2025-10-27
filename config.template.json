@@ -18,7 +18,7 @@
   ],
   "sleep_time_multiplier": 1,
   "skip_training_energy": 25,
-  "never_rest_energy": 75,
+  "never_rest_energy": 30,
   "skip_infirmary_unless_missing_energy": 20,
   "minimum_mood": "NORMAL",
   "priority_weight": "LIGHT",
@@ -28,12 +28,12 @@
   "enable_custom_failure": false,
   "enable_custom_low_failure": false,
   "low_failure_condition": {
-    "point": 1.5,
+    "point": 1,
     "failure": 10
   },
   "enable_custom_high_failure": false,
   "high_failure_condition": {
-    "point": 5,
+    "point": 3,
     "failure": 40
   },
   "prioritize_g1_race": false,

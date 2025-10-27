@@ -136,292 +136,6 @@
                 }
             }
         },
-        "The Strongest Collaborator?!": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 10.0,
-                    "HP": -20.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 15.0,
-                    "Wit": 0.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 5.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 5.0
-                }
-            }
-        },
-        "The Pressure of Justice?": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 15.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 10.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "Corner Adept ○",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                }
-            }
-        },
-        "Hamburger Helper!": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 10.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 5.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 30.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 5.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 10.0,
-                    "Speed": -5.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                }
-            }
-        },
-        "Medicine That Makes You Faster?": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 5.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 5.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 5.0,
-                    "Stamina": 0.0,
-                    "Wit": 5.0
-                }
-            }
-        },
-        "The Significance of Research": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 10.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 10.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                }
-            }
-        },
-        "No Shortcuts": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Middle Option",
-                "3": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 10.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 10.0
-                },
-                "3": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 10.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                }
-            }
-        },
-        "A Gift From the Dark Sky": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 5.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 5.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 10.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 0.0
-                }
-            }
-        },
-        "Body Modification!": {
-            "choices": {
-                "1": "Top Option",
-                "2": "Bottom Option"
-            },
-            "stats": {
-                "1": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 5.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 0.0,
-                    "Wit": 5.0
-                },
-                "2": {
-                    "Friendship": 0.0,
-                    "Guts": 0.0,
-                    "HP": 0.0,
-                    "Max Energy": 0.0,
-                    "Mood": 0.0,
-                    "Power": 0.0,
-                    "Skill Hint": "",
-                    "Skill Pts": 0.0,
-                    "Speed": 0.0,
-                    "Stamina": 10.0,
-                    "Wit": 0.0
-                }
-            }
-        },
         "At Summer Camp (Year 2)": {
             "choices": {
                 "1": "Top Option",
@@ -16837,6 +16551,40 @@
                     "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0
+                }
+            }
+        },
+        "Is Cat Language Real?": {
+            "choices": {
+                "1": "Top Option",
+                "2": "Bottom Option"
+            },
+            "stats": {
+                "1": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 10.0,
+                    "Wit": 0.0
+                },
+                "2": {
+                    "Friendship": 0.0,
+                    "Guts": 0.0,
+                    "HP": 0.0,
+                    "Max Energy": 0.0,
+                    "Mood": 0.0,
+                    "Power": 0.0,
+                    "Skill Hint": "",
+                    "Skill Pts": 0.0,
+                    "Speed": 0.0,
+                    "Stamina": 0.0,
+                    "Wit": 10.0
                 }
             }
         },

@@ -23,8 +23,9 @@ Use responsibly and at your own discretion.
 - Auto-purchase skill
 - Web Interface for easier configuration
 - Select running style position
-- Auto pick event choice
 - Detailed config
+- Auto pick event choice
+- Automatically picks event choice base on desire skill (skill in auto buy list), and stats.
 
 ## Getting Started
 
@@ -37,7 +38,7 @@ Use responsibly and at your own discretion.
 #### Clone repository
 
 ```
-git clone https://github.com/samsulpanjul/umamusume-auto-train.git
+git clone https://github.com/EmptyBox36/umamusume-auto-train.git
 cd umamusume-auto-train
 ```
 
@@ -74,23 +75,15 @@ Open your browser and go to: `http://127.0.0.1:8000/` to easily edit the bot's c
 
 ### Training Logic
 
-There are 2 training logics used:
 
-1. Train in the area with the most support cards.
-2. Train in an area with a rainbow support bonus.
-
-During the first year, the bot will prioritize the first logic to quickly unlock rainbow training.
-
-Starting from the second year, it switches to the second logic. If there’s no rainbow training and the failure chance is still below the threshold, it falls back to the first one.
 
 ### Known Issue
 
 - Some Uma that has special event/target goals (like Restricted Train Goldship or ~~2 G1 Race Oguri Cap~~) may not working. For Oguri Cap G1 race event goal, you need to set the races in the race schedule that match the dates of her G1 goal events.
 - OCR might misread failure chance (e.g., reads 33% as 3%) and proceeds with training anyway.
-- Automatically picks event choice base on desire skill (skill in auto buy list), and stats.
 - If you bring a friend support card (like Tazuna/Aoi Kiryuin) and do recreation, the bot always date with the friend support card.
 
 ### Contribute
 
 If you run into any issues or something doesn’t work as expected, feel free to open an issue.
-Contributions are very welcome! If you want to contribute, please check out the [dev](https://github.com/samsulpanjul/umamusume-auto-train/tree/dev) branch, which is used for testing new features. I truly appreciate any support to help improve this project further.
+Contributions are very welcome!
