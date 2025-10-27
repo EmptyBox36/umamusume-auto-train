@@ -230,22 +230,22 @@ def race_select(prioritize_g1=False, img=None, use_banner=True, allowed_grades=N
     pyautogui.moveTo(constants.SCROLLING_SELECTION_MOUSE_POS)
     sleep(0.3)
 
-    # --- exact name match (G1) ----------------------------------------------
-    if prioritize_g1 and img:
-        info(f"[ORIGINAL] Looking for {img}.")
-        for _ in range(6):
-            if state.stop_event.is_set():
-                return False
-            if click(img=f"assets/races_icon/{img}.png",
-                     minSearch=get_secs(0.7),
-                     text=f"{img} found.",
-                     region=constants.RACE_LIST_BOX_REGION):
-                for _ in range(2):
-                    if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
-                        click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
-                    sleep(0.5)
-                return True
-            drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
+    # # --- exact name match (G1) ----------------------------------------------
+    # if prioritize_g1 and img:
+    #     info(f"[ORIGINAL] Looking for {img}.")
+    #     for _ in range(6):
+    #         if state.stop_event.is_set():
+    #             return False
+    #         if click(img=f"assets/races_icon/{img}.png",
+    #                  minSearch=get_secs(0.7),
+    #                  text=f"{img} found.",
+    #                  region=constants.RACE_LIST_BOX_REGION):
+    #             for _ in range(2):
+    #                 if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
+    #                     click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
+    #                 sleep(0.5)
+    #             return True
+    #         drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
 
     # --- banner recognition (targeted when img is given) ---
     if use_banner and isinstance(img, str):
