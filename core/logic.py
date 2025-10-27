@@ -61,7 +61,6 @@ def most_support_card(results):
   best_training = max(filtered_results.items(), key=training_score)
 
   best_key, best_data = best_training
-  year = state.CURRENT_YEAR
   
   if best_data["total_supports"] <= 1:
     if int(best_data["failure"]) == 0:
@@ -231,8 +230,9 @@ def training_logic(results):
     and not (stat == "wit" and data["easy_point"] < 1)}
 
   if not training_candidates:
-    info(f"Every training have high failure. Do rest.")
-    return False
+    if energy_level > state.SKIP_TRAINING_ENERGY:
+      info(f"Every training have high failure. But have energy more than skip training energy. Fallback to most support training.")
+      return None
 
   if energy_level <= state.SKIP_TRAINING_ENERGY:
     info(f"Energy level is lower that skip training energy. Do rest.")
@@ -282,7 +282,7 @@ def training_logic(results):
                   return None
 
           if energy_level >= state.NEVER_REST_ENERGY:
-              info(f"Energy is higher than never rest energy. Do WIT training")
+              info(f"Energy is higher than never rest energy. Fallback to most support training.")
               return None
           else:
               return False
