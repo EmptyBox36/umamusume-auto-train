@@ -206,7 +206,7 @@ def training_logic(results):
     training_candidates[stat_name]["total_rainbow_friends"] = total_rainbow_friends
     training_candidates[stat_name]["total_non_maxed_support"] = total_non_maxed_support
 
-    info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Total Rainbow Supports: {total_rainbow_friends}, Training point: {total_points}")
+    info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Total Rainbow Supports: {total_rainbow_friends}, Training point: {total_points}, Condition point:{training_candidates[stat_name]["easy_point"]}")
 
   any_nonmaxed = any(
     data.get("total_non_maxed_support", 0) > 0 

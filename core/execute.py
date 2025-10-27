@@ -284,7 +284,7 @@ def race_select(prioritize_g1=False, img=None, use_banner=True, allowed_grades=N
                             click("assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
                         sleep(0.5)
                     return True
-            # only scroll after checking both ROIs
+            sleep(0.5)
             drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
         return False
 
