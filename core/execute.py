@@ -230,22 +230,22 @@ def race_select(prioritize_g1=False, img=None, use_banner=True, allowed_grades=N
     pyautogui.moveTo(constants.SCROLLING_SELECTION_MOUSE_POS)
     sleep(0.3)
 
-    # # --- exact name match (G1) ----------------------------------------------
-    # if prioritize_g1 and img:
-    #     info(f"[ORIGINAL] Looking for {img}.")
-    #     for _ in range(6):
-    #         if state.stop_event.is_set():
-    #             return False
-    #         if click(img=f"assets/races_icon/{img}.png",
-    #                  minSearch=get_secs(0.7),
-    #                  text=f"{img} found.",
-    #                  region=constants.RACE_LIST_BOX_REGION):
-    #             for _ in range(2):
-    #                 if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
-    #                     click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
-    #                 sleep(0.5)
-    #             return True
-    #         drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
+    # --- exact name match (G1) ----------------------------------------------
+    if prioritize_g1 and img:
+        info(f"[ORIGINAL] Looking for {img}.")
+        for _ in range(6):
+            if state.stop_event.is_set():
+                return False
+            if click(img=f"assets/races_icon/{img}.png",
+                     minSearch=get_secs(0.7),
+                     text=f"{img} found.",
+                     region=constants.RACE_LIST_BOX_REGION):
+                for _ in range(2):
+                    if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
+                        click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
+                    sleep(0.5)
+                return True
+            drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
 
     # --- banner recognition (targeted when img is given) ---
     if use_banner and isinstance(img, str):
@@ -256,34 +256,33 @@ def race_select(prioritize_g1=False, img=None, use_banner=True, allowed_grades=N
 
             match = False
             if not match:
-                frame = screenshot_bgr()  # fresh per page
-                new_found = False
-                original_found = click(img=f"assets/races_icon/{img}.png",
-                         minSearch=get_secs(0.7),
-                         text=f"{img} found.",
-                         region=constants.RACE_LIST_BOX_REGION)
+                if click(img=f"assets/races_icon/{img}.png",
+                                minSearch=get_secs(0.7),
+                                text=f"{img} found.",
+                                region=constants.RACE_LIST_BOX_REGION):
+                    match = True
 
-                for roi in (constants.RACE_BANNER_ROIS_TOP, constants.RACE_BANNER_ROIS_BOTTOM):
-                    x, y, w, h = roi
-                    crop = frame[y:y+h, x:x+w]
-                    score, box = RACE_DB.detect_name(crop, img, thresh=0.80)
-                    if box:
-                        bx, by, bw, bh = box
-                        click_x = x + bx + bw // 2
-                        click_y = y + by + bh // 2
-                        pyautogui.click(click_x, click_y)
-                        new_found = True
-                        break
+                if not match:
+                    frame = screenshot_bgr()  # fresh per page
+                    for roi in (constants.RACE_BANNER_ROIS_TOP, constants.RACE_BANNER_ROIS_BOTTOM):
+                        x, y, w, h = roi
+                        crop = frame[y:y+h, x:x+w]
+                        score, box = RACE_DB.detect_name(crop, img, thresh=0.80)
+                        if box:
+                            bx, by, bw, bh = box
+                            click_x = x + bx + bw // 2
+                            click_y = y + by + bh // 2
+                            pyautogui.click(click_x, click_y)
+                            match = True
+                            break
                 
-                if original_found or new_found:
+                if match:
                     match = True
                     for _ in range(2):
                         if not click("assets/buttons/race_btn.png", minSearch=get_secs(2)):
                             click("assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
                         sleep(0.5)
                     return True
-                    # wrong banner → go back and keep scanning
-                    click(img="assets/buttons/back_btn.png", minSearch=get_secs(1))
             # only scroll after checking both ROIs
             drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
         return False
