@@ -27,17 +27,18 @@ def most_support_card(results):
   # Get all training but wit
   non_wit_results = {
     k: v for k, v in results.items()
-    if k != "wit" and int(v["failure"]) <= state.MAX_FAILURE
+    if k != "wit" and int(v["failure"]) <= state.CUSTOM_FAILURE
   }
 
   # Check if train is bad
   all_others_bad = len(non_wit_results) == 0
-  energy_level, max_energy = check_energy_level()
+  energy_level = state.CURRENT_ENERGY_LEVEL
+
   if energy_level < state.SKIP_TRAINING_ENERGY:
     info("All trainings are unsafe and WIT training won't help go back up to safe levels, resting instead.")
     return None
 
-  if all_others_bad and wit_data and int(wit_data["failure"]) <= state.MAX_FAILURE and wit_data["total_supports"] >= 2:
+  if all_others_bad and wit_data and int(wit_data["failure"]) <= state.CUSTOM_FAILURE and wit_data["total_supports"] >= 2:
     info("All trainings are unsafe, but WIT is safe and has enough support cards.")
     return "wit"
 
@@ -48,7 +49,7 @@ def most_support_card(results):
             v["total_friendship_levels"]["yellow"] + v["total_friendship_levels"]["max"]
         )
     }
-    for k, v in results.items() if int(v["failure"]) <= state.MAX_FAILURE
+    for k, v in results.items() if int(v["failure"]) <= state.CUSTOM_FAILURE
     }
 
   if not filtered_results:
@@ -60,21 +61,10 @@ def most_support_card(results):
   best_training = max(filtered_results.items(), key=training_score)
 
   best_key, best_data = best_training
-  year = check_current_year()
+  year = state.CURRENT_YEAR
   
   if best_data["total_supports"] <= 1:
     if int(best_data["failure"]) == 0:
-      # if energy_level > 50 and "Junior Year" not in year:
-      #     from core.execute import do_race
-      #     do_race()
-      #     if do_race():
-      #         info("Support card is too low and have high energy. Try to do race.")
-      #         return None
-      #     else:
-      #         from core.execute import click
-      #         click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="Proceeding to training.")
-      #         sleep(0.5)
-
       # WIT must be at least 2 support cards
       if best_key == "wit":
           if energy_level > state.NEVER_REST_ENERGY:
@@ -129,11 +119,11 @@ def training_score(x, all_zero_non_maxed=False):
 
 #   filtered_results = {
 #       stat: data for stat, data in results.items()
-#       if int(data["failure"]) <= state.MAX_FAILURE
+#       if int(data["failure"]) <= state.CUSTOM_FAILURE
 #   }
 
 #   if not filtered_results:
-#       debug("No trainings under MAX_FAILURE, falling back to most_support_card.")
+#       debug("No trainings under CUSTOM_FAILURE, falling back to most_support_card.")
 #       return None, 0
 
 #   for stat_name in filtered_results:
@@ -170,13 +160,11 @@ def training_score(x, all_zero_non_maxed=False):
 # Do training
 def training_logic(results):
   global PRIORITY_WEIGHTS_LIST
-  year = check_current_year()
+  year = state.CURRENT_YEAR
   year_parts = year.split(" ")
-  energy_level, max_energy = check_energy_level()
+  energy_level = state.CURRENT_ENERGY_LEVEL
   priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
   # 2 points for rainbow supports, 1 point for normal supports, 1.5 point for non-maxed supports, +0.5 For Hint, stat priority tie breaker
-
-  custom_fail_chance = state.MAX_FAILURE
 
   training_candidates = results
   for stat_name in training_candidates:
@@ -192,13 +180,15 @@ def training_logic(results):
     #adding total rainbow friends on top of total supports for two times value nudging the formula towards more rainbows
     total_points = ( 1.5 * total_rainbow_friends) + ( 1 * total_non_maxed_support )
 
-    if data["total_hints"] > 0:
-      total_points = total_points + 1
+    hint_with_non_maxed = 0
+    if data["total_hints"] > 0 and total_non_maxed_support > 0:
+      hint_with_non_maxed = 1
+      total_points = total_points + hint_with_non_maxed
     
     training_candidates[stat_name]["easy_point"] = total_points
 
     if data["total_hints"] > 0:
-      total_points = total_points + state.HINT_POINT - 1
+      total_points = total_points + state.HINT_POINT - hint_with_non_maxed
     if total_rainbow_friends > 1:
       total_points = total_points + (1 * total_rainbow_friends)
     if total_non_maxed_support > 2:
@@ -226,18 +216,18 @@ def training_logic(results):
   if state.ENABLE_CUSTOM_FAILURE_CHANCE:
       if state.ENABLE_CUSTOM_HIGH_FAILURE:
           if best_point["easy_point"] > state.HIGH_FAILURE_CONDITION["point"]:
-              custom_fail_chance = state.HIGH_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have high ({best_point['easy_point']}) rainbow point, set maximum failure to {custom_fail_chance}%.")
+              state.CUSTOM_FAILURE = state.HIGH_FAILURE_CONDITION["failure"]
+              info(f"Due to {best_stat.upper()} have high ({best_point['easy_point']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
 
       # if state.ENABLE_CUSTOM_LOW_FAILURE:
       #     if best_point["easy_point"] < state.LOW_FAILURE_CONDITION["point"]:
-      #         custom_fail_chance = state.LOW_FAILURE_CONDITION["failure"]
-      #         info(f"Due to {best_stat.upper()} have low ({best_point['easy_point']}) rainbow point, set maximum failure to {custom_fail_chance}%.")
+      #         state.CUSTOM_FAILURE = state.LOW_FAILURE_CONDITION["failure"]
+      #         info(f"Due to {best_stat.upper()} have low ({best_point['easy_point']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
 
   # Filter out high failure
   training_candidates = {
     stat: data for stat, data in results.items()
-    if int(data["failure"]) <= custom_fail_chance
+    if int(data["failure"]) <= state.CUSTOM_FAILURE
     and not (stat == "wit" and data["easy_point"] < 1)}
 
   if not training_candidates:
@@ -250,7 +240,7 @@ def training_logic(results):
 
   # training_candidates = {
   #   stat: data for stat, data in results.items()
-  #   if int(data["failure"]) <= custom_fail_chance
+  #   if int(data["failure"]) <= state.CUSTOM_FAILURE
   #      and data["easy_point"] >= 1
   #      and not (stat == "wit" and data["easy_point"] < 1)
   # }

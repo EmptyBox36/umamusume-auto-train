@@ -39,6 +39,7 @@ MAX_ENERGY = None
 CURRENT_MOOD_INDEX = None
 CURRENT_STATS = {}
 CURRENT_YEAR = None
+CUSTOM_FAILURE = 0
 
 def load_config():
   with open("config.json", "r", encoding="utf-8") as file:
