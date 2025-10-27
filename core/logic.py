@@ -52,6 +52,10 @@ def most_support_card(results):
     for k, v in results.items() if int(v["failure"]) <= state.CUSTOM_FAILURE
     }
 
+  all_zero_non_maxed = all(
+    v.get("total_non_maxed_support", 0) == 0 for v in filtered_results.values()
+    )
+
   if not filtered_results:
     info("No safe training found. All failure chances are too high.")
     return None
