@@ -479,6 +479,8 @@ def career_lobby():
       continue
     if click(boxes=matches["retry"]):
       continue
+    if click(img="assets/buttons/back_btn.png"):
+      continue
 
     if not matches["tazuna"]:
       #info("Should be in career lobby.")
