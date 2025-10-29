@@ -52,6 +52,10 @@ def most_support_card(results):
     for k, v in results.items() if int(v["failure"]) <= state.CUSTOM_FAILURE
     }
 
+  all_zero_non_maxed = all(
+    v.get("total_non_maxed_support", 0) == 0 for v in filtered_results.values()
+    )
+
   if not filtered_results:
     info("No safe training found. All failure chances are too high.")
     return None
@@ -61,7 +65,6 @@ def most_support_card(results):
   best_training = max(filtered_results.items(), key=training_score)
 
   best_key, best_data = best_training
-  year = state.CURRENT_YEAR
   
   if best_data["total_supports"] <= 1:
     if int(best_data["failure"]) == 0:
@@ -201,8 +204,13 @@ def training_logic(results):
     total_points = total_points * multiplier
     training_candidates[stat_name]["total_points"] = total_points
     training_candidates[stat_name]["total_rainbow_friends"] = total_rainbow_friends
+    training_candidates[stat_name]["total_non_maxed_support"] = total_non_maxed_support
 
-    info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Training point: {total_points}")
+    info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Total Rainbow Supports: {total_rainbow_friends}, Training point: {total_points}, Condition point:{training_candidates[stat_name]['easy_point']}")
+
+  any_nonmaxed = any(
+    data.get("total_non_maxed_support", 0) > 0 
+    for data in training_candidates.values())
 
   highest_points = max(
       training_candidates.items(),
@@ -231,12 +239,17 @@ def training_logic(results):
     and not (stat == "wit" and data["easy_point"] < 1)}
 
   if not training_candidates:
-    info(f"Every training have high failure. Do rest.")
-    return False
+    if energy_level > state.SKIP_TRAINING_ENERGY:
+      info(f"No suitable training in training logic. But have energy more than skip training energy. Fallback to most support training.")
+      return None
+    if energy_level <= state.SKIP_TRAINING_ENERGY:
+      info(f"Energy level is lower that skip training energy. Do rest.")
+      return False
 
-  if energy_level <= state.SKIP_TRAINING_ENERGY:
-    info(f"Energy level is lower that skip training energy. Do rest.")
-    return False
+  if len(training_candidates) == 1 and "wit" in training_candidates:
+    if any_nonmaxed:
+        info(f"Fallback to most support training to avoid training too much wit on junior year.")
+        return None
 
   # training_candidates = {
   #   stat: data for stat, data in results.items()
@@ -260,33 +273,33 @@ def training_logic(results):
 
   best_key, best_data = best_rainbow
   if best_data["easy_point"] < 1.5:
-      info(f"Max Friend Value less or equal to 1")
-      if training_candidates.get("wit", {}).get("easy_point", 0) >= 1:
-          info(f"WIT have Friend Value = 1, train WIT.")
-          return "wit"
-      elif best_data["easy_point"] == 0:
-          if energy_level > 50:
-              if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
-                  from core.execute import do_race
-                  info("Training point is too low and have high energy, try to do race.")
-                  race = do_race()
-                  if race is True:
-                      return False
-                  else:
-                      from core.execute import click
-                      click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found. Proceeding to most support training.")
-                      sleep(0.5)
-                      return None
-              else:
-                  info(f"Proceeding to most support training.")
-                  return None
+    info(f"Max Friend Value less or equal to 1")
+    if training_candidates.get("wit", {}).get("easy_point", 0) >= 1:
+        info(f"WIT have Friend Value = 1, train WIT.")
+        return "wit"
+    elif best_data["easy_point"] == 0:
+        if energy_level > 50:
+            if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
+                from core.execute import do_race
+                info("Training point is too low and have high energy, try to do race.")
+                race = do_race()
+                if race is True:
+                    return False
+                else:
+                    from core.execute import click
+                    click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found. Proceeding to most support training.")
+                    sleep(0.5)
+                    return None
+            else:
+                info(f"Proceeding to most support training.")
+                return None
 
-          if energy_level >= state.NEVER_REST_ENERGY:
-              info(f"Energy is higher than never rest energy. Do WIT training")
-              return None
-          else:
-              return False
-      info(f"{best_key.upper()} have Friend Value = 1, train {best_key.upper()}.")
+        if energy_level >= state.NEVER_REST_ENERGY:
+            info(f"Energy is higher than never rest energy. Fallback to most support training.")
+            return None
+        else:
+            return False
+    info(f"{best_key.upper()} have Friend Value = 1, train {best_key.upper()}.")
       
   info(f"Training logic selected: {best_key.upper()} with {best_data['total_points']} points and {best_data['failure']}% fail chance")
   return best_key
