@@ -173,7 +173,7 @@ def do_recreation():
   elif recreation_summer_btn:
     click(boxes=recreation_summer_btn)
 
-def do_race(prioritize_g1 = False, img = None, use_banner=True, allowed_grades=None):
+def do_race(prioritize_g1 = False, img = None):
   if state.stop_event.is_set():
     return False
   click(img="assets/buttons/races_btn.png", minSearch=get_secs(10))
