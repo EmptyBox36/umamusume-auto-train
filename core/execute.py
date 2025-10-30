@@ -453,6 +453,7 @@ def career_lobby():
     state.CURRENT_STATS = current_stats
     state.CURRENT_YEAR = year
     state.CUSTOM_FAILURE = state.MAX_FAILURE
+    state.CURRENT_TURN_LEFT = turn
 
     print("\n=======================================================================================\n")
     info(f"Year: {year}")
