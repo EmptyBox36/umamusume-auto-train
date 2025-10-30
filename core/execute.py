@@ -139,9 +139,10 @@ def do_train(train):
 def do_rest(energy_level):
   if state.stop_event.is_set():
     return
-  if state.NEVER_REST_ENERGY > 0 and energy_level > state.NEVER_REST_ENERGY:
-    info(f"Wanted to rest when energy was above {state.NEVER_REST_ENERGY}, retrying from beginning.")
-    return
+  if not state.FORCE_REST:
+    if state.NEVER_REST_ENERGY > 0 and energy_level > state.NEVER_REST_ENERGY:
+      info(f"Wanted to rest when energy was above {state.NEVER_REST_ENERGY}, retrying from beginning.")
+      return
   rest_btn = pyautogui.locateOnScreen("assets/buttons/rest_btn.png", confidence=0.8, region=constants.SCREEN_BOTTOM_REGION)
   rest_summber_btn = pyautogui.locateOnScreen("assets/buttons/rest_summer_btn.png", confidence=0.8, region=constants.SCREEN_BOTTOM_REGION)
 
@@ -447,6 +448,7 @@ def career_lobby():
     year_parts = year.split(" ")
     current_stats = stat_state()
 
+    state.FORCE_REST = False
     state.CURRENT_ENERGY_LEVEL = energy_level
     state.MAX_ENERGY = max_energy
     state.CURRENT_MOOD_INDEX = mood_index

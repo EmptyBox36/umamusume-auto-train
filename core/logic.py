@@ -230,6 +230,16 @@ def training_logic(results):
     if int(data["failure"]) <= state.CUSTOM_FAILURE
     and not (stat == "wit" and data["easy_point"] < 1)}
 
+  if best_point["easy_point"] < 3 and year_parts[0] in ["Classic", "Senior"] and year_parts[3] in ["Jun"]:
+    if (year_parts[2] in ["Early"] and state.CURRENT_TURN_LEFT == "1") or year_parts[2] in ["Late"]:
+      if state.CURRENT_ENERGY_LEVEL <= 50:
+        state.FORCE_REST = True
+        info(f"Next turn is summer camp and training not good enough. Do rest.")
+        return False
+      else:
+        info(f"Next turn is summer camp and training not good enough. Train WIT to get some energy.")
+        return "wit"
+
   if not training_candidates:
     info(f"Every training have high failure. Do rest.")
     return False
