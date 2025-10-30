@@ -2,8 +2,6 @@ from pickle import TRUE
 from statistics import StatisticsError
 
 from cv2.gapi import mul
-from core.state import HINT_POINT
-from core.state import check_current_year, stat_state, check_energy_level, check_aptitudes
 from utils.log import info, warning, error, debug
 from utils.tools import sleep, get_secs
 
@@ -328,8 +326,8 @@ def all_values_equal(dictionary):
 
 # Decide training
 def do_something(results):
-  year = check_current_year()
-  current_stats = stat_state()
+  year = state.CURRENT_YEAR
+  current_stats = state.CURRENT_STATS
   info(f"Current stats: {current_stats}")
 
   filtered = filter_by_stat_caps(results, current_stats)

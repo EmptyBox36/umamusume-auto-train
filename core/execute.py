@@ -22,7 +22,6 @@ from core.skill import buy_skill
 from core.events import get_optimal_choice
 from core.state import get_event_name, stop_bot
 from utils.capture import screenshot_bgr
-from utils.race_banner import RaceBannerDB
 
 templates = {
   "event": "assets/icons/event_choice_1.png",
@@ -43,9 +42,6 @@ training_types = {
   "guts": "assets/icons/train_guts.png",
   "wit": "assets/icons/train_wit.png"
 }
-
-BANNERS_DIR = os.path.join("assets", "races_icon")
-RACE_DB = RaceBannerDB(BANNERS_DIR)
 
 def click(img: str = None, confidence: float = 0.8, minSearch:float = 2, click: int = 1, text: str = "", boxes = None, region=None):
   if state.stop_event.is_set():
@@ -225,70 +221,29 @@ def race_day():
   sleep(1)
   after_race()
 
-def race_select(prioritize_g1=False, img=None, use_banner=True, allowed_grades=None):
+def race_select(prioritize_g1=False, img=None):
     if state.stop_event.is_set():
         return False
     pyautogui.moveTo(constants.SCROLLING_SELECTION_MOUSE_POS)
     sleep(0.3)
 
-    # # --- exact name match (G1) ----------------------------------------------
-    # if prioritize_g1 and img:
-    #     info(f"[ORIGINAL] Looking for {img}.")
-    #     for _ in range(6):
-    #         if state.stop_event.is_set():
-    #             return False
-    #         if click(img=f"assets/races_icon/{img}.png",
-    #                  minSearch=get_secs(0.7),
-    #                  text=f"{img} found.",
-    #                  region=constants.RACE_LIST_BOX_REGION):
-    #             for _ in range(2):
-    #                 if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
-    #                     click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
-    #                 sleep(0.5)
-    #             return True
-    #         drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
-
-    # --- banner recognition (targeted when img is given) ---
-    if use_banner and isinstance(img, str):
+    if prioritize_g1 and img:
         info(f"Looking for {img}.")
-        for _ in range(6):  # pages to scan
+        for _ in range(6):
             if state.stop_event.is_set():
                 return False
-
-            match = False
-            if not match:
-                if click(img=f"assets/races_icon/{img}.png",
-                                minSearch=get_secs(0.7),
-                                text=f"Original Logic Found {img}.",
-                                region=constants.RACE_LIST_BOX_REGION):
-                    match = True
-
-                if not match:
-                    frame = screenshot_bgr()  # fresh per page
-                    for roi in (constants.RACE_BANNER_ROIS_TOP, constants.RACE_BANNER_ROIS_BOTTOM):
-                        x, y, w, h = roi
-                        crop = frame[y:y+h, x:x+w]
-                        score, box = RACE_DB.detect_name(crop, img, thresh=0.80)
-                        if box:
-                            bx, by, bw, bh = box
-                            click_x = x + bx + bw // 2
-                            click_y = y + by + bh // 2
-                            pyautogui.click(click_x, click_y)
-                            info(f"New Logic Found {img}.")
-                            match = True
-                            break
-                
-                if match:
-                    match = True
-                    for _ in range(2):
-                        if not click("assets/buttons/race_btn.png", minSearch=get_secs(2)):
-                            click("assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
-                        sleep(0.5)
-                    return True
-            sleep(0.5)
+            if click(img=f"assets/races_icon/{img}.png",
+                     minSearch=get_secs(0.7),
+                     text=f"{img} found.",
+                     region=constants.RACE_LIST_BOX_REGION):
+                for _ in range(2):
+                    if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
+                        click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
+                    sleep(0.5)
+                return True
             drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
-        return False
 
+        return False
     else:
         info("Looking for race.")
         for i in range(4):
@@ -599,30 +554,6 @@ def career_lobby():
         warning("Coulnd't find full stats button.")
         stop_bot()
         continue
-        
-    # Mood check
-    # skipped_infirmary=False
-    # if year_parts[0] == "Junior":
-    #   mood_check = minimum_mood_junior_year
-    # else:
-    #   mood_check = minimum_mood
-    # if mood_index < mood_check:
-    #   if skipped_infirmary:
-    #     info("Since we skipped infirmary due to energy, check full stats for statuses.")
-    #     if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
-    #       sleep(0.5)
-    #       conditions, total_severity = check_status_effects()
-    #       click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
-    #       if total_severity > 1:
-    #         info("Severe condition found, visiting infirmary even though we will waste some energy.")
-    #         click(boxes=matches["infirmary"][0])
-    #         continue
-    #     else:
-    #       warning("Coulnd't find full stats button.")
-    #   else:
-    #     info("Mood is low, trying recreation to increase mood")
-    #     do_recreation()
-    #     continue
 
     # Infirmary
     skipped_infirmary=False
@@ -646,24 +577,6 @@ def career_lobby():
       else:
         click(boxes=matches["infirmary"][0], text="Character debuffed, going to infirmary.")
         continue
-
-    # # If Prioritize G1 Race is true, check G1 race every turn
-    # if state.PRIORITIZE_G1_RACE and "Pre-Debut" not in year and len(year_parts) > 3 and year_parts[3] not in ["Jul", "Aug"]:
-    #   race_done = False
-    #   for race_list in state.RACE_SCHEDULE:
-    #     if state.stop_event.is_set():
-    #       break
-    #     if len(race_list):
-    #       if race_list['year'] in year and race_list['date'] in year:
-    #         debug(f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}")
-    #         if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
-    #           race_done = True
-    #           break
-    #         else:
-    #           click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
-    #           sleep(0.5)
-    #   if race_done:
-    #     continue
 
     # Check if we need to race for goal
     if not "Achieved" in criteria:

@@ -54,7 +54,6 @@
   },
 
   "use_priority_on_choice": false,
-  "allowed_grades": ["G1", "G2", "G3", "OP", "Pre-OP"],
   "cancel_consecutive_race": true,
   "position_selection_enabled": false,
   "enable_positions_by_race": false,
