@@ -39,15 +39,15 @@ export default function RaceSchedule({ raceSchedule, addRaceSchedule, deleteRace
   const [fltDist, setFltDist] = useState<Set<DistT>>(new Set());
   const [fltGrade, setFltGrade] = useState<Set<GradeT>>(new Set());
 
-  const toggleSet = <T,>(setter: React.Dispatch<React.SetStateAction<Set<T>>>, v: T) =>
-      setter(prev => { const s = new Set(prev); s.has(v) ? s.delete(v) : s.add(v); return s; });
+  const toggleSet = <T,>(setter: React.Dispatch<React.SetStateAction<Set<T>>>, v: T) => {
+  setter(prev => {const s = new Set(prev);if (s.has(v)) { s.delete(v);} else {s.add(v);}return s;});};
 
   const clearFilters = () => { setFltTerrain(new Set()); setFltDist(new Set()); setFltGrade(new Set()); };
 
   useEffect(() => {
     const getRaceData = async () => {
       try {
-        const res = await fetch("https://raw.githubusercontent.com/EmptyBox36/umamusume-auto-train/refs/heads/main/scraper/data/races.json");
+          const res = await fetch("/scraper/data/races.json");
         const races: RaceScheduleDataType = await res.json();
         setData(races);
       } catch (error) {
@@ -84,6 +84,10 @@ export default function RaceSchedule({ raceSchedule, addRaceSchedule, deleteRace
           ])
       ) as RaceScheduleDataType)
       : null;
+
+  const bookedDates = new Set(
+      raceSchedule.map(r => `${r.year}::${r.date}`)
+  );
 
   return (
     <div>
@@ -148,40 +152,49 @@ export default function RaceSchedule({ raceSchedule, addRaceSchedule, deleteRace
               {/* <Input placeholder="Search..." type="search" value={search} onChange={handleSearch} /> */}
               {filteredData &&
                 Object.entries(filteredData).map(([year, raceList]) => (
-                  <div className="flex flex-col gap-2 relative">
+                  <div key={year} className="flex flex-col gap-2 relative">
                     <p className="text-xl font-semibold sticky top-0 bg-card pb-2">{year}</p>
                     <div className="flex flex-col gap-2 px-4">
-                      {Object.entries(raceList).map(([name, detail]) => (
-                        <div
-                          className={`border-2 ${
-                            raceSchedule.some((race) => race.name === name && race.year === year) ? "border-primary bg-primary/10" : "border-border cursor-pointer"
-                          } rounded-md px-4 py-2 flex justify-between hover:border-primary/50 transition`}
-                          onClick={() => {
-                            addRaceSchedule({ name: name, date: detail.date, year: year });
-                            if (raceSchedule.some((race) => race.name === name && race.year === year)) deleteRaceSchedule(name, year);
-                          }}
-                        >
-                          <div>
-                            <p className="font-semibold mb-2">
-                              {name}{detail.grade ? ` (${detail.grade})` : ""} - {detail.racetrack}
-                            </p>
-                            {(detail.sparks?.length ?? 0) > 0 && (
-                              <p>Sparks: {detail.sparks!.join(", ")}</p>
-                            )}
-                            <p>Fans required: {(detail.fans?.required ?? 0).toLocaleString()}</p>
-                            <p>Fans gained: {(detail.fans?.gained ?? 0).toLocaleString()}</p>
+                      {Object.entries(raceList).map(([name, detail]) => {
+                        const isSelected = raceSchedule.some(r => r.name === name && r.year === year);
+                        const isDisabled = !isSelected && bookedDates.has(`${year}::${detail.date}`);
+
+                        return (
+                          <div
+                            key={`${year}::${name}`}
+                            className={`border-2 rounded-md px-4 py-2 flex justify-between transition
+                              ${isSelected ? "border-primary bg-primary/10"
+                                           : isDisabled ? "border-border/50 opacity-60 cursor-not-allowed"
+                                                        : "border-border cursor-pointer hover:border-primary/50"}`}
+                            onClick={() => {
+                              if (isDisabled) return;                          // block double-booking same date
+                              if (isSelected) deleteRaceSchedule(name, year);  // toggle off
+                              else addRaceSchedule({ name, date: detail.date, year});
+                            }}
+                            title={isDisabled ? `Date already scheduled: ${detail.date}` : undefined}
+                          >
+                            <div>
+                              <p className="font-semibold mb-2">
+                                {name}{detail.grade ? ` (${detail.grade})` : ""} - {detail.racetrack}
+                              </p>
+                              {(detail.sparks?.length ?? 0) > 0 && (
+                                <p>Sparks: {detail.sparks!.join(", ")}</p>
+                              )}
+                              <p>Fans required: {(detail.fans?.required ?? 0).toLocaleString()}</p>
+                              <p>Fans gained: {(detail.fans?.gained ?? 0).toLocaleString()}</p>
+                            </div>
+                            <div className="text-right">
+                              <p className="mb-2">{detail.date}</p>
+                              <p>{detail.distance.type}</p>
+                              <p>{detail.distance.meters}</p>
+                              <p>{detail.terrain}</p>
+                            </div>
                           </div>
-                          <div className="text-right">
-                            <p className="mb-2">{detail.date}</p>
-                            <p>{detail.distance.type}</p>
-                            <p>{detail.distance.meters}</p>
-                            <p>{detail.terrain}</p>
-                          </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
-                ))}
+              ))}
             </div>
             <div className="w-3/12 flex flex-col">
               <div className="flex justify-between items-center">
@@ -192,11 +205,11 @@ export default function RaceSchedule({ raceSchedule, addRaceSchedule, deleteRace
               </div>
               <div className="flex flex-col gap-2 overflow-auto pr-2 max-h-[395px] mt-2">
                 {scheduledSorted.map((race) => (
-                  <div className="px-4 py-2 border-2 border-border rounded-md hover:border-primary/50 transition cursor-pointer" onClick={() => deleteRaceSchedule(race.name, race.year)}>
+                  <div key={`${race.year}::${race.name}`}
+                       className="px-4 py-2 border-2 border-border rounded-md hover:border-primary/50 transition cursor-pointer"
+                       onClick={() => deleteRaceSchedule(race.name, race.year)}>
                     <p className="font-semibold">{race.name}</p>
-                    <p>
-                      {race.year} {race.date}
-                    </p>
+                    <p>{race.year} {race.date}</p>
                   </div>
                 ))}
               </div>

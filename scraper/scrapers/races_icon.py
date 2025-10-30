@@ -1,4 +1,5 @@
 ﻿import os
+import unicodedata
 import re
 import time
 from selenium.webdriver.common.by import By
@@ -45,6 +46,20 @@ class RaceIconScraper(BaseScraper):
             except Exception:
                 driver.execute_script("arguments[0].click()", el)
 
+        def normalize_race_name(name: str) -> str:
+            s = unicodedata.normalize("NFKC", name)
+            # unify punctuation you see on GameTora
+            s = (s.replace("’", "'")
+                   .replace("“", '"').replace("”", '"')
+                   .replace("–", "-").replace("—", "-"))
+            # kill filesystem-hostile chars
+            s = re.sub(r'[\\/|:*?<>]', "-", s)
+            # strip any stray hash or quotes that sneaked in
+            s = s.replace("#", "").replace('"', "")
+            # collapse whitespace
+            s = re.sub(r"\s+", " ", s).strip()
+            return s
+
         races = driver.find_elements(By.XPATH, "//div[contains(@class,'races_row')]")[2:-7]
         print(f"Found {len(races)} races")
 
@@ -56,6 +71,7 @@ class RaceIconScraper(BaseScraper):
                 except Exception:
                     race_name = row.find_element(By.XPATH, ".//div[contains(@class,'races_desc_right')]/div[1]").text.strip()
 
+                race_name = normalize_race_name(race_name)
                 # Open modal
                 link = row.find_element(By.XPATH, ".//div[contains(@class,'utils_linkcolor')]")
                 click_link_safely(driver, link)
