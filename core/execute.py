@@ -186,7 +186,7 @@ def do_race(prioritize_g1 = False, img = None, use_banner=True, allowed_grades=N
     click(img="assets/buttons/ok_btn.png", minSearch=get_secs(0.7))
 
   sleep(0.7)
-  found = race_select(prioritize_g1=prioritize_g1, img=img, use_banner=use_banner, allowed_grades=allowed_grades)
+  found = race_select(prioritize_g1=prioritize_g1, img=img)
   if not found:
     if img is not None:
       info(f"{img} not found.")
