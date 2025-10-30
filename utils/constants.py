@@ -37,9 +37,6 @@ ENERGY_BBOX=(440, 120, 800, 160)
 RACE_BUTTON_IN_RACE_BBOX_LANDSCAPE=(800, 950, 1150, 1050)
 GAME_SCREEN=(150, 0, 960, 1080)
 
-RACE_BANNER_ROIS_TOP = (260, 590, 180, 130)
-RACE_BANNER_ROIS_BOTTOM = (260, 720, 180, 130)
-
 OFFSET_APPLIED = False
 def adjust_constants_x_coords(offset=405):
   """Shift all region tuples' x-coordinates by `offset`."""
