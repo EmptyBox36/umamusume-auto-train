@@ -62,7 +62,9 @@ def most_support_card(results):
 
   # this is the weight adder used for skewing results of training decisions PRIORITY_EFFECTS_LIST[get_stat_priority(x[0])] * PRIORITY_WEIGHTS_LIST[priority_weight]
   # Best training
-  best_training = max(filtered_results.items(), key=training_score)
+  best_training = max(
+    filtered_results.items(),
+    key=lambda item: training_score(item, all_zero_non_maxed))
 
   best_key, best_data = best_training
   
@@ -96,8 +98,8 @@ PRIORITY_WEIGHTS_LIST={
   "NONE": 0
 }
 
-def training_score(x, all_zero_non_maxed=False):
-  global PRIORITY_WEIGHTS_LIST, HINT_POINT
+def training_score(x, all_zero_non_maxed):
+  global PRIORITY_WEIGHTS_LIST
   priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
 
   if all_zero_non_maxed:
