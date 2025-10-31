@@ -142,7 +142,7 @@ def check_support_card(threshold=0.8, target="none"):
     count_result["total_friendship_levels"][friend_level] = 0
     count_result["hints_per_friend_level"][friend_level] = 0
 
-  hint_matches = match_template("assets/icons/support_hint.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
+  hint_matches = match_template("assets/icons/support_hint2.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
   for key, icon_path in SUPPORT_ICONS.items():
     count_result[key] = {}
     count_result[key]["supports"] = 0
