@@ -20,11 +20,6 @@ def _format_date(header_text: str) -> str:
     half = "Early" if m.group(3) == "First" else "Late"
     return f"{half} {_mon_abbr(m.group(2))}"
 
-def _year_bucket(header_text: str) -> str:
-    if "Junior Class" in header_text:  return "Junior Year"
-    if "Classic Class" in header_text: return "Classic Year"
-    return "Senior Year"
-
 class RaceScraper(BaseScraper):
     def __init__(self):
         # write directly in the new schema file name

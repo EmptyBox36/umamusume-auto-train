@@ -19,14 +19,24 @@ class SkillScraper(BaseScraper):
 
         rows = driver.find_elements(By.XPATH, "//div[contains(@class, 'skills_table_row_ja')]")
         logging.info(f"Found {len(rows)} non-hidden and hidden skill rows.")
+
+        result = []
         for i, row in enumerate(rows):
-            name = row.find_element(By.XPATH, ".//div[contains(@class, 'skills_table_jpname')]").text
-            desc = row.find_element(By.XPATH, ".//div[contains(@class, 'skills_table_desc')]").text
+            name = row.find_element(By.XPATH, ".//div[contains(@class, 'skills_table_jpname')]").text.strip()
+            desc = row.find_element(By.XPATH, ".//div[contains(@class, 'skills_table_desc')]").text.strip()
+
             m = re.search(r'\((\d+)\)$', desc)
             sid = int(m.group(1)) if m else None
             clean = re.sub(r'\s*\(\d+\)$', '', desc) if m else desc
-            if name and name not in self.data:
+
+            if name:
+                result.append({
+                    "id": sid,
+                    "name": name,
+                    "description": clean
+                })
                 logging.info(f"Scraped skill ({i + 1}/{len(rows)}): {name}")
-                self.data[name] = {"id": sid, "name": name, "description": clean}
+
+        self.data = result
         self.save_data()
         driver.quit()

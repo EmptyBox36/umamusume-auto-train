@@ -8,7 +8,7 @@ from scrapers.races import RaceScraper
 from scrapers.races_icon import RaceIconScraper
 
 scrapers = {
-    # "skills": [SkillScraper],
+    "skills": [SkillScraper],
     "characters": [CharacterScraper],
     "supports": [SupportCardScraper],
     "races": [RaceScraper],
