@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import List, Dict
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, WebDriverException
+from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, WebDriverException, TimeoutException
 from selenium.webdriver.remote.webelement import WebElement
 
 from utils.utils import clean_event_title, STAT_KEYS, ALIASES, DIVIDER_RE, IGNORE_PATTERNS, ALL_STATS, COMMON_EVENT_TITLES, RAND_SPLIT_RE
@@ -21,8 +21,7 @@ def _worst_num(text: str) -> float | None:
 def add(d: dict, k: str, v: float):
     if k in d:
         d[k] += v
-
-        
+       
 def _finish(d: dict) -> dict:
     d.pop("Skill", None)
     for k in STAT_KEYS:

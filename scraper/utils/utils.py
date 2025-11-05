@@ -1,15 +1,16 @@
 ﻿import re
 
-COMMON_EVENT_TITLES = {
-  "Extra Training",
-  "Just an Acupuncturist, No Worries! ☆",
-  "Get Well Soon!",
-  "Don't Overdo It!",
-  "Victory!", 
-  "Solid Showing", 
-  "Defeat", 
-  "Etsuko's Exhaustive Coverage",
-}
+# COMMON_EVENT_TITLES = {
+#   "Extra Training",
+#   "Just an Acupuncturist, No Worries! ☆",
+#   "Get Well Soon!",
+#   "Don't Overdo It!",
+#   "Victory!", 
+#   "Solid Showing", 
+#   "Defeat", 
+#   "Etsuko's Exhaustive Coverage",
+# }
+COMMON_EVENT_TITLES = {}
 
 STAT_KEYS = ["Friendship","Guts","HP","Max Energy","Mood","Power",
              "Skill Hint","Skill Pts","Speed","Stamina","Wit"]
