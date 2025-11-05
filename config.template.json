@@ -39,7 +39,6 @@
     }
   },
   "prioritize_g1_race": false,
-  "use_optimal_event_choices": true,
   "use_prioritize_on_junior": false,
 
   "choice_weight": {
@@ -107,5 +106,22 @@
       "Lone Wolf"
     ]
   },
-  "window_name": "LDPlayer"
+  "window_name": "LDPlayer",
+  "event": {
+    "use_optimal_event_choices": true,
+    "event_choices": [
+      {
+        "event_name": "Extra Training",
+        "chosen": 1
+      },
+      {
+        "event_name": "Get Well Soon!",
+        "chosen": 1
+      },
+      {
+        "event_name": "Don't Overdo It!",
+        "chosen": 1
+      }
+    ]
+  }
 }
