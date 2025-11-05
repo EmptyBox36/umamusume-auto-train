@@ -82,7 +82,6 @@ function App() {
     minimum_mood,
     priority_weight,
     hint_point,
-    use_optimal_event_choices,
     choice_weight,
     use_priority_on_choice,
     minimum_mood_junior_year,
@@ -100,6 +99,7 @@ function App() {
     window_name,
     use_prioritize_on_junior,
     failure,
+    event,
   } = config;
 
   const {
@@ -109,7 +109,9 @@ function App() {
     low_failure_condition,
     enable_custom_high_failure,
     high_failure_condition,
-  } = failure;
+    } = failure;
+
+  const {use_optimal_event_choices} = event;
   const { is_auto_buy_skill, skill_pts_check, skill_list, desire_skill } = skill;
 
   const updateConfig = <K extends keyof typeof config>(key: K, value: (typeof config)[K]) => {
@@ -323,7 +325,7 @@ function App() {
                     <Tooltips>Skill hint → Score System → Custom Choice.</Tooltips> 
                 </div>
                 <div className="flex flex-col gap-6">
-                    <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("use_optimal_event_choices", val)} />
+                    <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("event", { ...event, use_optimal_event_choices: val })} />
                     <SkillList
                          list={desire_skill}
                          addSkillList={(val) => updateConfig("skill", { ...skill, desire_skill: [val, ...desire_skill] })}

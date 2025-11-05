@@ -51,6 +51,10 @@ export type failure = {
     high_failure_condition: HighFailCondition;
 }
 
+export type event = {
+    use_optimal_event_choices: boolean;
+}
+
 export type Config = {
   config_name: string;
   trainee: string;
@@ -58,7 +62,6 @@ export type Config = {
   priority_stat: string[];
   priority_weights: number[];
   hint_point: number;
-  use_optimal_event_choices: boolean;
   use_prioritize_on_junior: boolean;
   choice_weight: ChoiceWeight;
   use_priority_on_choice: boolean;
@@ -85,4 +88,5 @@ export type Config = {
   stat_caps: Stat;
   skill: Skill;
   window_name: string;
+  event: event;
 };
