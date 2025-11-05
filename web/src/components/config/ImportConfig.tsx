@@ -8,10 +8,20 @@ export default function ImportConfig({ setConfig }: { setConfig: (cfg: any) => v
     const [code, setCode] = useState("");
     const [err, setErr] = useState<string | null>(null);
 
+    const handleOpenChange = (v: boolean) => {
+        setOpen(v);
+        if (!v) {
+            setCode(""); // auto-clear when closed
+            setErr(null);
+        }
+    };
+
     const handleImport = () => {
         try {
             const cfg = decodeConfig(code.trim());
             setConfig(cfg);
+            window.alert("Import successful!");
+            setCode(""); // clear after successful import
             setOpen(false);
             setErr(null);
         } catch (e: any) {
@@ -25,7 +35,7 @@ export default function ImportConfig({ setConfig }: { setConfig: (cfg: any) => v
                 Import
             </Button>
 
-            <Dialog open={open} onOpenChange={setOpen}>
+            <Dialog open={open} onOpenChange={handleOpenChange}>
                 <DialogContent className="max-w-2xl">
                     <DialogHeader><DialogTitle>Import Preset</DialogTitle></DialogHeader>
                     <textarea

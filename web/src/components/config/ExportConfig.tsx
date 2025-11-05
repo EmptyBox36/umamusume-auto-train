@@ -14,7 +14,13 @@ export default function ExportConfig({ config }: { config: any }) {
     };
 
     const copyShare = async () => {
-        try { await navigator.clipboard.writeText(shareCode); } catch { }
+        try {
+            await navigator.clipboard.writeText(shareCode);
+            // popup feedback
+            window.alert("Copied to clipboard!");
+        } catch {
+            window.alert("Copy failed. Please try again.");
+        }
     };
 
     return (
@@ -26,7 +32,9 @@ export default function ExportConfig({ config }: { config: any }) {
             <Dialog open={open} onOpenChange={setOpen}>
                 <DialogContent className="max-w-2xl">
                     <DialogHeader><DialogTitle>Export Preset</DialogTitle></DialogHeader>
-                    <p className="text-sm text-muted-foreground">Copy this code to share your configuration.</p>
+                    <p className="text-sm text-muted-foreground">
+                        Copy this code to share your configuration.
+                    </p>
                     <textarea
                         readOnly
                         value={shareCode}
