@@ -40,6 +40,7 @@ CURRENT_MOOD_INDEX = None
 CURRENT_STATS = {}
 CURRENT_YEAR = None
 CUSTOM_FAILURE = 0
+FORCE_REST = False
 CURRENT_TURN_LEFT = None
 
 def load_config():
@@ -48,12 +49,13 @@ def load_config():
 
 def reload_config():
   global PRIORITY_STAT, PRIORITY_WEIGHT, MINIMUM_MOOD, MINIMUM_MOOD_JUNIOR_YEAR, MAX_FAILURE
-  global PRIORITIZE_G1_RACE, CANCEL_CONSECUTIVE_RACE, STAT_CAPS, IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST
+  global PRIORITIZE_G1_RACE, CANCEL_CONSECUTIVE_RACE, STAT_CAPS
   global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, PREFERRED_POSITION
   global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER
   global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
   global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE
   global ENABLE_CUSTOM_FAILURE_CHANCE, ENABLE_CUSTOM_LOW_FAILURE, ENABLE_CUSTOM_HIGH_FAILURE, LOW_FAILURE_CONDITION, HIGH_FAILURE_CONDITION
+  global IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST, DESIRE_SKILL
 
   config = load_config()
 
@@ -61,7 +63,7 @@ def reload_config():
   PRIORITY_WEIGHT = config["priority_weight"]
   MINIMUM_MOOD = config["minimum_mood"]
   MINIMUM_MOOD_JUNIOR_YEAR = config["minimum_mood_junior_year"]
-  MAX_FAILURE = config["maximum_failure"]
+  MAX_FAILURE = config["failure"]["maximum_failure"]
   PRIORITIZE_G1_RACE = config["prioritize_g1_race"]
   CANCEL_CONSECUTIVE_RACE = config["cancel_consecutive_race"]
   STAT_CAPS = config["stat_caps"]
@@ -85,13 +87,14 @@ def reload_config():
   HINT_POINT = config["hint_point"]
   TRAINEE_NAME = config["trainee"]
   SCENARIO_NAME = config["scenario"]
-  ENABLE_CUSTOM_FAILURE_CHANCE = config["enable_custom_failure"]
-  ENABLE_CUSTOM_LOW_FAILURE = config["enable_custom_low_failure"]
-  ENABLE_CUSTOM_HIGH_FAILURE = config["enable_custom_high_failure"]
-  LOW_FAILURE_CONDITION = config["low_failure_condition"]
-  HIGH_FAILURE_CONDITION = config["high_failure_condition"]
+  ENABLE_CUSTOM_FAILURE_CHANCE = config["failure"]["enable_custom_failure"]
+  ENABLE_CUSTOM_LOW_FAILURE = config["failure"]["enable_custom_low_failure"]
+  ENABLE_CUSTOM_HIGH_FAILURE = config["failure"]["enable_custom_high_failure"]
+  LOW_FAILURE_CONDITION = config["failure"]["low_failure_condition"]
+  HIGH_FAILURE_CONDITION = config["failure"]["high_failure_condition"]
   JUNIOR_YEAR_STAT_PRIORITIZE = config["use_prioritize_on_junior"]
   USE_PRIORITY_ON_CHOICE = config["use_priority_on_choice"]
+  DESIRE_SKILL = config["skill"]["desire_skill"]
 
 # Get Stat
 def stat_state():

@@ -5,12 +5,14 @@ from scrapers.skills import SkillScraper
 from scrapers.characters import CharacterScraper
 from scrapers.supports import SupportCardScraper
 from scrapers.races import RaceScraper
+from scrapers.races_icon import RaceIconScraper
 
 scrapers = {
-    # "skills": [SkillScraper],
+    "skills": [SkillScraper],
     "characters": [CharacterScraper],
     "supports": [SupportCardScraper],
     "races": [RaceScraper],
+    "races_icon": [RaceIconScraper],
 }
 
 

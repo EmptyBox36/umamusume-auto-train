@@ -10,6 +10,7 @@ export type Skill = {
   is_auto_buy_skill: boolean;
   skill_pts_check: number;
   skill_list: string[];
+  desire_skill: string[];
 };
 
 export type RaceScheduleType = {
@@ -41,6 +42,15 @@ export type HighFailCondition = {
     failure: number;
 }
 
+export type failure = {
+    maximum_failure: number;
+    enable_custom_failure: boolean;
+    enable_custom_low_failure: boolean;
+    low_failure_condition: LowFailCondition;
+    enable_custom_high_failure: boolean;
+    high_failure_condition: HighFailCondition;
+}
+
 export type Config = {
   config_name: string;
   trainee: string;
@@ -59,12 +69,7 @@ export type Config = {
   never_rest_energy: number;
   minimum_mood: string;
   minimum_mood_junior_year: string;
-  maximum_failure: number;
-  enable_custom_failure: boolean;
-  enable_custom_low_failure: boolean;
-  low_failure_condition: LowFailCondition;
-  enable_custom_high_failure: boolean;
-  high_failure_condition: HighFailCondition;
+  failure: failure;
   prioritize_g1_race: boolean;
   cancel_consecutive_race: boolean;
   position_selection_enabled: boolean;

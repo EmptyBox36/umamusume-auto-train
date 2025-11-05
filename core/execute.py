@@ -1,6 +1,10 @@
 import pyautogui
 from utils.tools import sleep, get_secs, drag_scroll
 from PIL import ImageGrab
+import cv2
+import os
+import numpy as np
+import time
 
 pyautogui.useImageNotFoundException(False)
 
@@ -17,6 +21,7 @@ from utils.scenario import ura
 from core.skill import buy_skill
 from core.events import get_optimal_choice
 from core.state import get_event_name, stop_bot
+from utils.capture import screenshot_bgr
 
 templates = {
   "event": "assets/icons/event_choice_1.png",
@@ -139,9 +144,10 @@ def do_train(train):
 def do_rest(energy_level):
   if state.stop_event.is_set():
     return
-  if state.NEVER_REST_ENERGY > 0 and energy_level > state.NEVER_REST_ENERGY:
-    info(f"Wanted to rest when energy was above {state.NEVER_REST_ENERGY}, retrying from beginning.")
-    return
+  if not state.FORCE_REST:
+    if state.NEVER_REST_ENERGY > 0 and energy_level > state.NEVER_REST_ENERGY:
+      info(f"Wanted to rest when energy was above {state.NEVER_REST_ENERGY}, retrying from beginning.")
+      return
   rest_btn = pyautogui.locateOnScreen("assets/buttons/rest_btn.png", confidence=0.8, region=constants.SCREEN_BOTTOM_REGION)
   rest_summber_btn = pyautogui.locateOnScreen("assets/buttons/rest_summer_btn.png", confidence=0.8, region=constants.SCREEN_BOTTOM_REGION)
 
@@ -215,55 +221,55 @@ def race_day():
   sleep(1)
   after_race()
 
-def race_select(prioritize_g1 = False, img = None):
-  if state.stop_event.is_set():
-    return False
-  pyautogui.moveTo(constants.SCROLLING_SELECTION_MOUSE_POS)
-
-  sleep(0.3)
-
-  if prioritize_g1:
-    info(f"Looking for {img}.")
-    for i in range(2):
-      if state.stop_event.is_set():
+def race_select(prioritize_g1=False, img=None):
+    if state.stop_event.is_set():
         return False
-      if click(img=f"assets/races/{img}.png", minSearch=get_secs(0.7), text=f"{img} found.", region=constants.RACE_LIST_BOX_REGION):
-        for i in range(2):
+    pyautogui.moveTo(constants.SCROLLING_SELECTION_MOUSE_POS)
+    sleep(0.3)
+
+    if prioritize_g1 and img:
+        info(f"Looking for {img}.")
+        for _ in range(6):
+            if state.stop_event.is_set():
+                return False
+            if click(img=f"assets/races_icon/{img}.png",
+                     minSearch=get_secs(0.7),
+                     text=f"{img} found.",
+                     region=constants.RACE_LIST_BOX_REGION):
+                for _ in range(2):
+                    if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
+                        click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
+                    sleep(0.5)
+                return True
+            drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
+
+        return False
+    else:
+        info("Looking for race.")
+        for i in range(4):
           if state.stop_event.is_set():
             return False
-          if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
-            click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
-          sleep(0.5)
-        return True
-      drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
+          match_aptitude = pyautogui.locateOnScreen("assets/ui/match_track.png", confidence=0.8, minSearchTime=get_secs(0.7))
 
-    return False
-  else:
-    info("Looking for race.")
-    for i in range(4):
-      if state.stop_event.is_set():
+          if match_aptitude:
+            # locked avg brightness = 163
+            # unlocked avg brightness = 230
+            if not is_btn_active(match_aptitude, treshold=200):
+              info("Race found, but it's locked.")
+              return False
+            info("Race found.")
+            click(boxes=match_aptitude)
+
+            for i in range(2):
+              if state.stop_event.is_set():
+                return False
+              if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
+                click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
+              sleep(0.5)
+            return True
+          drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
+
         return False
-      match_aptitude = pyautogui.locateOnScreen("assets/ui/match_track.png", confidence=0.8, minSearchTime=get_secs(0.7))
-
-      if match_aptitude:
-        # locked avg brightness = 163
-        # unlocked avg brightness = 230
-        if not is_btn_active(match_aptitude, treshold=200):
-          info("Race found, but it's locked.")
-          return False
-        info("Race found.")
-        click(boxes=match_aptitude)
-
-        for i in range(2):
-          if state.stop_event.is_set():
-            return False
-          if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
-            click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
-          sleep(0.5)
-        return True
-      drag_scroll(constants.RACE_SCROLL_BOTTOM_MOUSE_POS, -270)
-
-    return False
 
 def race_prep():
   global PREFERRED_POSITION_SET
@@ -429,6 +435,8 @@ def career_lobby():
       continue
     if click(boxes=matches["retry"]):
       continue
+    if click(img="assets/buttons/back_btn.png"):
+      continue
 
     if not matches["tazuna"]:
       #info("Should be in career lobby.")
@@ -447,6 +455,7 @@ def career_lobby():
     year_parts = year.split(" ")
     current_stats = stat_state()
 
+    state.FORCE_REST = False
     state.CURRENT_ENERGY_LEVEL = energy_level
     state.MAX_ENERGY = max_energy
     state.CURRENT_MOOD_INDEX = mood_index
@@ -485,6 +494,23 @@ def career_lobby():
         auto_buy_skill()
       race_day()
       continue
+    
+    if state.RACE_SCHEDULE:
+      race_done = False
+      for race_list in state.RACE_SCHEDULE:
+        if state.stop_event.is_set():
+          break
+        if len(race_list):
+          if race_list['year'] in year and race_list['date'] in year:
+            debug(f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}")
+            if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
+              race_done = True
+              break
+            else:
+              click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
+              sleep(0.5)
+      if race_done:
+        continue
 
     # If Prioritize G1 Race is true, check G1 race every turn
     if state.PRIORITIZE_G1_RACE and "Pre-Debut" not in year and len(year_parts) > 3 and year_parts[3] not in ["Jul", "Aug"]:
@@ -529,30 +555,6 @@ def career_lobby():
         warning("Coulnd't find full stats button.")
         stop_bot()
         continue
-        
-    # Mood check
-    # skipped_infirmary=False
-    # if year_parts[0] == "Junior":
-    #   mood_check = minimum_mood_junior_year
-    # else:
-    #   mood_check = minimum_mood
-    # if mood_index < mood_check:
-    #   if skipped_infirmary:
-    #     info("Since we skipped infirmary due to energy, check full stats for statuses.")
-    #     if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
-    #       sleep(0.5)
-    #       conditions, total_severity = check_status_effects()
-    #       click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
-    #       if total_severity > 1:
-    #         info("Severe condition found, visiting infirmary even though we will waste some energy.")
-    #         click(boxes=matches["infirmary"][0])
-    #         continue
-    #     else:
-    #       warning("Coulnd't find full stats button.")
-    #   else:
-    #     info("Mood is low, trying recreation to increase mood")
-    #     do_recreation()
-    #     continue
 
     # Infirmary
     skipped_infirmary=False
@@ -576,24 +578,6 @@ def career_lobby():
       else:
         click(boxes=matches["infirmary"][0], text="Character debuffed, going to infirmary.")
         continue
-
-    # # If Prioritize G1 Race is true, check G1 race every turn
-    # if state.PRIORITIZE_G1_RACE and "Pre-Debut" not in year and len(year_parts) > 3 and year_parts[3] not in ["Jul", "Aug"]:
-    #   race_done = False
-    #   for race_list in state.RACE_SCHEDULE:
-    #     if state.stop_event.is_set():
-    #       break
-    #     if len(race_list):
-    #       if race_list['year'] in year and race_list['date'] in year:
-    #         debug(f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}")
-    #         if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
-    #           race_done = True
-    #           break
-    #         else:
-    #           click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
-    #           sleep(0.5)
-    #   if race_done:
-    #     continue
 
     # Check if we need to race for goal
     if not "Achieved" in criteria:

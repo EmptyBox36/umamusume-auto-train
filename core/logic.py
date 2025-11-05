@@ -2,8 +2,6 @@ from pickle import TRUE
 from statistics import StatisticsError
 
 from cv2.gapi import mul
-from core.state import HINT_POINT
-from core.state import check_current_year, stat_state, check_energy_level, check_aptitudes
 from utils.log import info, warning, error, debug
 from utils.tools import sleep, get_secs
 
@@ -62,7 +60,9 @@ def most_support_card(results):
 
   # this is the weight adder used for skewing results of training decisions PRIORITY_EFFECTS_LIST[get_stat_priority(x[0])] * PRIORITY_WEIGHTS_LIST[priority_weight]
   # Best training
-  best_training = max(filtered_results.items(), key=training_score)
+  best_training = max(
+    filtered_results.items(),
+    key=lambda item: training_score(item, all_zero_non_maxed))
 
   best_key, best_data = best_training
   
@@ -96,8 +96,8 @@ PRIORITY_WEIGHTS_LIST={
   "NONE": 0
 }
 
-def training_score(x, all_zero_non_maxed=False):
-  global PRIORITY_WEIGHTS_LIST, HINT_POINT
+def training_score(x, all_zero_non_maxed):
+  global PRIORITY_WEIGHTS_LIST
   priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
 
   if all_zero_non_maxed:
@@ -238,14 +238,15 @@ def training_logic(results):
     if int(data["failure"]) <= state.CUSTOM_FAILURE
     and not (stat == "wit" and data["easy_point"] < 1)}
 
-  # if best_point["easy_point"] < 3 and year_parts[0] in ["Classic", "Senior"] and year_parts[3] in ["Jun"]:
-  #   if (year_parts[2] in ["Early"] and state.CURRENT_TURN_LEFT == "1") or year_parts[2] in ["Late"]:
-  #     if state.CURRENT_ENERGY_LEVEL <= 50:
-  #       info(f"Next turn is summer camp and training not good enough. Do rest.")
-  #       return False
-  #     else:
-  #       info(f"Next turn is summer camp and training not good enough. Train WIT to get some energy.")
-  #       return "wit"
+  if best_point["easy_point"] < 3 and year_parts[0] in ["Classic", "Senior"] and year_parts[3] in ["Jun"]:
+    if (year_parts[2] in ["Early"] and state.CURRENT_TURN_LEFT == "1") or year_parts[2] in ["Late"]:
+      if state.CURRENT_ENERGY_LEVEL <= 50:
+        state.FORCE_REST = True
+        info(f"Next turn is summer camp and training not good enough. Do rest.")
+        return False
+      else:
+        info(f"Next turn is summer camp and training not good enough. Train WIT to get some energy.")
+        return "wit"
 
   if not training_candidates:
     if energy_level > state.SKIP_TRAINING_ENERGY:
@@ -325,8 +326,8 @@ def all_values_equal(dictionary):
 
 # Decide training
 def do_something(results):
-  year = check_current_year()
-  current_stats = stat_state()
+  year = state.CURRENT_YEAR
+  current_stats = state.CURRENT_STATS
   info(f"Current stats: {current_stats}")
 
   filtered = filter_by_stat_caps(results, current_stats)

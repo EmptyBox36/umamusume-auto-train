@@ -30,3 +30,4 @@ dist_ssr
 config.json
 /.vs
 /web/src/.vs
+/tools

@@ -13,7 +13,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10001
         },
         "Hakodate Junior Stakes": {
             "id": 10002,
@@ -28,7 +29,8 @@
                 "required": 350,
                 "gained": 3100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10002
         },
         "Cosmos Sho": {
             "id": 10003,
@@ -43,7 +45,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10003
         },
         "Dahlia Sho": {
             "id": 10004,
@@ -58,7 +61,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10004
         },
         "Phoenix Sho": {
             "id": 10005,
@@ -73,7 +77,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10005
         },
         "Clover Sho": {
             "id": 10006,
@@ -88,7 +93,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10006
         },
         "Niigata Junior Stakes": {
             "id": 10007,
@@ -103,7 +109,8 @@
                 "required": 350,
                 "gained": 3100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10007
         },
         "Aster Sho": {
             "id": 10008,
@@ -118,7 +125,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10008
         },
         "Kokura Junior Stakes": {
             "id": 10009,
@@ -133,7 +141,8 @@
                 "required": 350,
                 "gained": 3100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10009
         },
         "Nojigiku Stakes": {
             "id": 10010,
@@ -148,7 +157,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10010
         },
         "Sapporo Junior Stakes": {
             "id": 10011,
@@ -163,7 +173,8 @@
                 "required": 350,
                 "gained": 3100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10011
         },
         "Suzuran Sho": {
             "id": 10012,
@@ -178,7 +189,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10012
         },
         "Canna Stakes": {
             "id": 10013,
@@ -193,7 +205,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10013
         },
         "Fuyo Stakes": {
             "id": 10014,
@@ -208,7 +221,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10014
         },
         "Kikyo Stakes": {
             "id": 10015,
@@ -223,7 +237,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10015
         },
         "Saffron Sho": {
             "id": 10016,
@@ -238,7 +253,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10016
         },
         "Momiji Stakes": {
             "id": 10017,
@@ -253,7 +269,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10017
         },
         "Platanus Sho": {
             "id": 10018,
@@ -268,7 +285,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10018
         },
         "Rindo Sho": {
             "id": 10019,
@@ -283,7 +301,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10019
         },
         "Saudi Arabia Royal Cup": {
             "id": 10020,
@@ -298,7 +317,8 @@
                 "required": 350,
                 "gained": 3300
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10020
         },
         "Shigiku Sho": {
             "id": 10021,
@@ -313,7 +333,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10021
         },
         "Artemis Stakes": {
             "id": 10022,
@@ -328,7 +349,8 @@
                 "required": 350,
                 "gained": 2900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10022
         },
         "Hagi Stakes": {
             "id": 10023,
@@ -343,7 +365,8 @@
                 "required": 350,
                 "gained": 1700
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10023
         },
         "Ivy Stakes": {
             "id": 10024,
@@ -358,7 +381,8 @@
                 "required": 350,
                 "gained": 1700
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10024
         },
         "Nadeshiko Sho": {
             "id": 10025,
@@ -373,7 +397,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10025
         },
         "Daily Hai Junior Stakes": {
             "id": 10026,
@@ -388,7 +413,8 @@
                 "required": 375,
                 "gained": 3800
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10026
         },
         "Fantasy Stakes": {
             "id": 10027,
@@ -403,7 +429,8 @@
                 "required": 350,
                 "gained": 2900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10027
         },
         "Fukushima Junior Stakes": {
             "id": 10028,
@@ -418,7 +445,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10028
         },
         "Hyakunichiso Tokubetsu": {
             "id": 10029,
@@ -433,7 +461,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10029
         },
         "Keio Hai Junior Stakes": {
             "id": 10030,
@@ -448,7 +477,8 @@
                 "required": 375,
                 "gained": 3800
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10030
         },
         "Kigiku Sho": {
             "id": 10031,
@@ -463,7 +493,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10031
         },
         "Kimmokusei Tokubetsu": {
             "id": 10032,
@@ -478,7 +509,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10032
         },
         "Oxalis Sho": {
             "id": 10033,
@@ -493,7 +525,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10033
         },
         "Akamatsu Sho": {
             "id": 10034,
@@ -508,7 +541,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10034
         },
         "Begonia Sho": {
             "id": 10035,
@@ -523,7 +557,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10035
         },
         "Cattleya Sho": {
             "id": 10036,
@@ -538,7 +573,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10036
         },
         "Habotan Sho": {
             "id": 10037,
@@ -553,7 +589,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10037
         },
         "Koyamaki Sho": {
             "id": 10038,
@@ -568,7 +605,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10038
         },
         "Kyoto Junior Stakes": {
             "id": 10039,
@@ -583,7 +621,8 @@
                 "required": 350,
                 "gained": 3300
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10039
         },
         "Mochinoki Sho": {
             "id": 10040,
@@ -598,7 +637,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10040
         },
         "Shiragiku Sho": {
             "id": 10041,
@@ -613,7 +653,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10041
         },
         "Shumeigiku Sho": {
             "id": 10042,
@@ -628,7 +669,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10042
         },
         "Tokyo Sports Hai Junior Stakes": {
             "id": 10043,
@@ -643,7 +685,8 @@
                 "required": 350,
                 "gained": 3300
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10043
         },
         "Asahi Hai Futurity Stakes": {
             "id": 10044,
@@ -662,7 +705,8 @@
             "sparks": [
                 "Speed",
                 "Guts"
-            ]
+            ],
+            "id": 10044
         },
         "Erica Sho": {
             "id": 10045,
@@ -677,7 +721,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10045
         },
         "Hanshin Juvenile Fillies": {
             "id": 10046,
@@ -696,7 +741,8 @@
             "sparks": [
                 "Speed",
                 "Power"
-            ]
+            ],
+            "id": 10046
         },
         "Hiiragi Sho": {
             "id": 10047,
@@ -711,7 +757,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10047
         },
         "Kantsubaki Sho": {
             "id": 10048,
@@ -726,7 +773,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10048
         },
         "Kuromatsu Sho": {
             "id": 10049,
@@ -741,7 +789,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10049
         },
         "Manryo Sho": {
             "id": 10050,
@@ -756,7 +805,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10050
         },
         "Sazanka Sho": {
             "id": 10051,
@@ -771,7 +821,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10051
         },
         "Tsuwabuki Sho": {
             "id": 10052,
@@ -786,7 +837,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10052
         },
         "Christmas Rose Stakes": {
             "id": 10053,
@@ -801,7 +853,8 @@
                 "required": 350,
                 "gained": 1600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10053
         },
         "Hopeful Stakes": {
             "id": 10054,
@@ -820,7 +873,8 @@
             "sparks": [
                 "Speed",
                 "Stamina"
-            ]
+            ],
+            "id": 10054
         },
         "Senryo Sho": {
             "id": 10055,
@@ -835,7 +889,8 @@
                 "required": 350,
                 "gained": 1000
             },
-            "grade": "Pre-OP"
+            "grade": "Pre-OP",
+            "id": 10055
         }
     },
     "Classic Year": {
@@ -852,7 +907,8 @@
                 "required": 750,
                 "gained": 3500
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10056
         },
         "Junior Cup": {
             "id": 10057,
@@ -867,7 +923,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10057
         },
         "Keisei Hai": {
             "id": 10058,
@@ -882,7 +939,8 @@
                 "required": 1000,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10058
         },
         "Kobai Stakes": {
             "id": 10059,
@@ -897,7 +955,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10059
         },
         "Shinzan Kinen": {
             "id": 10060,
@@ -912,7 +971,8 @@
                 "required": 1000,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10060
         },
         "Crocus Stakes": {
             "id": 10061,
@@ -927,7 +987,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10061
         },
         "Wakagoma Stakes": {
             "id": 10062,
@@ -942,7 +1003,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10062
         },
         "Elfin Stakes": {
             "id": 10063,
@@ -957,7 +1019,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10063
         },
         "Kisaragi Sho": {
             "id": 10064,
@@ -972,7 +1035,8 @@
                 "required": 1000,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10064
         },
         "Kyodo News Hai": {
             "id": 10065,
@@ -987,7 +1051,8 @@
                 "required": 1000,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10065
         },
         "Queen Cup": {
             "id": 10066,
@@ -1002,7 +1067,8 @@
                 "required": 750,
                 "gained": 3500
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10066
         },
         "Hyacinth Stakes": {
             "id": 10067,
@@ -1017,7 +1083,8 @@
                 "required": 350,
                 "gained": 1900
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10067
         },
         "Marguerite Stakes": {
             "id": 10068,
@@ -1032,7 +1099,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10068
         },
         "Sumire Stakes": {
             "id": 10069,
@@ -1047,7 +1115,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10069
         },
         "Anemone Stakes": {
             "id": 10070,
@@ -1062,7 +1131,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10070
         },
         "Fillies' Revue": {
             "id": 10071,
@@ -1077,7 +1147,8 @@
                 "required": 1750,
                 "gained": 5200
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10071
         },
         "Shoryu Stakes": {
             "id": 10072,
@@ -1092,7 +1163,8 @@
                 "required": 350,
                 "gained": 1800
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10072
         },
         "Tulip Sho": {
             "id": 10073,
@@ -1107,7 +1179,8 @@
                 "required": 1750,
                 "gained": 5200
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10073
         },
         "Yayoi Sho": {
             "id": 10074,
@@ -1122,7 +1195,8 @@
                 "required": 1750,
                 "gained": 5400
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10074
         },
         "Falcon Stakes": {
             "id": 10075,
@@ -1137,7 +1211,8 @@
                 "required": 1250,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10075
         },
         "Flower Cup": {
             "id": 10076,
@@ -1152,7 +1227,8 @@
                 "required": 750,
                 "gained": 3500
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10076
         },
         "Mainichi Hai": {
             "id": 10077,
@@ -1167,7 +1243,8 @@
                 "required": 1250,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10077
         },
         "Spring Stakes": {
             "id": 10078,
@@ -1182,7 +1259,8 @@
                 "required": 1750,
                 "gained": 5400
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10078
         },
         "Wakaba Stakes": {
             "id": 10079,
@@ -1197,7 +1275,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10079
         },
         "Arlington Cup": {
             "id": 10080,
@@ -1212,7 +1291,8 @@
                 "required": 1250,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10080
         },
         "Fukuryu Stakes": {
             "id": 10081,
@@ -1227,7 +1307,8 @@
                 "required": 350,
                 "gained": 1800
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10081
         },
         "New Zealand Trophy": {
             "id": 10082,
@@ -1242,7 +1323,8 @@
                 "required": 1750,
                 "gained": 5400
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10082
         },
         "Oka Sho": {
             "id": 10083,
@@ -1260,8 +1342,9 @@
             "grade": "G1",
             "sparks": [
                 "Hanshin Racecourse ○",
-                "Hanshin Racecourse ○"
-            ]
+                "Guts"
+            ],
+            "id": 10083
         },
         "Satsuki Sho": {
             "id": 10084,
@@ -1279,8 +1362,9 @@
             "grade": "G1",
             "sparks": [
                 "Nakayama Racecourse ○",
-                "Nakayama Racecourse ○"
-            ]
+                "Power"
+            ],
+            "id": 10084
         },
         "Wasurenagusa Sho": {
             "id": 10085,
@@ -1295,7 +1379,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10085
         },
         "Aoba Sho": {
             "id": 10086,
@@ -1310,7 +1395,8 @@
                 "required": 1800,
                 "gained": 5400
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10086
         },
         "Flora Stakes": {
             "id": 10087,
@@ -1325,7 +1411,8 @@
                 "required": 1750,
                 "gained": 5200
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10087
         },
         "Sweetpea Stakes": {
             "id": 10088,
@@ -1340,7 +1427,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10088
         },
         "Tachibana Stakes": {
             "id": 10089,
@@ -1355,7 +1443,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10089
         },
         "Tango Stakes": {
             "id": 10090,
@@ -1370,7 +1459,8 @@
                 "required": 350,
                 "gained": 1800
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10090
         },
         "Kyoto Shimbun Hai": {
             "id": 10091,
@@ -1385,7 +1475,8 @@
                 "required": 1750,
                 "gained": 5400
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10091
         },
         "NHK Mile Cup": {
             "id": 10092,
@@ -1404,7 +1495,8 @@
             "sparks": [
                 "Speed",
                 "Power"
-            ]
+            ],
+            "id": 10092
         },
         "Principal Stakes": {
             "id": 10093,
@@ -1419,7 +1511,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10093
         },
         "Seiryu Stakes": {
             "id": 10094,
@@ -1434,7 +1527,8 @@
                 "required": 350,
                 "gained": 1800
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10094
         },
         "Aoi Stakes": {
             "id": 10095,
@@ -1449,7 +1543,8 @@
                 "required": 1250,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10095
         },
         "Hosu Stakes": {
             "id": 10096,
@@ -1464,7 +1559,8 @@
                 "required": 350,
                 "gained": 1900
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10096
         },
         "Japanese Oaks": {
             "id": 10097,
@@ -1482,8 +1578,9 @@
             "grade": "G1",
             "sparks": [
                 "Tokyo Racecourse ○",
-                "Tokyo Racecourse ○"
-            ]
+                "Stamina"
+            ],
+            "id": 10097
         },
         "Shirayuri Stakes": {
             "id": 10098,
@@ -1498,7 +1595,8 @@
                 "required": 350,
                 "gained": 2000
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10098
         },
         "Tokyo Yushun (Japanese Derby)": {
             "id": 10099,
@@ -1516,8 +1614,9 @@
             "grade": "G1",
             "sparks": [
                 "Tokyo Racecourse ○",
-                "Tokyo Racecourse ○"
-            ]
+                "Guts"
+            ],
+            "id": 10099
         },
         "Epsom Cup": {
             "id": 10279,
@@ -1532,7 +1631,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10100
         },
         "Mermaid Stakes": {
             "id": 10280,
@@ -1547,7 +1647,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10101
         },
         "Naruo Kinen": {
             "id": 10281,
@@ -1562,7 +1663,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10102
         },
         "Sleipnir Stakes": {
             "id": 10282,
@@ -1577,7 +1679,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10103
         },
         "Tempozan Stakes": {
             "id": 10283,
@@ -1592,7 +1695,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10104
         },
         "Yasuda Kinen": {
             "id": 10284,
@@ -1610,8 +1714,9 @@
             "grade": "G1",
             "sparks": [
                 "Tokyo Racecourse ○",
-                "Tokyo Racecourse ○"
-            ]
+                "Speed"
+            ],
+            "id": 10105
         },
         "Akhalteke Stakes": {
             "id": 10285,
@@ -1626,7 +1731,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10106
         },
         "Hakodate Sprint Stakes": {
             "id": 10286,
@@ -1641,7 +1747,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10107
         },
         "Onuma Stakes": {
             "id": 10287,
@@ -1656,7 +1763,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10108
         },
         "Paradise Stakes": {
             "id": 10288,
@@ -1671,7 +1779,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10109
         },
         "Sannomiya Stakes": {
             "id": 10289,
@@ -1686,7 +1795,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10110
         },
         "Takarazuka Kinen": {
             "id": 10290,
@@ -1704,8 +1814,9 @@
             "grade": "G1",
             "sparks": [
                 "Summer Runner ○",
-                "Summer Runner ○"
-            ]
+                "Guts"
+            ],
+            "id": 10111
         },
         "Unicorn Stakes": {
             "id": 10112,
@@ -1720,7 +1831,8 @@
                 "required": 750,
                 "gained": 3500
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10112
         },
         "Yonago Stakes": {
             "id": 10292,
@@ -1735,7 +1847,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10113
         },
         "CBC Sho": {
             "id": 10293,
@@ -1750,7 +1863,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10114
         },
         "Hakodate Kinen": {
             "id": 10294,
@@ -1765,7 +1879,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10115
         },
         "Japan Dirt Derby": {
             "id": 10116,
@@ -1783,8 +1898,9 @@
             "grade": "G1",
             "sparks": [
                 "Oi Racecourse ○",
-                "Oi Racecourse ○"
-            ]
+                "Power"
+            ],
+            "id": 10116
         },
         "Marine Stakes": {
             "id": 10295,
@@ -1799,7 +1915,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10117
         },
         "Meitetsu Hai": {
             "id": 10296,
@@ -1814,7 +1931,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10118
         },
         "Procyon Stakes": {
             "id": 10297,
@@ -1829,7 +1947,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10119
         },
         "Radio Nikkei Sho": {
             "id": 10120,
@@ -1844,7 +1963,8 @@
                 "required": 1250,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10120
         },
         "Tanabata Sho": {
             "id": 10298,
@@ -1859,7 +1979,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10121
         },
         "Tomoe Sho": {
             "id": 10299,
@@ -1874,7 +1995,8 @@
                 "required": 350,
                 "gained": 2400
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10122
         },
         "Chukyo Kinen": {
             "id": 10300,
@@ -1889,7 +2011,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10123
         },
         "Fukushima TV Open": {
             "id": 10301,
@@ -1904,7 +2027,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10124
         },
         "Ibis Summer Dash": {
             "id": 10302,
@@ -1919,7 +2043,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10125
         },
         "Queen Stakes": {
             "id": 10303,
@@ -1934,7 +2059,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10126
         },
         "Aso Stakes": {
             "id": 10304,
@@ -1949,7 +2075,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10127
         },
         "Elm Stakes": {
             "id": 10305,
@@ -1964,7 +2091,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10128
         },
         "Kanetsu Stakes": {
             "id": 10306,
@@ -1979,7 +2107,8 @@
                 "required": 350,
                 "gained": 2400
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10129
         },
         "Kokura Kinen": {
             "id": 10307,
@@ -1994,7 +2123,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10130
         },
         "Leopard Stakes": {
             "id": 10131,
@@ -2009,7 +2139,8 @@
                 "required": 1250,
                 "gained": 4000
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10131
         },
         "Sapporo Nikkei Open": {
             "id": 10308,
@@ -2024,7 +2155,8 @@
                 "required": 350,
                 "gained": 2600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10132
         },
         "Sekiya Kinen": {
             "id": 10309,
@@ -2039,7 +2171,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10133
         },
         "UHB Sho": {
             "id": 10310,
@@ -2054,7 +2187,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10134
         },
         "BSN Sho": {
             "id": 10311,
@@ -2069,7 +2203,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10135
         },
         "Keeneland Cup": {
             "id": 10312,
@@ -2084,7 +2219,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10136
         },
         "Kitakyushu Kinen": {
             "id": 10313,
@@ -2099,7 +2235,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10137
         },
         "Kokura Nikkei Open": {
             "id": 10314,
@@ -2114,7 +2251,8 @@
                 "required": 350,
                 "gained": 2400
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10138
         },
         "NST Sho": {
             "id": 10315,
@@ -2129,7 +2267,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10139
         },
         "Sapporo Kinen": {
             "id": 10316,
@@ -2144,7 +2283,8 @@
                 "required": 2000,
                 "gained": 7000
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10140
         },
         "Toki Stakes": {
             "id": 10317,
@@ -2159,7 +2299,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10141
         },
         "Centaur Stakes": {
             "id": 10318,
@@ -2174,7 +2315,8 @@
                 "required": 1900,
                 "gained": 5900
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10142
         },
         "Enif Stakes": {
             "id": 10319,
@@ -2189,7 +2331,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10143
         },
         "Keisei Hai Autumn Handicap": {
             "id": 10320,
@@ -2204,7 +2347,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10144
         },
         "Niigata Kinen": {
             "id": 10321,
@@ -2219,7 +2363,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10145
         },
         "Radio Nippon Sho": {
             "id": 10322,
@@ -2234,7 +2379,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10146
         },
         "Rose Stakes": {
             "id": 10147,
@@ -2249,7 +2395,8 @@
                 "required": 1750,
                 "gained": 5200
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10147
         },
         "Shion Stakes": {
             "id": 10148,
@@ -2264,7 +2411,8 @@
                 "required": 1000,
                 "gained": 3500
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10148
         },
         "Tancho Stakes": {
             "id": 10323,
@@ -2279,7 +2427,8 @@
                 "required": 350,
                 "gained": 2400
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10149
         },
         "All Comers": {
             "id": 10324,
@@ -2294,7 +2443,8 @@
                 "required": 2000,
                 "gained": 6700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10150
         },
         "Kobe Shimbun Hai": {
             "id": 10151,
@@ -2309,7 +2459,8 @@
                 "required": 1750,
                 "gained": 5400
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10151
         },
         "Nagatsuki Stakes": {
             "id": 10325,
@@ -2324,7 +2475,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10152
         },
         "Port Island Stakes": {
             "id": 10326,
@@ -2339,7 +2491,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10153
         },
         "Sirius Stakes": {
             "id": 10327,
@@ -2354,7 +2507,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10154
         },
         "Sprinters Stakes": {
             "id": 10328,
@@ -2372,8 +2526,9 @@
             "grade": "G1",
             "sparks": [
                 "Standard Distance ○",
-                "Standard Distance ○"
-            ]
+                "Speed"
+            ],
+            "id": 10155
         },
         "St. Lite Kinen": {
             "id": 10156,
@@ -2388,7 +2543,8 @@
                 "required": 1750,
                 "gained": 5400
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10156
         },
         "Fuchu Umamusume Stakes": {
             "id": 10329,
@@ -2403,7 +2559,8 @@
                 "required": 1800,
                 "gained": 5500
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10157
         },
         "Green Channel Cup": {
             "id": 10330,
@@ -2418,7 +2575,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10158
         },
         "Kyoto Daishoten": {
             "id": 10331,
@@ -2433,7 +2591,8 @@
                 "required": 2000,
                 "gained": 6700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10159
         },
         "Mainichi Okan": {
             "id": 10332,
@@ -2448,7 +2607,8 @@
                 "required": 2000,
                 "gained": 6700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10160
         },
         "October Stakes": {
             "id": 10333,
@@ -2463,7 +2623,8 @@
                 "required": 350,
                 "gained": 2600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10161
         },
         "Opal Stakes": {
             "id": 10334,
@@ -2478,7 +2639,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10162
         },
         "Shinetsu Stakes": {
             "id": 10335,
@@ -2493,7 +2655,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10163
         },
         "Uzumasa Stakes": {
             "id": 10336,
@@ -2508,7 +2671,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10164
         },
         "Brazil Cup": {
             "id": 10337,
@@ -2523,7 +2687,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10165
         },
         "Cassiopeia Stakes": {
             "id": 10338,
@@ -2538,7 +2703,8 @@
                 "required": 350,
                 "gained": 2600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10166
         },
         "Fuji Stakes": {
             "id": 10339,
@@ -2553,7 +2719,8 @@
                 "required": 1900,
                 "gained": 5900
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10167
         },
         "Kikuka Sho": {
             "id": 10168,
@@ -2571,8 +2738,9 @@
             "grade": "G1",
             "sparks": [
                 "Kyoto Racecourse ○",
-                "Kyoto Racecourse ○"
-            ]
+                "Stamina"
+            ],
+            "id": 10168
         },
         "Lumiere Autumn Dash": {
             "id": 10340,
@@ -2587,7 +2755,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10169
         },
         "Muromachi Stakes": {
             "id": 10341,
@@ -2602,7 +2771,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10170
         },
         "Shuka Sho": {
             "id": 10171,
@@ -2620,8 +2790,9 @@
             "grade": "G1",
             "sparks": [
                 "Kyoto Racecourse ○",
-                "Kyoto Racecourse ○"
-            ]
+                "Wit"
+            ],
+            "id": 10171
         },
         "Swan Stakes": {
             "id": 10342,
@@ -2636,7 +2807,8 @@
                 "required": 1900,
                 "gained": 5900
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10172
         },
         "Tenno Sho (Autumn)": {
             "id": 10343,
@@ -2654,8 +2826,9 @@
             "grade": "G1",
             "sparks": [
                 "Fall Runner ○",
-                "Fall Runner ○"
-            ]
+                "Speed"
+            ],
+            "id": 10173
         },
         "Copa Republica Argentina": {
             "id": 10344,
@@ -2670,7 +2843,8 @@
                 "required": 1900,
                 "gained": 5700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10174
         },
         "Fukushima Kinen": {
             "id": 10345,
@@ -2685,7 +2859,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10175
         },
         "JBC Classic": {
             "id": 10346,
@@ -2704,10 +2879,10 @@
             "sparks": [
                 "Stamina",
                 "Guts"
-            ]
+            ],
+            "id": 10176
         },
         "JBC Ladies’ Classic": {
-            "id": 10347,
             "date": "Early Nov",
             "racetrack": "Ooi",
             "terrain": "Dirt",
@@ -2720,10 +2895,8 @@
                 "gained": 4100
             },
             "grade": "G1",
-            "sparks": [
-                "Speed",
-                "Guts"
-            ]
+            "sparks": [],
+            "id": 10177
         },
         "JBC Sprint": {
             "id": 10348,
@@ -2742,7 +2915,8 @@
             "sparks": [
                 "Power",
                 "Guts"
-            ]
+            ],
+            "id": 10178
         },
         "Miyako Stakes": {
             "id": 10349,
@@ -2757,7 +2931,8 @@
                 "required": 750,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10179
         },
         "Musashino Stakes": {
             "id": 10350,
@@ -2772,7 +2947,8 @@
                 "required": 1250,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10180
         },
         "Oro Cup": {
             "id": 10351,
@@ -2787,7 +2963,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10181
         },
         "Queen Elizabeth II Cup": {
             "id": 10352,
@@ -2805,8 +2982,9 @@
             "grade": "G1",
             "sparks": [
                 "Non-Standard Distance ○",
-                "Non-Standard Distance ○"
-            ]
+                "Stamina"
+            ],
+            "id": 10182
         },
         "Andromeda Stakes": {
             "id": 10353,
@@ -2821,7 +2999,8 @@
                 "required": 350,
                 "gained": 2600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10183
         },
         "Autumn Leaf Stakes": {
             "id": 10354,
@@ -2836,7 +3015,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10184
         },
         "Capital Stakes": {
             "id": 10355,
@@ -2851,7 +3031,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10185
         },
         "Fukushima Minyu Cup": {
             "id": 10356,
@@ -2866,7 +3047,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10186
         },
         "Japan Cup": {
             "id": 10357,
@@ -2884,8 +3066,9 @@
             "grade": "G1",
             "sparks": [
                 "Tokyo Racecourse ○",
-                "Tokyo Racecourse ○"
-            ]
+                "Stamina"
+            ],
+            "id": 10187
         },
         "Keihan Hai": {
             "id": 10358,
@@ -2900,7 +3083,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10188
         },
         "Mile Championship": {
             "id": 10359,
@@ -2918,8 +3102,9 @@
             "grade": "G1",
             "sparks": [
                 "Standard Distance ○",
-                "Standard Distance ○"
-            ]
+                "Speed"
+            ],
+            "id": 10189
         },
         "Shimotsuki Stakes": {
             "id": 10360,
@@ -2934,7 +3119,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10190
         },
         "Capella Stakes": {
             "id": 10361,
@@ -2949,7 +3135,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10191
         },
         "Challenge Cup": {
             "id": 10362,
@@ -2964,7 +3151,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10192
         },
         "Champions Cup": {
             "id": 10363,
@@ -2982,8 +3170,9 @@
             "grade": "G1",
             "sparks": [
                 "Chukyo Racecourse ○",
-                "Chukyo Racecourse ○"
-            ]
+                "Power"
+            ],
+            "id": 10193
         },
         "Chunichi Shimbun Hai": {
             "id": 10364,
@@ -2998,7 +3187,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10194
         },
         "December Stakes": {
             "id": 10365,
@@ -3013,7 +3203,8 @@
                 "required": 350,
                 "gained": 2600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10195
         },
         "Lapis Lazuli Stakes": {
             "id": 10366,
@@ -3028,7 +3219,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10196
         },
         "Rigel Stakes": {
             "id": 10367,
@@ -3043,7 +3235,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10197
         },
         "Shiwasu Stakes": {
             "id": 10368,
@@ -3058,7 +3251,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10198
         },
         "Stayers Stakes": {
             "id": 10369,
@@ -3073,7 +3267,8 @@
                 "required": 2000,
                 "gained": 6200
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10199
         },
         "Tanzanite Stakes": {
             "id": 10370,
@@ -3088,7 +3283,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10200
         },
         "Turquoise Stakes": {
             "id": 10371,
@@ -3103,7 +3299,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10201
         },
         "Arima Kinen": {
             "id": 10372,
@@ -3121,8 +3318,9 @@
             "grade": "G1",
             "sparks": [
                 "Nakayama Racecourse ○",
-                "Nakayama Racecourse ○"
-            ]
+                "Guts"
+            ],
+            "id": 10202
         },
         "Betelgeuse Stakes": {
             "id": 10373,
@@ -3137,7 +3335,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10203
         },
         "Galaxy Stakes": {
             "id": 10374,
@@ -3152,7 +3351,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10204
         },
         "Hanshin Cup": {
             "id": 10375,
@@ -3167,7 +3367,8 @@
                 "required": 2000,
                 "gained": 6700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10205
         },
         "Tokyo Daishoten": {
             "id": 10376,
@@ -3185,8 +3386,9 @@
             "grade": "G1",
             "sparks": [
                 "Oi Racecourse ○",
-                "Oi Racecourse ○"
-            ]
+                "Power"
+            ],
+            "id": 10206
         }
     },
     "Senior Year": {
@@ -3203,7 +3405,8 @@
                 "required": 750,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10207
         },
         "Carbuncle Stakes": {
             "id": 10208,
@@ -3218,7 +3421,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10208
         },
         "January Stakes": {
             "id": 10209,
@@ -3233,7 +3437,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10209
         },
         "Kyoto Kimpai": {
             "id": 10210,
@@ -3248,7 +3453,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10210
         },
         "Manyo Stakes": {
             "id": 10211,
@@ -3263,7 +3469,8 @@
                 "required": 350,
                 "gained": 2400
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10211
         },
         "Nakayama Kimpai": {
             "id": 10212,
@@ -3278,7 +3485,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10212
         },
         "New Year Stakes": {
             "id": 10213,
@@ -3293,7 +3501,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10213
         },
         "Nikkei Shinshun Hai": {
             "id": 10214,
@@ -3308,7 +3517,8 @@
                 "required": 1800,
                 "gained": 5700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10214
         },
         "Pollux Stakes": {
             "id": 10215,
@@ -3323,7 +3533,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10215
         },
         "Yodo Tankyori Stakes": {
             "id": 10216,
@@ -3338,7 +3549,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10216
         },
         "American JCC": {
             "id": 10217,
@@ -3353,7 +3565,8 @@
                 "required": 1900,
                 "gained": 6200
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10217
         },
         "Negishi Stakes": {
             "id": 10218,
@@ -3368,7 +3581,8 @@
                 "required": 1000,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10218
         },
         "Shirafuji Stakes": {
             "id": 10219,
@@ -3383,7 +3597,8 @@
                 "required": 350,
                 "gained": 2600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10219
         },
         "Silk Road Stakes": {
             "id": 10220,
@@ -3398,7 +3613,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10220
         },
         "Subaru Stakes": {
             "id": 10221,
@@ -3413,7 +3629,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10221
         },
         "Tokai Stakes": {
             "id": 10222,
@@ -3428,7 +3645,8 @@
                 "required": 1800,
                 "gained": 5500
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10222
         },
         "Aldebaran Stakes": {
             "id": 10223,
@@ -3443,7 +3661,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10223
         },
         "Kyoto Kinen": {
             "id": 10224,
@@ -3458,7 +3677,8 @@
                 "required": 1900,
                 "gained": 6200
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10224
         },
         "Rakuyo Stakes": {
             "id": 10225,
@@ -3473,7 +3693,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10225
         },
         "Tokyo Shimbun Hai": {
             "id": 10226,
@@ -3488,7 +3709,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10226
         },
         "Valentine Stakes": {
             "id": 10227,
@@ -3503,7 +3725,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10227
         },
         "Yamato Stakes": {
             "id": 10228,
@@ -3518,7 +3741,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10228
         },
         "Diamond Stakes": {
             "id": 10229,
@@ -3533,7 +3757,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10229
         },
         "February Stakes": {
             "id": 10230,
@@ -3551,8 +3776,9 @@
             "grade": "G1",
             "sparks": [
                 "Winter Runner ○",
-                "Winter Runner ○"
-            ]
+                "Power"
+            ],
+            "id": 10230
         },
         "Hankyu Hai": {
             "id": 10231,
@@ -3567,7 +3793,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10231
         },
         "Kitakyushu Tankyori Stakes": {
             "id": 10232,
@@ -3582,7 +3809,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10232
         },
         "Kokura Daishoten": {
             "id": 10233,
@@ -3597,7 +3825,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10233
         },
         "Kyoto Umamusume Stakes": {
             "id": 10234,
@@ -3612,7 +3841,8 @@
                 "required": 750,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10234
         },
         "Nakayama Kinen": {
             "id": 10235,
@@ -3627,7 +3857,8 @@
                 "required": 1900,
                 "gained": 6700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10235
         },
         "Sobu Stakes": {
             "id": 10236,
@@ -3642,7 +3873,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10236
         },
         "Kinko Sho": {
             "id": 10237,
@@ -3657,7 +3889,8 @@
                 "required": 2000,
                 "gained": 6700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10237
         },
         "Kochi Stakes": {
             "id": 10238,
@@ -3672,7 +3905,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10238
         },
         "Nakayama Umamusume Stakes": {
             "id": 10239,
@@ -3687,7 +3921,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10239
         },
         "Nigawa Stakes": {
             "id": 10240,
@@ -3702,7 +3937,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10240
         },
         "Ocean Stakes": {
             "id": 10241,
@@ -3717,7 +3953,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10241
         },
         "Osakajo Stakes": {
             "id": 10242,
@@ -3732,7 +3969,8 @@
                 "required": 350,
                 "gained": 2600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10242
         },
         "Polaris Stakes": {
             "id": 10243,
@@ -3747,7 +3985,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10243
         },
         "Chiba Stakes": {
             "id": 10244,
@@ -3762,7 +4001,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10244
         },
         "Hanshin Daishoten": {
             "id": 10245,
@@ -3777,7 +4017,8 @@
                 "required": 2000,
                 "gained": 6700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10245
         },
         "March Stakes": {
             "id": 10246,
@@ -3792,7 +4033,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10246
         },
         "Nikkei Sho": {
             "id": 10247,
@@ -3807,7 +4049,8 @@
                 "required": 2000,
                 "gained": 6700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10247
         },
         "Osaka Hai": {
             "id": 10248,
@@ -3825,8 +4068,9 @@
             "grade": "G1",
             "sparks": [
                 "Standard Distance ○",
-                "Standard Distance ○"
-            ]
+                "Guts"
+            ],
+            "id": 10248
         },
         "Rokko Stakes": {
             "id": 10249,
@@ -3841,7 +4085,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10249
         },
         "Takamatsunomiya Kinen": {
             "id": 10250,
@@ -3859,8 +4104,9 @@
             "grade": "G1",
             "sparks": [
                 "Chukyo Racecourse ○",
-                "Chukyo Racecourse ○"
-            ]
+                "Speed"
+            ],
+            "id": 10250
         },
         "Antares Stakes": {
             "id": 10251,
@@ -3875,7 +4121,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10251
         },
         "Azumakofuji Stakes": {
             "id": 10252,
@@ -3890,7 +4137,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10252
         },
         "Coral Stakes": {
             "id": 10253,
@@ -3905,7 +4153,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10253
         },
         "Fukushima Mimpo Hai": {
             "id": 10254,
@@ -3920,7 +4169,8 @@
                 "required": 350,
                 "gained": 2600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10254
         },
         "Hanshin Umamusume Stakes": {
             "id": 10255,
@@ -3935,7 +4185,8 @@
                 "required": 1800,
                 "gained": 5500
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10255
         },
         "Keiyo Stakes": {
             "id": 10256,
@@ -3950,7 +4201,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10256
         },
         "Lord Derby Challenge Trophy": {
             "id": 10257,
@@ -3965,7 +4217,8 @@
                 "required": 1250,
                 "gained": 3900
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10257
         },
         "Shunrai Stakes": {
             "id": 10258,
@@ -3980,7 +4233,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10258
         },
         "Fukushima Umamusume Stakes": {
             "id": 10259,
@@ -3995,7 +4249,8 @@
                 "required": 1250,
                 "gained": 3800
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10259
         },
         "Milers Cup": {
             "id": 10260,
@@ -4010,7 +4265,8 @@
                 "required": 1900,
                 "gained": 5900
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10260
         },
         "Oasis Stakes": {
             "id": 10261,
@@ -4025,7 +4281,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10261
         },
         "Tenno Sho (Spring)": {
             "id": 10262,
@@ -4043,8 +4300,9 @@
             "grade": "G1",
             "sparks": [
                 "Spring Runner ○",
-                "Spring Runner ○"
-            ]
+                "Stamina"
+            ],
+            "id": 10262
         },
         "Tennozan Stakes": {
             "id": 10263,
@@ -4059,7 +4317,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10263
         },
         "Brilliant Stakes": {
             "id": 10264,
@@ -4074,7 +4333,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10264
         },
         "Keio Hai Spring Cup": {
             "id": 10265,
@@ -4089,7 +4349,8 @@
                 "required": 1900,
                 "gained": 5900
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10265
         },
         "Kurama Stakes": {
             "id": 10266,
@@ -4104,7 +4365,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10266
         },
         "Metropolitan Stakes": {
             "id": 10267,
@@ -4119,7 +4381,8 @@
                 "required": 350,
                 "gained": 2600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10267
         },
         "Miyakooji Stakes": {
             "id": 10268,
@@ -4134,7 +4397,8 @@
                 "required": 350,
                 "gained": 2600
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10268
         },
         "Niigata Daishoten": {
             "id": 10269,
@@ -4149,7 +4413,8 @@
                 "required": 1500,
                 "gained": 4100
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10269
         },
         "Ritto Stakes": {
             "id": 10270,
@@ -4164,7 +4429,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10270
         },
         "Tanigawadake Stakes": {
             "id": 10271,
@@ -4179,7 +4445,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10271
         },
         "Victoria Mile": {
             "id": 10272,
@@ -4198,7 +4465,8 @@
             "sparks": [
                 "Speed",
                 "Power"
-            ]
+            ],
+            "id": 10272
         },
         "Azuchijo Stakes": {
             "id": 10273,
@@ -4213,7 +4481,8 @@
                 "required": 350,
                 "gained": 2500
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10273
         },
         "Heian Stakes": {
             "id": 10274,
@@ -4228,7 +4497,8 @@
                 "required": 1000,
                 "gained": 3600
             },
-            "grade": "G3"
+            "grade": "G3",
+            "id": 10274
         },
         "Idaten Stakes": {
             "id": 10275,
@@ -4243,7 +4513,8 @@
                 "required": 350,
                 "gained": 2300
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10275
         },
         "Keyaki Stakes": {
             "id": 10276,
@@ -4258,7 +4529,8 @@
                 "required": 350,
                 "gained": 2200
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10276
         },
         "May Stakes": {
             "id": 10277,
@@ -4273,7 +4545,8 @@
                 "required": 350,
                 "gained": 2400
             },
-            "grade": "OP"
+            "grade": "OP",
+            "id": 10277
         },
         "Meguro Kinen": {
             "id": 10278,
@@ -4288,7 +4561,196 @@
                 "required": 1800,
                 "gained": 5700
             },
-            "grade": "G2"
+            "grade": "G2",
+            "id": 10278
+        },
+        "Epsom Cup": {
+            "date": "Early Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3",
+            "id": 10279
+        },
+        "Mermaid Stakes": {
+            "date": "Early Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3",
+            "id": 10280
+        },
+        "Naruo Kinen": {
+            "date": "Early Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3",
+            "id": 10281
+        },
+        "Sleipnir Stakes": {
+            "date": "Early Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2100
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10282
+        },
+        "Tempozan Stakes": {
+            "date": "Early Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10283
+        },
+        "Yasuda Kinen": {
+            "date": "Early Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 15000,
+                "gained": 13000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Tokyo Racecourse ○",
+                "Speed"
+            ],
+            "id": 10284
+        },
+        "Akhalteke Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10285
+        },
+        "Hakodate Sprint Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Hakodate",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3",
+            "id": 10286
+        },
+        "Onuma Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Hakodate",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10287
+        },
+        "Paradise Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10288
+        },
+        "Sannomiya Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10289
+        },
+        "Takarazuka Kinen": {
+            "date": "Late Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 20000,
+                "gained": 15000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Summer Runner ○",
+                "Guts"
+            ],
+            "id": 10290
         },
         "Teio Sho": {
             "id": 10291,
@@ -4306,8 +4768,1325 @@
             "grade": "G1",
             "sparks": [
                 "Oi Racecourse ○",
-                "Oi Racecourse ○"
-            ]
+                "Power"
+            ],
+            "id": 10291
+        },
+        "Yonago Stakes": {
+            "date": "Late Jun",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10292
+        },
+        "CBC Sho": {
+            "date": "Early Jul",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3",
+            "id": 10293
+        },
+        "Hakodate Kinen": {
+            "date": "Early Jul",
+            "racetrack": "Hakodate",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3",
+            "id": 10294
+        },
+        "Marine Stakes": {
+            "date": "Early Jul",
+            "racetrack": "Hakodate",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10295
+        },
+        "Meitetsu Hai": {
+            "date": "Early Jul",
+            "racetrack": "Chukyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10296
+        },
+        "Procyon Stakes": {
+            "date": "Early Jul",
+            "racetrack": "Chukyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3",
+            "id": 10297
+        },
+        "Tanabata Sho": {
+            "date": "Early Jul",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3",
+            "id": 10298
+        },
+        "Tomoe Sho": {
+            "date": "Early Jul",
+            "racetrack": "Hakodate",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2400
+            },
+            "grade": "OP",
+            "id": 10299
+        },
+        "Chukyo Kinen": {
+            "date": "Late Jul",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3",
+            "id": 10300
+        },
+        "Fukushima TV Open": {
+            "date": "Late Jul",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10301
+        },
+        "Ibis Summer Dash": {
+            "date": "Late Jul",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1000
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3",
+            "id": 10302
+        },
+        "Queen Stakes": {
+            "date": "Late Jul",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3",
+            "id": 10303
+        },
+        "Aso Stakes": {
+            "date": "Early Aug",
+            "racetrack": "Kokura",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10304
+        },
+        "Elm Stakes": {
+            "date": "Early Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3",
+            "id": 10305
+        },
+        "Kanetsu Stakes": {
+            "date": "Early Aug",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2400
+            },
+            "grade": "OP",
+            "id": 10306
+        },
+        "Kokura Kinen": {
+            "date": "Early Aug",
+            "racetrack": "Kokura",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3",
+            "id": 10307
+        },
+        "Sapporo Nikkei Open": {
+            "date": "Early Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 2600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP",
+            "id": 10308
+        },
+        "Sekiya Kinen": {
+            "date": "Early Aug",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3",
+            "id": 10309
+        },
+        "UHB Sho": {
+            "date": "Early Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10310
+        },
+        "BSN Sho": {
+            "date": "Late Aug",
+            "racetrack": "Niigata",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10311
+        },
+        "Keeneland Cup": {
+            "date": "Late Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3",
+            "id": 10312
+        },
+        "Kitakyushu Kinen": {
+            "date": "Late Aug",
+            "racetrack": "Kokura",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3",
+            "id": 10313
+        },
+        "Kokura Nikkei Open": {
+            "date": "Late Aug",
+            "racetrack": "Kokura",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2400
+            },
+            "grade": "OP",
+            "id": 10314
+        },
+        "NST Sho": {
+            "date": "Late Aug",
+            "racetrack": "Niigata",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10315
+        },
+        "Sapporo Kinen": {
+            "date": "Late Aug",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 7000
+            },
+            "grade": "G2",
+            "id": 10316
+        },
+        "Toki Stakes": {
+            "date": "Late Aug",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10317
+        },
+        "Centaur Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 5900
+            },
+            "grade": "G2",
+            "id": 10318
+        },
+        "Enif Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10319
+        },
+        "Keisei Hai Autumn Handicap": {
+            "date": "Early Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3",
+            "id": 10320
+        },
+        "Niigata Kinen": {
+            "date": "Early Sep",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3",
+            "id": 10321
+        },
+        "Radio Nippon Sho": {
+            "date": "Early Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10322
+        },
+        "Tancho Stakes": {
+            "date": "Early Sep",
+            "racetrack": "Sapporo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 2600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2400
+            },
+            "grade": "OP",
+            "id": 10323
+        },
+        "All Comers": {
+            "date": "Late Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2",
+            "id": 10324
+        },
+        "Nagatsuki Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10325
+        },
+        "Port Island Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10326
+        },
+        "Sirius Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3",
+            "id": 10327
+        },
+        "Sprinters Stakes": {
+            "date": "Late Sep",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 15000,
+                "gained": 13000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Standard Distance ○",
+                "Speed"
+            ],
+            "id": 10328
+        },
+        "Fuchu Umamusume Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 1800,
+                "gained": 5500
+            },
+            "grade": "G2",
+            "id": 10329
+        },
+        "Green Channel Cup": {
+            "date": "Early Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10330
+        },
+        "Kyoto Daishoten": {
+            "date": "Early Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2400
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2",
+            "id": 10331
+        },
+        "Mainichi Okan": {
+            "date": "Early Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2",
+            "id": 10332
+        },
+        "October Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP",
+            "id": 10333
+        },
+        "Opal Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10334
+        },
+        "Shinetsu Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10335
+        },
+        "Uzumasa Stakes": {
+            "date": "Early Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10336
+        },
+        "Brazil Cup": {
+            "date": "Late Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2100
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10337
+        },
+        "Cassiopeia Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP",
+            "id": 10338
+        },
+        "Fuji Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 5900
+            },
+            "grade": "G2",
+            "id": 10339
+        },
+        "Lumiere Autumn Dash": {
+            "date": "Late Oct",
+            "racetrack": "Niigata",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10340
+        },
+        "Muromachi Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10341
+        },
+        "Swan Stakes": {
+            "date": "Late Oct",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 5900
+            },
+            "grade": "G2",
+            "id": 10342
+        },
+        "Tenno Sho (Autumn)": {
+            "date": "Late Oct",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 20000,
+                "gained": 15000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Fall Runner ○",
+                "Speed"
+            ],
+            "id": 10343
+        },
+        "Copa Republica Argentina": {
+            "date": "Early Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 2500
+            },
+            "fans": {
+                "required": 1900,
+                "gained": 5700
+            },
+            "grade": "G2",
+            "id": 10344
+        },
+        "Fukushima Kinen": {
+            "date": "Early Nov",
+            "racetrack": "Fukushima",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3",
+            "id": 10345
+        },
+        "JBC Classic": {
+            "date": "Early Nov",
+            "racetrack": "Ooi",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 8000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Stamina",
+                "Guts"
+            ],
+            "id": 10346
+        },
+        "JBC Ladies' Classic": {
+            "date": "Early Nov",
+            "racetrack": "Ooi",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 4100
+            },
+            "grade": "G1",
+            "sparks": [],
+            "id": 10347
+        },
+        "JBC Sprint": {
+            "date": "Early Nov",
+            "racetrack": "Ooi",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 6000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Power",
+                "Guts"
+            ],
+            "id": 10348
+        },
+        "Miyako Stakes": {
+            "date": "Early Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 750,
+                "gained": 3800
+            },
+            "grade": "G3",
+            "id": 10349
+        },
+        "Musashino Stakes": {
+            "date": "Early Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3800
+            },
+            "grade": "G3",
+            "id": 10350
+        },
+        "Oro Cup": {
+            "date": "Early Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10351
+        },
+        "Queen Elizabeth II Cup": {
+            "date": "Early Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2200
+            },
+            "fans": {
+                "required": 10000,
+                "gained": 10500
+            },
+            "grade": "G1",
+            "sparks": [
+                "Non-Standard Distance ○",
+                "Stamina"
+            ],
+            "id": 10352
+        },
+        "Andromeda Stakes": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP",
+            "id": 10353
+        },
+        "Autumn Leaf Stakes": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10354
+        },
+        "Capital Stakes": {
+            "date": "Late Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10355
+        },
+        "Fukushima Minyu Cup": {
+            "date": "Late Nov",
+            "racetrack": "Fukushima",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1700
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10356
+        },
+        "Japan Cup": {
+            "date": "Late Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2400
+            },
+            "fans": {
+                "required": 25000,
+                "gained": 30000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Tokyo Racecourse ○",
+                "Stamina"
+            ],
+            "id": 10357
+        },
+        "Keihan Hai": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1250,
+                "gained": 3900
+            },
+            "grade": "G3",
+            "id": 10358
+        },
+        "Mile Championship": {
+            "date": "Late Nov",
+            "racetrack": "Kyoto",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 15000,
+                "gained": 11000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Standard Distance ○",
+                "Speed"
+            ],
+            "id": 10359
+        },
+        "Shimotsuki Stakes": {
+            "date": "Late Nov",
+            "racetrack": "Tokyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10360
+        },
+        "Capella Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3",
+            "id": 10361
+        },
+        "Challenge Cup": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3",
+            "id": 10362
+        },
+        "Champions Cup": {
+            "date": "Early Dec",
+            "racetrack": "Chukyo",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 10000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Chukyo Racecourse ○",
+                "Power"
+            ],
+            "id": 10363
+        },
+        "Chunichi Shimbun Hai": {
+            "date": "Early Dec",
+            "racetrack": "Chukyo",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 1500,
+                "gained": 4100
+            },
+            "grade": "G3",
+            "id": 10364
+        },
+        "December Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2600
+            },
+            "grade": "OP",
+            "id": 10365
+        },
+        "Lapis Lazuli Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10366
+        },
+        "Rigel Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2500
+            },
+            "grade": "OP",
+            "id": 10367
+        },
+        "Shiwasu Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10368
+        },
+        "Stayers Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 3600
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6200
+            },
+            "grade": "G2",
+            "id": 10369
+        },
+        "Tanzanite Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1200
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2300
+            },
+            "grade": "OP",
+            "id": 10370
+        },
+        "Turquoise Stakes": {
+            "date": "Early Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Mile",
+                "meters": 1600
+            },
+            "fans": {
+                "required": 1000,
+                "gained": 3600
+            },
+            "grade": "G3",
+            "id": 10371
+        },
+        "Arima Kinen": {
+            "date": "Late Dec",
+            "racetrack": "Nakayama",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Long",
+                "meters": 2500
+            },
+            "fans": {
+                "required": 25000,
+                "gained": 30000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Nakayama Racecourse ○",
+                "Guts"
+            ],
+            "id": 10372
+        },
+        "Betelgeuse Stakes": {
+            "date": "Late Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Mile",
+                "meters": 1800
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10373
+        },
+        "Galaxy Stakes": {
+            "date": "Late Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 350,
+                "gained": 2200
+            },
+            "grade": "OP",
+            "id": 10374
+        },
+        "Hanshin Cup": {
+            "date": "Late Dec",
+            "racetrack": "Hanshin",
+            "terrain": "Turf",
+            "distance": {
+                "type": "Short",
+                "meters": 1400
+            },
+            "fans": {
+                "required": 2000,
+                "gained": 6700
+            },
+            "grade": "G2",
+            "id": 10375
+        },
+        "Tokyo Daishoten": {
+            "date": "Late Dec",
+            "racetrack": "Ooi",
+            "terrain": "Dirt",
+            "distance": {
+                "type": "Medium",
+                "meters": 2000
+            },
+            "fans": {
+                "required": 12000,
+                "gained": 8000
+            },
+            "grade": "G1",
+            "sparks": [
+                "Oi Racecourse ○",
+                "Power"
+            ],
+            "id": 10376
         }
     }
 }

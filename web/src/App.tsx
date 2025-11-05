@@ -38,6 +38,7 @@ import CustomHighFailChance from "./components/training/CustomHighFailChance";
 import JuniorPrioritize from "./components/training/PrioritizeWeightOnJunior";
 import { BarChart3, BrainCircuit, ChevronsRight, Cog, Trophy, MessageCircleMore } from "lucide-react";
 import ScenarioSelect from "./components/setting/ScenarioSelect";
+import ConfigManager from "./components/config/ConfigManager";
 
 function App() {
   const defaultConfig = rawConfig as Config;
@@ -71,13 +72,6 @@ function App() {
       .catch(() => setScenarioOptions([]));
   }, []);
 
-  useEffect(() => {
-      if (!config.enable_custom_failure) {
-          updateConfig("enable_custom_low_failure", false);
-          updateConfig("enable_custom_high_failure", false);
-      }
-  }, [config.enable_custom_failure]);
-
   const {
     priority_stat,
     priority_weights,
@@ -92,7 +86,6 @@ function App() {
     choice_weight,
     use_priority_on_choice,
     minimum_mood_junior_year,
-    maximum_failure,
     prioritize_g1_race,
     cancel_consecutive_race,
     position_selection_enabled,
@@ -105,18 +98,33 @@ function App() {
     scenario,
     skill,
     window_name,
+    use_prioritize_on_junior,
+    failure,
+  } = config;
+
+  const {
+    maximum_failure,
     enable_custom_failure,
     enable_custom_low_failure,
-    enable_custom_high_failure,
     low_failure_condition,
+    enable_custom_high_failure,
     high_failure_condition,
-    use_prioritize_on_junior,
-  } = config;
-  const { is_auto_buy_skill, skill_pts_check, skill_list } = skill;
+  } = failure;
+  const { is_auto_buy_skill, skill_pts_check, skill_list, desire_skill } = skill;
 
   const updateConfig = <K extends keyof typeof config>(key: K, value: (typeof config)[K]) => {
     setConfig((prev) => ({ ...prev, [key]: value }));
   };
+
+  useEffect(() => {
+    if (!failure.enable_custom_failure) {
+      updateConfig("failure", {
+        ...failure,
+        enable_custom_low_failure: false,
+        enable_custom_high_failure: false,
+      });
+    }
+  }, [failure.enable_custom_failure]);
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground p-4 sm:p-8">
@@ -130,17 +138,15 @@ function App() {
             <p className="text-muted-foreground">
               Press <span className="font-bold text-primary">F1</span> to start/stop the bot.
             </p>
-            <Button
-              size={"lg"}
-              className="font-semibold text-lg shadow-lg shadow-primary/20"
-              onClick={() => {
-                setNamePreset(activeIndex, presetName);
-                savePreset(config);
-                saveConfig();
-              }}
-            >
-              Save Configuration
-            </Button>
+            <ConfigManager
+                config={config}
+                setConfig={setConfig}
+                saveConfig={saveConfig}
+                savePreset={savePreset}
+                setNamePreset={setNamePreset}
+                activeIndex={activeIndex}
+                presetName={presetName}
+            />
           </div>
         </header>
 
@@ -223,12 +229,12 @@ function App() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <StatCaps statCaps={stat_caps} setStatCaps={(key, val) => updateConfig("stat_caps", { ...stat_caps, [key]: isNaN(val) ? 0 : val })} />
                     <div className="flex flex-col gap-4">
-                        <FailChance maximumFailure={maximum_failure} setFail={(val) => updateConfig("maximum_failure", isNaN(val) ? 0 : val)} />
-                        <IsCustomFailChance enableCustomFailure={enable_custom_failure} setCustomFailChance={(val) => updateConfig("enable_custom_failure", val)} />
-                        <IsCustomLowFailChance CustomFailureEnabled={enable_custom_failure} enableCustomLowFailure={enable_custom_low_failure} setCustomLowFailChance={(val) => updateConfig("enable_custom_low_failure", val)} />
-                        <CustomLowFailChance LowFailChanceEnabled={enable_custom_low_failure} customLowCondition={low_failure_condition} setLowCondition={(key, val) => updateConfig("low_failure_condition", { ...low_failure_condition, [key]: isNaN(val) ? 0 : val })} /> 
-                        <IsCustomHighFailChance CustomFailureEnabled={enable_custom_failure} enableCustomHighFailure={enable_custom_high_failure} setCustomHighFailChance={(val) => updateConfig("enable_custom_high_failure", val)} />
-                        <CustomHighFailChance HighFailChanceEnabled={enable_custom_high_failure} customHighCondition={high_failure_condition} setHighCondition={(key, val) => updateConfig("high_failure_condition", { ...high_failure_condition, [key]: isNaN(val) ? 0 : val })} /> 
+                        <FailChance maximumFailure={maximum_failure} setFail={(val) => updateConfig("failure", { ...failure, maximum_failure: isNaN(val) ? 0 : val })} />
+                        <IsCustomFailChance enableCustomFailure={enable_custom_failure} setCustomFailChance={(val) => updateConfig("failure", { ...failure, enable_custom_failure: val })} />
+                        <IsCustomLowFailChance CustomFailureEnabled={enable_custom_failure} enableCustomLowFailure={enable_custom_low_failure} setCustomLowFailChance={(val) => updateConfig("failure", { ...failure, enable_custom_low_failure: val })} />
+                        <CustomLowFailChance LowFailChanceEnabled={enable_custom_low_failure} customLowCondition={low_failure_condition} setLowCondition={(key, val) => updateConfig("failure", {...failure,low_failure_condition: {...low_failure_condition,[key]: isNaN(val) ? 0 : val,},})} /> 
+                        <IsCustomHighFailChance CustomFailureEnabled={enable_custom_failure} enableCustomHighFailure={enable_custom_high_failure} setCustomHighFailChance={(val) => updateConfig("failure", { ...failure, enable_custom_high_failure: val })} />
+                                      <CustomHighFailChance HighFailChanceEnabled={enable_custom_high_failure} customHighCondition={high_failure_condition} setHighCondition={(key, val) => updateConfig("failure", { ...failure, high_failure_condition: { ...high_failure_condition, [key]: isNaN(val) ? 0 : val, }, })} /> 
                     </div>
                 </div>
               </div>
@@ -258,27 +264,23 @@ function App() {
               <h2 className="text-3xl font-semibold mb-6 flex items-center gap-3"><Trophy className="text-primary"/>Race</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="flex flex-col gap-6">
-                  <PrioritizeG1 prioritizeG1Race={prioritize_g1_race} setPrioritizeG1={(val) => updateConfig("prioritize_g1_race", val)} />
-                  <CancelConsecutive cancelConsecutive={cancel_consecutive_race} setCancelConsecutive={(val) => updateConfig("cancel_consecutive_race", val)} />
                   <IsPositionSelectionEnabled positionSelectionEnabled={position_selection_enabled} setPositionSelectionEnabled={(val) => updateConfig("position_selection_enabled", val)} />
+                  <PreferredPosition
+                      preferredPosition={preferred_position}
+                      setPreferredPosition={(val) => updateConfig("preferred_position", val)}
+                      enablePositionsByRace={enable_positions_by_race}
+                      positionSelectionEnabled={position_selection_enabled}
+                    />
                 </div>
                 <div className="flex flex-col gap-6">
-                  <PreferredPosition
-                    preferredPosition={preferred_position}
-                    setPreferredPosition={(val) => updateConfig("preferred_position", val)}
+                  <IsPositionByRace enablePositionsByRace={enable_positions_by_race} setPositionByRace={(val) => updateConfig("enable_positions_by_race", val)} positionSelectionEnabled={position_selection_enabled} />
+                  <PositionByRace
+                    positionByRace={positions_by_race}
+                    setPositionByRace={(key, val) => updateConfig("positions_by_race", { ...positions_by_race, [key]: val })}
                     enablePositionsByRace={enable_positions_by_race}
                     positionSelectionEnabled={position_selection_enabled}
                   />
-                  <IsPositionByRace enablePositionsByRace={enable_positions_by_race} setPositionByRace={(val) => updateConfig("enable_positions_by_race", val)} positionSelectionEnabled={position_selection_enabled} />
                 </div>
-              </div>
-              <div className="mt-8">
-                <PositionByRace
-                  positionByRace={positions_by_race}
-                  setPositionByRace={(key, val) => updateConfig("positions_by_race", { ...positions_by_race, [key]: val })}
-                  enablePositionsByRace={enable_positions_by_race}
-                  positionSelectionEnabled={position_selection_enabled}
-                />
               </div>
             </div>
           </div>
@@ -298,30 +300,39 @@ function App() {
             </div>
             <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
               <h2 className="text-3xl font-semibold mb-6 flex items-center gap-3"><ChevronsRight className="text-primary"/>Race Schedule</h2>
-              <RaceSchedule
+              <div className="flex flex-col gap-4">
+                <PrioritizeG1 prioritizeG1Race={prioritize_g1_race} setPrioritizeG1={(val) => updateConfig("prioritize_g1_race", val)} />
+                <CancelConsecutive cancelConsecutive={cancel_consecutive_race} setCancelConsecutive={(val) => updateConfig("cancel_consecutive_race", val)} />
+                <RaceSchedule
                 raceSchedule={race_schedule}
                 addRaceSchedule={(val) => updateConfig("race_schedule", [...race_schedule, val])}
                 deleteRaceSchedule={(name, year) =>
-                  updateConfig(
+                    updateConfig(
                     "race_schedule",
                     race_schedule.filter((race) => race.name !== name || race.year !== year)
-                  )
+                    )
                 }
                 clearRaceSchedule={() => updateConfig("race_schedule", [])}
-              />
+                />
+              </div>
             </div>
             <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
-                <div className="flex flex-col gap-6">
-                    <div className="flex gap-2 items-center">
-                        <h2 className="text-3xl font-semibold flex items-center gap-3"><MessageCircleMore className="text-primary" />Event</h2>
-                        <Tooltips>Skill hint → Score System → Custom Choice.</Tooltips> 
-                    </div>
-                    <div className="flex flex-col gap-6">
-                        <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("use_optimal_event_choices", val)} />
-                        <PriorityOnChoice priorityOnChoice={use_priority_on_choice} setPriorityOnChoice={(val) => updateConfig("use_priority_on_choice", val)} />
-                        <ChoiceWeight choiceWeight={choice_weight} setChoiceWeight={(key, val) => updateConfig("choice_weight", { ...choice_weight, [key]: isNaN(val) ? 0 : val })} />
-                    </div>
+              <div className="flex flex-col gap-6">
+                <div className="flex gap-2 items-center">
+                    <h2 className="text-3xl font-semibold flex items-center gap-3"><MessageCircleMore className="text-primary" />Event</h2>
+                    <Tooltips>Skill hint → Score System → Custom Choice.</Tooltips> 
                 </div>
+                <div className="flex flex-col gap-6">
+                    <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("use_optimal_event_choices", val)} />
+                    <SkillList
+                         list={desire_skill}
+                         addSkillList={(val) => updateConfig("skill", { ...skill, desire_skill: [val, ...desire_skill] })}
+                         deleteSkillList={(val) => updateConfig("skill", { ...skill, desire_skill: desire_skill.filter((s) => s !== val) })}
+                    />
+                    <PriorityOnChoice priorityOnChoice={use_priority_on_choice} setPriorityOnChoice={(val) => updateConfig("use_priority_on_choice", val)} />
+                    <ChoiceWeight choiceWeight={choice_weight} setChoiceWeight={(key, val) => updateConfig("choice_weight", { ...choice_weight, [key]: isNaN(val) ? 0 : val })} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
