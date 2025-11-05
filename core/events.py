@@ -13,7 +13,7 @@ def get_optimal_choice(event_name):
         return (False, 1)
 
     key = clean_event_name(event_name)
-    desired_skills = {s.casefold() for s in (state.SKILL_LIST or [])}
+    desired_skills = {s.casefold() for s in (state.DESIRE_SKILL or [])}
 
     # Optional fuzzy correction
     if key not in COMMON_EVENT_DATABASE.keys() \

@@ -24,17 +24,19 @@
   "priority_weight": "LIGHT",
   "hint_point": 0.5,
   "minimum_mood_junior_year": "NORMAL",
-  "maximum_failure": 15,
-  "enable_custom_failure": false,
-  "enable_custom_low_failure": false,
-  "low_failure_condition": {
-    "point": 1,
-    "failure": 10
-  },
-  "enable_custom_high_failure": false,
-  "high_failure_condition": {
-    "point": 3,
-    "failure": 40
+  "failure": {
+    "maximum_failure": 15,
+    "enable_custom_failure": false,
+    "enable_custom_low_failure": false,
+    "low_failure_condition": {
+      "point": 1,
+      "failure": 10
+    },
+    "enable_custom_high_failure": false,
+    "high_failure_condition": {
+      "point": 4,
+      "failure": 40
+    }
   },
   "prioritize_g1_race": false,
   "use_optimal_event_choices": true,
@@ -100,6 +102,9 @@
       "U=ma2",
       "Professor of Curvature",
       "Swinging Maestro"
+    ],
+    "desire_skill": [
+      "Lone Wolf"
     ]
   },
   "window_name": "LDPlayer"

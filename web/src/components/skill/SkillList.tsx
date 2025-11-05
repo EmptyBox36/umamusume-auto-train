@@ -21,7 +21,7 @@ export default function SkillList({ list, addSkillList, deleteSkillList }: Props
   useEffect(() => {
     const getSkillData = async () => {
       try {
-        const res = await fetch("https://raw.githubusercontent.com/samsulpanjul/umamusume-auto-train/refs/heads/dev/data/skills.json");
+        const res = await fetch("/scraper/data/skills.json");
         const skills: Skill[] = await res.json();
         setData(skills);
       } catch (error) {
