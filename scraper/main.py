@@ -7,10 +7,12 @@ from scrapers.supports import SupportCardScraper
 from scrapers.races import RaceScraper
 from scrapers.races_icon import RaceIconScraper
 from scrapers.supports_url import SupportCardURLScraper
+from scrapers.characters_url import CharactersURLScraper
 
 scrapers = {
     "skills": [SkillScraper],
     "characters": [CharacterScraper],
+    "characters_url": [CharactersURLScraper],
     "supports": [SupportCardScraper],
     "supports_url": [SupportCardURLScraper],
     "races": [RaceScraper],
@@ -47,7 +49,7 @@ if __name__ == "__main__":
         for scraper_class in scrapers[args.scraper]:
             run_with_retry(scraper_class)
     else:
-        for cls in [CharacterScraper, SupportCardURLScraper, SupportCardScraper]:
+        for cls in [CharacterScraper, CharactersURLScraper, SupportCardURLScraper, SupportCardScraper]:
             run_with_retry(cls)
 
     end_time = round(time.time() - start_time, 2)

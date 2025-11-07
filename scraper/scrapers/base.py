@@ -5,6 +5,10 @@ import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, WebDriverException, TimeoutException
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 from utils.utils import clean_event_title, STAT_KEYS, ALIASES, DIVIDER_RE, IGNORE_PATTERNS, ALL_STATS, COMMON_EVENT_TITLES, RAND_SPLIT_RE
 
@@ -108,7 +112,61 @@ def parse_outcome(text: str) -> dict:
     return parse_randomly(text) if "Randomly either" in text else parse_outcome_block(text)
 
 def create_chromedriver():
-    return uc.Chrome(headless=True, use_subprocess=True)
+    # Set this to your local Chrome major version, e.g., 130
+    CHROME_MAJOR = 142
+
+    opts = Options()
+    opts.add_argument("--headless=new")
+    opts.add_argument("--disable-gpu")
+    opts.add_argument("--no-sandbox")
+    opts.add_argument("--disable-dev-shm-usage")
+    opts.add_argument("--disable-extensions")
+    opts.add_argument("--disable-features=PrivacySandboxAdsAPIs")
+    opts.add_argument("--disable-background-networking")
+    opts.add_argument("--disable-renderer-backgrounding")
+    opts.add_argument("--renderer-process-limit=2")
+    opts.add_argument("--force-device-scale-factor=1")
+    # Optional: speed up and reduce ad/asset stalls
+    # opts.add_argument("--blink-settings=imagesEnabled=false")
+
+    caps = DesiredCapabilities.CHROME.copy()
+    caps["pageLoadStrategy"] = "eager"  # don’t wait for ads/analytics
+
+    driver = uc.Chrome(
+        headless=True,
+        use_subprocess=True,
+        version_main=CHROME_MAJOR,
+        options=opts,
+        desired_capabilities=caps,
+    )
+    driver.execute_cdp_cmd("Network.enable", {})
+    driver.execute_cdp_cmd("Network.setBlockedURLs", {
+        "urls": [
+            "*doubleclick.net/*",
+            "*googlesyndication.com/*",
+            "*googletagmanager.com/*",
+            "*googletagservices.com/*",
+            "*analytics.google.com/*",
+            "*google-analytics.com/*",
+            "*pubmatic.com/*",
+            "*adnxs.com/*",
+            "*facebook.net/*",
+            "*twitter.com/*"
+        ]
+    })
+    driver.set_window_size(1440, 1800)  # forces desktop DOM
+    driver.set_page_load_timeout(30)   # hard cap per navigation
+    driver.set_script_timeout(15)
+    return driver
+
+# def create_chromedriver():
+#     """Creates the Chrome driver for scraping.
+
+#     Returns:
+#         The Chrome driver.
+#     """
+#     driver = uc.Chrome(headless=True, use_subprocess=True)
+#     return driver
 
 class BaseScraper:
     def __init__(self, url: str, output_filename: str):

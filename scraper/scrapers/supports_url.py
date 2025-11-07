@@ -2,20 +2,31 @@ import re
 import time
 import logging
 from selenium.webdriver.common.by import By
+from requests.exceptions import ReadTimeout as RequestsReadTimeout
+from selenium.common.exceptions import TimeoutException, WebDriverException
 
 from .base import BaseScraper, create_chromedriver
 
+def _go(driver, url, tries=2):
+    for attempt in range(tries):
+        try:
+            driver.get(url)
+            return True
+        except (TimeoutException, WebDriverException):
+            # try to stop the page if still loading
+            try:
+                driver.execute_script("window.stop();")
+            except Exception:
+                pass
+        except RequestsReadTimeout:
+            # UC sometimes surfaces the CDP stall as a requests.ReadTimeout
+            pass
+    return False
 
 class SupportCardURLScraper(BaseScraper):
-    """
-    Scrapes per-card asset URLs from GameTora supports:
-      - main card image URL
-      - type icon URL
-      - rarity icon URL
-    Output: data/supports_url.json
-    """
     def __init__(self):
         super().__init__("https://gametora.com/umamusume/supports", "supports_url.json")
+        self.data = []  # list output like skills.py
 
     def _clean_name(self, raw: str) -> str:
         # Example raw: "Silence Suzuka (SSR) Support Card"
@@ -41,26 +52,22 @@ class SupportCardURLScraper(BaseScraper):
         return links
 
     def _scrape_detail(self, driver):
-        # Title → character/support name
         raw = driver.find_element(By.CSS_SELECTOR, "h1[class*='utils_headingXl']").text
         name = self._clean_name(raw)
 
-        # Main card image
         card_img = driver.find_element(
             By.CSS_SELECTOR, "img[src*='/supports/tex_support_card_']"
         ).get_attribute("src")
 
-        # Type icon (small square icon row)
         type_img = driver.find_element(
             By.CSS_SELECTOR, "img[src*='/icons/utx_ico_obtain_']"
         ).get_attribute("src")
 
-        # Rarity icon (“SSR/SR/R” text rendered as image)
         rarity_img = driver.find_element(
             By.CSS_SELECTOR, "img[src*='/icons/utx_txt_rarity_']"
         ).get_attribute("src")
 
-        self.data[name] = {
+        return {
             "name": name,
             "image_url": card_img,
             "type_url": type_img,
@@ -69,20 +76,42 @@ class SupportCardURLScraper(BaseScraper):
 
     def start(self):
         driver = create_chromedriver()
-        driver.get(self.url)
-        time.sleep(5)
+        if not _go(driver, self.url):
+            driver.quit(); return
+        time.sleep(2)
         self.handle_cookie_consent(driver)
 
         links = self._extract_links_from_index(driver)
+        ad_banner_closed = False
+        result = []  # collect list like skills.py
 
         for i, link in enumerate(links, start=1):
+            ad_banner_closed = self.handle_ad_banner(driver, ad_banner_closed)
             logging.info(f"[{i}/{len(links)}] {link}")
-            driver.get(link)
-            time.sleep(2.5)
-            self._scrape_detail(driver)
-            if i % 20 == 0:            # tune as needed
+
+            if not _go(driver, link):
+                logging.warning(f"Failed to load {link}; restarting driver...")
                 driver.quit()
                 driver = create_chromedriver()
+                if not _go(driver, self.url):
+                    logging.warning("Reopen index failed; skipping link."); continue
+                time.sleep(1)
+                self.handle_cookie_consent(driver)
+                ad_banner_closed = False
+                if not _go(driver, link):
+                    logging.warning(f"Still cannot load {link}, skipping."); continue
 
+            time.sleep(2)
+            item = self._scrape_detail(driver)
+            if item:  # optional de-dup by name if needed
+                result.append(item)
+
+            if i % 12 == 0:
+                driver.quit()
+                driver = create_chromedriver()
+                _ = _go(driver, self.url)
+                time.sleep(1); self.handle_cookie_consent(driver); ad_banner_closed = False
+
+        self.data = result
         self.save_data()
         driver.quit()

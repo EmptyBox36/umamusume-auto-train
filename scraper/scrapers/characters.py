@@ -1,9 +1,25 @@
 import time, re, logging
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+from requests.exceptions import ReadTimeout as RequestsReadTimeout
+from selenium.common.exceptions import TimeoutException, WebDriverException
 
 from .base import BaseScraper, create_chromedriver
 from utils.utils import clean_event_title, COMMON_EVENT_TITLES
+
+def _go(driver, url, tries=2):
+    for _ in range(tries):
+        try:
+            driver.get(url)
+            return True
+        except (TimeoutException, WebDriverException):
+            try:
+                driver.execute_script("window.stop();")
+            except Exception:
+                pass
+        except RequestsReadTimeout:
+            pass
+    return False
 
 class CharacterScraper(BaseScraper):
     def __init__(self):
@@ -24,12 +40,25 @@ class CharacterScraper(BaseScraper):
         for i, link in enumerate(links):
             logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
             driver.get(link); time.sleep(3)
-            name = driver.find_element(By.XPATH, "//h1[contains(@class, 'utils_headingXl')]").text
-            name = re.sub(r'\s*\(.*?\)', '', name.replace("(Original)", "")).strip()
+            # name = driver.find_element(By.XPATH, "//h1[contains(@class, 'utils_headingXl')]").text
+            # name = re.sub(r'\s*\(.*?\)', '', name.replace("(Original)", "")).strip()
+
+            raw_h1 = driver.find_element(By.CSS_SELECTOR, "h1[class*='utils_headingXl']").text.strip()
+            m = re.match(r"^(.*?)(?:\s*\(([^)]+)\))?$", raw_h1)
+            base = m.group(1).strip()
+            variant = m.group(2)
+            name = f"{base} ({variant})" if variant else base
+
             if name not in self.data:
                 self.data[name] = {}
             self.process_training_events(driver, name, self.data[name])
 
+            if i % 10 == 0:
+                driver.quit()
+                driver = create_chromedriver()
+                _ = _go(driver, self.url)
+                time.sleep(1)
+        
         self.save_data()
         driver.quit()
 
