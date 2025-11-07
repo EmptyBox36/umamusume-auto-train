@@ -3,68 +3,72 @@ import re
 
 from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
-from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, SKILL_HINT_BY_EVENT
+from core.EventsDatabase import CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, SKILL_HINT_BY_EVENT, EVENT_CHOICES_MAP
 from core.EventsDatabase import find_closest_event
 from core.logic import get_stat_priority
 import utils.constants as constants
 
 def get_optimal_choice(event_name):
+    choice = 0
     if not event_name:
-        return (False, 1)
+        return choice
 
-    key = clean_event_name(event_name)
+    event_name = clean_event_name(event_name)
     desired_skills = {s.casefold() for s in (state.DESIRE_SKILL or [])}
+    
+    if (event_name not in EVENT_CHOICES_MAP
+        and event_name not in CHARACTERS_EVENT_DATABASE
+        and event_name not in SUPPORT_EVENT_DATABASE
+        and event_name not in SCENARIOS_EVENT_DATABASE):
+        pool = list(CHARACTERS_EVENT_DATABASE.keys()) + \
+                list(SUPPORT_EVENT_DATABASE.keys())   + \
+                list(SCENARIOS_EVENT_DATABASE.keys()) + \
+                list(EVENT_CHOICES_MAP.keys())
 
-    # Optional fuzzy correction
-    if key not in COMMON_EVENT_DATABASE.keys() \
-        and key not in CHARACTERS_EVENT_DATABASE.keys() \
-        and key not in SUPPORT_EVENT_DATABASE.keys() \
-        and key not in SCENARIOS_EVENT_DATABASE.keys():
-        best_match = find_closest_event(key)
+        best_match = find_closest_event(event_name, pool)
         if best_match:
-            key = best_match
+            event_name = best_match
             info(f"[Fuzzy] Using closest match: {best_match}")
+    
+    chosen = EVENT_CHOICES_MAP.get(event_name)
+    if chosen:
+        info(f"[Custom] Using config choice for {event_name}")
+        return int(chosen)
 
-    # 1. Select choice in JSON database
-    db = CHARACTERS_EVENT_DATABASE if key in CHARACTERS_EVENT_DATABASE else \
-         SUPPORT_EVENT_DATABASE if key in SUPPORT_EVENT_DATABASE else \
-         SCENARIOS_EVENT_DATABASE if key in SCENARIOS_EVENT_DATABASE else None
+    db = CHARACTERS_EVENT_DATABASE if event_name in CHARACTERS_EVENT_DATABASE else \
+         SUPPORT_EVENT_DATABASE    if event_name in SUPPORT_EVENT_DATABASE    else \
+         SCENARIOS_EVENT_DATABASE  if event_name in SCENARIOS_EVENT_DATABASE  else None
+   
     if db:
         # Select choice by skill hint
-        result_hint = pick_choice_by_skill_hint(key, desired_skills)
+        result_hint = pick_choice_by_skill_hint(event_name, desired_skills)
         if result_hint is not None:
             return result_hint
 
         # Select choice by score
-        return pick_choice_by_score(key, db)
+        return pick_choice_by_score(event_name, db)
 
-    # 2. Hardcoded fallback
-    if key in COMMON_EVENT_DATABASE:
-        info(f"[Custom DB] Exact match found: {key}")
-        return COMMON_EVENT_DATABASE[key]
-
-    # 3. Default choice
-    warning(f"No match found for {key}. Defaulting to top choice.")
-    return (False, 1)
+    warning(f"No match found for {event_name}. Defaulting to top choice.")
+    return choice
 
 def _norm_hint(s: str) -> str:
     # strip common decorations like "○" and normalize case/space
     s = re.sub(r"[^\w\s'!-]", " ", s)   # drop symbols e.g. ○ ☆
     return " ".join(s.split()).casefold()
 
-def pick_choice_by_skill_hint(key: str, desired_skills: set[str]):
-    hints = SKILL_HINT_BY_EVENT.get(key, {})
+def pick_choice_by_skill_hint(event_name: str, desired_skills: set[str]):
+    hints = SKILL_HINT_BY_EVENT.get(event_name, {})
     if not hints or not desired_skills:
         return None
     desired_norm = {_norm_hint(x) for x in desired_skills}
-    for idx, hint in hints.items():
+    for choice, hint in hints.items():
         if _norm_hint(str(hint)) in desired_norm:
-            total = EVENT_TOTALS.get(key, len(hints))
-            info(f"Event skill hint match → {key}: choice {idx} ({hint})")
-            return (total, idx)
+            # total = EVENT_TOTALS.get(event_name, len(hints))
+            info(f"[Hint] {event_name}: choice {choice} ({hint})")
+            return choice
     return None
 
-def score_choice(ev_key, choice_row):
+def score_choice(choice_row):
     # Score from Stat
     current_stats = state.CURRENT_STATS
     choice_weight = state.CHOICE_WEIGHT
@@ -132,7 +136,7 @@ def pick_choice_by_score(key: str, db: dict):
     payload = db.get(key) or {}
     stats = payload.get("stats") or {}
 
-    total = EVENT_TOTALS.get(key, len(payload.get("choices", {})) or len(stats))
+    # total = EVENT_TOTALS.get(key, len(payload.get("choices", {})) or len(stats))
 
     best_idx, best_score = 1, float("-inf")
     best_stat_priority = float("-inf")
@@ -143,7 +147,7 @@ def pick_choice_by_score(key: str, db: dict):
             continue
         if not isinstance(row, dict):
             continue
-        score = score_choice(key, row)
+        score = score_choice(row)
         debug(f"[Score] {key} -> choice {i}: {score:.3f}")
         stat_priority = get_stat_priority(key)
 
@@ -153,5 +157,4 @@ def pick_choice_by_score(key: str, db: dict):
             best_stat_priority = stat_priority
             best_idx = i
 
-    return (total, best_idx)
-
+    return best_idx

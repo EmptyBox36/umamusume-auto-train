@@ -108,5 +108,88 @@
         }
       }
     }
+  },
+  "Unity Cup": {
+    "A Team at Last": {
+      "choices": {
+        "1": "Taiki Shuttle",
+        "2": "Matikanefukukitaru",
+        "3": "Haru Urara",
+        "4": "Rice Shower",
+        "5": "Other"
+      },
+      "stats": {
+        "1": {
+          "Friendship": 0.0,
+          "Guts": 0.0,
+          "HP": 0.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 0.0,
+          "Skill": 0.0,
+          "Skill Hint": "Mile Maven",
+          "Skill Pts": 0.0,
+          "Speed": 0.0,
+          "Stamina": 0.0,
+          "Wit": 0.0
+        },
+        "2": {
+          "Friendship": 0.0,
+          "Guts": 0.0,
+          "HP": 0.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 0.0,
+          "Skill": 0.0,
+          "Skill Hint": "Clairvoyance",
+          "Skill Pts": 0.0,
+          "Speed": 0.0,
+          "Stamina": 0.0,
+          "Wit": 0.0
+        },
+        "3": {
+          "Friendship": 0.0,
+          "Guts": 0.0,
+          "HP": 0.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 0.0,
+          "Skill": 0.0,
+          "Skill Hint": "Indomitable",
+          "Skill Pts": 0.0,
+          "Speed": 0.0,
+          "Stamina": 0.0,
+          "Wit": 0.0
+        },
+        "4": {
+          "Friendship": 0.0,
+          "Guts": 0.0,
+          "HP": 0.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 0.0,
+          "Skill": 0.0,
+          "Skill Hint": "Cooldown",
+          "Skill Pts": 0.0,
+          "Speed": 0.0,
+          "Stamina": 0.0,
+          "Wit": 0.0
+        },
+        "5": {
+          "Friendship": 0.0,
+          "Guts": 0.0,
+          "HP": 0.0,
+          "Max Energy": 0.0,
+          "Mood": 0.0,
+          "Power": 0.0,
+          "Skill": 0.0,
+          "Skill Hint": "No Stopping Me!",
+          "Skill Pts": 0.0,
+          "Speed": 0.0,
+          "Stamina": 0.0,
+          "Wit": 0.0
+        }
+      }
+    }
   }
 }

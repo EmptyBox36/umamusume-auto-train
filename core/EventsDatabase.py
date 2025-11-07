@@ -1,10 +1,8 @@
-import Levenshtein
 import json
 from pathlib import Path
 from rapidfuzz import fuzz
 
 from utils.log import info, warning, error, debug
-from main import info
 from utils.strings import clean_event_name 
 import core.state as state
 
@@ -14,8 +12,10 @@ CHARACTER_BY_EVENT = {}
 CHARACTERS_EVENT_DATABASE = {}
 SUPPORT_EVENT_DATABASE = {}
 SCENARIOS_EVENT_DATABASE = {}
+EVENT_CHOICES_MAP = {}
 
 def load_event_databases():
+    global EVENT_CHOICES_MAP
     # hard reset all indices and views
     EVENT_TOTALS.clear()
     SKILL_HINT_BY_EVENT.clear()
@@ -27,6 +27,15 @@ def load_event_databases():
 
     """Load event data for trainee and support cards."""
     info("Loading event databases...")
+
+    try:
+        EVENT_CHOICES_MAP = {
+            clean_event_name(e.get("event_name", "")): int(e.get("chosen", 1))
+            for e in (state.EVENT_CHOICES or [])
+            if e.get("event_name")
+        }
+    except Exception:
+        EVENT_CHOICES_MAP = {}
 
     trainee = (state.TRAINEE_NAME or "").strip()
     scenario = (state.SCENARIO_NAME or "").strip()
@@ -91,55 +100,23 @@ def index_json(path: str, group_filter: str | None = None) -> dict:
 def dump_event(event_name: str):
     """Print choices + stats for a single event name."""
     k = clean_event_name(event_name)
-    payload = CHARACTERS_EVENT_DATABASE.get(k) or SUPPORT_EVENT_DATABASE.get(k)
+    payload = (CHARACTERS_EVENT_DATABASE.get(k) or SUPPORT_EVENT_DATABASE.get(k) or SCENARIOS_EVENT_DATABASE.get(k))
     if not payload:
         warning(f"Event not found: {event_name}")
         return
     info(f"Event: {event_name}  | key='{k}'")
     info(f"Choices: {payload.get('choices', {})}")
     for idx, row in (payload.get('stats') or {}).items():
-        info(f"  choice {idx}: {row}")
+        info(f"choice {idx}: {row}")
 
-def find_closest_event(event_name, threshold=0.8):
+def find_closest_event(event_name, event_list, threshold=0.8):
     if not event_name:
         return None
-    all_event_names = (
-        list(COMMON_EVENT_DATABASE.keys())
-        + list(CHARACTERS_EVENT_DATABASE.keys())
-        + list(SUPPORT_EVENT_DATABASE.keys())
-        + list(SCENARIOS_EVENT_DATABASE.keys())
-    )
+
     best_match, best_score = None, 0
-    for db_event in all_event_names:
+    for db_event in event_list:
         score = fuzz.token_sort_ratio(event_name.lower(), db_event.lower()) / 100
         if score > best_score:
             best_score = score
             best_match = db_event
     return best_match if best_score >= threshold else None
-
-# Fail safe
-# "event_name": (total_choices, selected_choice)
-COMMON_EVENT_DATABASE = {
-
-  # [Common Events]
-  "Extra Training": (2, 1),
-  "Just an Acupuncturist, No Worries!": (5, 3),
-  "Get Well Soon!": (2, 1),
-  "Don't Overdo It!": (2, 1),
-
-  #######################################################################################
-
-  # [SCENARIOS]
-  # URA Finals
-  "Exhilarating! What a Scoop!": (2, 1),
-  "A Trainer's Knowledge": (2, 1),
-  "Best Foot Forward!": (2, 2),
-
-  #######################################################################################
-
-  # [RACE RESULTS]
-  "Victory!": (2, 1),       # -15 Energy guaranteed
-  "Solid Showing": (2, 1),  # -20 Energy guaranteed
-  "Defeat": (2, 1),         # -25 Energy guaranteed
-  "Etsuko's Exhaustive Coverage": (2, 2),
-}
