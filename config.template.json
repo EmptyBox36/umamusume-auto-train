@@ -115,12 +115,32 @@
         "chosen": 1
       },
       {
+        "event_name": "Just an Acupuncturist, No Worries! ☆",
+        "chosen": 3
+      },
+      {
         "event_name": "Get Well Soon!",
         "chosen": 1
       },
       {
         "event_name": "Don't Overdo It!",
         "chosen": 1
+      },
+      {
+        "event_name": "Victory!",
+        "chosen": 1
+      },
+      {
+        "event_name": "Solid Showing",
+        "chosen": 1
+      },
+      {
+        "event_name": "Defeat",
+        "chosen": 1
+      },
+      {
+        "event_name": "Etsuko's Exhaustive Coverage",
+        "chosen": 2
       }
     ]
   }

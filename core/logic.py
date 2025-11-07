@@ -7,6 +7,7 @@ from utils.tools import sleep, get_secs
 
 import core.state as state
 import utils.constants as constants
+from utils.tools import click, do_race
 
 # Get priority stat from config
 def get_stat_priority(stat_key: str) -> int:
@@ -290,13 +291,11 @@ def training_logic(results):
     elif best_data["easy_point"] == 0:
         if energy_level > 50:
             if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
-                from core.execute import do_race
                 info("Training point is too low and have high energy, try to do race.")
                 race = do_race()
                 if race is True:
                     return False
                 else:
-                    from core.execute import click
                     click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found. Proceeding to most support training.")
                     sleep(0.5)
                     return None
