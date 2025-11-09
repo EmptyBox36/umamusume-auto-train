@@ -20,6 +20,7 @@ def load_event_databases():
     EVENT_TOTALS.clear()
     SKILL_HINT_BY_EVENT.clear()
     CHARACTER_BY_EVENT.clear()
+    EVENT_CHOICES_MAP.clear()
 
     # keep object identity for modules holding references
     CHARACTERS_EVENT_DATABASE.clear()
@@ -28,14 +29,9 @@ def load_event_databases():
     """Load event data for trainee and support cards."""
     info("Loading event databases...")
 
-    try:
-        EVENT_CHOICES_MAP = {
-            clean_event_name(e.get("event_name", "")): int(e.get("chosen", 1))
-            for e in (state.EVENT_CHOICES or [])
-            if e.get("event_name")
-        }
-    except Exception:
-        EVENT_CHOICES_MAP = {}
+    for e in (state.EVENT_CHOICES or []):
+        if e.get("event_name"):
+            EVENT_CHOICES_MAP = {clean_event_name(e.get("event_name", "")): int(e.get("chosen", 1))}
 
     trainee = (state.TRAINEE_NAME or "").strip()
     scenario = (state.SCENARIO_NAME or "").strip()
@@ -44,14 +40,15 @@ def load_event_databases():
     CHARACTERS_EVENT_DATABASE.update(index_json("./scraper/data/characters.json", trainee))
 
     SUPPORT_EVENT_DATABASE.clear()
-    SUPPORT_EVENT_DATABASE.update(index_json("./scraper/data/supports.json", scenario))
+    SUPPORT_EVENT_DATABASE.update(index_json("./scraper/data/supports.json"))
 
     SCENARIOS_EVENT_DATABASE.clear()
-    SCENARIOS_EVENT_DATABASE.update(index_json("./data/scenarios.json"))
+    SCENARIOS_EVENT_DATABASE.update(index_json("./data/scenarios.json", scenario))
 
     chars = sorted({c for c in CHARACTER_BY_EVENT.values() if c})
     info(f"characters indexed: {len(chars)} -> {chars[:5]}{'...' if len(chars)>5 else ''}")
     info(f"character-event entries: {sum(1 for c in CHARACTER_BY_EVENT.values() if c)}")
+    info(f"custom event loaded: {len(EVENT_CHOICES_MAP)}")
 
 def index_json(path: str, group_filter: str | None = None) -> dict:
     p = Path(path)

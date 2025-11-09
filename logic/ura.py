@@ -2,7 +2,8 @@ from PIL import ImageGrab
 from typing import Tuple, List, Optional
 from utils.log import info, warning, error, debug
 from core.recognizer import is_btn_active, match_template, multi_match_templates
-from utils.tools import click, do_train, sleep, get_secs, do_race, auto_buy_skill, race_day, do_rest, race_prep, after_race, do_recreation
+from utils.tools import click, sleep, get_secs
+from utils.process import do_race, auto_buy_skill, race_day, do_rest, race_prep, after_race, do_recreation, do_train
 from core.state import check_status_effects, check_criteria, check_aptitudes, stop_bot
 from core.logic import decide_race_for_goal, most_support_card
 from utils.scenario import ura
@@ -84,12 +85,12 @@ def _criteria_race():
 
     # Check if we need to race for goal
     if not "Achieved" in criteria:
-      if state.APTITUDES == {}:
-        sleep(0.1)
-        if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
-          sleep(0.5)
-          check_aptitudes()
-          click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
+      # if state.APTITUDES == {}:
+      #   sleep(0.1)
+      #   if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
+      #     sleep(0.5)
+      #     check_aptitudes()
+      #     click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
       keywords = ("fan", "Maiden", "Progress")
 
     return keywords
@@ -126,32 +127,9 @@ def _schedule_race():
 
 def _race_day():
     turn = state.CURRENT_TURN_LEFT
-    year = state.CURRENT_YEAR
-    year_parts = year.split(" ")
 
-    if year == "Finale Season" and turn == "Race Day":
-      info("URA Finale")
-      if state.IS_AUTO_BUY_SKILL:
-        auto_buy_skill()
-      ura()
-      for i in range(2):
-        if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
-          click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
-        sleep(0.5)
-
-      race_prep()
-      sleep(1)
-      after_race()
-      return "exit"
-
-    # If calendar is race day, do race
-    if turn == "Race Day" and year != "Finale Season":
-      info("Race Day.")
-      if state.IS_AUTO_BUY_SKILL and year_parts[0] != "Junior":
-        auto_buy_skill()
-      race_day()
-      return "exit"
-
+    if turn == "Race Day":
+        return True
     return None
 
 def ura_train_score(stat_name: str, data: dict) -> tuple[float, str]:
@@ -254,7 +232,7 @@ def ura_training(results: dict):
         filtered.items(),
         key=lambda kv: (kv[1]["best_score"], -_get_stat_priority(kv[0])))
       
-    info(f"Training logic selected: {best_key.upper()} with {best_data['best_score']} points and {best_data['failure']}% fail chance")
+    info(f"[URA] Training selected: {best_key.upper()} with {best_data['best_score']} points and {best_data['failure']}% fail chance")
     return best_key, best_data
 
 def ura_logic(results: dict) -> str:
@@ -271,12 +249,11 @@ def ura_logic(results: dict) -> str:
 
     if not filtered:
       info("All stats capped or no valid training → Stopping the bot.")
-      stop_bot()
-      return "exit"
+      return "stop"
 
     race_day = _race_day()
     if race_day is not None:
-        return "exit"
+        return "race_day"
 
     criteria_race = _criteria_race()
     if criteria_race is not None:

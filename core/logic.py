@@ -3,11 +3,10 @@ from statistics import StatisticsError
 
 from cv2.gapi import mul
 from utils.log import info, warning, error, debug
-from utils.tools import sleep, get_secs
+from utils.tools import sleep, get_secs, click
 
 import core.state as state
 import utils.constants as constants
-from utils.tools import click, do_race
 
 # Get priority stat from config
 def get_stat_priority(stat_key: str) -> int:
@@ -20,6 +19,9 @@ def check_all_elements_are_same(d):
 # Will do train with the most support card
 # Used in the first year (aim for rainbow)
 def most_support_card(results):
+  year = state.CURRENT_YEAR
+  year_parts = year.split(" ")
+
   # Seperate wit
   wit_data = results.get("wit")
 
@@ -67,18 +69,38 @@ def most_support_card(results):
 
   best_key, best_data = best_training
   
-  if best_data["total_supports"] <= 1:
+  if best_data["total_supports"] <= 2:
     if int(best_data["failure"]) == 0:
-      # WIT must be at least 2 support cards
+      # WIT must be at least 3 support cards
       if best_key == "wit":
-          if energy_level > state.NEVER_REST_ENERGY:
-              info(f"Only 1 support and it's WIT but energy is too high for resting to be worth it. Still training.")
-              return "wit"
-          else:
-            info(f"Only 1 support and it's WIT. Skipping.")
-            return None
-      info(f"Only 1 support but 0% failure. Prioritizing based on priority list: {best_key.upper()}")
-      return best_key
+        if energy_level > state.NEVER_REST_ENERGY:
+            info(f"Only 1 support and it's WIT but energy is too high for resting to be worth it. Still training.")
+            return "wit"
+        else:
+          info(f"Only 1 support and it's WIT. Skipping.")
+          return None
+      else:
+        if energy_level > 50:
+          if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
+              from core.execute import do_race
+              info("Training point is too low and have high energy, try to do race.")
+              race = do_race()
+              if race is True:
+                  return False
+              elif race is False:
+                  return "wit"
+              else:
+                  from core.execute import click
+                  click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found.")
+                  sleep(0.5)
+                  return "wit"
+
+        if energy_level > state.NEVER_REST_ENERGY:
+            info(f"Only 1 support but energy is too high for resting to be worth it. Still training.")
+            return "wit"
+        else:
+          info(f"Only 1 support. Skipping.")
+          return None
     else:
       if energy_level > state.NEVER_REST_ENERGY:
         info(f"Energy is over {state.NEVER_REST_ENERGY}, train anyway.")
@@ -101,12 +123,13 @@ def training_score(x, all_zero_non_maxed):
   global PRIORITY_WEIGHTS_LIST
   priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
 
-  if all_zero_non_maxed:
-      # If all "total_non_maxed_support" are zero, use "total_supports" as criteria.
-      base = x[1]["total_supports"]
-  else:
-      # If all "total_non_maxed_support" are not zero, use "total_non_maxed_support" as criteria.
-      base = x[1]["total_non_maxed_support"] 
+  # if all_zero_non_maxed:
+  #     # If all "total_non_maxed_support" are zero, use "total_supports" as criteria.
+  base = x[1]["total_supports"]
+  # else:
+  #     # If all "total_non_maxed_support" are not zero, use "total_non_maxed_support" as criteria.
+  #     base = x[1]["total_non_maxed_support"] 
+
   if x[1]["total_hints"] > 0:
       base += state.HINT_POINT
   multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(x[0])] * priority_weight
@@ -290,18 +313,8 @@ def training_logic(results):
         return "wit"
     elif best_data["easy_point"] == 0:
         if energy_level > 50:
-            if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
-                info("Training point is too low and have high energy, try to do race.")
-                race = do_race()
-                if race is True:
-                    return False
-                else:
-                    click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found. Proceeding to most support training.")
-                    sleep(0.5)
-                    return None
-            else:
-                info(f"Proceeding to most support training.")
-                return None
+            info(f"Proceeding to most support training.")
+            return None
 
         if energy_level >= state.NEVER_REST_ENERGY:
             info(f"Energy is higher than never rest energy. Fallback to most support training.")

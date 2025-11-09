@@ -70,8 +70,8 @@ def pick_choice_by_skill_hint(event_name: str, desired_skills: set[str]):
 
 def score_choice(choice_row):
     # Score from Stat
-    current_stats = state.CURRENT_STATS
-    choice_weight = state.CHOICE_WEIGHT
+    current_stats = (state.CURRENT_STATS or {})
+    choice_weight = (state.CHOICE_WEIGHT or {})
     caps = state.STAT_CAPS
 
     choice_score = 0.0
@@ -91,8 +91,8 @@ def score_choice(choice_row):
         choice_score += choice_weight[k_map] * norm * multiplier
 
     # Score from Energy
-    max_energy = state.MAX_ENERGY
-    energy_level = state.CURRENT_ENERGY_LEVEL
+    max_energy = (state.MAX_ENERGY or 100)
+    energy_level = (state.CURRENT_ENERGY_LEVEL or 0)
     energy_gain = float(choice_row.get("HP", 0) or 0)
     if energy_gain < 0:
         energy_penalty = 0 # if choice give negative energy not have effect on score
@@ -104,7 +104,7 @@ def score_choice(choice_row):
     choice_score += choice_weight["hp"] * energy_gain * energy_penalty
 
     # Score from Mood
-    mood_index = state.CURRENT_MOOD_INDEX
+    mood_index = (state.CURRENT_MOOD_INDEX or 2)
     mood_gain = float(choice_row.get("Mood", 0) or 0)
     minimum_mood = constants.MOOD_LIST.index(state.MINIMUM_MOOD)
     minimum_mood_junior_year = constants.MOOD_LIST.index(state.MINIMUM_MOOD_JUNIOR_YEAR)
