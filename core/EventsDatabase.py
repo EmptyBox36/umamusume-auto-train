@@ -6,7 +6,8 @@ from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
 import core.state as state
 
-EVENT_TOTALS = {}
+ALL_EVENT_KEYS: set[str] = set()          # union of all events (normalized)
+EVENT_TOTALS: dict[str, int] = {}
 SKILL_HINT_BY_EVENT = {}
 CHARACTER_BY_EVENT = {}
 CHARACTERS_EVENT_DATABASE = {}
@@ -30,8 +31,14 @@ def load_event_databases():
     info("Loading event databases...")
 
     for e in (state.EVENT_CHOICES or []):
-        if e.get("event_name"):
-            EVENT_CHOICES_MAP = {clean_event_name(e.get("event_name", "")): int(e.get("chosen", 1))}
+        name = clean_event_name(str(e.get("event_name", "")))
+        if not name:
+            continue
+        try:
+            chosen = int(e.get("chosen"))
+        except Exception:
+            continue
+        EVENT_CHOICES_MAP[name] = chosen
 
     trainee = (state.TRAINEE_NAME or "").strip()
     scenario = (state.SCENARIO_NAME or "").strip()
@@ -44,6 +51,8 @@ def load_event_databases():
 
     SCENARIOS_EVENT_DATABASE.clear()
     SCENARIOS_EVENT_DATABASE.update(index_json("./data/scenarios.json", scenario))
+
+    rebuild_all_event_keys()
 
     chars = sorted({c for c in CHARACTER_BY_EVENT.values() if c})
     info(f"characters indexed: {len(chars)} -> {chars[:5]}{'...' if len(chars)>5 else ''}")
@@ -117,3 +126,12 @@ def find_closest_event(event_name, event_list, threshold=0.8):
             best_score = score
             best_match = db_event
     return best_match if best_score >= threshold else None
+
+def rebuild_all_event_keys() -> None:
+    """Recompute the global set of normalized event keys."""
+    global ALL_EVENT_KEYS
+    ALL_EVENT_KEYS = set().union(
+        CHARACTERS_EVENT_DATABASE.keys(),
+        SUPPORT_EVENT_DATABASE.keys(),
+        SCENARIOS_EVENT_DATABASE.keys()
+    )

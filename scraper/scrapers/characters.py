@@ -38,6 +38,12 @@ class CharacterScraper(BaseScraper):
         links = [a.get_attribute("href") for a in items]
 
         for i, link in enumerate(links):
+            if i % 2 == 0:
+                driver.quit()
+                driver = create_chromedriver()
+                _ = _go(driver, self.url)
+                time.sleep(1)
+
             logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
             driver.get(link); time.sleep(3)
             # name = driver.find_element(By.XPATH, "//h1[contains(@class, 'utils_headingXl')]").text
@@ -52,12 +58,6 @@ class CharacterScraper(BaseScraper):
             if name not in self.data:
                 self.data[name] = {}
             self.process_training_events(driver, name, self.data[name])
-
-            if i % 10 == 0:
-                driver.quit()
-                driver = create_chromedriver()
-                _ = _go(driver, self.url)
-                time.sleep(1)
         
         self.save_data()
         driver.quit()

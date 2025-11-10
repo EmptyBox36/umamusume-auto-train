@@ -43,6 +43,12 @@ CUSTOM_FAILURE = 0
 FORCE_REST = False
 CURRENT_TURN_LEFT = None
 PREFERRED_POSITION_SET = None
+SCENARIO_NAME = ""
+
+TURN_REGION = (0,0,0,0)
+YEAR_REGION = (0,0,0,0)
+FAILURE_REGION = (0,0,0,0)
+FAILURE_PERCENT_REGION = (0,0,0,0)
 
 def load_config():
   with open("config.json", "r", encoding="utf-8") as file:
@@ -54,9 +60,10 @@ def reload_config():
   global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, PREFERRED_POSITION
   global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER
   global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
-  global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE, EVENT_CHOICES
+  global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE, EVENT_CHOICES, UNITY_PREFERENCE
   global ENABLE_CUSTOM_FAILURE_CHANCE, ENABLE_CUSTOM_LOW_FAILURE, ENABLE_CUSTOM_HIGH_FAILURE, LOW_FAILURE_CONDITION, HIGH_FAILURE_CONDITION
   global IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST, DESIRE_SKILL
+  global TURN_REGION, YEAR_REGION, FAILURE_REGION, FAILURE_PERCENT_REGION
 
   config = load_config()
 
@@ -97,6 +104,21 @@ def reload_config():
   DESIRE_SKILL = config["skill"]["desire_skill"]
   USE_OPTIMAL_EVENT_CHOICES = config["event"]["use_optimal_event_choices"]
   EVENT_CHOICES = config["event"]["event_choices"]
+  UNITY_PREFERENCE = config["unity_team_preference"]
+
+  # URA
+  if "URA" in SCENARIO_NAME:
+    TURN_REGION=(260, 81, 370 - 260, 140 - 87)
+    YEAR_REGION=(255, 35, 420 - 255, 60 - 35)
+    FAILURE_REGION=(250, 770, 855 - 295, 835 - 770)
+    FAILURE_PERCENT_REGION=(250, 790, 855 - 295, 835 - 790)
+
+    # Unity
+  if "Unity" in SCENARIO_NAME:
+    TURN_REGION = (260, 55, 375 - 260, 110 - 55)
+    YEAR_REGION =(385, 40, 565 - 385, 60 - 40)
+    FAILURE_REGION=(250, 760, 855 - 295, 810 - 760)
+    FAILURE_PERCENT_REGION=(250, 760, 855 - 295, 810 - 760)
 
 # Get Stat
 def stat_state():
@@ -141,12 +163,16 @@ def check_support_card(threshold=0.8, target="none"):
   count_result["total_hints"] = 0
   count_result["total_friendship_levels"] = {}
   count_result["hints_per_friend_level"] = {}
+  count_result["total_white_flame"] = 0
+  count_result["total_blue_flame"] = 0
 
   for friend_level, color in SUPPORT_FRIEND_LEVELS.items():
     count_result["total_friendship_levels"][friend_level] = 0
     count_result["hints_per_friend_level"][friend_level] = 0
 
   hint_matches = match_template("assets/icons/support_hint.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
+  white_flame_matches = match_template("assets/unity_cup/white_flame.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
+  blue_flame_matches = match_template("assets/unity_cup/blue_flame.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
   for key, icon_path in SUPPORT_ICONS.items():
     count_result[key] = {}
     count_result[key]["supports"] = 0
@@ -184,14 +210,26 @@ def check_support_card(threshold=0.8, target="none"):
             count_result[key]["hints"] += 1
             count_result["hints_per_friend_level"][friend_level] +=1
 
+      if white_flame_matches:
+        for white_flame_match in white_flame_matches:
+          distance = abs(white_flame_match[1] - match[1])
+          if distance < 45:
+            count_result["total_white_flame"] += 1
+
+      if blue_flame_matches:
+        for blue_flame_match in blue_flame_matches:
+          distance = abs(blue_flame_match[1] - match[1])
+          if distance < 45:
+            count_result["total_blue_flame"] += 1
+
   count_result["total_non_maxed_support"] = count_result["total_supports"] - (count_result["total_friendship_levels"]["yellow"] + count_result["total_friendship_levels"]["max"])
 
   return count_result
 
 # Get failure chance (idk how to get energy value)
 def check_failure():
-  failure_text = enhanced_screenshot(constants.FAILURE_REGION)
-  failure_percent = enhanced_screenshot(constants.FAILURE_PERCENT_REGION)
+  failure_text = enhanced_screenshot(FAILURE_REGION)
+  failure_percent = enhanced_screenshot(FAILURE_PERCENT_REGION)
   # # use new OCR that protects against misread errors
   # val = extract_percent(failure_percent)
   # if val != -1:
@@ -240,11 +278,13 @@ def check_mood():
 
 # Check turn
 def check_turn():
-    turn = capture_region(constants.TURN_REGION)
+    turn = capture_region(TURN_REGION)
     turn_text = extract_text_improved(turn)
 
     if "race" in turn_text.lower():
         return "Race Day"
+    if "goal" in turn_text.lower():
+        return "Goal"
 
     digits_only = re.sub(r"[^\d]", "", turn_text)
 
@@ -253,9 +293,14 @@ def check_turn():
     
     return -1
 
+def check_unity():
+    unity = enhanced_screenshot(constants.UNITY_ROUND)
+    unity_text = extract_text_improved(unity)
+    return unity_text
+
 # Check year
 def check_current_year():
-  year = enhanced_screenshot(constants.YEAR_REGION)
+  year = enhanced_screenshot(YEAR_REGION)
   text = extract_text(year)
   return text
 

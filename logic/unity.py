@@ -6,7 +6,7 @@ from utils.tools import click, sleep, get_secs
 from utils.process import do_race, auto_buy_skill, race_day, do_rest, race_prep, after_race, do_recreation, do_train, go_to_training, check_training
 from core.state import check_status_effects, check_criteria, check_aptitudes, stop_bot
 from core.logic import decide_race_for_goal, most_support_card
-from utils.scenario import ura
+from utils.scenario import ura, unity
 
 import core.state as state
 import utils.constants as constants
@@ -79,30 +79,6 @@ def _need_infirmary() -> Tuple[Optional[List[str]], int, Optional[object]]:
         warning("Coulnd't find full stats button.")
   return (None, 0, None)
 
-def ura_train_score(stat_name: str, data: dict) -> tuple[float, str]:
-
-     friend_value =  data["total_friendship_levels"]["gray"] + data["total_friendship_levels"]["blue"] + data["total_friendship_levels"]["green"]
-     friend_training = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
-
-     data["friend_value"] = float(friend_value)
-     data["friend_training"] = float(friend_training)
-
-     if data["total_hints"] > 0:
-         data["friend_value"] += 1
- 
-     if data["friend_training"] >= data["friend_value"]:
-        kind = "friend_training"
-        score = data["friend_training"]
-     else:
-        kind = "friend_value"
-        score = data["friend_value"]
-
-     data["best_type"] = kind
-     data["best_score"] = score
-
-     info(f"[{stat_name.upper()}] -> Friend Value: {data['friend_value']}, Friend Training: {data['friend_training']}, Hint: {data['total_hints']}")
-     return score, kind
-
 def _summer_next_turn() -> bool:
     year = state.CURRENT_YEAR
     year_parts = year.split(" ")
@@ -119,20 +95,46 @@ def _summer_next_turn() -> bool:
             return True
     return False
 
-def ura_training(results: dict):
+def _train_score(stat_name: str, data: dict) -> tuple[float, str]:
+
+     friend_value =  data["total_friendship_levels"]["gray"] + data["total_friendship_levels"]["blue"] + data["total_friendship_levels"]["green"]
+     friend_training = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
+
+     if data["total_hints"] > 0:
+         friend_value += 1
+     if friend_training > 1:
+         friend_training += 0.5 * friend_training
+     score = friend_value + (1.5 * friend_training)
+
+     info(f"[{stat_name.upper()}] -> Friend Value: {friend_value}, Friend Training: {friend_training}, Hint: {data['total_hints']}")
+     return score
+
+def _training(results: dict):
     training_candidates = results
     energy_level = state.CURRENT_ENERGY_LEVEL
 
+    # PREFER_SPIRIT_BURST_LOCATION = ["spd", "sta", "pwr", "guts", "wit"]
+    PREFER_SPIRIT_BURST_LOCATION = ["spd", "sta", "pwr"]
+
     for stat_name in training_candidates:
         data = training_candidates[stat_name]
-        score, kind = ura_train_score(stat_name, data)
-
-        if kind == "friend_training":
-            data["best_score"] = 1.1 * data["best_score"]
+        score = _train_score(stat_name, data)
 
         if data["total_hints"] > 0:
-            data["best_score"] += state.HINT_POINT
-        info(f"[{stat_name.upper()}] -> Best Score: {data['best_score']}")
+            score += state.HINT_POINT
+
+        score += 0.5 * data["total_white_flame"]
+
+        if stat_name in PREFER_SPIRIT_BURST_LOCATION:
+            score += 1 * data["total_blue_flame"]
+        else:
+            score -= 1 * data["total_blue_flame"]
+
+        if stat_name == "wit":
+            score += 1
+
+        data["training_score"] = score
+        info(f"[{stat_name.upper()}] -> Best Score: {data['training_score']}")
 
     any_nonmaxed = any(
         data.get("total_non_maxed_support", 0) > 0 
@@ -141,26 +143,26 @@ def ura_training(results: dict):
     best_stat, best_point = max(
         training_candidates.items(),
         key=lambda kv: (
-            kv[1]["best_score"],
+            kv[1]["training_score"],
             -_get_stat_priority(kv[0])
         ),
     )
 
     if state.ENABLE_CUSTOM_FAILURE_CHANCE:
       if state.ENABLE_CUSTOM_HIGH_FAILURE:
-          if best_point["best_score"] > state.HIGH_FAILURE_CONDITION["point"]:
+          if best_point["training_score"] > state.HIGH_FAILURE_CONDITION["point"]:
               state.CUSTOM_FAILURE = state.HIGH_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have high ({best_point['best_score']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
+              info(f"Due to {best_stat.upper()} have high ({best_point['training_score']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
 
       if state.ENABLE_CUSTOM_LOW_FAILURE:
-          if best_point["best_score"] < state.LOW_FAILURE_CONDITION["point"]:
+          if best_point["training_score"] < state.LOW_FAILURE_CONDITION["point"]:
               state.CUSTOM_FAILURE = state.LOW_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have low ({best_point['best_score']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
+              info(f"Due to {best_stat.upper()} have low ({best_point['training_score']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
 
     # filter by failure & avoid WIT spam
     filtered = {
         k: v for k, v in training_candidates.items()
-        if int(v["failure"]) <= state.CUSTOM_FAILURE and not (k == "wit" and v["best_score"] < 1)
+        if int(v["failure"]) <= state.CUSTOM_FAILURE and not (k == "wit" and v["training_score"] < 1)
     }
 
     if not filtered:
@@ -171,18 +173,18 @@ def ura_training(results: dict):
             info("Low energy; rest.")
             return "rest", None
 
-    if len(filtered) == 1 and "wit" in filtered and any_nonmaxed:
-        info("Only WIT available early; fallback to most-support.")
-        return None, None
+    # if len(filtered) == 1 and "wit" in filtered and any_nonmaxed:
+    #     info("Only WIT available early; fallback to most-support.")
+    #     return None, None
 
     best_key, best_data = max(
         filtered.items(),
-        key=lambda kv: (kv[1]["best_score"], -_get_stat_priority(kv[0])))
+        key=lambda kv: (kv[1]["training_score"], -_get_stat_priority(kv[0])))
       
-    info(f"[URA] Training selected: {best_key.upper()} with {best_data['best_score']} points and {best_data['failure']}% fail chance")
+    info(f"[UNITY] Training selected: {best_key.upper()} with {best_data['training_score']} points and {best_data['failure']}% fail chance")
     return best_key, best_data
 
-def ura_logic() -> str:
+def unity_logic() -> str:
     criteria = check_criteria()
     turn = state.CURRENT_TURN_LEFT
     year = state.CURRENT_YEAR
@@ -198,11 +200,13 @@ def ura_logic() -> str:
             check_aptitudes()
             click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
 
+    # if unity():
+
     info(f"Current stats: {current_stats}")
 
-    if turn == "Race Day":
+    if turn == "Goal":
         if year == "Finale Season":
-            info("URA Finale")
+            info("UNITY Finale")
             if state.IS_AUTO_BUY_SKILL:
                 auto_buy_skill()
             ura()
@@ -266,16 +270,16 @@ def ura_logic() -> str:
         info("All stats capped or no valid training")
         return "exit"
 
-    result, best_data = ura_training(filtered)
+    result, best_data = _training(filtered)
 
     if best_data is not None:
-        if best_data["best_score"] < 2 and _summer_next_turn() :
+        if best_data["training_score"] < 3 and _summer_next_turn() :
             if state.CURRENT_ENERGY_LEVEL <= 50:
                 state.FORCE_REST = True
-                info("[URA] Summer camp next & low energy → Rest.")
+                info("[UNITY] Summer camp next & low energy → Rest.")
                 do_rest(energy_level)
             else:
-                info("[URA] Summer camp next & okay energy → Train WIT.")
+                info("[UNITY] Summer camp next & okay energy → Train WIT.")
                 go_to_training()
                 sleep(0.5)
                 do_train("wit")
@@ -284,7 +288,7 @@ def ura_logic() -> str:
     conditions, total_severity, infirmary_box = _need_infirmary()
     if total_severity > 0:
         if total_severity <= 1 and _need_recreation():
-            info("[URA] Mood low & Status condition present → Recreation.")
+            info("[UNITY] Mood low & Status condition present → Recreation.")
             sleep(0.5)
             do_recreation()
             return "exit"
@@ -299,52 +303,55 @@ def ura_logic() -> str:
                 info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
         else:
             if infirmary_box:
-                info("[URA] Status condition present → Infirmary.")
+                info("[UNITY] Status condition present → Infirmary.")
                 sleep(0.5)
                 click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
                 return "exit"
 
     if best_data is not None:
-        if best_data["best_score"] >= 2:
-            info(f"[URA] Best Trainind Found → Train {result.upper()}.")
+        if best_data["training_score"] >= 2:
+            info(f"[UNITY] Best Trainind Found → Train {result.upper()}.")
             go_to_training()
             sleep(0.5)
             do_train(result)
             return "exit"
 
     if _need_recreation():
-        info("[URA] Mood is low → Recreation.")
+        info("[UNITY] Mood is low → Recreation.")
         sleep(0.5)
         do_recreation()
         return "exit"
 
     if best_data is not None:
-        if best_data["best_score"] >= 1.1:
-            info(f"[URA] Found 1 Friend Training → Train {result.upper()}.")
+        if best_data["training_score"] >= 1:
+            info(f"[UNITY] Found 1 Friend Training → Train {result.upper()}.")
             go_to_training()
             sleep(0.5)
             do_train(result)
             return "exit"
 
     if best_data is not None:
-        if best_data["best_score"] >= 0 :
-            info(f"[URA] Use most_support_card.")
+        if best_data["training_score"] >= 0 :
+            info(f"[UNITY] Use most_support_card.")
             result = most_support_card(filtered)
             if result is not None:
-                go_to_training()
-                sleep(0.5)
-                do_train(result)
-                info(f"[URA] most_support_card training found → Train {result.upper()}.")
-                return "exit"
+                if result is False:
+                    return "exit"
+                else:
+                    go_to_training()
+                    sleep(0.5)
+                    do_train(result)
+                    info(f"[UNITY] most_support_card training found → Train {result.upper()}.")
+                    return "exit"
 
     if year_parts[0] == "Finale" and "Finals" in criteria:
         go_to_training()
         sleep(0.5)
         do_train("wit")
-        info(f"[URA] No training found, but it was last turn → Train WIT.")
+        info(f"[UNITY] No training found, but it was last turn → Train WIT.")
         return "exit"
 
-    info(f"[URA] No training found → Rest.")
+    info(f"[UNITY] No training found → Rest.")
     do_rest(energy_level)
     sleep(1)
     return "exit"

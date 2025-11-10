@@ -2,6 +2,7 @@
   "config_name": "Preset",
   "trainee": "",
   "scenario": "",
+  "unity_team_preference": "",
   "priority_stat": [
     "spd",
     "sta",
@@ -140,6 +141,14 @@
       },
       {
         "event_name": "Etsuko's Exhaustive Coverage",
+        "chosen": 2
+      },
+      {
+        "event_name": "Tutorial",
+        "chosen": 2
+      },
+      {
+        "event_name": "Unexpected Side",
         "chosen": 2
       }
     ]

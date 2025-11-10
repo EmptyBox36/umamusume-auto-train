@@ -343,6 +343,8 @@ def event_choice():
   event_name = get_event_name()
   choice = get_optimal_choice(event_name)
 
+  if choice is None:
+      return False
   if choice == 0:
     click(boxes=event_choice_1, text="Event found, selecting top choice.")
     return True
@@ -352,28 +354,3 @@ def event_choice():
 
   click(boxes=(x, y, 1, 1), text=f"Selecting optimal choice: {choice}")
   return True
-
-# def select_event():
-#   event_choices_icon = pyautogui.locateOnScreen("assets/icons/event_choice_1.png", confidence=0.9, minSearchTime=0.2, region=constants.GAME_SCREEN_REGION)
-#   choice_vertical_gap = 112
-
-#   if not event_choices_icon:
-#     return False
-
-#   if not state.USE_OPTIMAL_EVENT_CHOICE:
-#     click(boxes=event_choices_icon, text="Event found, selecting top choice.")
-#     return True
-
-#   event_name = get_event_name()
-
-#   chosen = event_choice(event_name)
-#   if chosen == 0:
-#     click(boxes=event_choices_icon, text="Event found, selecting top choice.")
-#     return True
-
-#   x = event_choices_icon[0]
-#   y = event_choices_icon[1] + ((chosen - 1) * choice_vertical_gap)
-#   debug(f"Event choices coordinates: {event_choices_icon}")
-#   debug(f"Clicking: {x}, {y}")
-#   click(boxes=(x, y, 1, 1), text=f"Selecting optimal choice: {event_name}")
-#   return True
