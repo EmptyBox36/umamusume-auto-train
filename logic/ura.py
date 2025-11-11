@@ -166,14 +166,14 @@ def ura_training(results: dict):
     if not filtered:
         if energy_level > state.SKIP_TRAINING_ENERGY:
             info("No suitable training; fallback to most-support.")
-            return None, None
+            return "fallback", None
         else:
             info("Low energy; rest.")
-            return "rest", None
+            return None, None
 
     if len(filtered) == 1 and "wit" in filtered and any_nonmaxed:
         info("Only WIT available early; fallback to most-support.")
-        return None, None
+        return "fallback", None
 
     best_key, best_data = max(
         filtered.items(),
@@ -224,21 +224,21 @@ def ura_logic() -> str:
         return "exit"
 
     if state.RACE_SCHEDULE:
-        race_done = False
-        for race_list in state.RACE_SCHEDULE:
-            if state.stop_event.is_set():
-                break
-            if len(race_list):
-                if race_list['year'] in year and race_list['date'] in year:
-                    debug(f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}")
-                if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
-                    race_done = True
-                    break
-                else:
-                    click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
-                    sleep(0.5)
-        if race_done:
-            return "exit"
+      race_done = False
+      for race_list in state.RACE_SCHEDULE:
+        if state.stop_event.is_set():
+          break
+        if len(race_list):
+          if race_list['year'] in year and race_list['date'] in year:
+            debug(f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}")
+            if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
+              race_done = True
+              break
+            else:
+              click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
+              sleep(0.5)
+      if race_done:
+        return "exit"
 
     if not "Achieved" in criteria:
         keywords = ("fan", "Maiden", "Progress")
@@ -331,6 +331,22 @@ def ura_logic() -> str:
             info(f"[URA] Use most_support_card.")
             result = most_support_card(filtered)
             if result is not None:
+                if result is False:
+                    return "exit"
+                else:
+                    go_to_training()
+                    sleep(0.5)
+                    do_train(result)
+                    info(f"[URA] most_support_card training found → Train {result.upper()}.")
+                    return "exit"
+
+    if result == "fallback":
+        info(f"[URA] Use most_support_card.")
+        result = most_support_card(filtered)
+        if result is not None:
+            if result is False:
+                return "exit"
+            else:
                 go_to_training()
                 sleep(0.5)
                 do_train(result)

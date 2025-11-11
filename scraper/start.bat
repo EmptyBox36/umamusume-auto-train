@@ -20,9 +20,9 @@ if "%choice%"=="0" set scraper=
 pip install -r requirements.txt
 
 if "%scraper%"=="" (
-    python main.py
+    py main.py
 ) else (
-    python main.py %scraper%
+    py main.py %scraper%
 )
 
 pause

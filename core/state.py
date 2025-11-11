@@ -104,7 +104,7 @@ def reload_config():
   DESIRE_SKILL = config["skill"]["desire_skill"]
   USE_OPTIMAL_EVENT_CHOICES = config["event"]["use_optimal_event_choices"]
   EVENT_CHOICES = config["event"]["event_choices"]
-  UNITY_PREFERENCE = config["unity_team_preference"]
+  # UNITY_PREFERENCE = config["unity_team_preference"]
 
   # URA
   if "URA" in SCENARIO_NAME:

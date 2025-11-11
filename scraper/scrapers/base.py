@@ -307,7 +307,7 @@ class BaseScraper:
                     pass
 
                 try:
-                    rows = tooltip.find_elements(By.XPATH,".//div[contains(@class,'fipImG') and .//span]") or tooltip.find_elements(By.XPATH, ".//tr")
+                    rows = tooltip.find_elements(By.XPATH,".//div[contains(@class,'fipImG') and .//div[contains(@class,'jtqpYA')]]") or tooltip.find_elements(By.XPATH, ".//tr")
                     if not rows:
                         logging.info(f"No options for {title} ({i+1}/{len(buttons)}).")
                     elif clean_event_title(title) in data_dict:
