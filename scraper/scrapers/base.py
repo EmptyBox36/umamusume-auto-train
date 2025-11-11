@@ -48,6 +48,11 @@ def parse_outcome_block(text: str) -> dict:
         if _is_ignorable(ln): 
             continue
 
+        # full recovery to HP +200
+        if re.search(r"\bfull\s+energy\s+recovery\b", ln, re.I):
+            add(d, "HP", 200.0)           # or use "Energy" if that's your key
+            continue
+
         # Skill hint: keep only the skill name; "(random)" → ""
         if re.search(r"\bhint\b", ln, re.I):
             d["Skill Hint"] = "" if re.search(r"\(random\)", ln, re.I) else re.sub(r"\s*hint.*", "", ln, flags=re.I).strip()

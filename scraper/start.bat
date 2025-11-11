@@ -17,12 +17,20 @@ if "%choice%"=="5" set scraper=supports_url
 if "%choice%"=="6" set scraper=races
 if "%choice%"=="0" set scraper=
 
+set "PYEXE="
+where python >nul 2>&1 && set "PYEXE=python"
+if not defined PYEXE where py >nul 2>&1 && set "PYEXE=py"
+if not defined PYEXE (
+  echo ERROR: Neither "python" nor "py" is on PATH.
+  exit /b 1
+)
+
 pip install -r requirements.txt
 
 if "%scraper%"=="" (
-    py main.py
+  %PYEXE% main.py
 ) else (
-    py main.py %scraper%
+  %PYEXE% main.py %scraper%
 )
 
 pause

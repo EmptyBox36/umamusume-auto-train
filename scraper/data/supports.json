@@ -1148,7 +1148,7 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 10.0,
-                "Skill Hint": "Stop Right There!",
+                "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -1161,7 +1161,7 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "Uma Stan",
+                "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -2114,7 +2114,7 @@
                 "Max Energy": 0.0,
                 "Mood": 1.0,
                 "Power": 0.0,
-                "Skill Hint": "Inner Post Proficiency ○",
+                "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -2127,7 +2127,7 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "Hydrate",
+                "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -4148,7 +4148,7 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "Groundwork",
+                "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -4980,6 +4980,54 @@
                 "Skill Hint": "Unyielding Spirit",
                 "Skill Pts": 0.0,
                 "Speed": 3.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "(❯) No More Words ♪ Use Body Language!": {
+        "choices": {
+            "1": "Top",
+            "2": "Mid",
+            "3": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": "Lucky Seven",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 10.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 10.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "3": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 30.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
             }
