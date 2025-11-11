@@ -22,7 +22,7 @@ def run_special_event(ev_key: str) -> bool:
         warning(f"[SPECIAL] Handler for {ev_key} failed: {e}")
         return False
 
-# ---- Unity “A Team at Last” ----
+# ---- Unity ï¿½A Team at Lastï¿½ ----
 
 def _pref() -> str:
     # read config; normalize to key in IMG_MAP
