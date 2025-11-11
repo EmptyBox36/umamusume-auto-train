@@ -34,7 +34,7 @@ RACE_BUTTON_IN_RACE_BBOX_LANDSCAPE=(800, 950, 1150, 1050)
 GAME_SCREEN=(150, 0, 960, 1080)
 
 UNITY_ROUND_REGION = (450, 290, 660 - 450, 330 - 290)
-UNITY_ROUND_LIST = ["Preseason Round 1", "Preseason Round 2", "Preseason Round 3", "Preseason Round 4", "Cup Finals"]
+UNITY_ROUND_LIST = ["Preseason Round 1", "Preseason Round 2", "Preseason Round 3", "Preseason Round 4", "Finals"]
 
 
 OFFSET_APPLIED = False

@@ -65,7 +65,7 @@ def reload_config():
   global ENABLE_CUSTOM_FAILURE_CHANCE, ENABLE_CUSTOM_LOW_FAILURE, ENABLE_CUSTOM_HIGH_FAILURE, LOW_FAILURE_CONDITION, HIGH_FAILURE_CONDITION
   global IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST, DESIRE_SKILL
   global TURN_REGION, YEAR_REGION, FAILURE_REGION, FAILURE_PERCENT_REGION
-  global UNITY_PREFERENCE, UNITY_SPIRIT_BURST_POSITION
+  global UNITY_TEAM_PREFERENCE, UNITY_SPIRIT_BURST_POSITION
 
   config = load_config()
 
@@ -106,7 +106,7 @@ def reload_config():
   DESIRE_SKILL = config["skill"]["desire_skill"]
   USE_OPTIMAL_EVENT_CHOICES = config["event"]["use_optimal_event_choices"]
   EVENT_CHOICES = config["event"]["event_choices"]
-  UNITY_PREFERENCE = config["unity"]["unity_team_preference"]
+  UNITY_TEAM_PREFERENCE = config["unity"]["prefer_team_race"]
   UNITY_SPIRIT_BURST_POSITION = config["unity"]["spirit_burst_position"]
 
   # URA
@@ -176,6 +176,17 @@ def check_support_card(threshold=0.8, target="none"):
   hint_matches = match_template("assets/icons/support_hint.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
   white_flame_matches = match_template("assets/unity_cup/white_flame.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
   blue_flame_matches = match_template("assets/unity_cup/blue_flame.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
+
+  def _dedup(rects, tol=10):
+        uniq = []
+        for (x,y,w,h) in sorted(rects or [], key=lambda r:(r[1], r[0])):
+            if not uniq or abs(y - uniq[-1][1]) > tol or abs(x - uniq[-1][0]) > tol:
+                uniq.append((x,y))
+        return len(uniq)
+
+  count_result["total_white_flame"] = _dedup(white_flame_matches)
+  count_result["total_blue_flame"]  = _dedup(blue_flame_matches)
+
   for key, icon_path in SUPPORT_ICONS.items():
     count_result[key] = {}
     count_result[key]["supports"] = 0
@@ -212,18 +223,6 @@ def check_support_card(threshold=0.8, target="none"):
             count_result["total_hints"] += 1
             count_result[key]["hints"] += 1
             count_result["hints_per_friend_level"][friend_level] +=1
-
-      if white_flame_matches:
-        for white_flame_match in white_flame_matches:
-          distance = abs(white_flame_match[1] - match[1])
-          if distance < 45:
-            count_result["total_white_flame"] += 1
-
-      if blue_flame_matches:
-        for blue_flame_match in blue_flame_matches:
-          distance = abs(blue_flame_match[1] - match[1])
-          if distance < 45:
-            count_result["total_blue_flame"] += 1
 
   count_result["total_non_maxed_support"] = count_result["total_supports"] - (count_result["total_friendship_levels"]["yellow"] + count_result["total_friendship_levels"]["max"])
 
@@ -269,7 +268,7 @@ def check_failure():
 
 # Check mood
 def check_mood():
-  mood = capture_region(constants.MOOD_REGION)
+  mood = enhanced_screenshot(constants.MOOD_REGION)
   mood_text = extract_text(mood).upper()
 
   for known_mood in constants.MOOD_LIST:
@@ -281,18 +280,27 @@ def check_mood():
 
 # Check turn
 def check_turn():
-    turn = capture_region(TURN_REGION)
-    turn_text = extract_text_improved(turn)
+    turn = enhanced_screenshot(TURN_REGION)
+    turn_text = extract_text(turn)
 
     if "race" in turn_text.lower():
         return "Race Day"
     if "goal" in turn_text.lower():
         return "Goal"
 
+    # turn_text = re.sub(r"turns?|\(s\)|left", "", turn_text, flags=re.IGNORECASE)
+    # turn_text = re.sub(r"[^0-9]", "", turn_text)
+
     digits_only = re.sub(r"[^\d]", "", turn_text)
 
     if digits_only:
-      return int(digits_only)
+      if 0 < int(digits_only) < 20:
+        return int(digits_only)
+    
+    turn_num = extract_number(turn)
+    if turn_num:
+        if 0 < int(turn_num) < 20:
+          return int(turn_num)
     
     return -1
 

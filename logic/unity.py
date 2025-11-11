@@ -98,17 +98,22 @@ def team_for_round(detected: str, default=None) -> int | None:
     lookup = {k.strip().casefold(): v for k, v in zip(constants.UNITY_ROUND_LIST, state.UNITY_TEAM_PREFERENCE)}
 
     team = lookup.get(detected.strip().casefold(), default)
-    return team
-
+    if team:
+        return team
+    return None
+    
 def unity_race():
     unity()
 
-    team = team_for_round(unity_race)
+    race = check_unity()
+    team = team_for_round(race)
     if team:
         unity_race_select(team)
-        sleep(2)
+    
+    sleep(2)
+    if not click(img="assets/unity_cup/race_select_btn.png", minSearch=get_secs(10)):
+        click(boxes=(550, 820, 1, 1))
 
-    click(img="assets/unity_cup/race_select_btn.png", minSearch=get_secs(10))
     sleep(0.5)
     click(img="assets/unity_cup/race_confirm_btn.png", minSearch=get_secs(10))
     sleep(0.5)
@@ -130,7 +135,7 @@ def _train_score(stat_name: str, data: dict) -> tuple[float, str]:
          friend_training += 0.5 * friend_training
      score = friend_value + (1.5 * friend_training)
 
-     info(f"[{stat_name.upper()}] -> Friend Value: {friend_value}, Friend Training: {friend_training}, Hint: {data['total_hints']}")
+     info(f"[{stat_name.upper()}] -> Friend Value: {friend_value}, Friend Training: {friend_training}, Hint: {data['total_hints']}, White Flame: {data['total_white_flame']}, Blue Flame: {data['total_blue_flame']}")
      return score
 
 def _training(results: dict):
@@ -224,7 +229,7 @@ def unity_logic() -> str:
     info(f"Current stats: {current_stats}") 
 
     if turn == "Goal":
-        if year == "Finale Season":
+        if year == "Finale Underway":
             info("UNITY Finale")
             if state.IS_AUTO_BUY_SKILL:
                 auto_buy_skill()
@@ -239,7 +244,7 @@ def unity_logic() -> str:
             after_race()
 
         # If calendar is race day, do race
-        if year != "Finale Season":
+        if year != "Finale Underway":
             info("Race Day.")
             if state.IS_AUTO_BUY_SKILL and year_parts[0] != "Junior":
                 auto_buy_skill()
@@ -282,6 +287,7 @@ def unity_logic() -> str:
                 sleep(0.5)
 
     go_to_training()
+    sleep(0.5)
     results_training = check_training()
     filtered = _filter_by_stat_caps(results_training, current_stats)
 
@@ -299,6 +305,7 @@ def unity_logic() -> str:
                 do_rest(energy_level)
             else:
                 info("[UNITY] Summer camp next & okay energy → Train WIT.")
+                sleep(0.5)
                 go_to_training()
                 sleep(0.5)
                 do_train("wit")
@@ -330,6 +337,7 @@ def unity_logic() -> str:
     if best_data is not None:
         if best_data["training_score"] >= 2:
             info(f"[UNITY] Best Trainind Found → Train {result.upper()}.")
+            sleep(0.5)
             go_to_training()
             sleep(0.5)
             do_train(result)
@@ -344,6 +352,7 @@ def unity_logic() -> str:
     if best_data is not None:
         if best_data["training_score"] >= 1:
             info(f"[UNITY] Found 1 Friend Training → Train {result.upper()}.")
+            sleep(0.5)
             go_to_training()
             sleep(0.5)
             do_train(result)
@@ -357,6 +366,7 @@ def unity_logic() -> str:
                 if result is False:
                     return "exit"
                 else:
+                    sleep(0.5)
                     go_to_training()
                     sleep(0.5)
                     do_train(result)
@@ -370,6 +380,7 @@ def unity_logic() -> str:
             if result is False:
                 return "exit"
             else:
+                sleep(0.5)
                 go_to_training()
                 sleep(0.5)
                 do_train(result)
@@ -377,6 +388,7 @@ def unity_logic() -> str:
                 return "exit"
 
     if year_parts[0] == "Finale" and "Finals" in criteria:
+        sleep(0.5)
         go_to_training()
         sleep(0.5)
         do_train("wit")
