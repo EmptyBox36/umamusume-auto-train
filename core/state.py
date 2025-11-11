@@ -316,7 +316,7 @@ def check_unity() -> str:
         return canon_by_norm[key]
 
     # Optional: fuzzy rescue to handle small OCR errors
-    # raise cutoff to be strict (0.90–0.95)
+    # raise cutoff to be strict
     match = difflib.get_close_matches(key, canon_by_norm.keys(), n=1, cutoff=0.92)
     return canon_by_norm[match[0]] if match else None
 
