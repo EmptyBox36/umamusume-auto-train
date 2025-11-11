@@ -44,19 +44,20 @@ def career_lobby():
     if event_choice():
       continue
     if check_unity():
+      info("Unity Race Day")
       unity_race()
       continue
     if click(boxes=matches["inspiration"], text="Inspiration found."):
       continue
-    if click(boxes=matches["next"]):
+    if click(boxes=matches["next"], text="next"):
       continue
-    if click(boxes=matches["next2"]):
+    if click(boxes=matches["next2"], text="next2"):
       continue
-    if click(boxes=matches["cancel"]):
+    if click(boxes=matches["cancel"], text="cancel"):
       continue
-    if click(boxes=matches["retry"]):
+    if click(boxes=matches["retry"], text="retry"):
       continue
-    if click(boxes=matches["close"]):
+    if click(boxes=matches["close"], text="close"):
       continue
     if click(img="assets/buttons/back_btn.png"):
       continue

@@ -23,7 +23,7 @@ def run_special_event(ev_key: str) -> bool:
         warning(f"[SPECIAL] Handler for {ev_key} failed: {e}")
         return False
 
-# ---- Unity �A Team at Last� ----
+# ---- Unity A Team at Last ----
 
 def _pref_from_config() -> str:
     # Event key must match your cleaner: lowercased, punctuation stripped
@@ -59,4 +59,5 @@ def handle_unity_team_name() -> bool:
 
     if click(img="assets/unity_cup/team_carrot.png", confidence=0.80, minSearch=get_secs(1.0), text=f"[UNITY] Select Team Carrots", region=constants.GAME_SCREEN):
         return True
+    debug("cant click")
     return False

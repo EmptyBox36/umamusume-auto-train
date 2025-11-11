@@ -107,6 +107,7 @@ def unity_race():
 
     race = check_unity()
     team = team_for_round(race)
+    sleep(5)
     if team:
         unity_race_select(team)
     
@@ -147,7 +148,7 @@ def _training(results: dict):
         score = _train_score(stat_name, data)
 
         if data["total_hints"] > 0:
-            score += state.HINT_POINT
+            score += state.HINT_POINT - 1
 
         score += 0.5 * data["total_white_flame"]
 
@@ -230,7 +231,7 @@ def unity_logic() -> str:
 
     if turn == "Goal":
         if year == "Finale Underway":
-            info("UNITY Finale")
+            info("URA Finale")
             if state.IS_AUTO_BUY_SKILL:
                 auto_buy_skill()
             ura()
@@ -296,6 +297,8 @@ def unity_logic() -> str:
         return "exit"
 
     result, best_data = _training(filtered)
+    if result == "wit":
+        best_data["training_score"] -= 1
 
     if best_data is not None:
         if best_data["training_score"] < 3 and _summer_next_turn() :
@@ -335,7 +338,7 @@ def unity_logic() -> str:
                 return "exit"
 
     if best_data is not None:
-        if best_data["training_score"] >= 2:
+        if best_data["training_score"] >= 3:
             info(f"[UNITY] Best Trainind Found → Train {result.upper()}.")
             sleep(0.5)
             go_to_training()
