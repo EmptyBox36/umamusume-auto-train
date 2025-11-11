@@ -36,13 +36,13 @@ class SupportCardScraper(BaseScraper):
         links = [it.find_element(By.XPATH, "./..").get_attribute("href") for it in items]
 
         for i, link in enumerate(links):
-            if i % 10 == 0:
+            if i % 5 == 0:
                 driver.quit()
                 driver = create_chromedriver()
                 _ = _go(driver, self.url)
                 time.sleep(1)
 
-            logging.info(f"Navigating to {link} ({i}/{len(links)})")
+            logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
             driver.get(link); time.sleep(3)
             raw = driver.find_element(By.XPATH, "//h1[contains(@class, 'utils_headingXl')]").text
             name = re.sub(r'\s*\(.*?\)', '', raw.replace("Support Card", "")).strip()

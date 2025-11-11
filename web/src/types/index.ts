@@ -51,9 +51,23 @@ export type failure = {
     high_failure_condition: HighFailCondition;
 }
 
+export type SkillEventChoice = {
+    event_name: string;
+    chosen: number;
+};
+
 export type event = {
     use_optimal_event_choices: boolean;
+    event_choices?: SkillEventChoice[];
 }
+
+export const SPIRIT_STATS = ["spd", "sta", "pwr", "guts", "wit"] as const;
+export type SpiritStat = typeof SPIRIT_STATS[number];
+
+export type UnityCfg = {
+    prefer_team_race: number[];
+    spirit_burst_position: SpiritStat[];
+};
 
 export type Config = {
   config_name: string;
@@ -89,4 +103,8 @@ export type Config = {
   skill: Skill;
   window_name: string;
   event: event;
+  unity?: UnityCfg;
 };
+
+export type Preset = { name: string; config: Config };
+export type PresetStorage = { index: number; presets: Preset[] };

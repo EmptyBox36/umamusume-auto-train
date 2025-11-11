@@ -344,7 +344,7 @@ def event_choice():
   choice = get_optimal_choice(event_name)
 
   if choice is None:
-      return False
+      return True
   if choice == 0:
     click(boxes=event_choice_1, text="Event found, selecting top choice.")
     return True

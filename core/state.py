@@ -3,6 +3,7 @@ from sqlite3 import PrepareProtocol
 import cv2
 import numpy as np
 import re
+import difflib
 import json
 import threading
 from math import floor
@@ -60,10 +61,11 @@ def reload_config():
   global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, PREFERRED_POSITION
   global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER
   global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
-  global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE, EVENT_CHOICES, UNITY_PREFERENCE
+  global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE, EVENT_CHOICES
   global ENABLE_CUSTOM_FAILURE_CHANCE, ENABLE_CUSTOM_LOW_FAILURE, ENABLE_CUSTOM_HIGH_FAILURE, LOW_FAILURE_CONDITION, HIGH_FAILURE_CONDITION
   global IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST, DESIRE_SKILL
   global TURN_REGION, YEAR_REGION, FAILURE_REGION, FAILURE_PERCENT_REGION
+  global UNITY_PREFERENCE, UNITY_SPIRIT_BURST_POSITION
 
   config = load_config()
 
@@ -104,7 +106,8 @@ def reload_config():
   DESIRE_SKILL = config["skill"]["desire_skill"]
   USE_OPTIMAL_EVENT_CHOICES = config["event"]["use_optimal_event_choices"]
   EVENT_CHOICES = config["event"]["event_choices"]
-  # UNITY_PREFERENCE = config["unity_team_preference"]
+  UNITY_PREFERENCE = config["unity"]["unity_team_preference"]
+  UNITY_SPIRIT_BURST_POSITION = config["unity"]["spirit_burst_position"]
 
   # URA
   if "URA" in SCENARIO_NAME:
@@ -293,10 +296,29 @@ def check_turn():
     
     return -1
 
-def check_unity():
-    unity = enhanced_screenshot(constants.UNITY_ROUND)
-    unity_text = extract_text_improved(unity)
-    return unity_text
+def _norm(s: str) -> str:
+    # normalize OCR noise: collapse spaces, lowercase
+    return re.sub(r"\s+", " ", s or "").strip().casefold()
+
+def check_unity() -> str:
+    """
+    Returns the canonical round name ONLY if OCR text is in UNITY_ROUND_LIST.
+    Otherwise returns "".
+    """
+    img = enhanced_screenshot(constants.UNITY_ROUND_REGION)
+    raw = extract_text(img)
+
+    # build normalized lookup of allowed rounds
+    canon_by_norm = {_norm(x): x for x in constants.UNITY_ROUND_LIST}
+
+    key = _norm(raw)
+    if key in canon_by_norm:
+        return canon_by_norm[key]
+
+    # Optional: fuzzy rescue to handle small OCR errors
+    # raise cutoff to be strict (0.90–0.95)
+    match = difflib.get_close_matches(key, canon_by_norm.keys(), n=1, cutoff=0.92)
+    return canon_by_norm[match[0]] if match else None
 
 # Check year
 def check_current_year():

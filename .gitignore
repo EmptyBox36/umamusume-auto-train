@@ -31,3 +31,4 @@ config.json
 /.vs
 /web/src/.vs
 /tools
+/core/execute_old.py

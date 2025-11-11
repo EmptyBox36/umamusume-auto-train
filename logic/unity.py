@@ -4,7 +4,7 @@ from utils.log import info, warning, error, debug
 from core.recognizer import is_btn_active, match_template, multi_match_templates
 from utils.tools import click, sleep, get_secs
 from utils.process import do_race, auto_buy_skill, race_day, do_rest, race_prep, after_race, do_recreation, do_train, go_to_training, check_training
-from core.state import check_status_effects, check_criteria, check_aptitudes, stop_bot
+from core.state import check_status_effects, check_criteria, check_aptitudes, stop_bot, check_unity
 from core.logic import decide_race_for_goal, most_support_card
 from utils.scenario import ura, unity
 
@@ -21,14 +21,6 @@ templates = {
   "tazuna": "assets/ui/tazuna_hint.png",
   "infirmary": "assets/buttons/infirmary_btn.png",
   "retry": "assets/buttons/retry_btn.png"
-}
-
-training_types = {
-  "spd": "assets/icons/train_spd.png",
-  "sta": "assets/icons/train_sta.png",
-  "pwr": "assets/icons/train_pwr.png",
-  "guts": "assets/icons/train_guts.png",
-  "wit": "assets/icons/train_wit.png"
 }
 
 # Get priority stat from config
@@ -95,6 +87,38 @@ def _summer_next_turn() -> bool:
             return True
     return False
 
+def unity_race_select(team):
+    race_choice_gap = 225
+
+    y = 250 + (race_choice_gap * (team - 1)) 
+
+    click(boxes=(550, y, 1, 1), text=f"Selecting Team for Unity Race: {team}")
+
+def team_for_round(detected: str, default=None) -> int | None:
+    lookup = {k.strip().casefold(): v for k, v in zip(constants.UNITY_ROUND_LIST, state.UNITY_TEAM_PREFERENCE)}
+
+    team = lookup.get(detected.strip().casefold(), default)
+    return team
+
+def unity_race():
+    unity()
+
+    team = team_for_round(unity_race)
+    if team:
+        unity_race_select(team)
+        sleep(2)
+
+    click(img="assets/unity_cup/race_select_btn.png", minSearch=get_secs(10))
+    sleep(0.5)
+    click(img="assets/unity_cup/race_confirm_btn.png", minSearch=get_secs(10))
+    sleep(0.5)
+    click(img="assets/unity_cup/unity_result_btn.png", minSearch=get_secs(10))
+    sleep(0.5)
+    click(img="assets/unity_cup/race_skip_btn.png", minSearch=get_secs(10))
+    sleep(0.5)
+
+    after_race()
+
 def _train_score(stat_name: str, data: dict) -> tuple[float, str]:
 
      friend_value =  data["total_friendship_levels"]["gray"] + data["total_friendship_levels"]["blue"] + data["total_friendship_levels"]["green"]
@@ -113,9 +137,6 @@ def _training(results: dict):
     training_candidates = results
     energy_level = state.CURRENT_ENERGY_LEVEL
 
-    # PREFER_SPIRIT_BURST_LOCATION = ["spd", "sta", "pwr", "guts", "wit"]
-    PREFER_SPIRIT_BURST_LOCATION = ["spd", "sta", "pwr"]
-
     for stat_name in training_candidates:
         data = training_candidates[stat_name]
         score = _train_score(stat_name, data)
@@ -125,7 +146,7 @@ def _training(results: dict):
 
         score += 0.5 * data["total_white_flame"]
 
-        if stat_name in PREFER_SPIRIT_BURST_LOCATION:
+        if stat_name in state.UNITY_SPIRIT_BURST_POSITION:
             score += 1 * data["total_blue_flame"]
         else:
             score -= 1 * data["total_blue_flame"]
@@ -168,14 +189,14 @@ def _training(results: dict):
     if not filtered:
         if energy_level > state.SKIP_TRAINING_ENERGY:
             info("No suitable training; fallback to most-support.")
-            return None, None
+            return None, "fallback"
         else:
             info("Low energy; rest.")
-            return "rest", None
+            return None, None
 
     # if len(filtered) == 1 and "wit" in filtered and any_nonmaxed:
     #     info("Only WIT available early; fallback to most-support.")
-    #     return None, None
+    #     return None, "fallback"
 
     best_key, best_data = max(
         filtered.items(),
@@ -200,9 +221,7 @@ def unity_logic() -> str:
             check_aptitudes()
             click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
 
-    # if unity():
-
-    info(f"Current stats: {current_stats}")
+    info(f"Current stats: {current_stats}") 
 
     if turn == "Goal":
         if year == "Finale Season":
@@ -235,12 +254,12 @@ def unity_logic() -> str:
             if len(race_list):
                 if race_list['year'] in year and race_list['date'] in year:
                     debug(f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}")
-                if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
-                    race_done = True
-                    break
-                else:
-                    click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
-                    sleep(0.5)
+                    if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
+                        race_done = True
+                        break
+                    else:
+                        click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
+                        sleep(0.5)
         if race_done:
             return "exit"
 
@@ -343,6 +362,19 @@ def unity_logic() -> str:
                     do_train(result)
                     info(f"[UNITY] most_support_card training found → Train {result.upper()}.")
                     return "exit"
+
+    if result == "fallback":
+        info(f"[UNITY] Use most_support_card.")
+        result = most_support_card(filtered)
+        if result is not None:
+            if result is False:
+                return "exit"
+            else:
+                go_to_training()
+                sleep(0.5)
+                do_train(result)
+                info(f"[UNITY] most_support_card training found → Train {result.upper()}.")
+                return "exit"
 
     if year_parts[0] == "Finale" and "Finals" in criteria:
         go_to_training()

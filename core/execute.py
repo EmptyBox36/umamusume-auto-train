@@ -5,7 +5,7 @@ from PIL import ImageGrab
 pyautogui.useImageNotFoundException(False)
 
 import core.state as state
-from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, stat_state, check_aptitudes
+from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, stat_state, check_aptitudes, check_unity
 
 from utils.log import info, warning, error, debug
 import utils.constants as constants
@@ -16,7 +16,7 @@ from core.logic import most_support_card, decide_race_for_goal
 from utils.scenario import ura
 
 from logic.ura import ura_logic
-from logic.unity import unity_logic
+from logic.unity import unity_logic, unity_race
 
 templates = {
   "event": "assets/icons/event_choice_1.png",
@@ -42,6 +42,9 @@ def career_lobby():
     if click(boxes=matches["acupuncture"]):
       continue
     if event_choice():
+      continue
+    if check_unity():
+      unity_race()
       continue
     if click(boxes=matches["inspiration"], text="Inspiration found."):
       continue

@@ -385,6 +385,9 @@ def decide_race_for_goal(year, turn, criteria, keywords):
           return False, None
         else:
           best_race = filter_races_by_aptitude(race_list, state.APTITUDES)
+          if not best_race:
+            info("No G1 matching aptitudes.")
+            return False, None
           return True, best_race["name"]
       else:
         return False, "any"

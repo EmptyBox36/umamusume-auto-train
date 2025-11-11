@@ -27,7 +27,7 @@ def get_optimal_choice(event_name: str):
         best = find_closest_event(key, ALL_EVENT_KEYS)
         if best:
             info(f"[Fuzzy] Using closest match: {best}")
-            if run_special_event(key):
+            if run_special_event(best):
                 info(f"[Special] handled: {key}")
                 return None
             r = _apply_override_if_valid(best)

@@ -131,16 +131,9 @@ def create_chromedriver():
         options=opts,
         desired_capabilities=caps,
     )
+    driver.set_page_load_timeout(15)
+    driver.set_script_timeout(15)
     return driver
-
-# def create_chromedriver():
-#     """Creates the Chrome driver for scraping.
-
-#     Returns:
-#         The Chrome driver.
-#     """
-#     driver = uc.Chrome(headless=True, use_subprocess=True)
-#     return driver
 
 class BaseScraper:
     def __init__(self, url: str, output_filename: str):

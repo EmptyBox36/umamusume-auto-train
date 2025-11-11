@@ -2,7 +2,21 @@
   "config_name": "Preset",
   "trainee": "",
   "scenario": "",
-  "unity_team_preference": "",
+  "unity": {
+    "prefer_team_race": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "spirit_burst_position": [
+      "spd",
+      "sta",
+      "pwr",
+      "guts",
+      "wit"
+    ]
+  },
   "priority_stat": [
     "spd",
     "sta",
@@ -43,11 +57,11 @@
   "use_prioritize_on_junior": false,
 
   "choice_weight": {
-    "spd": 1,
-    "sta": 1,
-    "pwr": 1,
+    "spd": 3,
+    "sta": 3,
+    "pwr": 3,
     "guts": 1,
-    "wit": 1,
+    "wit": 3,
     "hp": 5,
     "max_energy": 10,
     "skillpts": 1,
@@ -112,11 +126,19 @@
     "use_optimal_event_choices": true,
     "event_choices": [
       {
-        "event_name": "Extra Training",
-        "chosen": 1
+        "event_name": "A Team at Last",
+        "chosen": 5
       },
       {
-        "event_name": "Just an Acupuncturist, No Worries! ☆",
+        "event_name": "Tutorial",
+        "chosen": 2
+      },
+      {
+        "event_name": "Extra Training",
+        "chosen": 2
+      },
+      {
+        "event_name": "Just an Acupuncturist, No Worries! \u2606",
         "chosen": 3
       },
       {
@@ -145,10 +167,6 @@
       },
       {
         "event_name": "Tutorial",
-        "chosen": 2
-      },
-      {
-        "event_name": "Unexpected Side",
         "chosen": 2
       }
     ]
