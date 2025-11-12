@@ -143,7 +143,6 @@ class RaceScraper(BaseScraper):
                 if m2: fans_gained = int(m2.group(1))
 
             payload = {
-                "id": 10000 + i,
                 "date": _format_date(date_header),
                 "racetrack": info.get("Racetrack"),
                 "terrain": info.get("Terrain"),
@@ -200,6 +199,8 @@ class RaceScraper(BaseScraper):
             MONTH = {"Jan":1,"Feb":2,"Mar":3,"Apr":4,"May":5,"Jun":6,
                      "Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12}
 
+            GRADE_RANK = {"G1": 0, "G2": 1, "G3": 2, "OP": 3, "Pre-OP": 4}
+
             def _date_key(txt: str, start_month: int = 1) -> int:
                 # start_month = 1 -> calendar Jan..Dec
                 # change to 3 if you ever want Mar..Feb, etc.
@@ -215,12 +216,28 @@ class RaceScraper(BaseScraper):
                 packed = []
                 for name, val in bkt.items():
                     entries = val if isinstance(val, list) else [val]
-                    first = min(_date_key(e["date"], start_month) for e in entries)
-                    packed.append((first, name, entries))
-                packed.sort()
-                # keep your “no [] when single” shape
+
+                    # 1) Inside a race: sort its multiple entries by DATE, then GRADE
+                    entries = sorted(
+                        entries,
+                        key=lambda e: (
+                            _date_key(e["date"], start_month),
+                            GRADE_RANK.get(e.get("grade"), 9),
+                        ),
+                    )
+
+                    # earliest date for this race + best grade on that same date
+                    first_date = _date_key(entries[0]["date"], start_month)
+                    min_grade  = min(GRADE_RANK.get(e.get("grade"), 9) for e in entries
+                                     if _date_key(e["date"], start_month) == first_date)
+
+                    # 2) Across races: sort by DATE, then GRADE, then name
+                    packed.append((first_date, min_grade, name, entries))
+
+                packed.sort(key=lambda t: (t[0], t[1], t[2]))
+
                 return {name: (entries if len(entries) > 1 else entries[0])
-                        for _, name, entries in packed}
+                        for _, _, name, entries in packed}
 
             # close dialog
             driver.find_element(By.XPATH, "//div[contains(@class,'sc-f83b4a49-1')]").click()

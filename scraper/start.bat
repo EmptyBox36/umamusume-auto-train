@@ -4,7 +4,7 @@ echo 1. Skills
 echo 2. Characters
 echo 3. Supports
 echo 4. Races
-echo 0. Main Database Update(Characters & Supports)
+echo 0. Main Database Update (Characters/Supports)
 set /p choice="Enter number: "
 
 if "%choice%"=="1" set scraper=skills
@@ -13,12 +13,20 @@ if "%choice%"=="3" set scraper=supports
 if "%choice%"=="4" set scraper=races
 if "%choice%"=="0" set scraper=
 
+set "PYEXE="
+where python >nul 2>&1 && set "PYEXE=python"
+if not defined PYEXE where py >nul 2>&1 && set "PYEXE=py"
+if not defined PYEXE (
+  echo ERROR: Neither "python" nor "py" is on PATH.
+  exit /b 1
+)
+
 pip install -r requirements.txt
 
 if "%scraper%"=="" (
-    python main.py
+  %PYEXE% main.py
 ) else (
-    python main.py %scraper%
+  %PYEXE% main.py %scraper%
 )
 
 pause

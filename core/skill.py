@@ -14,10 +14,10 @@ def buy_skill():
   pyautogui.moveTo(constants.SCROLLING_SELECTION_MOUSE_POS)
   found = False
 
-  for i in range(10):
+  for i in range(15):
     if state.stop_event.is_set():
       return
-    if i > 8:
+    if i > 10:
       sleep(0.5)
     buy_skill_icon = match_template("assets/icons/buy_skill.png", threshold=0.9)
 

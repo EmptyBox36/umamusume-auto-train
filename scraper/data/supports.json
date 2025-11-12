@@ -1,8 +1,362 @@
 {
-    "Irrepressible Feelings": {
+    "(❯) Rainy Day, Floating Flowers": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 10.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Passing Pro",
+                "Skill Pts": 40.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "(❯❯) Magical Flowers, Forever Fair": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 10.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 5.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 15.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 5.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "A Page of Flower Shop Assistance": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 2.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 10.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "A Page About Cloudy Weather": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 5.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Firm Conditions ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "(❯❯❯) Picture Their Joy": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 6.0,
+                "HP": 24.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 12.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 36.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "The Kashimoto Art of Tidying Up": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 18.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 18.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Unexpected Side": {
+        "choices": {
+            "1": "Top",
+            "2": "Mid",
+            "3": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": -10.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Maverick ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 18.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "3": {
+                "Friendship": -10.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Lone Wolf",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "(❯) A Winning Vocalist": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 0.0,
+                "Guts": 10.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Hydrate",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Soft Step",
+                "Skill Pts": 0.0,
+                "Speed": 10.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "On and On": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 10.0,
+                "Stamina": 5.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 15.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "What Should I Do?": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 5.0,
+                "Wit": 5.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Left-Handed ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "(❯❯) Irrepressible Feelings": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -33,10 +387,44 @@
             }
         }
     },
-    "Delicious) Burden": {
+    "Not like Meow": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 20.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 5.0
+            }
+        }
+    },
+    "(Delicious) Burden": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -67,10 +455,10 @@
             }
         }
     },
-    "Fickle Genius Magical Girl Sweepy": {
+    "(❯) Fickle Genius Magical Girl Sweepy ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -101,10 +489,10 @@
             }
         }
     },
-    "A Drop of Black Magic": {
+    "(❯❯) A Drop of Black Magic ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -135,10 +523,44 @@
             }
         }
     },
+    "Miracle ☆ Escape!": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 20.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
     "Wonderful ☆ Mistake!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -169,29 +591,29 @@
             }
         }
     },
-    "Tickezo☆Friendship!": {
+    "(❯❯) Tickezo☆Friendship!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
                 "Friendship": 10.0,
-                "Guts": 3.0,
+                "Guts": 10.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "1,500,000 CC",
+                "Skill Hint": "Medium Straightaways ○",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
-                "Stamina": 3.0,
+                "Stamina": 10.0,
                 "Wit": 0.0
             },
             "2": {
                 "Friendship": -5.0,
                 "Guts": 0.0,
-                "HP": 10.0,
+                "HP": 25.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
@@ -205,8 +627,8 @@
     },
     "Full-Power Muscles!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -239,8 +661,8 @@
     },
     "Full-Power Racing!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -271,10 +693,10 @@
             }
         }
     },
-    "Number One Reactions?": {
+    "(❯) Number One Reactions?": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -307,8 +729,8 @@
     },
     "I'm Going to Win Tomorrow!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -341,8 +763,8 @@
     },
     "This Is Nothing!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -375,8 +797,8 @@
     },
     "Student Council Member!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -409,8 +831,8 @@
     },
     "Lone Wolf": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -441,10 +863,10 @@
             }
         }
     },
-    "Flustered Afternoon Tea!": {
+    "(❯) Flustered Afternoon Tea!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -477,8 +899,8 @@
     },
     "My Muscles and Me, Onward to Tomorrow!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -511,8 +933,8 @@
     },
     "It's Not Like I Like Romance!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -543,10 +965,10 @@
             }
         }
     },
-    "Sudden Murder Mystery! Part 1": {
+    "(❯) Sudden Murder Mystery! Part 1": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -557,7 +979,7 @@
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": "",
-                "Skill Pts": 10.0,
+                "Skill Pts": 20.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 5.0
@@ -565,7 +987,7 @@
             "2": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": 10.0,
+                "HP": 15.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
@@ -577,10 +999,10 @@
             }
         }
     },
-    "Sudden Murder Mystery! Part 2": {
+    "(❯❯) Sudden Murder Mystery! Part 2": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -594,12 +1016,12 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 10.0
             },
             "2": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": 5.0,
+                "HP": 10.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
@@ -611,10 +1033,10 @@
             }
         }
     },
-    "Sudden Murder Mystery! Part 3": {
+    "(❯❯❯) Sudden Murder Mystery! Part 3": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -647,8 +1069,8 @@
     },
     "Recruiting Cat Catchers": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -681,8 +1103,8 @@
     },
     "Recruiting Advisors": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -713,10 +1135,10 @@
             }
         }
     },
-    "A Captivating Invitation": {
+    "(❯) A Captivating Invitation": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -747,10 +1169,10 @@
             }
         }
     },
-    "Dancer's Pride": {
+    "(❯❯) Dancer's Pride": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -759,11 +1181,11 @@
                 "HP": -5.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 5.0,
+                "Power": 15.0,
                 "Skill Hint": "",
-                "Skill Pts": 5.0,
+                "Skill Pts": 20.0,
                 "Speed": 0.0,
-                "Stamina": 10.0,
+                "Stamina": 15.0,
                 "Wit": 0.0
             },
             "2": {
@@ -774,7 +1196,41 @@
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": "",
-                "Skill Pts": 5.0,
+                "Skill Pts": 20.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "You May Socialize With Me!": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -20.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 10.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 10.0,
+                "Stamina": 0.0,
+                "Wit": 5.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 25.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": -1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
@@ -783,8 +1239,8 @@
     },
     "You May Advise Me!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -815,10 +1271,10 @@
             }
         }
     },
-    "Raising the Uma Lord's Castle": {
+    "(❯) Raising the Uma Lord's Castle": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -849,10 +1305,10 @@
             }
         }
     },
-    "Assembling the Uma Lord's Minions": {
+    "(❯❯❯) Assembling the Uma Lord's Minions": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -885,8 +1341,8 @@
     },
     "Adventurer Gold Ship": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -919,12 +1375,12 @@
     },
     "Revive the Brand! Golshi's Yakisoba": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -951,11 +1407,11 @@
             }
         }
     },
-    "No One Is Above Discipline!": {
+    "(❯❯) No One Is Above Discipline!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Middle Option",
-            "3": "Bottom Option"
+            "1": "Top",
+            "2": "Mid",
+            "3": "Bot"
         },
         "stats": {
             "1": {
@@ -974,14 +1430,14 @@
             "2": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": -10.0,
+                "HP": -5.0,
                 "Max Energy": 0.0,
                 "Mood": 1.0,
-                "Power": 5.0,
+                "Power": 10.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
-                "Stamina": 5.0,
+                "Stamina": 10.0,
                 "Wit": 0.0
             },
             "3": {
@@ -1001,8 +1457,8 @@
     },
     "Overthrow the Rival!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1035,8 +1491,8 @@
     },
     "Tons of Trouble!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1067,10 +1523,10 @@
             }
         }
     },
-    "Modestly! Boldly!": {
+    "(❯) Modestly! Boldly!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1101,10 +1557,10 @@
             }
         }
     },
-    "Hit It! Princess Road!": {
+    "(❯❯❯) Hit It! Princess Road!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1137,8 +1593,8 @@
     },
     "Princess Punch!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1171,8 +1627,8 @@
     },
     "Princess Escape!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1203,10 +1659,10 @@
             }
         }
     },
-    "Let's Go... Buono": {
+    "(❯❯) Let's Go... Buono ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1216,7 +1672,7 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "",
+                "Skill Hint": "Hydrate",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -1229,7 +1685,7 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 5.0,
-                "Skill Hint": "",
+                "Skill Hint": "Gap Closer",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
@@ -1239,8 +1695,8 @@
     },
     "Eat Up ♪": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1273,8 +1729,8 @@
     },
     "Leave It to Me ♪": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1305,10 +1761,10 @@
             }
         }
     },
-    "One Step Forward": {
+    "(❯) One Step Forward": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1341,8 +1797,8 @@
     },
     "Give It a Try": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1375,8 +1831,8 @@
     },
     "Hope She'll Like It...": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1407,15 +1863,15 @@
             }
         }
     },
-    "Blooming Hope!": {
+    "(❯❯) Blooming Hope!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
                 "Friendship": 5.0,
-                "Guts": 15.0,
+                "Guts": 25.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
@@ -1429,7 +1885,7 @@
             "2": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": 10.0,
+                "HP": 20.0,
                 "Max Energy": 0.0,
                 "Mood": 1.0,
                 "Power": 0.0,
@@ -1441,10 +1897,10 @@
             }
         }
     },
-    "Someday, I'll Bloom!": {
+    "(❯❯❯) Someday, I'll Bloom!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1454,7 +1910,7 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "Prepared to Pass",
+                "Skill Hint": "Speed Star",
                 "Skill Pts": 5.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
@@ -1475,10 +1931,44 @@
             }
         }
     },
+    "Today's Words of Wisdom!": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 20.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 5.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 10.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
     "Until I Bloom...": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1509,21 +1999,21 @@
             }
         }
     },
-    "A Reasonable Diet vs. an Explosive Diet": {
+    "(❯❯) A Reasonable Diet vs. an Explosive Diet": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": 10.0,
+                "HP": 20.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": "",
-                "Skill Pts": 10.0,
+                "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
@@ -1545,12 +2035,12 @@
     },
     "Firm and Plain, Yet Close to Virtue": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -1563,7 +2053,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -1579,12 +2069,12 @@
     },
     "The Will to Protect!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -1597,7 +2087,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -1611,10 +2101,10 @@
             }
         }
     },
-    "Cozy Memories of Wanko Soba": {
+    "(❯) Cozy Memories of Wanko Soba": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1645,10 +2135,10 @@
             }
         }
     },
-    "The Class Rep's Intense Crash Course": {
+    "(❯❯) The Class Rep's Intense Crash Course": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1656,8 +2146,8 @@
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
-                "Mood": 1.0,
-                "Power": 5.0,
+                "Mood": 2.0,
+                "Power": 10.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
@@ -1666,23 +2156,23 @@
             },
             "2": {
                 "Friendship": 5.0,
-                "Guts": 3.0,
+                "Guts": 10.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 3.0,
+                "Power": 10.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 3.0
+                "Wit": 10.0
             }
         }
     },
-    "I Wanna Win!": {
+    "(❯❯❯) I Wanna Win!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1690,7 +2180,7 @@
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
-                "Mood": 1.0,
+                "Mood": 4.0,
                 "Power": 0.0,
                 "Skill Hint": "No Stopping Me!",
                 "Skill Pts": 0.0,
@@ -1700,23 +2190,57 @@
             },
             "2": {
                 "Friendship": 5.0,
-                "Guts": 3.0,
+                "Guts": 10.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 3.0,
+                "Power": 10.0,
                 "Skill Hint": "No Stopping Me!",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 3.0
+                "Wit": 10.0
+            }
+        }
+    },
+    "For a Spiffy Concert": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 10.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 15.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
             }
         }
     },
     "Aiming for the City Spots": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1747,10 +2271,10 @@
             }
         }
     },
-    "Paying It Forward": {
+    "(❯❯) Paying It Forward": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1783,8 +2307,8 @@
     },
     "Ah, Friendship": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1817,8 +2341,8 @@
     },
     "Ah, Home Sweet Home": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1849,10 +2373,10 @@
             }
         }
     },
-    "Diamond Fixation": {
+    "(❯❯) Diamond Fixation": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1866,7 +2390,7 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 15.0
             },
             "2": {
                 "Friendship": 0.0,
@@ -1883,29 +2407,29 @@
             }
         }
     },
-    "Only for You": {
+    "(❯❯❯) Only for You": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": -20.0,
+                "HP": -10.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": "Iron Will",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
-                "Stamina": 30.0,
+                "Stamina": 40.0,
                 "Wit": 0.0
             },
             "2": {
                 "Friendship": 5.0,
                 "Guts": 5.0,
-                "HP": 5.0,
+                "HP": 15.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
@@ -1919,8 +2443,8 @@
     },
     "I Love New Things!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1953,8 +2477,8 @@
     },
     "I Love Complicated Things!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -1985,10 +2509,10 @@
             }
         }
     },
-    "Seeking Uniqueness!": {
+    "(❯) Seeking Uniqueness!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2021,8 +2545,8 @@
     },
     "Just Your Typical Hard Work!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2055,8 +2579,8 @@
     },
     "Just A Typical Accident?!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2087,44 +2611,44 @@
             }
         }
     },
-    "Run Away to First Base": {
+    "(❯) Run Away to First Base": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
                 "Friendship": 5.0,
                 "Guts": 10.0,
-                "HP": -15.0,
+                "HP": -5.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "",
+                "Skill Hint": "Front Runner Straightaways ○",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
-                "Stamina": 10.0,
+                "Stamina": 15.0,
                 "Wit": 0.0
             },
             "2": {
                 "Friendship": 5.0,
                 "Guts": 10.0,
-                "HP": -15.0,
+                "HP": -5.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "",
+                "Skill Hint": "Pace Strategy",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 15.0
             }
         }
     },
-    "Runaway Romance": {
+    "(❯❯) Runaway Romance": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2155,20 +2679,20 @@
             }
         }
     },
-    "Optimistic Escapism: Never Give Up!": {
+    "(❯❯❯) Optimistic Escapism: Never Give Up!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
                 "Friendship": 5.0,
                 "Guts": 5.0,
-                "HP": -20.0,
+                "HP": -10.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "Vanguard Spirit",
+                "Skill Hint": "Keeping the Lead",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
@@ -2191,8 +2715,8 @@
     },
     "An Inescapable Choice?": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2225,8 +2749,8 @@
     },
     "Optimistic Escapism": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2257,10 +2781,10 @@
             }
         }
     },
-    "I'm Not Afraid!": {
+    "(❯) I'm Not Afraid!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2291,10 +2815,10 @@
             }
         }
     },
-    "Can't Catch Me!": {
+    "(❯❯) Can't Catch Me!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2325,10 +2849,10 @@
             }
         }
     },
-    "Turbo Is Strong!": {
+    "(❯❯❯) Turbo Is Strong!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2361,8 +2885,8 @@
     },
     "Just Start Running!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2379,7 +2903,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
@@ -2395,8 +2919,8 @@
     },
     "I'm All Fired Up!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2427,44 +2951,44 @@
             }
         }
     },
-    "How Should I Respond?": {
+    "(❯❯) How Should I Respond?": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": 5.0,
+                "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 5.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
+                "Skill Hint": "Stamina to Spare",
+                "Skill Pts": 10.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
-                "Guts": 15.0,
-                "HP": -10.0,
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
+                "Skill Hint": "Outer Swell",
+                "Skill Pts": 10.0,
                 "Speed": 0.0,
-                "Stamina": 0.0,
+                "Stamina": 5.0,
                 "Wit": 0.0
             }
         }
     },
-    "What I Want to Say": {
+    "(❯❯❯) What I Want to Say": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2495,11 +3019,79 @@
             }
         }
     },
-    "Just a Little Closer": {
+    "How Should I Respond?": {
         "choices": {
-            "1": "Top Option",
-            "2": "Middle Option",
-            "3": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 5.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 5.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 15.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Conquering the Crowds": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 5.0,
+                "Skill Hint": "",
+                "Skill Pts": 15.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Nakayama Racecourse ○",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "(❯❯) Just a Little Closer": {
+        "choices": {
+            "1": "Top",
+            "2": "Mid",
+            "3": "Bot"
         },
         "stats": {
             "1": {
@@ -2545,8 +3137,8 @@
     },
     "Watch Where You're Going!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2579,8 +3171,8 @@
     },
     "So Many Options!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2611,10 +3203,10 @@
             }
         }
     },
-    "A Roller Coaster of Feelings!": {
+    "(❯❯) A Roller Coaster of Feelings!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2622,12 +3214,12 @@
                 "Guts": 10.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
-                "Mood": 0.0,
+                "Mood": 1.0,
                 "Power": 0.0,
-                "Skill Hint": "",
+                "Skill Hint": "Straight Descent",
                 "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 5.0,
+                "Speed": 10.0,
+                "Stamina": 10.0,
                 "Wit": 0.0
             },
             "2": {
@@ -2645,78 +3237,10 @@
             }
         }
     },
-    "On and On": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 10.0,
-                "Stamina": 5.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 15.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "What Should I Do?": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 5.0,
-                "Wit": 5.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Left-Handed ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "My Way, Or...": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2749,8 +3273,8 @@
     },
     "My Weapon": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2783,8 +3307,8 @@
     },
     "The Coolest Line": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2817,8 +3341,8 @@
     },
     "Enemies on Main Street": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2849,16 +3373,16 @@
             }
         }
     },
-    "A Moment's Respite": {
+    "(❯❯) A Moment's Respite": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": 15.0,
+                "HP": 25.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
@@ -2869,24 +3393,24 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 5.0,
+                "Friendship": 0.0,
                 "Guts": 5.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 5.0,
+                "Power": 0.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 0.0
             }
         }
     },
     "Library Vexation": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2919,8 +3443,8 @@
     },
     "A Friendly Daytime Discussion": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2951,10 +3475,10 @@
             }
         }
     },
-    "Uma-me": {
+    "(❯❯) Uma-me": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -2987,8 +3511,8 @@
     },
     "Blazing Fire!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3021,8 +3545,8 @@
     },
     "Secret Notebook!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3053,10 +3577,10 @@
             }
         }
     },
-    "Be Strategic": {
+    "(❯) Be Strategic ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3064,9 +3588,9 @@
                 "Guts": 0.0,
                 "HP": 10.0,
                 "Max Energy": 0.0,
-                "Mood": 0.0,
+                "Mood": 1.0,
                 "Power": 0.0,
-                "Skill Hint": "",
+                "Skill Hint": "Dodging Danger",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -3089,8 +3613,8 @@
     },
     "Tamamo's School Tour": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3123,8 +3647,8 @@
     },
     "A Battle I Can't Lose!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3155,11 +3679,11 @@
             }
         }
     },
-    "Lovely Training Weather ♪": {
+    "(❯) Lovely Training Weather ♪": {
         "choices": {
-            "1": "Top Option",
-            "2": "Middle Option",
-            "3": "Bottom Option"
+            "1": "Top",
+            "2": "Mid",
+            "3": "Bot"
         },
         "stats": {
             "1": {
@@ -3205,8 +3729,8 @@
     },
     "Wonderful New Shoes": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3239,8 +3763,8 @@
     },
     "Reminiscent Clover": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3273,8 +3797,8 @@
     },
     "It's a Game of Tag!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3307,8 +3831,8 @@
     },
     "Ten Minutes Left!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3341,8 +3865,8 @@
     },
     "//Verification Required": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3375,8 +3899,8 @@
     },
     "//Absolute Desire": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3407,10 +3931,44 @@
             }
         }
     },
+    "08:36 / Crap, I Overslept": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": -1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 45.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 5.0
+            }
+        }
+    },
     "13:12 / Lunch Break, Gotta Get Myself Together": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3443,8 +4001,8 @@
     },
     "Genius Efficiency!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3477,8 +4035,8 @@
     },
     "Enough to Break into a Dash!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3511,8 +4069,8 @@
     },
     "Leave it to Me to Help Out! ♪": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3545,8 +4103,8 @@
     },
     "Leave it to Me to Be Considerate! ♪": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3577,10 +4135,10 @@
             }
         }
     },
-    "Always on Stage": {
+    "(❯) Always on Stage ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3611,10 +4169,10 @@
             }
         }
     },
-    "Chants Are the Life of a Concert": {
+    "Chants Are the Life of a Concert ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3645,10 +4203,10 @@
             }
         }
     },
-    "If I'm Cute, Come to My Show!": {
+    "If I'm Cute, Come to My Show! ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3679,10 +4237,10 @@
             }
         }
     },
-    "Aspiring to Adulthood": {
+    "(❯❯) Aspiring to Adulthood": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3696,10 +4254,10 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 20.0
+                "Wit": 30.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -3715,8 +4273,8 @@
     },
     "Warmth, Love, and Lunch": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3749,8 +4307,8 @@
     },
     "Let's Bloom Beautifully ♪": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3783,8 +4341,8 @@
     },
     "Urara's ☆ Study Review": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3817,8 +4375,8 @@
     },
     "Urara's ☆ Long Shot Dash!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3851,8 +4409,8 @@
     },
     "A Hero's Woes": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3885,8 +4443,8 @@
     },
     "Preparing My Special Move!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3917,10 +4475,10 @@
             }
         }
     },
-    "Memories of Cinema": {
+    "(❯❯❯) Memories of Cinema": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3951,10 +4509,112 @@
             }
         }
     },
+    "My Chosen Way of Life": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 13.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 6.0
+            }
+        }
+    },
+    "Enthusiastic Pair": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 13.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 6.0
+            },
+            "2": {
+                "Friendship": -5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": -1.0,
+                "Power": 0.0,
+                "Skill Hint": "Watchful Eye",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "To Maintain My Weight": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 15.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 5.0,
+                "Wit": 0.0
+            }
+        }
+    },
     "To Reach the Greatest Heights": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -3985,78 +4645,10 @@
             }
         }
     },
-    "A Page of Flower Shop Assistance": {
+    "(❯) Nail Artist on the Turf": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 2.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 10.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "A Page About Cloudy Weather": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 5.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Firm Conditions ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Nail Artist on the Turf": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4087,10 +4679,10 @@
             }
         }
     },
-    "Not Just for Show": {
+    "(❯❯) Not Just for Show": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4123,8 +4715,8 @@
     },
     "Doomscrolling the Time Away": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4157,8 +4749,8 @@
     },
     "Sponsored Posts Can Be Low-Key Sus": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4189,10 +4781,10 @@
             }
         }
     },
-    "Special Drinks Made with Friends ♪": {
+    "(❯) Special Drinks Made with Friends ♪": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4225,8 +4817,8 @@
     },
     "The Glass Girl Wants to Study": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4259,8 +4851,8 @@
     },
     "The Glass Girl Wants to Play": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4291,10 +4883,10 @@
             }
         }
     },
-    "Dig Here, Windy!": {
+    "(❯) Dig Here, Windy!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4327,8 +4919,8 @@
     },
     "Chomp Extermination!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4361,8 +4953,8 @@
     },
     "Chomp Attack!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4393,11 +4985,11 @@
             }
         }
     },
-    "No More Words ♪ Use Body Language!": {
+    "(❯) No More Words ♪ Use Body Language!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Middle Option",
-            "3": "Bottom Option"
+            "1": "Top",
+            "2": "Mid",
+            "3": "Bot"
         },
         "stats": {
             "1": {
@@ -4443,8 +5035,8 @@
     },
     "Full-Power Passion!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4477,8 +5069,8 @@
     },
     "Full-Power Thinking!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4509,10 +5101,10 @@
             }
         }
     },
-    "The Bookworm and the Magical Girl": {
+    "(❯) The Bookworm and the Magical Girl": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4545,8 +5137,8 @@
     },
     "Book-lover Quirks": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4579,8 +5171,8 @@
     },
     "A Tale Entrusted": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4611,10 +5203,10 @@
             }
         }
     },
-    "I Want to Say Thank You!": {
+    "(❯❯) I Want to Say Thank You!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4645,10 +5237,10 @@
             }
         }
     },
-    "Chasing Their Backs": {
+    "(❯) Chasing Their Backs": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4679,44 +5271,10 @@
             }
         }
     },
-    "Not like Meow": {
+    "(❯❯) Ikuno-Style Support": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 20.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 5.0
-            }
-        }
-    },
-    "Ikuno-Style Support": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4749,8 +5307,8 @@
     },
     "Ikuno-Style Flawless Method": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4783,8 +5341,8 @@
     },
     "Ikuno-Style Management": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4815,10 +5373,10 @@
             }
         }
     },
-    "#BFF #Party!": {
+    "(❯) #BFF #Party!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4849,10 +5407,10 @@
             }
         }
     },
-    "#LOL #Party! #Round2": {
+    "(❯❯) #LOL #Party! #Round2": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4883,10 +5441,10 @@
             }
         }
     },
-    "Encounter With the Sun": {
+    "Encounter With the Sun ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4919,8 +5477,8 @@
     },
     "Smiles Forever": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4951,10 +5509,10 @@
             }
         }
     },
-    "Some Very Green Friends": {
+    "(❯) Some Very Green Friends": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -4985,10 +5543,10 @@
             }
         }
     },
-    "Premeditated Mischief": {
+    "(❯❯) Premeditated Mischief": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5019,44 +5577,10 @@
             }
         }
     },
-    "Miracle ☆ Escape!": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 20.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "Sleight of Hand": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5089,8 +5613,8 @@
     },
     "Misdirection": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5123,8 +5647,8 @@
     },
     "Hishiama's Struggles: Problem Children": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5157,8 +5681,8 @@
     },
     "Hishiama's Struggles: Final Stretch": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5191,8 +5715,8 @@
     },
     "Strict but Gracious": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5209,7 +5733,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 10.0,
                 "Max Energy": 0.0,
@@ -5225,8 +5749,8 @@
     },
     "Agile but Strong": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5259,8 +5783,8 @@
     },
     "Umamusume Deficiency!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5293,8 +5817,8 @@
     },
     "Heavy Romance": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5327,8 +5851,8 @@
     },
     "Last-Minute Modal Theory": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5361,8 +5885,8 @@
     },
     "Step-Out-of-Your-Comfort-Zone Theory": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5395,8 +5919,8 @@
     },
     "Snack Advice for Mayano!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5429,8 +5953,8 @@
     },
     "Fashion Advice for Mayano!": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5463,8 +5987,8 @@
     },
     "Solo Nighttime Run": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5497,8 +6021,8 @@
     },
     "A Taste of Silence": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5529,10 +6053,10 @@
             }
         }
     },
-    "I'm Not a Cyborg": {
+    "(❯) I'm Not a Cyborg": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5565,8 +6089,8 @@
     },
     "Do No Harm": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5599,8 +6123,8 @@
     },
     "Orders Must Be Followed": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5631,44 +6155,10 @@
             }
         }
     },
-    "For a Spiffy Concert": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 10.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 15.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "The Correlation between Sleep and Efficiency": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5701,8 +6191,8 @@
     },
     "Happenstance Introduced Through Intervention": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5735,8 +6225,8 @@
     },
     "Unforeseen Lunch": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5769,8 +6259,8 @@
     },
     "Responding to the Unforeseen": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5803,8 +6293,8 @@
     },
     "Just Leave Me Alone": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5837,8 +6327,8 @@
     },
     "Just Don't Bother Me": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5869,10 +6359,10 @@
             }
         }
     },
-    "Marvelous, No Question": {
+    "Marvelous, No Question ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5903,10 +6393,10 @@
             }
         }
     },
-    "How To Be More Marvelous": {
+    "How To Be More Marvelous ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5937,10 +6427,10 @@
             }
         }
     },
-    "Guidance and Friends": {
+    "(❯❯) Guidance and Friends": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -5973,8 +6463,8 @@
     },
     "Maximum Spirituality": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -6007,8 +6497,8 @@
     },
     "When Piety and Kindness Intersect": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -6039,10 +6529,10 @@
             }
         }
     },
-    "What I'm Destined For...": {
+    "(❯) What I'm Destined For...": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -6075,8 +6565,8 @@
     },
     "I... Will Change": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -6109,8 +6599,8 @@
     },
     "Please... Buy Some Carrots": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -6141,44 +6631,10 @@
             }
         }
     },
-    "You May Socialize With Me!": {
+    "(❯❯) How I Play at the Park": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -20.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 10.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 10.0,
-                "Stamina": 0.0,
-                "Wit": 5.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 25.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": -1.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "How I Play at the Park": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
@@ -6209,21 +6665,21 @@
             }
         }
     },
-    "Today's Words of Wisdom!": {
+    "Trainer Tip: Always Improve Your Coaching": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": -10.0,
+                "HP": 13.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 20.0,
+                "Power": 0.0,
                 "Skill Hint": "",
-                "Skill Pts": 0.0,
+                "Skill Pts": 18.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
@@ -6231,12 +6687,46 @@
             "2": {
                 "Friendship": 5.0,
                 "Guts": 0.0,
-                "HP": 5.0,
+                "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": "",
-                "Skill Pts": 10.0,
+                "Skill Pts": 0.0,
+                "Speed": 6.0,
+                "Stamina": 0.0,
+                "Wit": 6.0
+            }
+        }
+    },
+    "The Search for a Hobby": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 26.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 18.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": -5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": -1.0,
+                "Power": 0.0,
+                "Skill Hint": "Maverick ○",
+                "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
@@ -6245,12 +6735,12 @@
     },
     "For an Adorable Younger Student": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6263,7 +6753,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 5.0,
                 "Max Energy": 0.0,
@@ -6279,12 +6769,12 @@
     },
     "Drive Destination": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6297,7 +6787,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6311,48 +6801,14 @@
             }
         }
     },
-    "Conquering the Crowds": {
+    "Yes! Let's Hug ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 5.0,
-                "Skill Hint": "",
-                "Skill Pts": 15.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 0.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Nakayama Racecourse ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Yes! Let's Hug": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6365,7 +6821,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6379,14 +6835,14 @@
             }
         }
     },
-    "Yeehaw! Party Tonight": {
+    "Yeehaw! Party Tonight ☆": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
@@ -6399,7 +6855,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6413,48 +6869,14 @@
             }
         }
     },
-    "To Maintain My Weight": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 15.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 5.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "Etude to Victory": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6467,7 +6889,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6483,12 +6905,12 @@
     },
     "Beyond Our Limited Time": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 10.0,
                 "Max Energy": 0.0,
@@ -6501,7 +6923,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6517,12 +6939,12 @@
     },
     "The Emperor's Encouragement": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6535,7 +6957,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": -10.0,
                 "Max Energy": 0.0,
@@ -6551,12 +6973,12 @@
     },
     "The Student Council President's Thoughtfulness": {
         "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
+            "1": "Top",
+            "2": "Bot"
         },
         "stats": {
             "1": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6569,7 +6991,7 @@
                 "Wit": 0.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
@@ -6579,74 +7001,6 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 15.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "08:36 / Crap, I Overslept": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": -1.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 45.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 5.0
-            }
-        }
-    },
-    "Enthusiastic Pair\nDating starts": {
-        "choices": {
-            "1": "Top Option",
-            "2": "Bottom Option"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 13.0,
-                "Max Energy": 0.0,
-                "Mood": 1.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 6.0
-            },
-            "2": {
-                "Friendship": -5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": -1.0,
-                "Power": 0.0,
-                "Skill Hint": "Watchful Eye",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
                 "Wit": 0.0
             }
         }

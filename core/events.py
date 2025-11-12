@@ -3,79 +3,91 @@ import re
 
 from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
-from core.EventsDatabase import COMMON_EVENT_DATABASE, CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, SKILL_HINT_BY_EVENT
+from core.EventsDatabase import CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, SKILL_HINT_BY_EVENT, EVENT_CHOICES_MAP, ALL_EVENT_KEYS
 from core.EventsDatabase import find_closest_event
 from core.logic import get_stat_priority
+from core.special_events import run_special_event
 import utils.constants as constants
 
-def get_optimal_choice(event_name):
-    if not event_name:
-        return (False, 1)
-
+def get_optimal_choice(event_name: str):
+    choice = 0
     key = clean_event_name(event_name)
-    desired_skills = {s.casefold() for s in (state.DESIRE_SKILL or [])}
 
-    # Optional fuzzy correction
-    if key not in COMMON_EVENT_DATABASE.keys() \
-        and key not in CHARACTERS_EVENT_DATABASE.keys() \
-        and key not in SUPPORT_EVENT_DATABASE.keys() \
-        and key not in SCENARIOS_EVENT_DATABASE.keys():
-        best_match = find_closest_event(key)
-        if best_match:
-            key = best_match
-            info(f"[Fuzzy] Using closest match: {best_match}")
+    if run_special_event(key):
+        info(f"[Special] handled: {key}")
+        return None
 
-    # 1. Select choice in JSON database
-    db = CHARACTERS_EVENT_DATABASE if key in CHARACTERS_EVENT_DATABASE else \
-         SUPPORT_EVENT_DATABASE if key in SUPPORT_EVENT_DATABASE else \
-         SCENARIOS_EVENT_DATABASE if key in SCENARIOS_EVENT_DATABASE else None
+    # 1) exact override
+    r = _apply_override_if_valid(key)
+    if r is not None:
+        return r
+
+    # 2) fuzzy key
+    if key not in ALL_EVENT_KEYS:
+        best = find_closest_event(key, ALL_EVENT_KEYS)
+        if best:
+            info(f"[Fuzzy] Using closest match: {best}")
+            if run_special_event(best):
+                info(f"[Special] handled: {key}")
+                return None
+            r = _apply_override_if_valid(best)
+            if r is not None:
+                return r
+            key = best
+
+    # 2) Try override again in case fuzzy changed the key into your map
+    chosen = EVENT_CHOICES_MAP.get(key)
+    if chosen is not None:
+        info(f"[Custom] Using config choice for {event_name} -> {chosen}")
+        return int(chosen)
+
+    # 3) Fall back to hint / score like you already do
+    db = (CHARACTERS_EVENT_DATABASE if key in CHARACTERS_EVENT_DATABASE else
+          SUPPORT_EVENT_DATABASE    if key in SUPPORT_EVENT_DATABASE    else
+          SCENARIOS_EVENT_DATABASE  if key in SCENARIOS_EVENT_DATABASE  else None)
     if db:
-        # Select choice by skill hint
-        result_hint = pick_choice_by_skill_hint(key, desired_skills)
+        result_hint = pick_choice_by_skill_hint(key, {s.casefold() for s in (state.DESIRE_SKILL or [])})
         if result_hint is not None:
             return result_hint
-
-        # Select choice by score
         return pick_choice_by_score(key, db)
 
-    # 2. Hardcoded fallback
-    if key in COMMON_EVENT_DATABASE:
-        info(f"[Custom DB] Exact match found: {key}")
-        return COMMON_EVENT_DATABASE[key]
-
-    # 3. Default choice
-    warning(f"No match found for {key}. Defaulting to top choice.")
-    return (False, 1)
+    warning(f"No match found for {event_name}. Defaulting to top choice.")
+    return choice
 
 def _norm_hint(s: str) -> str:
     # strip common decorations like "○" and normalize case/space
     s = re.sub(r"[^\w\s'!-]", " ", s)   # drop symbols e.g. ○ ☆
     return " ".join(s.split()).casefold()
 
-def pick_choice_by_skill_hint(key: str, desired_skills: set[str]):
-    hints = SKILL_HINT_BY_EVENT.get(key, {})
+def pick_choice_by_skill_hint(event_name: str, desired_skills: set[str]):
+    hints = SKILL_HINT_BY_EVENT.get(event_name, {})
     if not hints or not desired_skills:
         return None
     desired_norm = {_norm_hint(x) for x in desired_skills}
-    for idx, hint in hints.items():
+    for choice, hint in hints.items():
         if _norm_hint(str(hint)) in desired_norm:
-            total = EVENT_TOTALS.get(key, len(hints))
-            info(f"Event skill hint match → {key}: choice {idx} ({hint})")
-            return (total, idx)
+            # total = EVENT_TOTALS.get(event_name, len(hints))
+            info(f"[Hint] {event_name}: choice {choice} ({hint})")
+            return choice
     return None
 
-def score_choice(ev_key, choice_row):
+def _f(x, default=0.0):
+    try:
+        return float(x)
+    except Exception:
+        return float(default)
+
+def score_choice(choice_row):
     # Score from Stat
-    current_stats = state.CURRENT_STATS
+    current_stats = state.CURRENT_STATS or {}
     choice_weight = state.CHOICE_WEIGHT
     caps = state.STAT_CAPS
 
     choice_score = 0.0
-    for k_map, key in [("spd","Speed"),("sta","Stamina"),("pwr","Power"),
-                       ("guts","Guts"),("wit","Wit")]:
-        gain = float(choice_row.get(key, 0) or 0)
-        cap  = float(caps[k_map])
-        current = float(current_stats[k_map])
+    for k_map, key in [("spd","Speed"),("sta","Stamina"),("pwr","Power"),("guts","Guts"),("wit","Wit")]:
+        gain = _f(choice_row.get(key, 0), 0)
+        cap  = _f(caps[k_map], 1)
+        current = _f(current_stats.get(k_map, 0.0), 0.0) 
 
         norm = gain * (max(0.0, cap - current) / cap)
 
@@ -87,8 +99,8 @@ def score_choice(ev_key, choice_row):
         choice_score += choice_weight[k_map] * norm * multiplier
 
     # Score from Energy
-    max_energy = state.MAX_ENERGY
-    energy_level = state.CURRENT_ENERGY_LEVEL
+    max_energy = float(state.MAX_ENERGY or 100)
+    energy_level = float(state.CURRENT_ENERGY_LEVEL or 0)
     energy_gain = float(choice_row.get("HP", 0) or 0)
     if energy_gain < 0:
         energy_penalty = 0 # if choice give negative energy not have effect on score
@@ -100,17 +112,21 @@ def score_choice(ev_key, choice_row):
     choice_score += choice_weight["hp"] * energy_gain * energy_penalty
 
     # Score from Mood
-    mood_index = state.CURRENT_MOOD_INDEX
+    mood_index = (state.CURRENT_MOOD_INDEX or 2)
     mood_gain = float(choice_row.get("Mood", 0) or 0)
     minimum_mood = constants.MOOD_LIST.index(state.MINIMUM_MOOD)
     minimum_mood_junior_year = constants.MOOD_LIST.index(state.MINIMUM_MOOD_JUNIOR_YEAR)
     year = state.CURRENT_YEAR
-    year_parts = year.split(" ")
 
-    if year_parts[0] == "Junior":
-      mood_check = minimum_mood_junior_year
+    if year is None:
+        mood_check = minimum_mood
     else:
-      mood_check = minimum_mood
+        year_parts = year.split(" ")
+
+        if year_parts[0] == "Junior":
+            mood_check = minimum_mood_junior_year
+        else:
+            mood_check = minimum_mood
 
     if mood_gain < 0:
         mood_penalty = 0 # if choice give negative mood not have effect on score
@@ -132,7 +148,7 @@ def pick_choice_by_score(key: str, db: dict):
     payload = db.get(key) or {}
     stats = payload.get("stats") or {}
 
-    total = EVENT_TOTALS.get(key, len(payload.get("choices", {})) or len(stats))
+    # total = EVENT_TOTALS.get(key, len(payload.get("choices", {})) or len(stats))
 
     best_idx, best_score = 1, float("-inf")
     best_stat_priority = float("-inf")
@@ -143,15 +159,30 @@ def pick_choice_by_score(key: str, db: dict):
             continue
         if not isinstance(row, dict):
             continue
-        score = score_choice(key, row)
+        score = score_choice(row)
         debug(f"[Score] {key} -> choice {i}: {score:.3f}")
-        stat_priority = get_stat_priority(key)
 
         # if this choice has higher score, or equal score but higher stat priority
-        if (score > best_score) or (abs(score - best_score) < 1e-6 and stat_priority > best_stat_priority):
+        if score > best_score:
             best_score = score
-            best_stat_priority = stat_priority
             best_idx = i
 
-    return (total, best_idx)
+    return best_idx
 
+def _apply_override_if_valid(key: str):
+    chosen = EVENT_CHOICES_MAP.get(key)
+    if not chosen:
+        return None
+    # derive total robustly
+    total = EVENT_TOTALS.get(key)
+    if total is None:
+        # try to read from any loaded DB
+        payload = (CHARACTERS_EVENT_DATABASE.get(key)
+                   or SUPPORT_EVENT_DATABASE.get(key)
+                   or SCENARIOS_EVENT_DATABASE.get(key) or {})
+        total = len((payload.get("choices") or {})) or len((payload.get("stats") or {})) or 0
+    if 1 <= chosen <= total:
+        info(f"[Custom DB] Exact match: {key} → choice {chosen}")
+        return chosen
+    warning(f"[Custom DB] Override out of range: {key} → {chosen}. Ignoring.")
+    return None

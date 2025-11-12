@@ -214,7 +214,7 @@ export default function RaceSchedule({ raceSchedule, addRaceSchedule, deleteRace
                                 ${isSelected
                                   ? "border-primary bg-primary/10"
                                   : isDisabled
-                                    ? "border-border/50 cursor-not-allowed pointer-events-none grayscale-[35%] brightness-95"
+                                    ? "border-border/50 cursor-not-allowed opacity-40"
                                     : "border-border cursor-pointer hover:border-primary/50"}`}
                               onClick={() => {
                                 if (isDisabled) return;
@@ -224,7 +224,7 @@ export default function RaceSchedule({ raceSchedule, addRaceSchedule, deleteRace
                                   addRaceSchedule({ name, date: detail.date, year });
                                 }
                               }}
-                              title={isDisabled ? `Date already scheduled: ${detail.date}` : undefined}
+                              title={isDisabled ? `Date already scheduled: ${year} ${detail.date}` : undefined}
                             >
                               <div>
                                 <p className="font-semibold mb-2">
