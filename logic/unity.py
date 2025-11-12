@@ -79,7 +79,7 @@ def _summer_next_turn() -> bool:
         return False
     if year_parts[0] in ["Classic", "Senior"] and year_parts[3] in ["Jun"]:
         if year_parts[2] == "Early":
-            if state.CURRENT_TURN_LEFT == "1":
+            if state.CURRENT_TURN_LEFT == 1:
                 return True
             if any("Late Jun" in r.get("date", "") for r in state.RACE_SCHEDULE or []):
                 return True
@@ -195,14 +195,14 @@ def _training(results: dict):
     if not filtered:
         if energy_level > state.SKIP_TRAINING_ENERGY:
             info("No suitable training; fallback to most-support.")
-            return None, "fallback"
+            return "fallback", None
         else:
             info("Low energy; rest.")
             return None, None
 
     # if len(filtered) == 1 and "wit" in filtered and any_nonmaxed:
     #     info("Only WIT available early; fallback to most-support.")
-    #     return None, "fallback"
+    #     return "fallback", None
 
     best_key, best_data = max(
         filtered.items(),
@@ -297,6 +297,21 @@ def unity_logic() -> str:
         return "exit"
 
     result, best_data = _training(filtered)
+
+    if result == "fallback":
+        info(f"[UNITY] Use most_support_card.")
+        result = most_support_card(filtered)
+        if result is not None:
+            if result is False:
+                return "exit"
+            else:
+                sleep(0.5)
+                go_to_training()
+                sleep(0.5)
+                do_train(result)
+                info(f"[UNITY] most_support_card training found → Train {result.upper()}.")
+                return "exit"
+
     if result == "wit":
         best_data["training_score"] -= 1
 
@@ -375,20 +390,6 @@ def unity_logic() -> str:
                     do_train(result)
                     info(f"[UNITY] most_support_card training found → Train {result.upper()}.")
                     return "exit"
-
-    if result == "fallback":
-        info(f"[UNITY] Use most_support_card.")
-        result = most_support_card(filtered)
-        if result is not None:
-            if result is False:
-                return "exit"
-            else:
-                sleep(0.5)
-                go_to_training()
-                sleep(0.5)
-                do_train(result)
-                info(f"[UNITY] most_support_card training found → Train {result.upper()}.")
-                return "exit"
 
     if year_parts[0] == "Finale" and "Finals" in criteria:
         sleep(0.5)

@@ -120,8 +120,8 @@ def do_recreation():
       pyautogui.moveTo(tazuna_event, duration=0.15)
       pyautogui.click(tazuna_event)
     elif riko_event:
-      pyautogui.moveTo(tazuna_event, duration=0.15)
-      pyautogui.click(tazuna_event)
+      pyautogui.moveTo(riko_event, duration=0.15)
+      pyautogui.click(riko_event)
 
   elif recreation_summer_btn:
     click(boxes=recreation_summer_btn)
