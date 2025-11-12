@@ -2,7 +2,7 @@
 import rawConfig from "../../config.json";
 import { useConfigPreset } from "./hooks/useConfigPreset";
 import { useConfig } from "./hooks/useConfig";
-import type { Config } from "./types";
+import type { Config, SkillEventChoice } from "./types";
 import { Button } from "./components/ui/button";
 import { Input } from "./components/ui/input";
 import Tooltips from "./components/_c/Tooltips";
@@ -39,6 +39,8 @@ import JuniorPrioritize from "./components/training/PrioritizeWeightOnJunior";
 import { BarChart3, BrainCircuit, ChevronsRight, Cog, Trophy, MessageCircleMore } from "lucide-react";
 import ScenarioSelect from "./components/setting/ScenarioSelect";
 import ConfigManager from "./components/config/ConfigManager";
+import CustomEventPicker from "./components/Event/CustomEventPicker";
+import ScenarioConfig from "./components/setting/ScenarioConfig";
 
 function App() {
   const defaultConfig = rawConfig as Config;
@@ -118,6 +120,10 @@ function App() {
     setConfig((prev) => ({ ...prev, [key]: value }));
   };
 
+  const setEventChoices = (next: SkillEventChoice[]) => {
+    updateConfig("event", { ...event, event_choices: next });
+  };
+
   useEffect(() => {
     if (!failure.enable_custom_failure) {
       updateConfig("failure", {
@@ -181,6 +187,7 @@ function App() {
 
           <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
             <label className="text-xl font-semibold mb-2 text-primary">Trainee</label>
+            <Tooltips>Choose the character to train. Used by event and hint logic.</Tooltips>
             <div className="relative flex items-center w-full gap-2">
               <div className="flex-grow">
                 <TraineeSelect
@@ -193,6 +200,7 @@ function App() {
           </div>
           <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
             <label className="text-xl font-semibold mb-2 text-primary">Scenario</label>
+            <Tooltips>Choose Scenario. Used by event logic.</Tooltips>
             <div className="relative flex items-center w-full gap-2">
               <div className="flex-grow">
                 <ScenarioSelect
@@ -201,6 +209,11 @@ function App() {
                   options={scenarioOptions}
                 />
               </div>
+              <ScenarioConfig
+                  scenarioName={config.scenario}
+                  cfg={config}
+                  onChange={(key, next) => updateConfig(key, next)}
+                />
             </div>
           </div>
         </div>
@@ -326,6 +339,12 @@ function App() {
                 </div>
                 <div className="flex flex-col gap-6">
                     <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("event", { ...event, use_optimal_event_choices: val })} />
+                    <CustomEventPicker
+                      trainee={trainee}
+                      scenario={scenario}
+                      eventChoices={event.event_choices}
+                      setEventChoices={setEventChoices}
+                    />
                     <SkillList
                          list={desire_skill}
                          addSkillList={(val) => updateConfig("skill", { ...skill, desire_skill: [val, ...desire_skill] })}

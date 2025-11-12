@@ -47,11 +47,9 @@ IGNORE_PATTERNS = (
 )
 
 def clean_event_title(title: str) -> str:
-    # remove decorative prefixes like (❯❯), (▶), (★), etc.
-    title = re.sub(r"^\s*[\(\[\{❯▶★♦■◆☆]*\s*[\)\]\}❯▶★♦■◆☆]*\s*", "", title)
-
-    # remove decorative suffixes like ☆, ★, ◆, etc.
-    title = re.sub(r"[\s❯▶★♦■◆☆]+$", "", title)
+    # ICONS = "❯▶★♦■◆☆"
+    # title = re.sub(fr"^\s*[\[\{{{ICONS}]+\s*[\]\}}{ICONS}]*\s*", "", title)
+    # title = re.sub(fr"[\s{ICONS}]+$", "", title)
 
     # handle special prefix cases (Acupuncture, Failed training)
     for prefix in PREFIX_EVENTS:

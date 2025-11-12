@@ -1,6 +1,23 @@
 import time, re, logging
 from selenium.webdriver.common.by import By
+from requests.exceptions import ReadTimeout as RequestsReadTimeout
+from selenium.common.exceptions import TimeoutException, WebDriverException
+
 from .base import BaseScraper, create_chromedriver
+
+def _go(driver, url, tries=2):
+    for _ in range(tries):
+        try:
+            driver.get(url)
+            return True
+        except (TimeoutException, WebDriverException):
+            try:
+                driver.execute_script("window.stop();")
+            except Exception:
+                pass
+        except RequestsReadTimeout:
+            pass
+    return False
 
 class SupportCardScraper(BaseScraper):
     def __init__(self):
@@ -19,6 +36,12 @@ class SupportCardScraper(BaseScraper):
         links = [it.find_element(By.XPATH, "./..").get_attribute("href") for it in items]
 
         for i, link in enumerate(links):
+            if i % 5 == 0:
+                driver.quit()
+                driver = create_chromedriver()
+                _ = _go(driver, self.url)
+                time.sleep(1)
+
             logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
             driver.get(link); time.sleep(3)
             raw = driver.find_element(By.XPATH, "//h1[contains(@class, 'utils_headingXl')]").text

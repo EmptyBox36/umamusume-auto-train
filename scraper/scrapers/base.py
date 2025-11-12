@@ -1,12 +1,22 @@
 ﻿import json, re, time, logging
+from typing import Optional
 from pathlib import Path
 from typing import List, Dict
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, WebDriverException, TimeoutException
+from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, WebDriverException, TimeoutException, StaleElementReferenceException
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support import expected_conditions as EC
 
 from utils.utils import clean_event_title, STAT_KEYS, ALIASES, DIVIDER_RE, IGNORE_PATTERNS, ALL_STATS, COMMON_EVENT_TITLES, RAND_SPLIT_RE
+
+TOOLTIP_VISIBLE = "//div[contains(@class,'tippy-content')]"
+# header is the first div inside tippy-content that holds the event title text
+TOOLTIP_HEADER_REL = ".//div[1]"
 
 # ---- helpers ----
 def blank_stats():
@@ -32,19 +42,15 @@ def _finish(d: dict) -> dict:
 def _is_ignorable(line: str) -> bool:
     return any(p in line for p in IGNORE_PATTERNS)
 
-def add(d: dict, k: str, v: float):
-    if k in d: d[k] += v
-
-def _finish(d: dict) -> dict:
-    for k in STAT_KEYS:
-        if k not in d:
-            d[k] = "" if k == "Skill Hint" else 0.0
-    return d
-
 def parse_outcome_block(text: str) -> dict:
     d = blank_stats()
     for ln in (x.strip() for x in text.splitlines() if x.strip()):
         if _is_ignorable(ln): 
+            continue
+
+        # full recovery to HP +200
+        if re.search(r"\bfull\s+energy\s+recovery\b", ln, re.I):
+            add(d, "HP", 200.0)           # or use "Energy" if that's your key
             continue
 
         # Skill hint: keep only the skill name; "(random)" → ""
@@ -108,7 +114,31 @@ def parse_outcome(text: str) -> dict:
     return parse_randomly(text) if "Randomly either" in text else parse_outcome_block(text)
 
 def create_chromedriver():
-    return uc.Chrome(headless=True, use_subprocess=True)
+
+    opts = Options()
+    opts.add_argument("--headless=new")
+    opts.add_argument("--disable-gpu")
+    opts.add_argument("--no-sandbox")
+    opts.add_argument("--disable-dev-shm-usage")
+    opts.add_argument("--disable-extensions")
+    opts.add_argument("--disable-features=PrivacySandboxAdsAPIs")
+    opts.add_argument("--disable-background-networking")
+    opts.add_argument("--disable-renderer-backgrounding")
+    opts.add_argument("--renderer-process-limit=2")
+    opts.add_argument("--force-device-scale-factor=1")
+
+    caps = DesiredCapabilities.CHROME.copy()
+    caps["pageLoadStrategy"] = "eager"  # don’t wait for ads/analytics
+
+    driver = uc.Chrome(
+        headless=True,
+        use_subprocess=True,
+        options=opts,
+        desired_capabilities=caps,
+    )
+    driver.set_page_load_timeout(15)
+    driver.set_script_timeout(15)
+    return driver
 
 class BaseScraper:
     def __init__(self, url: str, output_filename: str):
@@ -171,60 +201,140 @@ class BaseScraper:
             return False
         return True
 
+    def _get_visible_tooltip_for(self, driver: uc.Chrome, title: str) -> Optional[WebElement]:
+        WebDriverWait(driver, 6).until(
+            EC.presence_of_element_located((By.XPATH, TOOLTIP_VISIBLE))
+        )
+        tips = driver.find_elements(By.XPATH, TOOLTIP_VISIBLE)
+        title_norm = (title or "").strip().lower()
+
+        for tip in reversed(tips):  # newest usually last
+            try:
+                header = tip.find_element(By.XPATH, TOOLTIP_HEADER_REL).text.strip().lower()
+            except Exception:
+                header = ""
+            if title_norm and title_norm in header:
+                return tip
+        return tips[-1] if tips else None
+
     def extract_training_event_options(self, tooltip_rows: List[WebElement]):
-        """Return {"choices": {"1": label, ...}, "stats": {"1": {...}, ...}}."""
         choices, stats = {}, {}
-        for i, row in enumerate(tooltip_rows, start=1):
-            tds = row.find_elements(By.XPATH, ".//td[contains(@class, 'tooltips_ttable_cell')]")
-            left = (tds[0].text or f"Choice {i}").strip()
-            # right cell may have multiple <div>s; join with \n like current scraper
-            right_divs = tds[1].find_elements(By.XPATH, ".//div")
-            effect_text = "\n".join(d.text.strip() for d in right_divs)
-            effect_text = effect_text.replace("Wisdom", "Wit")
-            choices[str(i)] = left
-            stats[str(i)] = parse_outcome(effect_text)
+
+        def parse_div_row(row):
+            label = row.find_element(By.XPATH, ".//span[1]").text.strip()
+            full  = (row.text or "").strip()
+            effect = full[len(label):].strip() if full.startswith(label) else full
+            if not effect:
+                # include all descendant div text, not excluding spans
+                parts = [d.text.strip() for d in row.find_elements(By.XPATH, ".//div") if d.text.strip()]
+                effect = "\n".join(parts).strip()
+            return label, effect
+
+        is_table = bool(tooltip_rows and tooltip_rows[0].find_elements(By.XPATH, ".//td[contains(@class,'tooltips_ttable_cell')]"))
+
+        if is_table:
+            for k, row in enumerate(tooltip_rows, 1):
+                cells = row.find_elements(By.XPATH, ".//td[contains(@class,'tooltips_ttable_cell')]")
+                if len(cells) < 2:
+                    continue
+                label = (cells[0].text or f"Choice {k}").strip()
+                effect = "\n".join(div.text.strip() for div in cells[1].find_elements(By.XPATH, ".//div") if div.text.strip())
+                effect = effect.replace("Wisdom", "Wit")
+                choices[str(k)] = label
+                stats[str(k)] = parse_outcome(effect)
+        else:
+            for k, row in enumerate(tooltip_rows, 1):
+                label, effect = parse_div_row(row)
+                if not label:
+                    continue
+                effect = (effect or "").replace("Wisdom", "Wit")
+                choices[str(k)] = label
+                stats[str(k)] = parse_outcome(effect)
+
         return {"choices": choices, "stats": stats}
 
-
-    def process_training_events(self, driver: uc.Chrome, item_name: str, data_dict: Dict[str, List[str]]):
-        """Processes the training events for the given item.
-
-        Args:
-            driver (uc.Chrome): The Chrome driver.
-            item_name (str): The name of the item.
-            data_dict (Dict[str, List[str]]): The data dictionary to modify.
-        """
-        all_training_events = driver.find_elements(By.XPATH, "//div[contains(@class, 'compatibility_viewer_item')]")
-        logging.info(f"Found {len(all_training_events)} training events for {item_name}.")
-
-        ad_banner_closed = False
+    def process_training_events(self, driver: uc.Chrome, item_name: str, data_dict):
+        # ensure ad is closed before the first click
+        ad_banner_closed = self.handle_ad_banner(driver, False)
         common_data = {}
 
-        for j, training_event in enumerate(all_training_events):
-            self.safe_click(driver, training_event)
-            time.sleep(0.3)
-
-            tooltip = driver.find_element(By.XPATH, "//div[@data-tippy-root]")
+        i = 0
+        while True:
             try:
-                raw_title = tooltip.find_element(By.XPATH, ".//div[contains(@class, 'tooltips_ttable_heading')]").text
-                tooltip_title = clean_event_title(raw_title)
+                # re-find buttons each loop to avoid stales
+                caption = driver.find_element(
+                    By.XPATH, "//div[contains(@class,'infobox_caption')][contains(translate(normalize-space(.),"
+                              " 'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz'),'training events')]"
+                )
+                container = caption.find_element(By.XPATH, "./parent::div")
+                buttons = container.find_elements(By.XPATH, ".//button[@aria-expanded]")
+                if i >= len(buttons):
+                    break
+                btn = buttons[i]
 
-            except NoSuchElementException:
-                logging.info(f"No tooltip title found for training event ({j + 1}/{len(all_training_events)}).")
-                continue
+                # make sure it is clickable and on screen
+                WebDriverWait(driver, 8).until(EC.element_to_be_clickable(btn))
+                driver.execute_script("arguments[0].scrollIntoView({block:'center'});", btn)
 
-            tooltip_rows = tooltip.find_elements(By.XPATH, ".//tr")
-            if len(tooltip_rows) == 0:
-                logging.info(f"No options found for training event {tooltip_title} ({j + 1}/{len(all_training_events)}).")
-                continue
-            elif tooltip_title in data_dict:
-                logging.info(f"Training event {tooltip_title} ({j + 1}/{len(all_training_events)}) already exists.")
-                continue
+                def open_tooltip_for(title: str):
+                    # warm-up click sequence to bypass overlays and hydration timing
+                    driver.execute_script("arguments[0].click();", btn)
+                    time.sleep(0.12)
+                    try:
+                        btn.click()
+                    except Exception:
+                        ActionChains(driver).move_to_element(btn).click().perform()
+                    try:
+                        return self._get_visible_tooltip_for(driver, title)
+                    except TimeoutException:
+                        return None
 
-            logging.info(f"Found {len(tooltip_rows)} options for training event {tooltip_title} ({j + 1}/{len(all_training_events)}).")
+                title = (btn.text or btn.get_attribute("aria-label") or f"Event {i+1}").strip()
+                tooltip = open_tooltip_for(title)
+                if tooltip is None:
+                    time.sleep(0.3)  # first event after navigation needs a short bind time
+                    tooltip = open_tooltip_for(title)
+                if tooltip is None:
+                    logging.info(f"No tooltip for [{title}] ({i+1}). Skipping.")
+                    i += 1
+                    continue
 
-            result = self.extract_training_event_options(tooltip_rows)
-            target = common_data if tooltip_title in COMMON_EVENT_TITLES else data_dict
-            target[tooltip_title] = result
+                try:
+                    tooltip = tooltip.find_element(By.XPATH, ".//div[contains(@class,'tippy-content')]")
+                except Exception:
+                    pass
 
-            ad_banner_closed = self.handle_ad_banner(driver, ad_banner_closed)
+                try:
+                    rows = tooltip.find_elements(By.XPATH,".//div[contains(@class,'fipImG') and .//div[contains(@class,'jtqpYA')]]") or tooltip.find_elements(By.XPATH, ".//tr")
+                    if not rows:
+                        logging.info(f"No options for {title} ({i+1}/{len(buttons)}).")
+                    elif clean_event_title(title) in data_dict:
+                        logging.info(f"Skip duplicate {title} ({i+1}/{len(buttons)}).")
+                    else:
+                        logging.info(f"Found {len(rows)} options for {title} ({i+1}/{len(buttons)}).")
+                        result = self.extract_training_event_options(rows)
+                        target = common_data if clean_event_title(title) in COMMON_EVENT_TITLES else data_dict
+                        target[clean_event_title(title)] = result
+
+                finally:
+                    # close tooltip in a guarded block
+                    try:
+                        driver.execute_script("document.body.click();")
+                        # try unmount
+                        WebDriverWait(driver, 3).until(EC.staleness_of(tooltip))
+                    except Exception:
+                        # fall back to visible → invisible transition
+                        try:
+                            WebDriverWait(driver, 3).until(
+                                EC.invisibility_of_element_located((By.XPATH, TOOLTIP_VISIBLE))
+                            )
+                        except Exception:
+                            pass
+
+                ad_banner_closed = self.handle_ad_banner(driver, ad_banner_closed)
+
+            except StaleElementReferenceException:
+                logging.debug(f"Stale at index {i}; retrying next.")
+
+            finally:
+                i += 1

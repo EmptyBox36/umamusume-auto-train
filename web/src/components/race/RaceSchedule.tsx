@@ -49,7 +49,7 @@ export default function RaceSchedule({ raceSchedule, addRaceSchedule, deleteRace
       try {
         {/* https://raw.githubusercontent.com/EmptyBox36/umamusume-auto-train/refs/heads/dev/scraper/data/races.json */}
         {/* /scraper/data/races.json */}
-        const res = await fetch("https://raw.githubusercontent.com/EmptyBox36/umamusume-auto-train/refs/heads/dev/scraper/data/races.json");
+        const res = await fetch("/scraper/data/races.json");
         const races: RaceScheduleDataType = await res.json();
         setData(races);
       } catch (error) {

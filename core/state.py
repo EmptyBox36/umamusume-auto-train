@@ -3,6 +3,7 @@ from sqlite3 import PrepareProtocol
 import cv2
 import numpy as np
 import re
+import difflib
 import json
 import threading
 from math import floor
@@ -42,6 +43,13 @@ CURRENT_YEAR = None
 CUSTOM_FAILURE = 0
 FORCE_REST = False
 CURRENT_TURN_LEFT = None
+PREFERRED_POSITION_SET = None
+SCENARIO_NAME = ""
+
+TURN_REGION = (0,0,0,0)
+YEAR_REGION = (0,0,0,0)
+FAILURE_REGION = (0,0,0,0)
+FAILURE_PERCENT_REGION = (0,0,0,0)
 
 def load_config():
   with open("config.json", "r", encoding="utf-8") as file:
@@ -56,6 +64,8 @@ def reload_config():
   global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE, EVENT_CHOICES
   global ENABLE_CUSTOM_FAILURE_CHANCE, ENABLE_CUSTOM_LOW_FAILURE, ENABLE_CUSTOM_HIGH_FAILURE, LOW_FAILURE_CONDITION, HIGH_FAILURE_CONDITION
   global IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST, DESIRE_SKILL
+  global TURN_REGION, YEAR_REGION, FAILURE_REGION, FAILURE_PERCENT_REGION, SPD_STAT_REGION, STA_STAT_REGION, PWR_STAT_REGION, GUTS_STAT_REGION, WIT_STAT_REGION
+  global UNITY_TEAM_PREFERENCE, UNITY_SPIRIT_BURST_POSITION
 
   config = load_config()
 
@@ -96,15 +106,43 @@ def reload_config():
   DESIRE_SKILL = config["skill"]["desire_skill"]
   USE_OPTIMAL_EVENT_CHOICES = config["event"]["use_optimal_event_choices"]
   EVENT_CHOICES = config["event"]["event_choices"]
+  UNITY_TEAM_PREFERENCE = config["unity"]["prefer_team_race"]
+  UNITY_SPIRIT_BURST_POSITION = config["unity"]["spirit_burst_position"]
+
+  # URA Starter
+  if "URA" in SCENARIO_NAME:
+    TURN_REGION=(260, 81, 370 - 260, 140 - 87)
+    YEAR_REGION=(255, 35, 420 - 255, 60 - 35)
+    FAILURE_REGION=(250, 770, 855 - 295, 835 - 770)
+    FAILURE_PERCENT_REGION=(250, 790, 855 - 295, 835 - 790)
+
+    SPD_STAT_REGION = (310, 723, 55, 20)
+    STA_STAT_REGION = (405, 723, 55, 20)
+    PWR_STAT_REGION = (500, 723, 55, 20)
+    GUTS_STAT_REGION = (595, 723, 55, 20)
+    WIT_STAT_REGION = (690, 723, 55, 20)
+
+    # Unity Starter
+  if "Unity" in SCENARIO_NAME:
+    TURN_REGION = (260, 55, 375 - 260, 110 - 55)
+    YEAR_REGION =(385, 40, 565 - 385, 60 - 40)
+    FAILURE_REGION=(250, 760, 855 - 295, 810 - 760)
+    FAILURE_PERCENT_REGION=(250, 760, 855 - 295, 810 - 760)
+
+    SPD_STAT_REGION = (310, 723, 55, 20)
+    STA_STAT_REGION = (405, 723, 55, 20)
+    PWR_STAT_REGION = (500, 723, 55, 20)
+    GUTS_STAT_REGION = (595, 723, 55, 20)
+    WIT_STAT_REGION = (690, 723, 55, 20)
 
 # Get Stat
 def stat_state():
   stat_regions = {
-    "spd": constants.SPD_STAT_REGION,
-    "sta": constants.STA_STAT_REGION,
-    "pwr": constants.PWR_STAT_REGION,
-    "guts": constants.GUTS_STAT_REGION,
-    "wit": constants.WIT_STAT_REGION
+    "spd": SPD_STAT_REGION,
+    "sta": STA_STAT_REGION,
+    "pwr": PWR_STAT_REGION,
+    "guts": GUTS_STAT_REGION,
+    "wit": WIT_STAT_REGION
   }
 
   result = {}
@@ -140,12 +178,27 @@ def check_support_card(threshold=0.8, target="none"):
   count_result["total_hints"] = 0
   count_result["total_friendship_levels"] = {}
   count_result["hints_per_friend_level"] = {}
+  count_result["total_white_flame"] = 0
+  count_result["total_blue_flame"] = 0
 
   for friend_level, color in SUPPORT_FRIEND_LEVELS.items():
     count_result["total_friendship_levels"][friend_level] = 0
     count_result["hints_per_friend_level"][friend_level] = 0
 
   hint_matches = match_template("assets/icons/support_hint.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
+  white_flame_matches = match_template("assets/unity_cup/white_flame.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
+  blue_flame_matches = match_template("assets/unity_cup/blue_flame.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
+
+  def _dedup(rects, tol=10):
+        uniq = []
+        for (x,y,w,h) in sorted(rects or [], key=lambda r:(r[1], r[0])):
+            if not uniq or abs(y - uniq[-1][1]) > tol or abs(x - uniq[-1][0]) > tol:
+                uniq.append((x,y))
+        return len(uniq)
+
+  count_result["total_white_flame"] = _dedup(white_flame_matches)
+  count_result["total_blue_flame"]  = _dedup(blue_flame_matches)
+
   for key, icon_path in SUPPORT_ICONS.items():
     count_result[key] = {}
     count_result[key]["supports"] = 0
@@ -189,8 +242,8 @@ def check_support_card(threshold=0.8, target="none"):
 
 # Get failure chance (idk how to get energy value)
 def check_failure():
-  failure_text = enhanced_screenshot(constants.FAILURE_REGION)
-  failure_percent = enhanced_screenshot(constants.FAILURE_PERCENT_REGION)
+  failure_text = enhanced_screenshot(FAILURE_REGION)
+  failure_percent = enhanced_screenshot(FAILURE_PERCENT_REGION)
   # # use new OCR that protects against misread errors
   # val = extract_percent(failure_percent)
   # if val != -1:
@@ -227,7 +280,7 @@ def check_failure():
 
 # Check mood
 def check_mood():
-  mood = capture_region(constants.MOOD_REGION)
+  mood = enhanced_screenshot(constants.MOOD_REGION)
   mood_text = extract_text(mood).upper()
 
   for known_mood in constants.MOOD_LIST:
@@ -239,22 +292,57 @@ def check_mood():
 
 # Check turn
 def check_turn():
-    turn = capture_region(constants.TURN_REGION)
-    turn_text = extract_text_improved(turn)
+    turn = enhanced_screenshot(TURN_REGION)
+    turn_text = extract_text(turn)
 
     if "race" in turn_text.lower():
         return "Race Day"
+    if "goal" in turn_text.lower():
+        return "Goal"
+
+    # turn_text = re.sub(r"turns?|\(s\)|left", "", turn_text, flags=re.IGNORECASE)
+    # turn_text = re.sub(r"[^0-9]", "", turn_text)
 
     digits_only = re.sub(r"[^\d]", "", turn_text)
 
     if digits_only:
-      return int(digits_only)
+      if 0 < int(digits_only) < 20:
+        return int(digits_only)
+    
+    turn_num = extract_number(turn)
+    if turn_num:
+        if 0 < int(turn_num) < 20:
+          return int(turn_num)
     
     return -1
 
+def _norm(s: str) -> str:
+    # normalize OCR noise: collapse spaces, lowercase
+    return re.sub(r"\s+", " ", s or "").strip().casefold()
+
+def check_unity() -> str:
+    """
+    Returns the canonical round name ONLY if OCR text is in UNITY_ROUND_LIST.
+    Otherwise returns "".
+    """
+    img = enhanced_screenshot(constants.UNITY_ROUND_REGION)
+    raw = extract_text(img)
+
+    # build normalized lookup of allowed rounds
+    canon_by_norm = {_norm(x): x for x in constants.UNITY_ROUND_LIST}
+
+    key = _norm(raw)
+    if key in canon_by_norm:
+        return canon_by_norm[key]
+
+    # Optional: fuzzy rescue to handle small OCR errors
+    # raise cutoff to be strict
+    match = difflib.get_close_matches(key, canon_by_norm.keys(), n=1, cutoff=0.92)
+    return canon_by_norm[match[0]] if match else None
+
 # Check year
 def check_current_year():
-  year = enhanced_screenshot(constants.YEAR_REGION)
+  year = enhanced_screenshot(YEAR_REGION)
   text = extract_text(year)
   return text
 
