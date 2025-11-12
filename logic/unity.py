@@ -212,6 +212,12 @@ def _training(results: dict):
     return best_key, best_data
 
 def unity_logic() -> str:
+    state.SPD_STAT_REGION = (310, 723, 55, 20)
+    state.STA_STAT_REGION = (405, 723, 55, 20)
+    state.PWR_STAT_REGION = (500, 723, 55, 20)
+    state.GUTS_STAT_REGION = (595, 723, 55, 20)
+    state.WIT_STAT_REGION = (690, 723, 55, 20)
+
     criteria = check_criteria()
     turn = state.CURRENT_TURN_LEFT
     year = state.CURRENT_YEAR

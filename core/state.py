@@ -109,7 +109,7 @@ def reload_config():
   UNITY_TEAM_PREFERENCE = config["unity"]["prefer_team_race"]
   UNITY_SPIRIT_BURST_POSITION = config["unity"]["spirit_burst_position"]
 
-  # URA
+  # URA Starter
   if "URA" in SCENARIO_NAME:
     TURN_REGION=(260, 81, 370 - 260, 140 - 87)
     YEAR_REGION=(255, 35, 420 - 255, 60 - 35)
@@ -122,18 +122,18 @@ def reload_config():
     GUTS_STAT_REGION = (595, 723, 55, 20)
     WIT_STAT_REGION = (690, 723, 55, 20)
 
-    # Unity
+    # Unity Starter
   if "Unity" in SCENARIO_NAME:
     TURN_REGION = (260, 55, 375 - 260, 110 - 55)
     YEAR_REGION =(385, 40, 565 - 385, 60 - 40)
     FAILURE_REGION=(250, 760, 855 - 295, 810 - 760)
     FAILURE_PERCENT_REGION=(250, 760, 855 - 295, 810 - 760)
 
-    SPD_STAT_REGION = (310, 777, 55, 23)
-    STA_STAT_REGION = (405, 777, 55, 23)
-    PWR_STAT_REGION = (500, 777, 55, 23)
-    GUTS_STAT_REGION = (595, 777, 55, 23)
-    WIT_STAT_REGION = (690, 777, 55, 23)
+    SPD_STAT_REGION = (310, 723, 55, 20)
+    STA_STAT_REGION = (405, 723, 55, 20)
+    PWR_STAT_REGION = (500, 723, 55, 20)
+    GUTS_STAT_REGION = (595, 723, 55, 20)
+    WIT_STAT_REGION = (690, 723, 55, 20)
 
 # Get Stat
 def stat_state():

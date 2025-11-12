@@ -62,6 +62,11 @@ function UnityPanel({
             return { ...s, spirit_burst_position: next };
         });
 
+    const handleSave = () => {
+        onChange(local);
+        window.alert("Settings saved");
+    };
+
     return (
         <div className="space-y-5">
             <div>
@@ -110,7 +115,7 @@ function UnityPanel({
                 <Button type="button" variant="ghost" onClick={() => setLocal(UNITY_DEFAULT)}>
                     Reset
                 </Button>
-                <Button type="button" onClick={() => onChange(local)}>
+                <Button type="button" onClick={handleSave}>
                     Save
                 </Button>
             </div>

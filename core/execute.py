@@ -20,7 +20,7 @@ from logic.unity import unity_logic, unity_race
 
 templates = {
   "event": "assets/icons/event_choice_1.png",
-  "acupuncture": "assets/icons/acupuncture_confirm.png",
+  "acupuncture_accept": "assets/icons/acupuncture_confirm.png",
   "inspiration": "assets/buttons/inspiration_btn.png",
   "next": "assets/buttons/next_btn.png",
   "next2": "assets/buttons/next2_btn.png",
@@ -39,7 +39,7 @@ def career_lobby():
     screen = ImageGrab.grab()
     matches = multi_match_templates(templates, screen=screen)
 
-    if click(boxes=matches["acupuncture"]):
+    if click(boxes=matches["acupuncture_accept"]):
       continue
     if event_choice():
       continue

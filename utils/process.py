@@ -105,10 +105,10 @@ def do_recreation():
     click(boxes=recreation_btn)
     sleep(0.1)
     
-    aoi_event = pyautogui.locateCenterOnScreen("assets/ui/aoi_event.png", confidence=0.8)
-    tazuna_event = pyautogui.locateCenterOnScreen("assets/ui/tazuna_event.png", confidence=0.8)
-    riko_event = pyautogui.locateCenterOnScreen("assets/ui/riko_event.png", confidence=0.8)
-    date_complete = pyautogui.locateCenterOnScreen("assets/ui/date_complete.png", confidence=0.8)
+    aoi_event = pyautogui.locateCenterOnScreen("assets/ui/aoi_event.png", confidence=0.8, region=constants.GAME_SCREEN)
+    tazuna_event = pyautogui.locateCenterOnScreen("assets/ui/tazuna_event.png", confidence=0.8, region=constants.GAME_SCREEN)
+    riko_event = pyautogui.locateCenterOnScreen("assets/ui/riko_event.png", confidence=0.8, region=constants.GAME_SCREEN)
+    date_complete = pyautogui.locateCenterOnScreen("assets/ui/date_complete.png", confidence=0.8, region=constants.GAME_SCREEN)
 
     if date_complete:
       pyautogui.moveTo(410, 500, duration=0.15)
