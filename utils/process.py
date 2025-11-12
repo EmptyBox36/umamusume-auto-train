@@ -107,6 +107,7 @@ def do_recreation():
     
     aoi_event = pyautogui.locateCenterOnScreen("assets/ui/aoi_event.png", confidence=0.8)
     tazuna_event = pyautogui.locateCenterOnScreen("assets/ui/tazuna_event.png", confidence=0.8)
+    riko_event = pyautogui.locateCenterOnScreen("assets/ui/riko_event.png", confidence=0.8)
     date_complete = pyautogui.locateCenterOnScreen("assets/ui/date_complete.png", confidence=0.8)
 
     if date_complete:
@@ -116,6 +117,9 @@ def do_recreation():
       pyautogui.moveTo(aoi_event, duration=0.15)
       pyautogui.click(aoi_event)
     elif tazuna_event:
+      pyautogui.moveTo(tazuna_event, duration=0.15)
+      pyautogui.click(tazuna_event)
+    elif riko_event:
       pyautogui.moveTo(tazuna_event, duration=0.15)
       pyautogui.click(tazuna_event)
 
