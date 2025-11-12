@@ -6,15 +6,11 @@ from scrapers.characters import CharacterScraper
 from scrapers.supports import SupportCardScraper
 from scrapers.races import RaceScraper
 from scrapers.races_icon import RaceIconScraper
-from scrapers.supports_url import SupportCardURLScraper
-from scrapers.characters_url import CharactersURLScraper
 
 scrapers = {
     "skills": [SkillScraper],
     "characters": [CharacterScraper],
-    "characters_url": [CharactersURLScraper],
     "supports": [SupportCardScraper],
-    "supports_url": [SupportCardURLScraper],
     "races": [RaceScraper],
     "races_icon": [RaceIconScraper],
 }
