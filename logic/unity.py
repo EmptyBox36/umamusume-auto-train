@@ -23,6 +23,13 @@ templates = {
   "retry": "assets/buttons/retry_btn.png"
 }
 
+PRIORITY_WEIGHTS_LIST={
+  "HEAVY": 0.75,
+  "MEDIUM": 0.5,
+  "LIGHT": 0.25,
+  "NONE": 0
+}
+
 # Get priority stat from config
 def _get_stat_priority(stat_key: str) -> int:
   if stat_key in state.PRIORITY_STAT:
@@ -140,10 +147,13 @@ def _train_score(stat_name: str, data: dict) -> tuple[float, str]:
      return score
 
 def _training(results: dict):
+    global PRIORITY_WEIGHTS_LIST
     training_candidates = results
     energy_level = state.CURRENT_ENERGY_LEVEL
+    priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
 
     for stat_name in training_candidates:
+        multiplier = 1 + state.PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
         data = training_candidates[stat_name]
         score = _train_score(stat_name, data)
 
@@ -160,7 +170,7 @@ def _training(results: dict):
         if stat_name == "wit":
             score += 1
 
-        data["training_score"] = score
+        data["training_score"] = score * multiplier
         info(f"[{stat_name.upper()}] -> Best Score: {data['training_score']}")
 
     any_nonmaxed = any(
@@ -212,12 +222,6 @@ def _training(results: dict):
     return best_key, best_data
 
 def unity_logic() -> str:
-    state.SPD_STAT_REGION = (310, 723, 55, 20)
-    state.STA_STAT_REGION = (405, 723, 55, 20)
-    state.PWR_STAT_REGION = (500, 723, 55, 20)
-    state.GUTS_STAT_REGION = (595, 723, 55, 20)
-    state.WIT_STAT_REGION = (690, 723, 55, 20)
-
     criteria = check_criteria()
     turn = state.CURRENT_TURN_LEFT
     year = state.CURRENT_YEAR
