@@ -49,7 +49,7 @@ if __name__ == "__main__":
         for scraper_class in scrapers[args.scraper]:
             run_with_retry(scraper_class)
     else:
-        for cls in [CharacterScraper, CharactersURLScraper, SupportCardURLScraper, SupportCardScraper]:
+        for cls in [CharacterScraper, SupportCardScraper]:
             run_with_retry(cls)
 
     end_time = round(time.time() - start_time, 2)

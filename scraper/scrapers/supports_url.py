@@ -86,8 +86,15 @@ class SupportCardURLScraper(BaseScraper):
         result = []  # collect list like skills.py
 
         for i, link in enumerate(links, start=1):
-            ad_banner_closed = self.handle_ad_banner(driver, ad_banner_closed)
             logging.info(f"[{i}/{len(links)}] {link}")
+
+            if i % 5 == 0:
+                driver.quit()
+                driver = create_chromedriver()
+                _ = _go(driver, self.url)
+                time.sleep(1)
+
+            ad_banner_closed = self.handle_ad_banner(driver, ad_banner_closed)
 
             if not _go(driver, link):
                 logging.warning(f"Failed to load {link}; restarting driver...")
@@ -105,12 +112,6 @@ class SupportCardURLScraper(BaseScraper):
             item = self._scrape_detail(driver)
             if item:  # optional de-dup by name if needed
                 result.append(item)
-
-            if i % 12 == 0:
-                driver.quit()
-                driver = create_chromedriver()
-                _ = _go(driver, self.url)
-                time.sleep(1); self.handle_cookie_consent(driver); ad_banner_closed = False
 
         self.data = result
         self.save_data()
