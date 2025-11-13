@@ -101,10 +101,11 @@ def score_choice(choice_row):
     # Score from Energy
     max_energy = float(state.MAX_ENERGY or 100)
     energy_level = float(state.CURRENT_ENERGY_LEVEL or 0)
+    missing_energy = max_energy - energy_level
     energy_gain = float(choice_row.get("HP", 0) or 0)
     if energy_gain < 0:
         energy_penalty = 0 # if choice give negative energy not have effect on score
-    elif (max_energy - energy_level) >= energy_gain:
+    elif missing_energy >= energy_gain or (energy_gain >= 50 and missing_energy >= 50):
         energy_penalty = 1 # 1 = No Penalty
     else:
         energy_penalty = 0.1
