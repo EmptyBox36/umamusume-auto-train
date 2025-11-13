@@ -18,15 +18,18 @@ Use responsibly and at your own discretion.
 - Checks mood
 - Handle debuffs
 - Rest
-- Selectable G1 races in the race schedule
+- Selectable races in the race schedule
 - Stat target feature, if a stat already hits the target, skip training that one
 - Auto-purchase skill
 - Web Interface for easier configuration
 - Select running style position
 - Detailed config
 - Auto pick event choice
-- Automatically picks event choice base on desire skill (skill in auto buy list), and stats.
-
+- Automatically picks event choice base on energy, desire skill, and stats.
+- Can custom pick event choice
+- URA and Unity cup support (i still didn't have assets for some team name, it only work with team sunny and carrots for now)
+- Can manual update the events database (/scraper/main.py or /scraper/start.bat)
+  
 ## Getting Started
 
 ### Requirements
@@ -75,13 +78,13 @@ Open your browser and go to: `http://127.0.0.1:8000/` to easily edit the bot's c
 
 ### Training Logic
 
-
+The training logic between URA and Unity cup are different, feel free to try to edit it.
 
 ### Known Issue
 
 - Some Uma that has special event/target goals (like Restricted Train Goldship or ~~2 G1 Race Oguri Cap~~) may not working. For Oguri Cap G1 race event goal, you need to set the races in the race schedule that match the dates of her G1 goal events.
 - OCR might misread failure chance (e.g., reads 33% as 3%) and proceeds with training anyway.
-- If you bring a friend support card (like Tazuna/Aoi Kiryuin) and do recreation, the bot always date with the friend support card.
+- If you bring a friend support card (like Tazuna/Aoi Kiryuin) and do recreation, the bot always date with the friend support card first.
 
 ### Contribute
 
