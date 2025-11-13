@@ -42,11 +42,6 @@ def _filter_by_stat_caps(results, current_stats):
     if current_stats.get(stat, 0) < state.STAT_CAPS.get(stat, 1200)
   }
 
-def _low_energy() -> bool:
-  if state.CURRENT_ENERGY_LEVEL <= state.SKIP_TRAINING_ENERGY:
-    return True
-  return False
-
 def _need_recreation() -> bool:
   mood = state.check_mood()
   mood_index = constants.MOOD_LIST.index(mood)
@@ -162,10 +157,11 @@ def _training(results: dict):
 
         score += 0.5 * data["total_white_flame"]
 
+        BLUE_FLAME_POINT = 1.5
         if stat_name in state.UNITY_SPIRIT_BURST_POSITION:
-            score += 1 * data["total_blue_flame"]
+            score += BLUE_FLAME_POINT * data["total_blue_flame"]
         else:
-            score -= 1 * data["total_blue_flame"]
+            score -= BLUE_FLAME_POINT * data["total_blue_flame"]
 
         if stat_name == "wit":
             score += 1
@@ -240,7 +236,7 @@ def unity_logic() -> str:
     info(f"Current stats: {current_stats}") 
 
     if turn == "Goal":
-        if year == "Finale Underway":
+        if "Finale" in year:
             info("URA Finale")
             if state.IS_AUTO_BUY_SKILL:
                 auto_buy_skill()
@@ -255,7 +251,7 @@ def unity_logic() -> str:
             after_race()
 
         # If calendar is race day, do race
-        if year != "Finale Underway":
+        if "Finale" not in year:
             info("Race Day.")
             if state.IS_AUTO_BUY_SKILL and year_parts[0] != "Junior":
                 auto_buy_skill()
@@ -307,20 +303,6 @@ def unity_logic() -> str:
         return "exit"
 
     result, best_data = _training(filtered)
-
-    if result == "fallback":
-        info(f"[UNITY] Use most_support_card.")
-        result = most_support_card(filtered)
-        if result is not None:
-            if result is False:
-                return "exit"
-            else:
-                sleep(0.5)
-                go_to_training()
-                sleep(0.5)
-                do_train(result)
-                info(f"[UNITY] most_support_card training found → Train {result.upper()}.")
-                return "exit"
 
     if result == "wit":
         best_data["training_score"] -= 1
@@ -408,6 +390,20 @@ def unity_logic() -> str:
         do_train("wit")
         info(f"[UNITY] No training found, but it was last turn → Train WIT.")
         return "exit"
+
+    if result == "fallback":
+        info(f"[UNITY] Use most_support_card.")
+        result = most_support_card(filtered)
+        if result is not None:
+            if result is False:
+                return "exit"
+            else:
+                sleep(0.5)
+                go_to_training()
+                sleep(0.5)
+                do_train(result)
+                info(f"[UNITY] most_support_card training found → Train {result.upper()}.")
+                return "exit"
 
     info(f"[UNITY] No training found → Rest.")
     do_rest(energy_level)

@@ -1,5 +1,4 @@
 import pyautogui
-from utils.tools import sleep, get_secs, drag_scroll
 from PIL import ImageGrab
 
 pyautogui.useImageNotFoundException(False)
@@ -11,9 +10,7 @@ from utils.log import info, warning, error, debug
 import utils.constants as constants
 
 from core.recognizer import is_btn_active, match_template, multi_match_templates
-from utils.process import go_to_training, check_training, event_choice, click, do_race, do_rest, do_train, do_recreation, auto_buy_skill, race_prep, after_race, race_day
-from core.logic import most_support_card, decide_race_for_goal
-from utils.scenario import ura
+from utils.process import event_choice, click
 
 from logic.ura import ura_logic
 from logic.unity import unity_logic, unity_race
@@ -53,8 +50,8 @@ def career_lobby():
       continue
     if click(boxes=matches["next2"], text="next2"):
       continue
-    if click(boxes=matches["cancel"], text="cancel"):
-      continue
+    # if click(boxes=matches["cancel"], text="cancel"):
+    #   continue
     if click(boxes=matches["retry"], text="retry"):
       continue
     if click(boxes=matches["close"], text="close"):

@@ -36,3 +36,4 @@ config.json
 /scraper/data/supports_url.json
 /scraper/scrapers/characters_url.py
 /scraper/scrapers/supports_url.py
+/data/skills.json
