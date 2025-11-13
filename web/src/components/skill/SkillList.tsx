@@ -38,8 +38,7 @@ export default function SkillList({ list, addSkillList, deleteSkillList }: Props
         })();
     }, []);
 
-    // Filter by name OR description; re-compute whenever data OR search changes
-    const filtered = useMemo(() => {
+    const filteredByText = useMemo(() => {
         const q = search.trim().toLowerCase();
         if (!q) return data;
         return data.filter(
@@ -48,6 +47,11 @@ export default function SkillList({ list, addSkillList, deleteSkillList }: Props
                 (s.description ?? "").toLowerCase().includes(q)
         );
     }, [data, search]);
+
+    const filtered = useMemo(
+        () => filteredByText.filter((s) => !list.includes(s.name)),
+        [filteredByText, list]
+    );
 
     return (
         <div>
@@ -74,11 +78,12 @@ export default function SkillList({ list, addSkillList, deleteSkillList }: Props
 
                             <div className="mt-4 grid grid-cols-2 gap-4 overflow-auto pr-2 max-h-[420px]">
                                 {filtered.map((skill, idx) => (
-                                    // if different skills can share the same name, keep a composite key
                                     <div
                                         key={`${skill.name}-${idx}`}
                                         className="w-full border-2 border-border rounded-lg px-3 py-2 cursor-pointer hover:border-primary/50 transition"
-                                        onClick={() => addSkillList(skill.name)}
+                                        onClick={() => {
+                                            if (!list.includes(skill.name)) addSkillList(skill.name);
+                                        }}
                                     >
                                         <p className="text-lg font-semibold">{skill.name}</p>
                                         <p className="text-sm text-muted-foreground">{skill.description}</p>
