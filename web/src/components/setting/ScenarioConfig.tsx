@@ -80,7 +80,7 @@ function UnityPanel({
                             <Input
                                 type="number"
                                 min={1}
-                                max={5}
+                                max={3}
                                 value={local.prefer_team_race[i]}
                                 onChange={(e) => setRound(i, Number(e.target.value) || 1)}
                                 className="h-9 w-20"
