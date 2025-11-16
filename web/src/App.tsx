@@ -335,7 +335,7 @@ function App() {
               <div className="flex flex-col gap-6">
                 <div className="flex gap-2 items-center">
                     <h2 className="text-3xl font-semibold flex items-center gap-3"><MessageCircleMore className="text-primary" />Event</h2>
-                    <Tooltips>Skill hint → Score System → Custom Choice.</Tooltips> 
+                    <Tooltips>Custom Choice → Skill hint → Score System</Tooltips> 
                 </div>
                 <div className="flex flex-col gap-6">
                     <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("event", { ...event, use_optimal_event_choices: val })} />
