@@ -114,15 +114,15 @@ def unity_race():
         unity_race_select(team)
     
     sleep(2)
-    if not click(img="assets/unity_cup/race_select_btn.png", minSearch=get_secs(10)):
+    if not click(img="assets/unity_cup/race_select_btn.png", minSearch=get_secs(5)):
         click(boxes=(550, 820, 1, 1))
 
     sleep(0.5)
-    click(img="assets/unity_cup/race_confirm_btn.png", minSearch=get_secs(10))
+    click(img="assets/unity_cup/race_confirm_btn.png", minSearch=get_secs(5))
     sleep(0.5)
-    click(img="assets/unity_cup/unity_result_btn.png", minSearch=get_secs(10))
+    click(img="assets/unity_cup/unity_result_btn.png", minSearch=get_secs(5))
     sleep(0.5)
-    click(img="assets/unity_cup/race_skip_btn.png", minSearch=get_secs(10))
+    click(img="assets/unity_cup/race_skip_btn.png", minSearch=get_secs(5))
     sleep(0.5)
 
     after_race()
@@ -155,16 +155,16 @@ def _training(results: dict):
         if data["total_hints"] > 0:
             score += state.HINT_POINT - 1
 
-        score += 0.5 * data["total_white_flame"]
+        score += 0.25 * data["total_white_flame"]
 
         BLUE_FLAME_POINT = 1.5
         if stat_name in state.UNITY_SPIRIT_BURST_POSITION:
             score += BLUE_FLAME_POINT * data["total_blue_flame"]
         else:
-            score -= BLUE_FLAME_POINT * data["total_blue_flame"]
+            score -= 0 * data["total_blue_flame"]
 
-        if stat_name == "wit":
-            score += 1
+        # if stat_name == "wit":
+        #     score += 1
 
         data["training_score"] = score * multiplier
         info(f"[{stat_name.upper()}] -> Best Score: {data['training_score']}")
@@ -304,8 +304,8 @@ def unity_logic() -> str:
 
     result, best_data = _training(filtered)
 
-    if result == "wit":
-        best_data["training_score"] -= 1
+    # if result == "wit":
+    #     best_data["training_score"] = best_data["training_score"] - 1
 
     if best_data is not None:
         if best_data["training_score"] < 3 and _summer_next_turn() :
@@ -360,7 +360,7 @@ def unity_logic() -> str:
         return "exit"
 
     if best_data is not None:
-        if best_data["training_score"] >= 1:
+        if best_data["training_score"] >= 1.5:
             info(f"[UNITY] Found 1 Friend Training → Train {result.upper()}.")
             sleep(0.5)
             go_to_training()

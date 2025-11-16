@@ -69,9 +69,9 @@ def most_support_card(results):
 
   best_key, best_data = best_training
   
-  if best_data["total_supports"] <= 2:
+  if best_data["total_supports"] <= 1:
     if int(best_data["failure"]) == 0:
-      # WIT must be at least 3 support cards
+      # WIT must be at least 2 support cards
       if best_key == "wit":
         if energy_level > state.NEVER_REST_ENERGY:
             info(f"Only 1 support and it's WIT but energy is too high for resting to be worth it. Still training.")
@@ -82,7 +82,7 @@ def most_support_card(results):
       else:
         if energy_level > 50:
           if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
-              from core.execute import do_race
+              from utils.process import do_race
               info("Training point is too low and have high energy, try to do race.")
               race = do_race()
               if race is True:
@@ -90,7 +90,6 @@ def most_support_card(results):
               elif race is False:
                   return "wit"
               else:
-                  from core.execute import click
                   click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found.")
                   sleep(0.5)
                   return "wit"

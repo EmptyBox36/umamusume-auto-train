@@ -253,7 +253,7 @@ def race_prep():
       state.PREFERRED_POSITION_SET = True
 
   view_result_btn = pyautogui.locateCenterOnScreen("assets/buttons/view_results.png", confidence=0.8, minSearchTime=get_secs(10), region=constants.SCREEN_BOTTOM_REGION)
-  click("assets/buttons/view_results.png", click=3)
+  click("assets/buttons/view_results.png", click=3, minSearch=get_secs(10))
   sleep(0.5)
   pyautogui.click()
   sleep(0.1)

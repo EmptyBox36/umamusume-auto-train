@@ -4,7 +4,7 @@ from PIL import ImageGrab
 pyautogui.useImageNotFoundException(False)
 
 import core.state as state
-from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, stat_state, check_aptitudes, check_unity
+from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, stat_state, check_aptitudes, check_unity, stop_bot
 
 from utils.log import info, warning, error, debug
 import utils.constants as constants
@@ -25,7 +25,8 @@ templates = {
   "tazuna": "assets/ui/tazuna_hint.png",
   "infirmary": "assets/buttons/infirmary_btn.png",
   "retry": "assets/buttons/retry_btn.png",
-  "close": "assets/unity_cup/close_btn.png"
+  "close": "assets/unity_cup/close_btn.png",
+  "complete": "assets/buttons/complete_btn.png"
 }
 
 state.PREFERRED_POSITION_SET = False
@@ -36,6 +37,9 @@ def career_lobby():
     screen = ImageGrab.grab()
     matches = multi_match_templates(templates, screen=screen)
 
+    if matches["complete"]:
+        stop_bot()
+        info("Career complete. Stop bot")
     if click(boxes=matches["acupuncture_accept"]):
       continue
     if event_choice():
@@ -53,6 +57,7 @@ def career_lobby():
     if matches["cancel"]:
       clock_icon = match_template("assets/icons/clock_icon.png", threshold=0.8)
       if clock_icon:
+        stop_bot()
         info("Lost race, wait for input.")
         continue
       else:

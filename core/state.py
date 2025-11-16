@@ -534,13 +534,3 @@ def stop_bot():
     info("[BOT] Stopping...")
     stop_event.set()
     is_bot_running = False
-
-    if bot_thread and bot_thread.is_alive():
-        info("[BOT] Waiting for bot to stop...")
-        bot_thread.join(timeout=3)
-        if bot_thread.is_alive():
-            info("[BOT] Bot still running, please wait...")
-        else:
-            info("[BOT] Bot stopped completely")
-
-    bot_thread = None
