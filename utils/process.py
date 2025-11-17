@@ -5,7 +5,7 @@ import utils.constants as constants
 
 from utils.tools import sleep, drag_scroll, get_secs, click
 from utils.log import info, warning, error, debug
-from core.state import check_support_card, check_failure, check_skill_pts, get_race_type, get_event_name
+from core.state import check_support_card, check_failure, check_skill_pts, get_race_type, get_event_name, stop_bot
 from core.recognizer import is_btn_active
 from core.skill import buy_skill
 from core.events import get_optimal_choice
@@ -228,6 +228,10 @@ def race_prep():
 
   if state.stop_event.is_set():
     return
+
+  if state.STOP_BEFORE_RACE:
+      stop_bot()
+      return
 
   if state.POSITION_SELECTION_ENABLED:
     # these two are mutually exclusive, so we only use preferred position if positions by race is not enabled.

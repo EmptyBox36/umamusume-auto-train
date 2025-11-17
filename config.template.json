@@ -68,7 +68,7 @@
     "bond": 2,
     "mood": 10
   },
-
+  "stop_bot_before_race":  false,
   "use_priority_on_choice": false,
   "cancel_consecutive_race": true,
   "position_selection_enabled": false,

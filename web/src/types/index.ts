@@ -104,6 +104,7 @@ export type Config = {
   window_name: string;
   event: event;
   unity?: UnityCfg;
+  stop_bot_before_race: boolean;
 };
 
 export type Preset = { name: string; config: Config };
