@@ -85,6 +85,7 @@ export type Config = {
   priority_weight: string;
   never_rest_energy: number;
   minimum_mood: string;
+  minimum_mood_with_friend: string;
   minimum_mood_junior_year: string;
   failure: failure;
   prioritize_g1_race: boolean;

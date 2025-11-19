@@ -82,6 +82,7 @@ function App() {
     never_rest_energy,
     skip_infirmary_unless_missing_energy,
     minimum_mood,
+    minimum_mood_with_friend,
     priority_weight,
     hint_point,
     choice_weight,
@@ -259,7 +260,7 @@ function App() {
               <h2 className="text-3xl font-semibold mb-6 flex items-center gap-3"><Cog className="text-primary"/>General</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <WindowName windowName={window_name} setWindowName={(val) => updateConfig("window_name", val)} />
-                <Mood minimumMood={minimum_mood} setMood={(val) => updateConfig("minimum_mood", val)} minimumMoodJunior={minimum_mood_junior_year} setMoodJunior={(val) => updateConfig("minimum_mood_junior_year", val)} />
+                <Mood minimumMood={minimum_mood} setMood={(val) => updateConfig("minimum_mood", val)} minimumMoodwithFriend={minimum_mood_with_friend} setMoodwithFriend={(val) => updateConfig("minimum_mood_with_friend", val)} minimumMoodJunior={minimum_mood_junior_year} setMoodJunior={(val) => updateConfig("minimum_mood_junior_year", val)} />
                 <div className="flex flex-col gap-6">
                   <EnergyInput name="skip-training-energy" value={skip_training_energy} setValue={(val) => updateConfig("skip_training_energy", val)}>
                     Skip Training Energy

@@ -4,11 +4,13 @@ import { MOOD } from "@/constants";
 type Props = {
   minimumMood: string;
   setMood: (newMood: string) => void;
+  minimumMoodwithFriend: string;
+  setMoodwithFriend: (newMood: string) => void;
   minimumMoodJunior: string;
   setMoodJunior: (newMood: string) => void;
 };
 
-export default function Mood({ minimumMood, setMood, minimumMoodJunior, setMoodJunior }: Props) {
+export default function Mood({ minimumMood, setMood, minimumMoodwithFriend, setMoodwithFriend, minimumMoodJunior, setMoodJunior }: Props) {
   return (
     <div className="flex flex-col gap-4">
       <div>
@@ -29,6 +31,21 @@ export default function Mood({ minimumMood, setMood, minimumMoodJunior, setMoodJ
       <div>
         <span className="text-lg font-medium">Min Mood</span>
         <Select name="mood" value={minimumMood} onValueChange={(val) => setMood(val)}>
+          <SelectTrigger className="w-36 mt-2">
+            <SelectValue placeholder="Mood" />
+          </SelectTrigger>
+          <SelectContent>
+            {MOOD.map((m) => (
+              <SelectItem key={m} value={m}>
+                {m}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+      <div>
+        <span className="text-lg font-medium">Min Mood with Friend</span>
+        <Select name="mood" value={minimumMoodwithFriend} onValueChange={(val) => setMoodwithFriend(val)}>
           <SelectTrigger className="w-36 mt-2">
             <SelectValue placeholder="Mood" />
           </SelectTrigger>
