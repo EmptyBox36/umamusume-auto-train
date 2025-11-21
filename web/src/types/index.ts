@@ -75,6 +75,7 @@ export type Config = {
   scenario: string;
   priority_stat: string[];
   priority_weights: number[];
+  summer_priority_weights: number[];
   hint_point: number;
   use_prioritize_on_junior: boolean;
   choice_weight: ChoiceWeight;

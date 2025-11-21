@@ -25,9 +25,16 @@
     "guts"
   ],
   "priority_weights": [
-    1.25,
-    1.25,
-    1,
+    0,
+    0,
+    0,
+    0,
+    -1
+  ],
+  "summer_priority_weights": [
+    0,
+    0,
+    0,
     0,
     -1
   ],
