@@ -251,10 +251,12 @@ def unity_logic() -> str:
 
     info(f"Current stats: {current_stats}") 
 
+    #########################################################################################
     # if year_parts[0] in ["Senior"] and year_parts[2] == "Early" and year_parts[3] == "Jul":
     #     stop_bot()
-    if year_parts[0] in ["Senior"] and year_parts[2] == "Late" and year_parts[3] == "Dec":
-        stop_bot()
+    # if year_parts[0] in ["Senior"] and year_parts[2] == "Late" and year_parts[3] == "Dec":
+    #     stop_bot()
+    #########################################################################################
 
     if turn == "Goal":
         if "Finale" in year:
