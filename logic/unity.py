@@ -12,15 +12,7 @@ import core.state as state
 import utils.constants as constants
 
 templates = {
-  "event": "assets/icons/event_choice_1.png",
-  "acupuncture": "assets/icons/acupuncture_confirm.png",
-  "inspiration": "assets/buttons/inspiration_btn.png",
-  "next": "assets/buttons/next_btn.png",
-  "next2": "assets/buttons/next2_btn.png",
-  "cancel": "assets/buttons/cancel_btn.png",
-  "tazuna": "assets/ui/tazuna_hint.png",
   "infirmary": "assets/buttons/infirmary_btn.png",
-  "retry": "assets/buttons/retry_btn.png"
 }
 
 PRIORITY_WEIGHTS_LIST={
@@ -29,6 +21,9 @@ PRIORITY_WEIGHTS_LIST={
   "LIGHT": 0.25,
   "NONE": 0
 }
+
+screen = ImageGrab.grab()
+matches = multi_match_templates(templates, screen=screen)
 
 # Get priority stat from config
 def _get_stat_priority(stat_key: str) -> int:
@@ -42,44 +37,42 @@ def _filter_by_stat_caps(results, current_stats):
     if current_stats.get(stat, 0) < state.STAT_CAPS.get(stat, 1200)
   }
 
-def _need_recreation() -> bool:
-  mood = state.check_mood()
-  mood_index = constants.MOOD_LIST.index(mood)
+def _need_recreation(year: str) -> bool:
+  current_mood = state.CURRENT_MOOD_INDEX
   minimum_mood = constants.MOOD_LIST.index(state.MINIMUM_MOOD)
+  minimum_mood_with_friend = constants.MOOD_LIST.index(state.MINIMUM_MOOD_WITH_FRIEND)
   minimum_mood_junior_year = constants.MOOD_LIST.index(state.MINIMUM_MOOD_JUNIOR_YEAR)
-  year = state.CURRENT_YEAR
   year_parts = year.split(" ")
 
   if year_parts[0] == "Junior":
     mood_check = minimum_mood_junior_year
   else:
-    mood_check = minimum_mood
+    if match_template("assets/icons/friend_recreation_available.png", region=(125, 800, 1000, 1080)): # SCREEN_BOTTOM_REGION
+      # debug("Friend recreation is available")
+      mood_check = minimum_mood_with_friend
+    else:
+      mood_check = minimum_mood
 
-  if mood_index < mood_check:
-    return True
-  return False
+  missing_mood =  mood_check - current_mood
+  return missing_mood
 
 def _need_infirmary() -> Tuple[Optional[List[str]], int, Optional[object]]:
-  screen = ImageGrab.grab()
-  matches = multi_match_templates(templates, screen=screen)
   if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
     info("Check for condition.")
     if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
-        sleep(0.5)
-        conditions, total_severity = check_status_effects()
-        click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
-        return (conditions, total_severity, matches["infirmary"][0])
+      sleep(0.5)
+      conditions, total_severity = check_status_effects()
+      click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
+      return (conditions, total_severity, matches["infirmary"][0])
     else:
-        warning("Coulnd't find full stats button.")
+        warning("Couldn't find full stats button.")
   return (None, 0, None)
 
-def _summer_next_turn() -> bool:
-    year = state.CURRENT_YEAR
+def _summer_next_turn(year: str) -> bool:
     year_parts = year.split(" ")
-
     if len(year_parts) < 4:
         return False
-    if year_parts[0] in ["Classic", "Senior"] and year_parts[3] in ["Jun"]:
+    if year_parts[0] in ["Classic", "Senior"] and year_parts[3] == "Jun":
         if year_parts[2] == "Early":
             if state.CURRENT_TURN_LEFT == 1:
                 return True
@@ -87,6 +80,14 @@ def _summer_next_turn() -> bool:
                 return True
         if year_parts[2] == "Late":
             return True
+    return False
+
+def _summer_camp(year: str) -> bool:
+    year_parts = year.split(" ")
+    if len(year_parts) < 4:
+        return False
+    if year_parts[0] in ["Classic", "Senior"] and year_parts[3] in ["Jul","Aug"]:
+        return True
     return False
 
 def unity_race_select(team):
@@ -109,65 +110,79 @@ def unity_race():
 
     race = check_unity()
     team = team_for_round(race)
-    sleep(5)
+    sleep(2)
     if team:
         unity_race_select(team)
     
     sleep(2)
     if not click(img="assets/unity_cup/race_select_btn.png", minSearch=get_secs(5)):
         click(boxes=(550, 820, 1, 1))
-
-    sleep(0.5)
-    click(img="assets/unity_cup/race_confirm_btn.png", minSearch=get_secs(5))
-    sleep(0.5)
-    click(img="assets/unity_cup/unity_result_btn.png", minSearch=get_secs(5))
-    sleep(0.5)
-    click(img="assets/unity_cup/race_skip_btn.png", minSearch=get_secs(5))
-    sleep(0.5)
+    
+    sleep(2)
+    click(img="assets/unity_cup/race_confirm_btn.png", minSearch=get_secs(10))
+    click(img="assets/unity_cup/unity_result_btn.png", minSearch=get_secs(10))
+    click(img="assets/unity_cup/race_skip_btn.png", minSearch=get_secs(10))
 
     after_race()
 
-def _train_score(stat_name: str, data: dict) -> tuple[float, str]:
-
-     friend_value =  data["total_friendship_levels"]["gray"] + data["total_friendship_levels"]["blue"] + data["total_friendship_levels"]["green"]
-     friend_training = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
-
-     if data["total_hints"] > 0:
-         friend_value += 1
-     if friend_training > 1:
-         friend_training += 0.5 * friend_training
-     score = friend_value + (1.5 * friend_training)
-
-     info(f"[{stat_name.upper()}] -> Friend Value: {friend_value}, Friend Training: {friend_training}, Hint: {data['total_hints']}, White Flame: {data['total_white_flame']}, Blue Flame: {data['total_blue_flame']}")
-     return score
-
 def _training(results: dict):
-    global PRIORITY_WEIGHTS_LIST
-    training_candidates = results
+    global PRIORITY_WEIGHTS_LIST 
     energy_level = state.CURRENT_ENERGY_LEVEL
+    year = state.CURRENT_YEAR
+    year_parts = year.split(" ")
     priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
+
+    training_candidates = results
 
     for stat_name in training_candidates:
         multiplier = 1 + state.PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
+        summer_multiplier = 1 + state.SUMMER_PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
+
         data = training_candidates[stat_name]
-        score = _train_score(stat_name, data)
+
+        # max_friend_support_card = data["friend"]["friendship_levels"]["green"]  
+        friend_value =  data["total_friendship_levels"]["gray"] + data["total_friendship_levels"]["blue"] + data["total_friendship_levels"]["green"]
+        friend_training = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
+
+        if friend_value > 2:
+            friend_value += 0.5 * friend_value
+        if friend_training > 1:
+            friend_training += 0.5 * friend_training
+
+        friend_value_point = 1
+        rainbow_point = 1.5
+        WHITE_FLAME_POINT = 0.5
+        BLUE_FLAME_POINT = 1.5
+
+        if _summer_camp(year):
+            rainbow_point = 2
+            WHITE_FLAME_POINT = 0.25
+
+        if year_parts[0] == "Junior":
+            rainbow_point = 1
+
+        if year_parts[0] == "Finale":
+            WHITE_FLAME_POINT = 0.25
+
+        score = (friend_value_point * friend_value) + (rainbow_point * friend_training)
 
         if data["total_hints"] > 0:
-            score += state.HINT_POINT - 1
+            score += state.HINT_POINT
 
-        score += 0.25 * data["total_white_flame"]
-
-        BLUE_FLAME_POINT = 1.5
+        score += WHITE_FLAME_POINT * data["total_white_flame"]
+        
         if stat_name in state.UNITY_SPIRIT_BURST_POSITION:
             score += BLUE_FLAME_POINT * data["total_blue_flame"]
+        # else:
+        #     score -= 0 * data["total_blue_flame"]
+
+        if _summer_camp(year):
+            data["training_score"] = score * summer_multiplier
         else:
-            score -= 0 * data["total_blue_flame"]
+            data["training_score"] = score * multiplier
 
-        # if stat_name == "wit":
-        #     score += 1
-
-        data["training_score"] = score * multiplier
-        info(f"[{stat_name.upper()}] -> Best Score: {data['training_score']}")
+        info(f"[{stat_name.upper()}] -> Non Max Support: {friend_value}, Rainbow Support: {friend_training}, Hint: {data['total_hints']}, White Flame: {data['total_white_flame']}, Blue Flame: {data['total_blue_flame']}")
+        info(f"[{stat_name.upper()}] -> Score: {data['training_score']}")
 
     any_nonmaxed = any(
         data.get("total_non_maxed_support", 0) > 0 
@@ -195,7 +210,7 @@ def _training(results: dict):
     # filter by failure & avoid WIT spam
     filtered = {
         k: v for k, v in training_candidates.items()
-        if int(v["failure"]) <= state.CUSTOM_FAILURE and not (k == "wit" and v["training_score"] < 1)
+        if int(v["failure"]) <= state.CUSTOM_FAILURE and not (k == "wit" and v["training_score"] < 1.5)
     }
 
     if not filtered:
@@ -218,12 +233,13 @@ def _training(results: dict):
     return best_key, best_data
 
 def unity_logic() -> str:
-    criteria = check_criteria()
+    criteria = state.CRITERIA
     turn = state.CURRENT_TURN_LEFT
     year = state.CURRENT_YEAR
     year_parts = year.split(" ")
     energy_level = state.CURRENT_ENERGY_LEVEL
     max_energy = state.MAX_ENERGY
+    missing_energy = max_energy - energy_level
     current_stats = state.CURRENT_STATS
 
     if state.APTITUDES == {}:
@@ -234,6 +250,11 @@ def unity_logic() -> str:
             click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
 
     info(f"Current stats: {current_stats}") 
+
+    # if year_parts[0] in ["Senior"] and year_parts[2] == "Early" and year_parts[3] == "Jul":
+    #     stop_bot()
+    if year_parts[0] in ["Senior"] and year_parts[2] == "Late" and year_parts[3] == "Dec":
+        stop_bot()
 
     if turn == "Goal":
         if "Finale" in year:
@@ -252,11 +273,12 @@ def unity_logic() -> str:
 
         # If calendar is race day, do race
         if "Finale" not in year:
-            info("Race Day.")
-            if state.IS_AUTO_BUY_SKILL and year_parts[0] != "Junior":
-                auto_buy_skill()
-            race_day()
-        return "exit"
+            if match_template("assets/buttons/race_day_btn.png", region=(125, 800, 1000, 1080)): # SCREEN_BOTTOM_REGION
+                info("Race Day.")
+                if state.IS_AUTO_BUY_SKILL and year_parts[0] != "Junior":
+                    auto_buy_skill()
+                race_day()
+        return
 
     if state.RACE_SCHEDULE:
         race_done = False
@@ -273,7 +295,7 @@ def unity_logic() -> str:
                         click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
                         sleep(0.5)
         if race_done:
-            return "exit"
+            return
 
     if not "Achieved" in criteria:
         keywords = ("fan", "Maiden", "Progress")
@@ -287,7 +309,7 @@ def unity_logic() -> str:
                 race_found = do_race(prioritize_g1, img=race_name)
 
             if race_found:
-                return "exit"
+                return
             else:
                 # If there is no race matching to aptitude, go back and do training instead
                 click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="Proceeding to training.")
@@ -300,15 +322,21 @@ def unity_logic() -> str:
 
     if not filtered:
         info("All stats capped or no valid training")
-        return "exit"
+        return
 
     result, best_data = _training(filtered)
 
     # if result == "wit":
     #     best_data["training_score"] = best_data["training_score"] - 1
 
-    if best_data is not None:
-        if best_data["training_score"] < 3 and _summer_next_turn() :
+    if _summer_next_turn(year):
+        if best_data is None:
+            state.FORCE_REST = True
+            info("[UNITY] Summer camp next & low energy → Rest.")
+            do_rest(energy_level)
+            return
+
+        if best_data["training_score"] < 4:
             if state.CURRENT_ENERGY_LEVEL <= 50:
                 state.FORCE_REST = True
                 info("[UNITY] Summer camp next & low energy → Rest.")
@@ -319,22 +347,23 @@ def unity_logic() -> str:
                 go_to_training()
                 sleep(0.5)
                 do_train("wit")
-            return "exit"
+            return
 
+    missing_mood = _need_recreation(year)
     conditions, total_severity, infirmary_box = _need_infirmary()
     if total_severity > 0:
-        if total_severity <= 1 and _need_recreation():
+        if total_severity <= 1 and missing_mood > 0 and not (_summer_camp(year) and missing_energy < 40):
             info("[UNITY] Mood low & Status condition present → Recreation.")
             sleep(0.5)
             do_recreation()
-            return "exit"
+            return
         # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
-        if max(0, (max_energy - energy_level)) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
+        if max(0, missing_energy) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
             if total_severity > 1 and infirmary_box:
                 info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
                 sleep(0.5)
                 click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
-                return "exit"
+                return
             else:
                 info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
         else:
@@ -342,7 +371,13 @@ def unity_logic() -> str:
                 info("[UNITY] Status condition present → Infirmary.")
                 sleep(0.5)
                 click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
-                return "exit"
+                return
+
+    if missing_mood > 1:
+        info("[UNITY] Mood is very low → Recreation.")
+        sleep(0.5)
+        do_recreation("friend")
+        return
 
     if best_data is not None:
         if best_data["training_score"] >= 3:
@@ -351,61 +386,57 @@ def unity_logic() -> str:
             go_to_training()
             sleep(0.5)
             do_train(result)
-            return "exit"
+            return
 
-    if _need_recreation():
+    if missing_mood > 0:
         info("[UNITY] Mood is low → Recreation.")
         sleep(0.5)
-        do_recreation()
-        return "exit"
+        do_recreation("friend")
+        return
 
     if best_data is not None:
-        if best_data["training_score"] >= 1.5:
+        if best_data["training_score"] >= 1:
             info(f"[UNITY] Found 1 Friend Training → Train {result.upper()}.")
             sleep(0.5)
             go_to_training()
             sleep(0.5)
             do_train(result)
-            return "exit"
+            return
 
     if best_data is not None:
         if best_data["training_score"] >= 0 :
             info(f"[UNITY] Use most_support_card.")
-            result = most_support_card(filtered)
-            if result is not None:
-                if result is False:
-                    return "exit"
-                else:
-                    sleep(0.5)
-                    go_to_training()
-                    sleep(0.5)
-                    do_train(result)
-                    info(f"[UNITY] most_support_card training found → Train {result.upper()}.")
-                    return "exit"
+            results = most_support_card(filtered)
+            if results is not None:
+                if results is not False:
+                   sleep(0.5)
+                   go_to_training()
+                   sleep(0.5)
+                   do_train(results)
+                   info(f"[UNITY] most_support_card training found → Train {results.upper()}.")
+                   return
 
-    if year_parts[0] == "Finale" and "Finals" in criteria:
+    if result == "fallback":
+        info(f"[UNITY] Use most_support_card.")
+        results = most_support_card(filtered)
+        if results is not None:
+            if results is not False:
+               sleep(0.5)
+               go_to_training()
+               sleep(0.5)
+               do_train(results)
+               info(f"[UNITY] most_support_card training found → Train {results.upper()}.")
+               return
+
+    if "Finale" in year and "Finals" in criteria:
         sleep(0.5)
         go_to_training()
         sleep(0.5)
         do_train("wit")
         info(f"[UNITY] No training found, but it was last turn → Train WIT.")
-        return "exit"
-
-    if result == "fallback":
-        info(f"[UNITY] Use most_support_card.")
-        result = most_support_card(filtered)
-        if result is not None:
-            if result is False:
-                return "exit"
-            else:
-                sleep(0.5)
-                go_to_training()
-                sleep(0.5)
-                do_train(result)
-                info(f"[UNITY] most_support_card training found → Train {result.upper()}.")
-                return "exit"
+        return
 
     info(f"[UNITY] No training found → Rest.")
     do_rest(energy_level)
     sleep(1)
-    return "exit"
+    return

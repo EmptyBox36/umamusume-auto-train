@@ -31,7 +31,6 @@ def check_training():
 
   # failcheck enum "train","no_train","check_all"
   # failcheck="check_all"
-  margin=5
   for key, icon_path in training_types.items():
     if state.stop_event.is_set():
       return {}
@@ -42,25 +41,6 @@ def check_training():
       pyautogui.mouseDown()
       support_card_results = check_support_card()
 
-      #if key != "wit":
-      #  if failcheck == "check_all":
-      #    failure_chance = check_failure()
-      #    if failure_chance > (state.MAX_FAILURE + margin):
-      #      info("Failure rate too high skip to check wit")
-      #      failcheck="no_train"
-      #      failure_chance = state.MAX_FAILURE + margin
-      #    elif failure_chance < (state.MAX_FAILURE - margin):
-      #      info("Failure rate is low enough, skipping the rest of failure checks.")
-      #      failcheck="train"
-      #      failure_chance = 0
-      #  elif failcheck == "no_train":
-      #    failure_chance = state.MAX_FAILURE + margin
-      #  elif failcheck == "train":
-      #    failure_chance = 0
-      #else:
-      #  if failcheck == "train":
-      #    failure_chance = 0
-      #  else:
       failure_chance = check_failure()
 
       support_card_results["failure"] = failure_chance
@@ -95,7 +75,7 @@ def do_rest(energy_level):
   elif rest_summber_btn:
     click(boxes=rest_summber_btn)
 
-def do_recreation():
+def do_recreation(method = None):
   if state.stop_event.is_set():
     return
   recreation_btn = pyautogui.locateOnScreen("assets/buttons/recreation_btn.png", confidence=0.8, region=constants.SCREEN_BOTTOM_REGION)
@@ -109,19 +89,24 @@ def do_recreation():
     tazuna_event = pyautogui.locateCenterOnScreen("assets/ui/tazuna_event.png", confidence=0.8, region=constants.GAME_SCREEN)
     riko_event = pyautogui.locateCenterOnScreen("assets/ui/riko_event.png", confidence=0.8, region=constants.GAME_SCREEN)
     date_complete = pyautogui.locateCenterOnScreen("assets/ui/date_complete.png", confidence=0.8, region=constants.GAME_SCREEN)
+    trainee_recreation = pyautogui.locateCenterOnScreen("assets/icons/trainee_recreation.png", confidence=0.8, region=constants.GAME_SCREEN)
 
-    if date_complete:
-      pyautogui.moveTo(410, 500, duration=0.15)
-      pyautogui.click()
-    elif aoi_event:
-      pyautogui.moveTo(aoi_event, duration=0.15)
-      pyautogui.click(aoi_event)
-    elif tazuna_event:
-      pyautogui.moveTo(tazuna_event, duration=0.15)
-      pyautogui.click(tazuna_event)
-    elif riko_event:
-      pyautogui.moveTo(riko_event, duration=0.15)
-      pyautogui.click(riko_event)
+    if method == "friend":
+      if date_complete:
+        pyautogui.moveTo(410, 500, duration=0.15)
+        pyautogui.click()
+      elif aoi_event:
+        pyautogui.moveTo(aoi_event, duration=0.15)
+        pyautogui.click(aoi_event)
+      elif tazuna_event:
+        pyautogui.moveTo(tazuna_event, duration=0.15)
+        pyautogui.click(tazuna_event)
+      elif riko_event:
+        pyautogui.moveTo(riko_event, duration=0.15)
+        pyautogui.click(riko_event)
+    else:
+        pyautogui.moveTo(trainee_recreation, duration=0.15)
+        pyautogui.click(trainee_recreation)
 
   elif recreation_summer_btn:
     click(boxes=recreation_summer_btn)
@@ -228,15 +213,17 @@ def race_prep():
 
   if state.stop_event.is_set():
     return
-
-  if state.STOP_BEFORE_RACE:
-      stop_bot()
-      return
+  
+  # STOP_BEFORE_RACE = False
+  # if STOP_BEFORE_RACE:
+  #     stop_bot()
+  #     return
 
   if state.POSITION_SELECTION_ENABLED:
     # these two are mutually exclusive, so we only use preferred position if positions by race is not enabled.
     if state.ENABLE_POSITIONS_BY_RACE:
-      click(img="assets/buttons/info_btn.png", minSearch=get_secs(5), region=constants.SCREEN_TOP_REGION)
+      sleep(0.5)
+      click(img="assets/buttons/info_btn.png", minSearch=get_secs(10), region=constants.SCREEN_TOP_REGION)
       sleep(0.5)
       #find race text, get part inside parentheses using regex, strip whitespaces and make it lowercase for our usage
       race_info_text = get_race_type()
@@ -256,7 +243,6 @@ def race_prep():
       click(img="assets/buttons/confirm_btn.png", minSearch=get_secs(2), region=constants.SCREEN_MIDDLE_REGION)
       state.PREFERRED_POSITION_SET = True
 
-  view_result_btn = pyautogui.locateCenterOnScreen("assets/buttons/view_results.png", confidence=0.8, minSearchTime=get_secs(10), region=constants.SCREEN_BOTTOM_REGION)
   click("assets/buttons/view_results.png", click=3, minSearch=get_secs(10))
   sleep(0.5)
   pyautogui.click()

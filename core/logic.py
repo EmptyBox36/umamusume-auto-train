@@ -69,6 +69,9 @@ def most_support_card(results):
 
   best_key, best_data = best_training
   
+  RACE_IF_LOW = True
+  FRIEND_IF_LOW = True
+
   if best_data["total_supports"] <= 1:
     if int(best_data["failure"]) == 0:
       # WIT must be at least 2 support cards
@@ -80,23 +83,23 @@ def most_support_card(results):
           info(f"Only 1 support and it's WIT. Skipping.")
           return None
       else:
-        if energy_level > 50:
-          if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
-              from utils.process import do_race
-              info("Training point is too low and have high energy, try to do race.")
-              race = do_race()
-              if race is True:
-                  return False
-              elif race is False:
-                  return "wit"
-              else:
-                  click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found.")
-                  sleep(0.5)
-                  return "wit"
-
+        if RACE_IF_LOW:
+          if energy_level > 50:
+            if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
+                from utils.process import do_race
+                info("Training point is too low and have high energy, try to do race.")
+                race = do_race()
+                if race is True:
+                    return False
+                elif race is False:
+                    return best_key
+                else:
+                    click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found.")
+                    sleep(0.5)
+                    return best_key
         if energy_level > state.NEVER_REST_ENERGY:
             info(f"Only 1 support but energy is too high for resting to be worth it. Still training.")
-            return "wit"
+            return best_key
         else:
           info(f"Only 1 support. Skipping.")
           return None
@@ -369,7 +372,7 @@ def decide_race_for_goal(year, turn, criteria, keywords):
   # Check if goals is not met criteria AND it is not Pre-Debut AND turn is less than 10 AND Goal is already achieved
   if year == "Junior Year Pre-Debut":
     return no_race
-  if turn >= 10:
+  if turn >= 6:
     return no_race
   criteria_text = criteria or ""
   if any(word in criteria_text for word in keywords):

@@ -10,10 +10,11 @@ from utils.log import info, warning, error, debug
 import utils.constants as constants
 
 from core.recognizer import is_btn_active, match_template, multi_match_templates
-from utils.process import event_choice, click
+from utils.process import event_choice, race_prep, after_race
+from utils.tools import click, sleep
 
 from logic.ura import ura_logic
-from logic.unity import unity_logic, unity_race
+from logic.unity import race_prep, unity_logic, unity_race
 
 templates = {
   "event": "assets/icons/event_choice_1.png",
@@ -26,13 +27,16 @@ templates = {
   "infirmary": "assets/buttons/infirmary_btn.png",
   "retry": "assets/buttons/retry_btn.png",
   "close": "assets/unity_cup/close_btn.png",
-  "complete": "assets/buttons/complete_btn.png"
+  "complete": "assets/buttons/complete_btn.png",
+  "view_result":"assets/buttons/view_results.png"
 }
 
 state.PREFERRED_POSITION_SET = False
+state.FORCE_REST = False
 def career_lobby():
   # Program start
   state.PREFERRED_POSITION_SET = False
+  state.FORCE_REST = False
   while state.is_bot_running and not state.stop_event.is_set():
     screen = ImageGrab.grab()
     matches = multi_match_templates(templates, screen=screen)
@@ -50,6 +54,11 @@ def career_lobby():
       continue
     if click(boxes=matches["inspiration"], text="Inspiration found."):
       continue
+    if matches["view_result"]:
+      race_prep()
+      sleep(1)
+      after_race()
+      continue
     if click(boxes=matches["next"], text="next"):
       continue
     if click(boxes=matches["next2"], text="next2"):
@@ -58,7 +67,7 @@ def career_lobby():
       clock_icon = match_template("assets/icons/clock_icon.png", threshold=0.8)
       if clock_icon:
         stop_bot()
-        info("Lost race, wait for input.")
+        info("Lost race, Stopping the bot.")
         continue
       else:
         click(boxes=matches["cancel"])
@@ -81,11 +90,9 @@ def career_lobby():
     mood_index = constants.MOOD_LIST.index(mood)
     turn = check_turn()
     year = check_current_year()
-    year_parts = year.split(" ")
     criteria = check_criteria()
     current_stats = stat_state()
 
-    state.FORCE_REST = False
     state.CURRENT_ENERGY_LEVEL = energy_level
     state.MAX_ENERGY = max_energy
     state.CURRENT_MOOD_INDEX = mood_index
@@ -93,6 +100,7 @@ def career_lobby():
     state.CURRENT_YEAR = year
     state.CUSTOM_FAILURE = state.MAX_FAILURE
     state.CURRENT_TURN_LEFT = turn
+    state.CRITERIA = criteria
 
     print("\n=======================================================================================\n")
     info(f"Trainee: {state.TRAINEE_NAME}")
@@ -105,10 +113,9 @@ def career_lobby():
     print("\n=======================================================================================\n")
 
     if "URA" in state.SCENARIO_NAME:
-        action = ura_logic()
+        ura_logic()
 
     if "Unity" in state.SCENARIO_NAME:
-        action = unity_logic()
+        unity_logic()
     
-    if action == "exit":
-            continue
+    continue
