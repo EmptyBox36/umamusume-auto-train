@@ -1,5 +1,39 @@
 {
-    "(❯) Rainy Day, Floating Flowers": {
+    "(❯❯) Are U the Problem?": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 10.0,
+                "Guts": 15.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Go with the Flow",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 15.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 20.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 10.0,
+                "Speed": 10.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Ikuno-Style Flawless Method": {
         "choices": {
             "1": "Top",
             "2": "Bot"
@@ -11,22 +45,56 @@
                 "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
-                "Power": 10.0,
+                "Power": 0.0,
                 "Skill Hint": "",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 10.0
             },
             "2": {
-                "Friendship": 0.0,
+                "Friendship": 5.0,
                 "Guts": 0.0,
                 "HP": 0.0,
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": "Passing Pro",
-                "Skill Pts": 40.0,
+                "Skill Hint": "",
+                "Skill Pts": 30.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "Ikuno-Style Management": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 20.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Trick (Rear)",
+                "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 0.0
@@ -1523,40 +1591,6 @@
             }
         }
     },
-    "(❯) Modestly! Boldly!": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 1.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Tether",
-                "Skill Pts": 10.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "(❯❯❯) Hit It! Princess Road!": {
         "choices": {
             "1": "Top",
@@ -2094,40 +2128,6 @@
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": "Medium Corners ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "(❯) Cozy Memories of Wanko Soba": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 1.0,
-                "Power": 0.0,
-                "Skill Hint": "Inner Post Proficiency ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Hydrate",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -3897,40 +3897,6 @@
             }
         }
     },
-    "//Absolute Desire": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Pace Strategy",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 5.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "08:36 / Crap, I Overslept": {
         "choices": {
             "1": "Top",
@@ -4883,40 +4849,6 @@
             }
         }
     },
-    "(❯) Dig Here, Windy!": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 10.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -5.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 30.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "Chomp Extermination!": {
         "choices": {
             "1": "Top",
@@ -5305,74 +5237,6 @@
             }
         }
     },
-    "Ikuno-Style Flawless Method": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 10.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 30.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Ikuno-Style Management": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 20.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Trick (Rear)",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
     "(❯) #BFF #Party!": {
         "choices": {
             "1": "Top",
@@ -5502,40 +5366,6 @@
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": "Long Shot ○",
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "(❯) Some Very Green Friends": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": "Lucky Seven",
-                "Skill Pts": 10.0,
-                "Speed": 5.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 0.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": -1.0,
-                "Power": 0.0,
-                "Skill Hint": "Maverick ○",
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -7001,6 +6831,40 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 15.0,
+                "Wit": 0.0
+            }
+        }
+    },
+    "//Absolute Desire": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "Pace Strategy",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 5.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": "",
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
                 "Wit": 0.0
             }
         }
