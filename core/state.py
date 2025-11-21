@@ -11,7 +11,7 @@ from math import floor
 from utils.log import info, warning, error, debug
 
 from utils.screenshot import capture_region, enhanced_screenshot
-from core.ocr import extract_text, extract_number, extract_text_improved
+from core.ocr import extract_text, extract_number, extract_text_improved, extract_percent
 from core.recognizer import match_template, count_pixels_of_color, find_color_of_pixel, closest_color, multi_match_templates
 
 import utils.constants as constants
@@ -45,6 +45,7 @@ FORCE_REST = False
 CURRENT_TURN_LEFT = None
 PREFERRED_POSITION_SET = None
 SCENARIO_NAME = ""
+CRITERIA = None
 
 TURN_REGION = (0,0,0,0)
 YEAR_REGION = (0,0,0,0)
@@ -56,15 +57,15 @@ def load_config():
     return json.load(file)
 
 def reload_config():
-  global PRIORITY_STAT, PRIORITY_WEIGHT, MINIMUM_MOOD, MINIMUM_MOOD_JUNIOR_YEAR, MAX_FAILURE
+  global PRIORITY_STAT, PRIORITY_WEIGHT, MINIMUM_MOOD, MINIMUM_MOOD_JUNIOR_YEAR, MAX_FAILURE, MINIMUM_MOOD_WITH_FRIEND
   global PRIORITIZE_G1_RACE, CANCEL_CONSECUTIVE_RACE, STAT_CAPS
-  global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, PREFERRED_POSITION
-  global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER
+  global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, PREFERRED_POSITION, SUMMER_PRIORITY_EFFECTS_LIST
+  global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER, STOP_BEFORE_RACE
   global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
   global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE, EVENT_CHOICES
   global ENABLE_CUSTOM_FAILURE_CHANCE, ENABLE_CUSTOM_LOW_FAILURE, ENABLE_CUSTOM_HIGH_FAILURE, LOW_FAILURE_CONDITION, HIGH_FAILURE_CONDITION
   global IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST, DESIRE_SKILL
-  global TURN_REGION, YEAR_REGION, FAILURE_REGION, FAILURE_PERCENT_REGION, SPD_STAT_REGION, STA_STAT_REGION, PWR_STAT_REGION, GUTS_STAT_REGION, WIT_STAT_REGION
+  global TURN_REGION, YEAR_REGION, FAILURE_REGION, FAILURE_PERCENT_REGION, TURN_NUMBER_REGION
   global UNITY_TEAM_PREFERENCE, UNITY_SPIRIT_BURST_POSITION
 
   config = load_config()
@@ -72,6 +73,7 @@ def reload_config():
   PRIORITY_STAT = config["priority_stat"]
   PRIORITY_WEIGHT = config["priority_weight"]
   MINIMUM_MOOD = config["minimum_mood"]
+  MINIMUM_MOOD_WITH_FRIEND = config["minimum_mood_with_friend"]
   MINIMUM_MOOD_JUNIOR_YEAR = config["minimum_mood_junior_year"]
   MAX_FAILURE = config["failure"]["maximum_failure"]
   PRIORITIZE_G1_RACE = config["prioritize_g1_race"]
@@ -108,6 +110,8 @@ def reload_config():
   EVENT_CHOICES = config["event"]["event_choices"]
   UNITY_TEAM_PREFERENCE = config["unity"]["prefer_team_race"]
   UNITY_SPIRIT_BURST_POSITION = config["unity"]["spirit_burst_position"]
+  # STOP_BEFORE_RACE = config["stop_bot_before_race"]
+  SUMMER_PRIORITY_EFFECTS_LIST = {i: v for i, v in enumerate(config["summer_priority_weights"])}
 
   # URA Starter
   if "URA" in SCENARIO_NAME:
@@ -116,33 +120,22 @@ def reload_config():
     FAILURE_REGION=(250, 770, 855 - 295, 835 - 770)
     FAILURE_PERCENT_REGION=(250, 790, 855 - 295, 835 - 790)
 
-    SPD_STAT_REGION = (310, 723, 55, 20)
-    STA_STAT_REGION = (405, 723, 55, 20)
-    PWR_STAT_REGION = (500, 723, 55, 20)
-    GUTS_STAT_REGION = (595, 723, 55, 20)
-    WIT_STAT_REGION = (690, 723, 55, 20)
-
     # Unity Starter
   if "Unity" in SCENARIO_NAME:
     TURN_REGION = (260, 55, 375 - 260, 110 - 55)
+    TURN_NUMBER_REGION = (260, 55, 325 - 260, 110 - 55)
     YEAR_REGION =(385, 40, 565 - 385, 60 - 40)
     FAILURE_REGION=(250, 760, 855 - 250, 810 - 760)
     FAILURE_PERCENT_REGION=(250, 780, 855 - 250, 810 - 780)
 
-    SPD_STAT_REGION = (310, 723, 55, 20)
-    STA_STAT_REGION = (405, 723, 55, 20)
-    PWR_STAT_REGION = (500, 723, 55, 20)
-    GUTS_STAT_REGION = (595, 723, 55, 20)
-    WIT_STAT_REGION = (690, 723, 55, 20)
-
 # Get Stat
 def stat_state():
   stat_regions = {
-    "spd": SPD_STAT_REGION,
-    "sta": STA_STAT_REGION,
-    "pwr": PWR_STAT_REGION,
-    "guts": GUTS_STAT_REGION,
-    "wit": WIT_STAT_REGION
+    "spd": constants.SPD_STAT_REGION,
+    "sta": constants.STA_STAT_REGION,
+    "pwr": constants.PWR_STAT_REGION,
+    "guts": constants.GUTS_STAT_REGION,
+    "wit": constants.WIT_STAT_REGION
   }
 
   result = {}
@@ -244,10 +237,12 @@ def check_support_card(threshold=0.8, target="none"):
 def check_failure():
   failure_text = enhanced_screenshot(FAILURE_REGION)
   failure_percent = enhanced_screenshot(FAILURE_PERCENT_REGION)
+
   # # use new OCR that protects against misread errors
   # val = extract_percent(failure_percent)
   # if val != -1:
   #   return int(val)
+
   # 0) verify we're on a Failure badge
   label = extract_text(failure_text).lower()
   if not label.startswith("failure"):
@@ -255,7 +250,7 @@ def check_failure():
 
   # 1) read percent from the badge region only
   pct_text = extract_text(failure_percent)
-  hits = list(re.finditer(r'(\d(?:\s?\d){0,2})\s*%', pct_text))  # e.g. "3 %", "39%"
+  hits = list(re.finditer(r'(\d(?:\s?\d){0,2})\s*%', pct_text))
   if hits:
     v = int(hits[-1].group(1).replace(" ", ""))               # rightmost match
     if 0 <= v <= 100:
@@ -266,17 +261,18 @@ def check_failure():
   if m:
     return int(m.group(1))
 
-  m = re.search(r"failure\s+(\d+)", label)
-  if m:
-    digits = m.group(1)
-    idx = digits.find("9")
-    if idx > 0:
-      num = digits[:idx]
-      return int(num) if num.isdigit() else -1
-    if digits.isdigit():
-      return int(digits)
+  # m = re.search(r"failure\s+(\d+)", label)
+  # if m:
+  #   digits = m.group(1)
+  #   idx = digits.find("9")
+  #   if idx > 0:
+  #     num = digits[:idx]
+  #     if num.isdigit():
+  #       return int(num)
+  #   if digits.isdigit():
+  #     return int(digits)
 
-  return -1
+  return 99
 
 # Check mood
 def check_mood():
@@ -300,20 +296,21 @@ def check_turn():
     if "goal" in turn_text.lower():
         return "Goal"
 
-    # turn_text = re.sub(r"turns?|\(s\)|left", "", turn_text, flags=re.IGNORECASE)
-    # turn_text = re.sub(r"[^0-9]", "", turn_text)
-
+    turn_text = turn_text.replace("I", "1")
     digits_only = re.sub(r"[^\d]", "", turn_text)
 
     if digits_only:
-      if 0 < int(digits_only) < 20:
+      if 0 < int(digits_only) < 50:
         return int(digits_only)
     
-    turn_num = extract_number(turn)
-    if turn_num:
-        if 0 < int(turn_num) < 20:
-          return int(turn_num)
+    turn_num = enhanced_screenshot(TURN_NUMBER_REGION)
+    turn_num_ex = extract_text(turn_num)
+    if turn_num_ex:
+        if 0 < int(turn_num_ex) < 50:
+          return int(turn_num_ex)
     
+    debug(f"turn_text: {turn_text}")
+    debug(f"turn_num: {turn_num_ex}")
     return -1
 
 def _norm(s: str) -> str:
@@ -534,13 +531,3 @@ def stop_bot():
     info("[BOT] Stopping...")
     stop_event.set()
     is_bot_running = False
-
-    if bot_thread and bot_thread.is_alive():
-        info("[BOT] Waiting for bot to stop...")
-        bot_thread.join(timeout=3)
-        if bot_thread.is_alive():
-            info("[BOT] Bot still running, please wait...")
-        else:
-            info("[BOT] Bot stopped completely")
-
-    bot_thread = None

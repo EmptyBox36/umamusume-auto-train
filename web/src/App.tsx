@@ -41,6 +41,7 @@ import ScenarioSelect from "./components/setting/ScenarioSelect";
 import ConfigManager from "./components/config/ConfigManager";
 import CustomEventPicker from "./components/Event/CustomEventPicker";
 import ScenarioConfig from "./components/setting/ScenarioConfig";
+import SummerPriorityWeights from "./components/training/SummerPriorityWeights";
 
 function App() {
   const defaultConfig = rawConfig as Config;
@@ -77,11 +78,13 @@ function App() {
   const {
     priority_stat,
     priority_weights,
+    summer_priority_weights,
     sleep_time_multiplier,
     skip_training_energy,
     never_rest_energy,
     skip_infirmary_unless_missing_energy,
     minimum_mood,
+    minimum_mood_with_friend,
     priority_weight,
     hint_point,
     choice_weight,
@@ -114,7 +117,7 @@ function App() {
     } = failure;
 
   const {use_optimal_event_choices} = event;
-  const { is_auto_buy_skill, skill_pts_check, skill_list, desire_skill } = skill;
+  const {is_auto_buy_skill, skill_pts_check, skill_list, desire_skill} = skill;
 
   const updateConfig = <K extends keyof typeof config>(key: K, value: (typeof config)[K]) => {
     setConfig((prev) => ({ ...prev, [key]: value }));
@@ -224,7 +227,8 @@ function App() {
           <div className="lg:col-span-2 flex flex-col gap-8">
             <div className="bg-card p-6 rounded-xl shadow-lg border border-border/20">
               <h2 className="text-3xl font-semibold mb-6 flex items-center gap-3"><BarChart3 className="text-primary"/>Training</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <p className="text-lg font-semibold mb-2">Weight Multiplier</p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <PriorityStat priorityStat={priority_stat} setPriorityStat={(val) => updateConfig("priority_stat", val)} />
                 <PriorityWeights
                   priorityWeights={priority_weights}
@@ -234,14 +238,22 @@ function App() {
                     updateConfig("priority_weights", newWeights);
                   }}
                 />
-                <PriorityWeight priorityWeight={priority_weight} setPriorityWeight={(val) => updateConfig("priority_weight", val)} />
-                <div className="flex flex-col gap-4">
-                    <JuniorPrioritize juniorPrioritize={use_prioritize_on_junior} setJuniorPrioritize={(val) => updateConfig("use_prioritize_on_junior", val)} />
-                    <HintPoint hintPoint={hint_point ?? 0} setHintPoint={(val) => updateConfig("hint_point", val)}/>
-                </div>
+                <SummerPriorityWeights
+                  summerPriorityWeights={summer_priority_weights}
+                  setSummerPriorityWeights={(val, i) => {
+                    const newSummerWeights = [...config.summer_priority_weights];
+                    newSummerWeights[i] = isNaN(val) ? 0 : val;
+                    updateConfig("summer_priority_weights", newSummerWeights);
+                  }}
+                />
               </div>
               <div className="mt-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <PriorityWeight priorityWeight={priority_weight} setPriorityWeight={(val) => updateConfig("priority_weight", val)} />
+                    <div className="flex flex-col gap-4">
+                        <JuniorPrioritize juniorPrioritize={use_prioritize_on_junior} setJuniorPrioritize={(val) => updateConfig("use_prioritize_on_junior", val)} />
+                        <HintPoint hintPoint={hint_point ?? 0} setHintPoint={(val) => updateConfig("hint_point", val)}/>
+                    </div>
                     <StatCaps statCaps={stat_caps} setStatCaps={(key, val) => updateConfig("stat_caps", { ...stat_caps, [key]: isNaN(val) ? 0 : val })} />
                     <div className="flex flex-col gap-4">
                         <FailChance maximumFailure={maximum_failure} setFail={(val) => updateConfig("failure", { ...failure, maximum_failure: isNaN(val) ? 0 : val })} />
@@ -249,7 +261,7 @@ function App() {
                         <IsCustomLowFailChance CustomFailureEnabled={enable_custom_failure} enableCustomLowFailure={enable_custom_low_failure} setCustomLowFailChance={(val) => updateConfig("failure", { ...failure, enable_custom_low_failure: val })} />
                         <CustomLowFailChance LowFailChanceEnabled={enable_custom_low_failure} customLowCondition={low_failure_condition} setLowCondition={(key, val) => updateConfig("failure", {...failure,low_failure_condition: {...low_failure_condition,[key]: isNaN(val) ? 0 : val,},})} /> 
                         <IsCustomHighFailChance CustomFailureEnabled={enable_custom_failure} enableCustomHighFailure={enable_custom_high_failure} setCustomHighFailChance={(val) => updateConfig("failure", { ...failure, enable_custom_high_failure: val })} />
-                                      <CustomHighFailChance HighFailChanceEnabled={enable_custom_high_failure} customHighCondition={high_failure_condition} setHighCondition={(key, val) => updateConfig("failure", { ...failure, high_failure_condition: { ...high_failure_condition, [key]: isNaN(val) ? 0 : val, }, })} /> 
+                        <CustomHighFailChance HighFailChanceEnabled={enable_custom_high_failure} customHighCondition={high_failure_condition} setHighCondition={(key, val) => updateConfig("failure", { ...failure, high_failure_condition: { ...high_failure_condition, [key]: isNaN(val) ? 0 : val, }, })} /> 
                     </div>
                 </div>
               </div>
@@ -259,7 +271,7 @@ function App() {
               <h2 className="text-3xl font-semibold mb-6 flex items-center gap-3"><Cog className="text-primary"/>General</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <WindowName windowName={window_name} setWindowName={(val) => updateConfig("window_name", val)} />
-                <Mood minimumMood={minimum_mood} setMood={(val) => updateConfig("minimum_mood", val)} minimumMoodJunior={minimum_mood_junior_year} setMoodJunior={(val) => updateConfig("minimum_mood_junior_year", val)} />
+                <SleepMultiplier sleepMultiplier={sleep_time_multiplier} setSleepMultiplier={(val) => updateConfig("sleep_time_multiplier", val)} />
                 <div className="flex flex-col gap-6">
                   <EnergyInput name="skip-training-energy" value={skip_training_energy} setValue={(val) => updateConfig("skip_training_energy", val)}>
                     Skip Training Energy
@@ -271,7 +283,7 @@ function App() {
                     Skip Infirmary
                   </EnergyInput>
                 </div>
-                <SleepMultiplier sleepMultiplier={sleep_time_multiplier} setSleepMultiplier={(val) => updateConfig("sleep_time_multiplier", val)} />
+                <Mood minimumMood={minimum_mood} setMood={(val) => updateConfig("minimum_mood", val)} minimumMoodwithFriend={minimum_mood_with_friend} setMoodwithFriend={(val) => updateConfig("minimum_mood_with_friend", val)} minimumMoodJunior={minimum_mood_junior_year} setMoodJunior={(val) => updateConfig("minimum_mood_junior_year", val)} />
               </div>
             </div>
 
@@ -335,7 +347,7 @@ function App() {
               <div className="flex flex-col gap-6">
                 <div className="flex gap-2 items-center">
                     <h2 className="text-3xl font-semibold flex items-center gap-3"><MessageCircleMore className="text-primary" />Event</h2>
-                    <Tooltips>Skill hint → Score System → Custom Choice.</Tooltips> 
+                    <Tooltips>Custom Choice → Skill hint → Score System</Tooltips> 
                 </div>
                 <div className="flex flex-col gap-6">
                     <OptionalEvent optionalEvent={use_optimal_event_choices} setOptionalEvent={(val) => updateConfig("event", { ...event, use_optimal_event_choices: val })} />

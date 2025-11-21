@@ -5,7 +5,7 @@ type Props = {
   setPriorityWeights: (weight: number, index: number) => void;
 };
 
-export default function PriorityWeights({ priorityWeights, setPriorityWeights }: Props) {
+export default function PriorityWeights({ priorityWeights, setPriorityWeights}: Props) {
   return (
     <div className="flex flex-col gap-2 w-fit">
       <p className="text-lg font-medium">Priority Weight Multiplier</p>

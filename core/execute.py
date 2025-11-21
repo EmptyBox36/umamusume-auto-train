@@ -4,16 +4,17 @@ from PIL import ImageGrab
 pyautogui.useImageNotFoundException(False)
 
 import core.state as state
-from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, stat_state, check_aptitudes, check_unity
+from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, stat_state, check_aptitudes, check_unity, stop_bot
 
 from utils.log import info, warning, error, debug
 import utils.constants as constants
 
 from core.recognizer import is_btn_active, match_template, multi_match_templates
-from utils.process import event_choice, click
+from utils.process import event_choice, race_prep, after_race
+from utils.tools import click, sleep
 
 from logic.ura import ura_logic
-from logic.unity import unity_logic, unity_race
+from logic.unity import race_prep, unity_logic, unity_race
 
 templates = {
   "event": "assets/icons/event_choice_1.png",
@@ -25,17 +26,24 @@ templates = {
   "tazuna": "assets/ui/tazuna_hint.png",
   "infirmary": "assets/buttons/infirmary_btn.png",
   "retry": "assets/buttons/retry_btn.png",
-  "close": "assets/unity_cup/close_btn.png"
+  "close": "assets/unity_cup/close_btn.png",
+  "complete": "assets/buttons/complete_btn.png",
+  "view_result":"assets/buttons/view_results.png"
 }
 
 state.PREFERRED_POSITION_SET = False
+state.FORCE_REST = False
 def career_lobby():
   # Program start
   state.PREFERRED_POSITION_SET = False
+  state.FORCE_REST = False
   while state.is_bot_running and not state.stop_event.is_set():
     screen = ImageGrab.grab()
     matches = multi_match_templates(templates, screen=screen)
 
+    if matches["complete"]:
+        stop_bot()
+        info("Career complete. Stop bot")
     if click(boxes=matches["acupuncture_accept"]):
       continue
     if event_choice():
@@ -46,6 +54,11 @@ def career_lobby():
       continue
     if click(boxes=matches["inspiration"], text="Inspiration found."):
       continue
+    if matches["view_result"]:
+      race_prep()
+      sleep(1)
+      after_race()
+      continue
     if click(boxes=matches["next"], text="next"):
       continue
     if click(boxes=matches["next2"], text="next2"):
@@ -53,7 +66,8 @@ def career_lobby():
     if matches["cancel"]:
       clock_icon = match_template("assets/icons/clock_icon.png", threshold=0.8)
       if clock_icon:
-        info("Lost race, wait for input.")
+        stop_bot()
+        info("Lost race, Stopping the bot.")
         continue
       else:
         click(boxes=matches["cancel"])
@@ -76,11 +90,9 @@ def career_lobby():
     mood_index = constants.MOOD_LIST.index(mood)
     turn = check_turn()
     year = check_current_year()
-    year_parts = year.split(" ")
     criteria = check_criteria()
     current_stats = stat_state()
 
-    state.FORCE_REST = False
     state.CURRENT_ENERGY_LEVEL = energy_level
     state.MAX_ENERGY = max_energy
     state.CURRENT_MOOD_INDEX = mood_index
@@ -88,6 +100,7 @@ def career_lobby():
     state.CURRENT_YEAR = year
     state.CUSTOM_FAILURE = state.MAX_FAILURE
     state.CURRENT_TURN_LEFT = turn
+    state.CRITERIA = criteria
 
     print("\n=======================================================================================\n")
     info(f"Trainee: {state.TRAINEE_NAME}")
@@ -100,10 +113,9 @@ def career_lobby():
     print("\n=======================================================================================\n")
 
     if "URA" in state.SCENARIO_NAME:
-        action = ura_logic()
+        ura_logic()
 
     if "Unity" in state.SCENARIO_NAME:
-        action = unity_logic()
+        unity_logic()
     
-    if action == "exit":
-            continue
+    continue

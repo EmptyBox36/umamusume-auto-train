@@ -75,6 +75,7 @@ export type Config = {
   scenario: string;
   priority_stat: string[];
   priority_weights: number[];
+  summer_priority_weights: number[];
   hint_point: number;
   use_prioritize_on_junior: boolean;
   choice_weight: ChoiceWeight;
@@ -85,6 +86,7 @@ export type Config = {
   priority_weight: string;
   never_rest_energy: number;
   minimum_mood: string;
+  minimum_mood_with_friend: string;
   minimum_mood_junior_year: string;
   failure: failure;
   prioritize_g1_race: boolean;
@@ -104,6 +106,7 @@ export type Config = {
   window_name: string;
   event: event;
   unity?: UnityCfg;
+  stop_bot_before_race: boolean;
 };
 
 export type Preset = { name: string; config: Config };

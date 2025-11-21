@@ -1,4 +1,5 @@
 ﻿import core.state as state
+import utils.constants as constants
 import re
 
 from utils.log import info, warning, error, debug
@@ -7,7 +8,7 @@ from core.EventsDatabase import CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABAS
 from core.EventsDatabase import find_closest_event
 from core.logic import get_stat_priority
 from core.special_events import run_special_event
-import utils.constants as constants
+from core.state import check_energy_level
 
 def get_optimal_choice(event_name: str):
     choice = 0
@@ -89,26 +90,30 @@ def score_choice(choice_row):
         cap  = _f(caps[k_map], 1)
         current = _f(current_stats.get(k_map, 0.0), 0.0) 
 
-        norm = gain * (max(0.0, cap - current) / cap)
+        # norm = gain * (max(0.0, cap - current) / cap)
+        if cap > current:
+            norm = (cap - current) / cap
+        else: # over-capped
+            norm = 0
 
         if state.USE_PRIORITY_ON_CHOICE:
             multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(k_map)]
         else:
             multiplier = 1
 
-        choice_score += choice_weight[k_map] * norm * multiplier
+        choice_score += choice_weight[k_map] * multiplier * norm * gain
 
     # Score from Energy
-    max_energy = float(state.MAX_ENERGY or 100)
-    energy_level = float(state.CURRENT_ENERGY_LEVEL or 0)
+    energy_level, max_energy = check_energy_level()
     missing_energy = max_energy - energy_level
+
     energy_gain = float(choice_row.get("HP", 0) or 0)
     if energy_gain < 0:
         energy_penalty = 0 # if choice give negative energy not have effect on score
     elif missing_energy >= energy_gain or (energy_gain >= 50 and missing_energy >= 50):
         energy_penalty = 1 # 1 = No Penalty
     else:
-        energy_penalty = 0.1
+        energy_penalty = 0
 
     choice_score += choice_weight["hp"] * energy_gain * energy_penalty
 
@@ -134,7 +139,7 @@ def score_choice(choice_row):
     elif mood_index < mood_check:
         mood_penalty = 1 # 1 = No Penalty
     else:
-        mood_penalty = 0.05
+        mood_penalty = 0
 
     choice_score += choice_weight["mood"] * mood_gain * mood_penalty
 
