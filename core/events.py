@@ -64,12 +64,20 @@ def pick_choice_by_skill_hint(event_name: str, desired_skills: set[str]):
     hints = SKILL_HINT_BY_EVENT.get(event_name, {})
     if not hints or not desired_skills:
         return None
+
     desired_norm = {_norm_hint(x) for x in desired_skills}
+
     for choice, hint in hints.items():
-        if _norm_hint(str(hint)) in desired_norm:
-            # total = EVENT_TOTALS.get(event_name, len(hints))
-            info(f"[Hint] {event_name}: choice {choice} ({hint})")
-            return choice
+        if isinstance(hint, list):
+            for h in hint:
+                if _norm_hint(h) in desired_norm:
+                    info(f"[Hint] {event_name}: choice {choice} ({h})")
+                    return choice
+        else:
+            if _norm_hint(hint) in desired_norm:
+                info(f"[Hint] {event_name}: choice {choice} ({hint})")
+                return choice
+
     return None
 
 def _f(x, default=0.0):

@@ -21,7 +21,8 @@ TOOLTIP_HEADER_REL = ".//div[1]"
 # ---- helpers ----
 def blank_stats():
     d = {k: 0.0 for k in STAT_KEYS}
-    d["Skill Hint"] = ""
+    # collect all skill hints for this outcome as a list
+    d["Skill Hint"] = []
     return d
 
 def _worst_num(text: str) -> float | None:
@@ -34,9 +35,21 @@ def add(d: dict, k: str, v: float):
        
 def _finish(d: dict) -> dict:
     d.pop("Skill", None)
+
     for k in STAT_KEYS:
         if k not in d:
-            d[k] = "" if k == "Skill Hint" else 0.0
+            if k == "Skill Hint":
+                d[k] = []
+            else:
+                d[k] = 0.0
+
+    # if older code ever left a non-list here, normalize it
+    if not isinstance(d.get("Skill Hint"), list):
+        if d.get("Skill Hint"):
+            d["Skill Hint"] = [d["Skill Hint"]]
+        else:
+            d["Skill Hint"] = []
+
     return d
 
 def _is_ignorable(line: str) -> bool:
@@ -45,7 +58,7 @@ def _is_ignorable(line: str) -> bool:
 def parse_outcome_block(text: str) -> dict:
     d = blank_stats()
     for ln in (x.strip() for x in text.splitlines() if x.strip()):
-        if _is_ignorable(ln): 
+        if _is_ignorable(ln):
             continue
 
         # full recovery to HP +200
@@ -53,9 +66,17 @@ def parse_outcome_block(text: str) -> dict:
             add(d, "HP", 200.0)           # or use "Energy" if that's your key
             continue
 
-        # Skill hint: keep only the skill name; "(random)" → ""
+        # Skill hint lines, possibly more than one per choice.
         if re.search(r"\bhint\b", ln, re.I):
-            d["Skill Hint"] = "" if re.search(r"\(random\)", ln, re.I) else re.sub(r"\s*hint.*", "", ln, flags=re.I).strip()
+            # skip random skills like "Skill hint (random)"
+            if re.search(r"\(random\)", ln, re.I):
+                continue
+
+            skill_name = re.sub(r"\s*hint.*", "", ln, flags=re.I).strip()
+            if skill_name:
+                if not isinstance(d.get("Skill Hint"), list):
+                    d["Skill Hint"] = []
+                d["Skill Hint"].append(skill_name)
             continue
 
         # Bond → Friendship
