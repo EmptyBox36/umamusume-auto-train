@@ -1,4 +1,357 @@
 {
+    "(❯) Mummy Hunt! Drop the Jokes!": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 10.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 20.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Wet Conditions ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 10.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Tamamo's School Tour": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 10.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 5.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 5.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "A Battle I Can't Lose!": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Calm in a Crowd"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 5.0,
+                "Wit": 5.0,
+                "random": false
+            }
+        }
+    },
+    "(❯❯) The Bookworm and the Mage's Event": {
+        "choices": {
+            "1": "Top",
+            "2": "Mid",
+            "3": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Right-Handed ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 5.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Left-Handed ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "3": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 30.0,
+                "random": false
+            }
+        }
+    },
+    "Book-lover Quirks": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 5.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 5.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "A Tale Entrusted": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 10.0,
+                "Wit": 10.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Medium Straightaways ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "(❯) Status—Boring?": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Moxie"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 10.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 15.0,
+                "random": false
+            }
+        }
+    },
+    "Do No Harm": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 15.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 5.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 5.0,
+                "random": false
+            }
+        }
+    },
+    "Orders Must Be Followed": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Focus"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 15.0,
+                "Speed": 10.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
     "(❯❯) Are U the Problem?": {
         "choices": {
             "1": "Top",
@@ -18,7 +371,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 15.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -31,7 +385,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -52,7 +407,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -65,7 +421,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -86,7 +443,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 20.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -101,7 +459,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -122,7 +481,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -137,7 +497,8 @@
                 "Skill Pts": 40.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -158,7 +519,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -171,7 +533,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -192,7 +555,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -205,7 +569,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -226,7 +591,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -241,7 +607,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -262,7 +629,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 12.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -275,7 +643,8 @@
                 "Skill Pts": 36.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -296,7 +665,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 18.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -309,7 +679,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -328,12 +699,14 @@
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": [
+                    "Ramp Up",
                     "Maverick ○"
                 ],
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 5.0,
@@ -346,7 +719,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "3": {
                 "Friendship": -10.0,
@@ -361,7 +735,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -384,7 +759,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -399,7 +775,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -420,7 +797,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -433,7 +811,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 15.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -454,7 +833,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 5.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -469,7 +849,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -490,7 +871,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -503,7 +885,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -524,7 +907,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -537,7 +921,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             }
         }
     },
@@ -560,7 +945,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -573,7 +959,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -590,11 +977,14 @@
                 "Max Energy": 0.0,
                 "Mood": -1.0,
                 "Power": 0.0,
-                "Skill Hint": [],
+                "Skill Hint": [
+                    "Straightaway Spurt"
+                ],
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": true
             },
             "2": {
                 "Friendship": 5.0,
@@ -607,7 +997,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -628,7 +1019,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 5.0,
@@ -641,7 +1033,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             }
         }
     },
@@ -662,7 +1055,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -675,7 +1069,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 20.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -696,7 +1091,8 @@
                 "Skill Pts": 40.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 5.0,
@@ -709,7 +1105,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -733,7 +1130,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": -5.0,
@@ -748,7 +1146,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -769,7 +1168,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -782,7 +1182,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -805,7 +1206,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -818,7 +1220,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -839,7 +1242,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 3.0,
                 "Stamina": 0.0,
-                "Wit": 3.0
+                "Wit": 3.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -852,7 +1256,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -873,7 +1278,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -886,7 +1292,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -909,7 +1316,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -922,7 +1330,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -943,7 +1352,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -956,7 +1366,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -977,7 +1388,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 3.0,
                 "Stamina": 3.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -992,7 +1404,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1013,7 +1426,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -1028,7 +1442,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             }
         }
     },
@@ -1049,7 +1464,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1062,7 +1478,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1085,7 +1502,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1098,7 +1516,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1119,7 +1538,8 @@
                 "Skill Pts": 20.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1132,7 +1552,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1155,7 +1576,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1168,7 +1590,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1191,7 +1614,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": true
             },
             "2": {
                 "Friendship": 0.0,
@@ -1204,7 +1628,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1225,7 +1650,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1238,7 +1664,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 15.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1259,7 +1686,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 15.0
+                "Wit": 15.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1274,7 +1702,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1297,7 +1726,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1312,7 +1742,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1333,7 +1764,8 @@
                 "Skill Pts": 20.0,
                 "Speed": 0.0,
                 "Stamina": 15.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1346,7 +1778,8 @@
                 "Skill Pts": 20.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1367,7 +1800,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1380,7 +1814,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1401,7 +1836,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1416,7 +1852,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1437,7 +1874,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1450,7 +1888,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1468,12 +1907,14 @@
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": [
-                    "Inside Scoop"
+                    "Inside Scoop",
+                    "Innate Experience"
                 ],
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 0.0,
@@ -1488,7 +1929,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1509,7 +1951,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 15.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1522,7 +1965,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1543,7 +1987,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1558,7 +2003,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1576,11 +2022,14 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": [],
+                "Skill Hint": [
+                    "Homestretch Haste"
+                ],
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 5.0,
@@ -1593,7 +2042,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "3": {
                 "Friendship": 0.0,
@@ -1608,7 +2058,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1629,7 +2080,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1642,7 +2094,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1663,7 +2116,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1678,7 +2132,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1699,7 +2154,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1714,7 +2170,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1737,7 +2194,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 15.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -1750,7 +2208,8 @@
                 "Skill Pts": 25.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1771,7 +2230,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1784,7 +2244,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1805,7 +2266,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1820,7 +2282,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1843,7 +2306,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1858,7 +2322,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1879,7 +2344,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1892,7 +2358,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1913,7 +2380,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1928,7 +2396,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -1949,7 +2418,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1962,7 +2432,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             }
         }
     },
@@ -1983,7 +2454,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -1996,7 +2468,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2017,7 +2490,8 @@
                 "Skill Pts": 45.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2032,7 +2506,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2049,11 +2524,14 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": [],
+                "Skill Hint": [
+                    "Medium Straightaways ○"
+                ],
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 5.0,
@@ -2066,7 +2544,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2089,7 +2568,8 @@
                 "Skill Pts": 5.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 5.0,
@@ -2102,7 +2582,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 5.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2123,7 +2604,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2136,7 +2618,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2157,7 +2640,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2172,7 +2656,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2193,7 +2678,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -2208,7 +2694,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             }
         }
     },
@@ -2229,7 +2716,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2242,7 +2730,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2263,7 +2752,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2278,7 +2768,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2301,7 +2792,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2316,7 +2808,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2337,7 +2830,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2350,7 +2844,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             }
         }
     },
@@ -2373,7 +2868,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2388,7 +2884,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             }
         }
     },
@@ -2409,7 +2906,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2422,7 +2920,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2443,7 +2942,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2458,7 +2958,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2479,7 +2980,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2494,7 +2996,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2515,7 +3018,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2528,7 +3032,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2549,7 +3054,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2562,7 +3068,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2583,7 +3090,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 15.0
+                "Wit": 15.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -2596,7 +3104,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             }
         }
     },
@@ -2619,7 +3128,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 40.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2634,7 +3144,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2655,7 +3166,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2668,7 +3180,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 20.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2689,7 +3202,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2704,7 +3218,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2725,7 +3240,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2738,7 +3254,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2759,7 +3276,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2772,7 +3290,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2793,7 +3312,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2808,7 +3328,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2831,7 +3352,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 15.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2846,7 +3368,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 15.0
+                "Wit": 15.0,
+                "random": false
             }
         }
     },
@@ -2867,7 +3390,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2882,7 +3406,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2900,12 +3425,14 @@
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": [
-                    "Keeping the Lead"
+                    "Keeping the Lead",
+                    "Vanguard Spirit"
                 ],
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 0.0,
@@ -2920,7 +3447,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2941,7 +3469,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -2954,7 +3483,46 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Optimistic Escapism": {
+        "choices": {
+            "1": "Top",
+            "2": "Bot"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 15.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Wet Conditions ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -2975,7 +3543,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 0.0,
@@ -2988,7 +3557,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3005,11 +3575,14 @@
                 "Max Energy": 0.0,
                 "Mood": 0.0,
                 "Power": 0.0,
-                "Skill Hint": [],
+                "Skill Hint": [
+                    "Leader's Pride"
+                ],
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 0.0,
@@ -3022,7 +3595,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3040,12 +3614,14 @@
                 "Mood": 0.0,
                 "Power": 0.0,
                 "Skill Hint": [
-                    "Early Lead"
+                    "Early Lead",
+                    "Taking the Lead"
                 ],
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 0.0,
@@ -3060,7 +3636,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3081,7 +3658,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 20.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3094,7 +3672,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3115,7 +3694,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3130,7 +3710,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3153,7 +3734,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3168,7 +3750,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3191,7 +3774,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 0.0,
@@ -3204,7 +3788,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3225,7 +3810,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3238,7 +3824,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3259,7 +3846,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3274,7 +3862,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3296,7 +3885,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 15.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3309,7 +3899,8 @@
                 "Skill Pts": 20.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "3": {
                 "Friendship": 5.0,
@@ -3324,7 +3915,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3347,7 +3939,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3360,7 +3953,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3381,7 +3975,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3394,7 +3989,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 15.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3417,7 +4013,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3430,7 +4027,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             }
         }
     },
@@ -3451,7 +4049,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3464,7 +4063,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3485,7 +4085,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3500,7 +4101,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3521,7 +4123,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3534,7 +4137,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3557,7 +4161,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3570,7 +4175,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3591,7 +4197,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -3604,7 +4211,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             }
         }
     },
@@ -3625,7 +4233,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3638,7 +4247,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             }
         }
     },
@@ -3661,7 +4271,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3676,7 +4287,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3697,7 +4309,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3712,7 +4325,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3733,7 +4347,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3746,7 +4361,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3767,7 +4383,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3782,7 +4399,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3805,7 +4423,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": -5.0,
@@ -3820,77 +4439,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Tamamo's School Tour": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 10.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 5.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 5.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "A Battle I Can't Lose!": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Calm in a Crowd"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 5.0,
-                "Wit": 5.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3912,7 +4462,8 @@
                 "Skill Pts": 20.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -3925,7 +4476,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "3": {
                 "Friendship": 5.0,
@@ -3938,7 +4490,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3959,7 +4512,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -3972,7 +4526,8 @@
                 "Skill Pts": 20.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -3995,7 +4550,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4008,7 +4564,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4029,7 +4586,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4044,7 +4602,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4065,7 +4624,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4078,7 +4638,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 15.0
+                "Wit": 15.0,
+                "random": false
             }
         }
     },
@@ -4099,7 +4660,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4112,7 +4674,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4135,7 +4698,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4148,7 +4712,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4169,7 +4734,8 @@
                 "Skill Pts": 45.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4182,7 +4748,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             }
         }
     },
@@ -4203,7 +4770,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4218,7 +4786,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4239,7 +4808,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 15.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4252,7 +4822,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4275,7 +4846,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4288,7 +4860,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4309,7 +4882,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4322,7 +4896,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4345,7 +4920,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4358,7 +4934,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4381,7 +4958,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4396,7 +4974,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4417,7 +4996,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4430,7 +5010,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 15.0
+                "Wit": 15.0,
+                "random": false
             }
         }
     },
@@ -4453,7 +5034,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4466,7 +5048,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             }
         }
     },
@@ -4487,7 +5070,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 30.0
+                "Wit": 30.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4500,7 +5084,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             }
         }
     },
@@ -4521,7 +5106,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4534,7 +5120,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4555,7 +5142,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 15.0
+                "Wit": 15.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4568,7 +5156,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4589,7 +5178,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4602,7 +5192,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             }
         }
     },
@@ -4625,7 +5216,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4638,7 +5230,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4659,7 +5252,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4672,7 +5266,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4695,7 +5290,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4708,7 +5304,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4729,7 +5326,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 6.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4742,7 +5340,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 12.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4763,7 +5362,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4776,7 +5376,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 6.0
+                "Wit": 6.0,
+                "random": false
             }
         }
     },
@@ -4797,7 +5398,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 6.0
+                "Wit": 6.0,
+                "random": false
             },
             "2": {
                 "Friendship": -5.0,
@@ -4812,7 +5414,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4833,7 +5436,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 15.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4846,7 +5450,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4867,7 +5472,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4882,7 +5488,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4903,7 +5510,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 5.0,
@@ -4916,7 +5524,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4939,7 +5548,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             },
             "2": {
                 "Friendship": 5.0,
@@ -4952,7 +5562,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 20.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -4973,7 +5584,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -4986,7 +5598,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5007,7 +5620,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5022,7 +5636,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5043,7 +5658,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": true
             },
             "2": {
                 "Friendship": 0.0,
@@ -5056,7 +5672,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5077,7 +5694,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5090,7 +5708,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             }
         }
     },
@@ -5111,7 +5730,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5126,7 +5746,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5147,7 +5768,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5160,7 +5782,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5181,7 +5804,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 3.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5194,7 +5818,8 @@
                 "Skill Pts": 5.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5215,7 +5840,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5230,7 +5856,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 3.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5254,7 +5881,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5267,7 +5895,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "3": {
                 "Friendship": 0.0,
@@ -5280,7 +5909,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5301,7 +5931,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5314,7 +5945,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5335,7 +5967,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 20.0
+                "Wit": 20.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5350,7 +5983,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5371,7 +6005,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5384,77 +6019,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Book-lover Quirks": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 0.0,
-                "Wit": 5.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 5.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "A Tale Entrusted": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 10.0,
-                "Wit": 10.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Medium Straightaways ○"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5477,7 +6043,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5492,7 +6059,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             }
         }
     },
@@ -5513,7 +6081,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 3.0
+                "Wit": 3.0,
+                "random": false
             },
             "2": {
                 "Friendship": 20.0,
@@ -5526,45 +6095,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "(❯❯) Ikuno-Style Support": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Frenzied Front Runners"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 15.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Frenzied End Closers"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 15.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5585,7 +6117,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5598,7 +6131,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5621,7 +6155,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5636,7 +6171,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5657,7 +6193,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5670,7 +6207,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5691,7 +6229,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5706,7 +6245,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5729,7 +6269,8 @@
                 "Skill Pts": 10.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -5744,7 +6285,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5767,7 +6309,8 @@
                 "Skill Pts": 20.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -5782,7 +6325,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5803,7 +6347,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5816,7 +6361,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5839,7 +6385,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5852,7 +6399,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5873,7 +6421,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5886,7 +6435,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5909,7 +6459,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5922,7 +6473,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -5945,7 +6497,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5958,7 +6511,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             }
         }
     },
@@ -5979,7 +6533,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -5992,7 +6547,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6013,7 +6569,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6026,7 +6583,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6049,7 +6607,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6064,7 +6623,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6085,7 +6645,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6098,7 +6659,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6121,7 +6683,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6134,7 +6697,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6155,7 +6719,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6168,7 +6733,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6191,7 +6757,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6204,7 +6771,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6225,7 +6793,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6238,7 +6807,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6259,7 +6829,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6274,7 +6845,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6295,7 +6867,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": -5.0,
@@ -6310,77 +6883,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Do No Harm": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 15.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 5.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 5.0
-            }
-        }
-    },
-    "Orders Must Be Followed": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Focus"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 15.0,
-                "Speed": 10.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6401,7 +6905,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6414,7 +6919,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             }
         }
     },
@@ -6437,7 +6943,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6450,7 +6957,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 10.0
+                "Wit": 10.0,
+                "random": false
             }
         }
     },
@@ -6471,7 +6979,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6484,7 +6993,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6505,7 +7015,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6520,7 +7031,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6541,7 +7053,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6554,7 +7067,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6577,7 +7091,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6590,7 +7105,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6611,7 +7127,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6624,7 +7141,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6645,7 +7163,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6660,7 +7179,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6681,7 +7201,8 @@
                 "Skill Pts": 45.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6696,7 +7217,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             }
         }
     },
@@ -6717,7 +7239,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6730,7 +7253,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 5.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6751,7 +7275,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6764,7 +7289,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6785,7 +7311,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 0.0,
@@ -6798,7 +7325,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": true
             }
         }
     },
@@ -6819,7 +7347,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6832,7 +7361,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6853,7 +7383,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6868,7 +7399,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -6889,7 +7421,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 6.0
+                "Wit": 6.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6902,7 +7435,8 @@
                 "Skill Pts": 18.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": true
             }
         }
     },
@@ -6923,7 +7457,8 @@
                 "Skill Pts": 18.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -6936,7 +7471,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 6.0,
                 "Stamina": 0.0,
-                "Wit": 6.0
+                "Wit": 6.0,
+                "random": false
             }
         }
     },
@@ -6957,7 +7493,8 @@
                 "Skill Pts": 18.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": -5.0,
@@ -6972,43 +7509,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
-            }
-        }
-    },
-    "Optimistic Escapism": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 15.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Wet Conditions ○"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -7031,7 +7533,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -7044,7 +7547,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -7065,7 +7569,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -7078,7 +7583,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 5.0
+                "Wit": 5.0,
+                "random": false
             }
         }
     },
@@ -7099,7 +7605,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -7112,7 +7619,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -7133,7 +7641,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -7148,7 +7657,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -7169,7 +7679,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 5.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -7182,7 +7693,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -7203,7 +7715,8 @@
                 "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -7218,7 +7731,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -7239,7 +7753,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 10.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -7252,7 +7767,8 @@
                 "Skill Pts": 30.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     },
@@ -7275,7 +7791,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             },
             "2": {
                 "Friendship": 5.0,
@@ -7288,7 +7805,8 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 15.0,
-                "Wit": 0.0
+                "Wit": 0.0,
+                "random": false
             }
         }
     }

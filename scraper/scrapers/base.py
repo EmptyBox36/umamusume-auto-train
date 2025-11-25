@@ -108,28 +108,52 @@ def parse_outcome_block(text: str) -> dict:
                 if val is not None:
                     add(d, key, val)
             continue
+    d["random"] = False
+
     return _finish(d)
 
 def parse_randomly(text: str) -> dict:
     # drop the header line
-    body = re.sub(r"^\s*Randomly either.*?\n", "", text, flags=re.I|re.S)
+    body = re.sub(r"^\s*Randomly either.*?\n", "", text, flags=re.I | re.S)
     # split on dashed dividers OR an 'or' line (with optional percentage)
     parts = [p.strip() for p in RAND_SPLIT_RE.split(body) if p.strip()]
     if not parts:
         return parse_outcome_block(text)
 
-    # choose worst: most negative single delta, then lowest sum
     worst_d, worst_key = None, (0, float("inf"))
-    for part in parts:
-        d = parse_outcome_block(part)
-        nums = [v for v in d.values() if isinstance(v, (int, float))]
-        if not nums:
-            continue
-        key = (min(nums), sum(nums))
-        if key < worst_key:
-            worst_d, worst_key = d, key
+    first_d = None
+    combined_hints: list[str] = []
 
-    return _finish(worst_d or blank_stats())
+    for part in parts:
+        d = parse_outcome_block(part)  # already returns with Skill Hint as list
+        if first_d is None:
+            first_d = d
+
+        # collect all skill hints from every branch
+        hints = d.get("Skill Hint") or []
+        if not isinstance(hints, list):
+            hints = [hints]
+        for h in hints:
+            h = (h or "").strip()
+            if h and h not in combined_hints:
+                combined_hints.append(h)
+
+        # pick the numerically "worst" branch (same as before)
+        nums = [v for v in d.values() if isinstance(v, (int, float))]
+        if nums:
+            key = (min(nums), sum(nums))
+            if key < worst_key:
+                worst_d, worst_key = d, key
+
+    # if no numeric stats, fall back to the first parsed branch
+    if worst_d is None:
+        worst_d = first_d or blank_stats()
+
+    # union of all hints from every random branch
+    worst_d["Skill Hint"] = combined_hints
+    worst_d["random"] = True
+
+    return _finish(worst_d)
 
 def parse_outcome(text: str) -> dict:
     return parse_randomly(text) if "Randomly either" in text else parse_outcome_block(text)
