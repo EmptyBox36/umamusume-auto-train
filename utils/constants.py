@@ -93,7 +93,7 @@ def adjust_constants_x_coords(offset=405):
 
 # Load all races once to be used when selecting them
 RACES = ""
-with open("data/races.json", "r", encoding="utf-8") as file:
+with open("scraper/data/races.json", "r", encoding="utf-8") as file:
   RACES = json.load(file)
 
 # Build a lookup dict for fast (year, date) searches

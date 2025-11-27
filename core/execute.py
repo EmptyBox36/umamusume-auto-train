@@ -36,7 +36,6 @@ state.FORCE_REST = False
 def career_lobby():
   # Program start
   state.PREFERRED_POSITION_SET = False
-  state.FORCE_REST = False
   while state.is_bot_running and not state.stop_event.is_set():
     screen = ImageGrab.grab()
     matches = multi_match_templates(templates, screen=screen)
@@ -101,6 +100,8 @@ def career_lobby():
     state.CUSTOM_FAILURE = state.MAX_FAILURE
     state.CURRENT_TURN_LEFT = turn
     state.CRITERIA = criteria
+
+    state.FORCE_REST = False
 
     print("\n=======================================================================================\n")
     info(f"Trainee: {state.TRAINEE_NAME}")

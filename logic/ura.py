@@ -37,6 +37,11 @@ def _filter_by_stat_caps(results, current_stats):
     if current_stats.get(stat, 0) < state.STAT_CAPS.get(stat, 1200)
   }
 
+def _friend_recreation() -> bool:
+    if match_template("assets/icons/friend_recreation_available.png", region=(125, 800, 1000, 1080)): # SCREEN_BOTTOM_REGION
+        return True
+    return False
+
 def _need_recreation(year: str) -> bool:
   current_mood = state.CURRENT_MOOD_INDEX
   minimum_mood = constants.MOOD_LIST.index(state.MINIMUM_MOOD)
@@ -47,7 +52,7 @@ def _need_recreation(year: str) -> bool:
   if year_parts[0] == "Junior":
     mood_check = minimum_mood_junior_year
   else:
-    if match_template("assets/icons/friend_recreation_available.png", region=(125, 800, 1000, 1080)): # SCREEN_BOTTOM_REGION
+    if _friend_recreation():
       # debug("Friend recreation is available")
       mood_check = minimum_mood_with_friend
     else:
@@ -116,6 +121,8 @@ def ura_training(results: dict):
 
         score = (friend_value_point * friend_value) + (rainbow_point * friend_training)
 
+        data["score_befor_multiplier"] = score
+
         if data["total_hints"] > 0:
             score += state.HINT_POINT
 
@@ -134,21 +141,21 @@ def ura_training(results: dict):
     best_stat, best_point = max(
         training_candidates.items(),
         key=lambda kv: (
-            kv[1]["best_score"],
+            kv[1]["score_befor_multiplier"],
             -_get_stat_priority(kv[0])
         ),
     )
 
     if state.ENABLE_CUSTOM_FAILURE_CHANCE:
       if state.ENABLE_CUSTOM_HIGH_FAILURE:
-          if best_point["best_score"] > state.HIGH_FAILURE_CONDITION["point"]:
+          if best_point["score_befor_multiplier"] > state.HIGH_FAILURE_CONDITION["point"]:
               state.CUSTOM_FAILURE = state.HIGH_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have high ({best_point['best_score']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
+              info(f"Due to {best_stat.upper()} have high ({best_point['score_befor_multiplier']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
 
       if state.ENABLE_CUSTOM_LOW_FAILURE:
-          if best_point["best_score"] < state.LOW_FAILURE_CONDITION["point"]:
+          if best_point["score_befor_multiplier"] < state.LOW_FAILURE_CONDITION["point"]:
               state.CUSTOM_FAILURE = state.LOW_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have low ({best_point['best_score']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
+              info(f"Due to {best_stat.upper()} have low ({best_point['score_befor_multiplier']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
 
     # filter by failure & avoid WIT spam
     filtered = {
@@ -285,37 +292,40 @@ def ura_logic() -> str:
             return
 
     missing_mood = _need_recreation(year)
-    conditions, total_severity, infirmary_box = _need_infirmary()
-    if total_severity > 0:
-        if total_severity <= 1 and missing_mood > 0 and not (_summer_camp(year) and missing_energy < 40):
-            info("[URA] Mood low & Status condition present → Recreation.")
-            sleep(0.5)
-            do_recreation()
-            return
-        # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
-        if max(0, missing_energy) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
-            if total_severity > 1 and infirmary_box:
-                info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
+    summer_camp = _summer_camp(year)
+
+    if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
+        conditions, total_severity, infirmary_box = _need_infirmary()
+        if total_severity > 0:
+            if total_severity <= 1 and missing_mood > 0 and not (summer_camp and missing_energy < 40):
+                info("[URA] Mood low & Status condition present → Recreation.")
                 sleep(0.5)
-                click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+                do_recreation()
                 return
+            # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
+            if max(0, missing_energy) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
+                if total_severity > 1 and infirmary_box:
+                    info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
+                    sleep(0.5)
+                    click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+                    return
+                else:
+                    info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
             else:
-                info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
-        else:
-            if infirmary_box:
-                info("[URA] Status condition present → Infirmary.")
-                sleep(0.5)
-                click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
-                return
-    
-    if missing_mood > 1:
-        info("[URA] Mood is low → Recreation.")
-        sleep(0.5)
-        do_recreation("friend")
-        return
+                if infirmary_box:
+                    info("[URA] Status condition present → Infirmary.")
+                    sleep(0.5)
+                    click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+                    return
+    if not summer_camp:
+        if missing_mood > 1:
+            info("[URA] Mood is low → Recreation.")
+            sleep(0.5)
+            do_recreation("friend")
+            return
 
     if best_data is not None:
-        if best_data["best_score"] >= 2:
+        if best_data["best_score"] >= 3 or (summer_camp and best_data["best_score"] >= 1.5):
             info(f"[URA] Best Trainind Found → Train {result.upper()}.")
             sleep(0.5)
             go_to_training()
@@ -323,14 +333,14 @@ def ura_logic() -> str:
             do_train(result)
             return
 
-    if missing_mood > 0:
+    if missing_mood > 0 and not (summer_camp and missing_energy < 40):
         info("[URA] Mood is low → Recreation.")
         sleep(0.5)
         do_recreation("friend")
         return
 
     if best_data is not None:
-        if best_data["best_score"] >= 1.1:
+        if best_data["best_score"] >= 1:
             info(f"[URA] Found 1 Friend Training → Train {result.upper()}.")
             sleep(0.5)
             go_to_training()
@@ -339,25 +349,23 @@ def ura_logic() -> str:
             return
 
     if best_data is not None:
-        if best_data["best_score"] >= 0 :
+        if best_data["best_score"] >= 0:
             info(f"[URA] Use most_support_card.")
-            result = most_support_card(filtered)
-            if result is not None:
-                if result is False:
-                    return
-                else:
-                    sleep(0.5)
-                    go_to_training()
-                    sleep(0.5)
-                    do_train(result)
-                    info(f"[URA] most_support_card training found → Train {result.upper()}.")
-                    return
+            results = most_support_card(filtered)
+            if results is not None:
+                if results is not False:
+                   sleep(0.5)
+                   go_to_training()
+                   sleep(0.5)
+                   do_train(results)
+                   info(f"[URA] most_support_card training found → Train {results.upper()}.")
+                   return
 
     if result == "fallback":
         info(f"[URA] Use most_support_card.")
         results = most_support_card(filtered)
         if results is not None:
-            if results is False:
+            if results is not False:
                 sleep(0.5)
                 go_to_training()
                 sleep(0.5)
@@ -365,13 +373,18 @@ def ura_logic() -> str:
                 info(f"[URA] most_support_card training found → Train {results.upper()}.")
                 return
 
-    if "Finale" in year and "Finals" in criteria:
-        sleep(0.5)
-        go_to_training()
-        sleep(0.5)
-        do_train("wit")
-        info(f"[URA] No training found, but it was last turn → Train WIT.")
-        return
+    if "Finale" in year:
+        if _friend_recreation():
+            sleep(0.5)
+            do_recreation("friend")
+            return
+        if "Finals" in criteria:
+            sleep(0.5)
+            go_to_training()
+            sleep(0.5)
+            do_train("wit")
+            info(f"[URA] No training found, but it was last turn → Train WIT.")
+            return
 
     info(f"[URA] No training found → Rest.")
     do_rest(energy_level)

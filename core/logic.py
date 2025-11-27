@@ -44,18 +44,8 @@ def most_support_card(results):
     return "wit"
 
   filtered_results = {
-    k: {
-        **v,
-        "total_non_maxed_support": v["total_supports"] - (
-            v["total_friendship_levels"]["yellow"] + v["total_friendship_levels"]["max"]
-        )
+    k: v for k, v in results.items() if int(v["failure"]) <= state.CUSTOM_FAILURE
     }
-    for k, v in results.items() if int(v["failure"]) <= state.CUSTOM_FAILURE
-    }
-
-  all_zero_non_maxed = all(
-    v.get("total_non_maxed_support", 0) == 0 for v in filtered_results.values()
-    )
 
   if not filtered_results:
     info("No safe training found. All failure chances are too high.")
@@ -63,9 +53,7 @@ def most_support_card(results):
 
   # this is the weight adder used for skewing results of training decisions PRIORITY_EFFECTS_LIST[get_stat_priority(x[0])] * PRIORITY_WEIGHTS_LIST[priority_weight]
   # Best training
-  best_training = max(
-    filtered_results.items(),
-    key=lambda item: training_score(item, all_zero_non_maxed))
+  best_training = max(filtered_results.items(), key=training_score)
 
   best_key, best_data = best_training
   
@@ -76,40 +64,55 @@ def most_support_card(results):
     if int(best_data["failure"]) == 0:
       # WIT must be at least 2 support cards
       if best_key == "wit":
-        if energy_level > state.NEVER_REST_ENERGY:
+        if best_data["total_supports"] == 0:
+            info(f"Not have any good training.")
+        elif energy_level > state.NEVER_REST_ENERGY:
             info(f"Only 1 support and it's WIT but energy is too high for resting to be worth it. Still training.")
+            state.FORCE_REST = True
             return "wit"
         else:
           info(f"Only 1 support and it's WIT. Skipping.")
+          state.FORCE_REST = True
           return None
-      else:
-        if RACE_IF_LOW:
-          if energy_level > 50:
-            if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
-                from utils.process import do_race
-                info("Training point is too low and have high energy, try to do race.")
-                race = do_race()
-                if race is True:
-                    return False
-                elif race is False:
-                    return best_key
-                else:
-                    click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found.")
-                    sleep(0.5)
-                    return best_key
-        if energy_level > state.NEVER_REST_ENERGY:
-            info(f"Only 1 support but energy is too high for resting to be worth it. Still training.")
-            return best_key
-        else:
-          info(f"Only 1 support. Skipping.")
-          return None
-    else:
+
+    if RACE_IF_LOW:
       if energy_level > state.NEVER_REST_ENERGY:
+        if year_parts[0] not in ["Junior", "Finale"] and year_parts[3] not in ["Jul", "Aug"]:
+          from utils.process import do_race
+
+          fake_criteria = "fan"
+          keywords = ("fan", "Maiden", "Progress")
+          fake_turn = 1
+
+          info("Training point is too low and energy is high, try to do graded race.")
+          race_found, race_name = decide_race_for_goal(year, fake_turn, fake_criteria, keywords)
+          info(f"[RACE_IF_LOW] race_found={race_found}, race_name={race_name}")
+
+          if race_name:
+            race = do_race(race_found, img=race_name)
+          else:
+            race = False
+
+          if race is True:
+            return
+          elif race is False:
+            return best_key
+          else:
+            click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="No suitable race found.")
+            sleep(0.5)
+            return best_key
+
+    if energy_level > state.NEVER_REST_ENERGY:
+      if best_key == "wit" and best_data["total_supports"] == 0:
+        info("Only WIT without support left, Force Rest.")
+        state.FORCE_REST = True
+        return None
+      else:
         info(f"Energy is over {state.NEVER_REST_ENERGY}, train anyway.")
         return best_key
-      else:
-        info("Low value training (only 1 support). Choosing to rest.")
-        return None
+    else:
+      info("Low Energy. Choosing to rest.")
+      return None
 
   info(f"Best training: {best_key.upper()} with {best_data['total_supports']} support cards, {best_data['total_non_maxed_support']} non-maxed support cards with {best_data['failure']}% fail chance and {best_data['total_hints']} total hint.")
   return best_key
@@ -121,17 +124,14 @@ PRIORITY_WEIGHTS_LIST={
   "NONE": 0
 }
 
-def training_score(x, all_zero_non_maxed):
+def training_score(x):
   global PRIORITY_WEIGHTS_LIST
   priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
-
-  # if all_zero_non_maxed:
-  #     # If all "total_non_maxed_support" are zero, use "total_supports" as criteria.
   base = x[1]["total_supports"]
-  # else:
-  #     # If all "total_non_maxed_support" are not zero, use "total_non_maxed_support" as criteria.
-  #     base = x[1]["total_non_maxed_support"] 
-
+  non_max_friends = x[1]["total_friendship_levels"]["gray"] + \
+                    x[1]["total_friendship_levels"]["blue"] + \
+                    x[1]["total_friendship_levels"]["green"]
+  base += non_max_friends * 0.5
   if x[1]["total_hints"] > 0:
       base += state.HINT_POINT
   multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(x[0])] * priority_weight
@@ -141,50 +141,6 @@ def training_score(x, all_zero_non_maxed):
   debug(f"{x[0]} -> base={base}, multiplier={multiplier}, total={total}, priority={get_stat_priority(x[0])}")
 
   return (total, -get_stat_priority(x[0]))
-
-# def focus_max_friendships(results):
-#   global PRIORITY_WEIGHTS_LIST
-#   priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
-
-#   filtered_results = {
-#       stat: data for stat, data in results.items()
-#       if int(data["failure"]) <= state.CUSTOM_FAILURE
-#   }
-
-#   if not filtered_results:
-#       debug("No trainings under CUSTOM_FAILURE, falling back to most_support_card.")
-#       return None, 0
-
-#   for stat_name in filtered_results:
-#     if state.JUNIOR_YEAR_STAT_PRIORITIZE:
-#       junior_year_multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
-#     else:
-#       junior_year_multiplier = 1
-
-#     data = filtered_results[stat_name]
-#     total_rainbow_friends = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
-#     # order of importance gray > blue > green, because getting greens to max is easier than blues (gray is very low blue)
-#     possible_friendship = (
-#                             data["total_friendship_levels"]["green"] * 1.0
-#                             + data["total_friendship_levels"]["blue"] * 1.01
-#                             + data["total_friendship_levels"]["gray"] * 1.02
-#                             + total_rainbow_friends * 0.5
-#                           ) * junior_year_multiplier
-
-#     # hints are worth a little more than half a training
-#     if data["total_hints"] > 0:
-#       hint_values = { "gray": 0.612, "blue": 0.606, "green": 0.6 }
-#       for level, bonus in hint_values.items():
-#         if data["hints_per_friend_level"].get(level, 0) > 0:
-#             possible_friendship += bonus
-#             break
-
-#     debug(f"{stat_name} : gray={data['total_friendship_levels']['gray']}, blue={data['total_friendship_levels']['blue']}, green={data['total_friendship_levels']['green']}, total={possible_friendship:.3f}")
-#     filtered_results[stat_name]["possible_friendship"] = possible_friendship
-
-#   best_key = max(filtered_results, key=lambda k: (filtered_results[k]["possible_friendship"], -get_stat_priority(k)))
-#   best_score = filtered_results[best_key]["possible_friendship"]
-#   return best_key, best_score
 
 # Do training
 def training_logic(results):
@@ -368,35 +324,60 @@ def do_something(results):
 
 # helper functions
 def decide_race_for_goal(year, turn, criteria, keywords):
-  no_race = False, None
-  # Check if goals is not met criteria AND it is not Pre-Debut AND turn is less than 10 AND Goal is already achieved
-  if year == "Junior Year Pre-Debut":
-    return no_race
-  if turn >= 6:
-    return no_race
-  criteria_text = criteria or ""
-  if any(word in criteria_text for word in keywords):
-    info("Criteria word found. Trying to find races.")
-    if "Progress" in criteria_text:
-      info("Word \"Progress\" is in criteria text.")
-      # check specialized goal
-      if "G1" in criteria_text or "GI" in criteria_text:
-        info("Word \"G1\" is in criteria text.")
-        race_list = constants.RACE_LOOKUP.get(year, [])
-        if not race_list:
-          return False, None
+    no_race = (False, None)
+    year_parts = year.split(" ")
+
+    # Skip pre-debut and late turns
+    if year == "Junior Year Pre-Debut":
+        return no_race
+    if turn >= 10:
+        return no_race
+
+    criteria_text = criteria or ""
+
+    # Match recognized keywords
+    if any(word in criteria_text for word in keywords):
+        info("Criteria word found. Trying to find races.")
+
+        GRADED_TRIGGERS = ("progress", "fan")
+        if any(w in criteria_text for w in GRADED_TRIGGERS):
+            info(f'"progress" or "fan" is in criteria text.')
+
+            # Get races for this year
+            race_list = constants.RACE_LOOKUP.get(year, [])
+            if not race_list:
+                return False, None
+
+            if year_parts[0] in ["Junior"]:
+                ALLOWED_GRADES = {"G1", "G2"}
+            else:
+                ALLOWED_GRADES = {"G1", "G2"}
+
+            filtered = [r for r in race_list if r.get("grade") in ALLOWED_GRADES]
+            if not filtered:
+                info("No allow graded races available for this turn.")
+                return False, None
+
+            if "G1" in criteria_text or "GI" in criteria_text:
+                info('Goal mentions "G1"; restricting to only G1 races.')
+                filtered = [r for r in filtered if r.get("grade") == "G1"]
+
+                if not filtered:
+                    info("No G1 races available for this year.")
+                    return False, None
+
+            best_race = filter_races_by_aptitude(filtered, state.APTITUDES)
+            if not best_race:
+                info("No matching race by aptitude.")
+                return False, None
+
+            return True, best_race["name"]
+
         else:
-          best_race = filter_races_by_aptitude(race_list, state.APTITUDES)
-          if not best_race:
-            info("No G1 matching aptitudes.")
-            return False, None
-          return True, best_race["name"]
-      else:
-        return False, "any"
-    else:
-      # if there's no specialized goal, just do any race
-      return False, "any"
-  return no_race
+            # If criteria keyword matches but no progress → fallback
+            return False, "any"
+
+    return no_race
 
 def filter_races_by_aptitude(race_list, aptitudes):
   GRADE_SCORE = {"s": 2, "a": 2, "b": 1}

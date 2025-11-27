@@ -111,7 +111,7 @@ def do_recreation(method = None):
   elif recreation_summer_btn:
     click(boxes=recreation_summer_btn)
 
-def do_race(prioritize_g1 = False, img = None):
+def do_race(found_race = False, img = None):
   if state.stop_event.is_set():
     return False
   click(img="assets/buttons/races_btn.png", minSearch=get_secs(10))
@@ -124,7 +124,7 @@ def do_race(prioritize_g1 = False, img = None):
     click(img="assets/buttons/ok_btn.png", minSearch=get_secs(0.7))
 
   sleep(0.7)
-  found = race_select(prioritize_g1=prioritize_g1, img=img)
+  found = race_select(found_race=found_race, img=img)
   if not found:
     if img is not None:
       info(f"{img} not found.")
@@ -159,13 +159,13 @@ def race_day():
   sleep(1)
   after_race()
 
-def race_select(prioritize_g1=False, img=None):
+def race_select(found_race=False, img=None):
     if state.stop_event.is_set():
         return False
     pyautogui.moveTo(constants.SCROLLING_SELECTION_MOUSE_POS)
     sleep(0.3)
 
-    if prioritize_g1 and img:
+    if found_race and img:
         info(f"Looking for {img}.")
         for _ in range(6):
             if state.stop_event.is_set():

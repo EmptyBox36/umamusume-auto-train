@@ -115,7 +115,8 @@ def reload_config():
 
   # URA Starter
   if "URA" in SCENARIO_NAME:
-    TURN_REGION=(260, 81, 370 - 260, 140 - 87)
+    TURN_REGION=(260, 81, 370 - 260, 140 - 81)
+    TURN_NUMBER_REGION=(260, 81, 370 - 260, 135 - 81)
     YEAR_REGION=(255, 35, 420 - 255, 60 - 35)
     FAILURE_REGION=(250, 770, 855 - 295, 835 - 770)
     FAILURE_PERCENT_REGION=(250, 790, 855 - 295, 835 - 790)
@@ -243,36 +244,46 @@ def check_failure():
   # if val != -1:
   #   return int(val)
 
-  # 0) verify we're on a Failure badge
   label = extract_text(failure_text).lower()
+  pct_text = extract_text(failure_percent)
+
+  debug(f"raw_label: {label}")
+  debug(f"raw_pct_text: {pct_text}")
+
   if not label.startswith("failure"):
     return -1
 
   # 1) read percent from the badge region only
-  pct_text = extract_text(failure_percent)
   hits = list(re.finditer(r'(\d(?:\s?\d){0,2})\s*%', pct_text))
   if hits:
     v = int(hits[-1].group(1).replace(" ", ""))               # rightmost match
     if 0 <= v <= 100:
       return v
 
-  # 2) legacy fallbacks on the full label text (kept from your original)
+  # 2) legacy fallbacks on the full label text
   m = re.search(r"failure\s+(\d{1,3})\s*%", label)
   if m:
     return int(m.group(1))
 
-  # m = re.search(r"failure\s+(\d+)", label)
-  # if m:
-  #   digits = m.group(1)
-  #   idx = digits.find("9")
-  #   if idx > 0:
-  #     num = digits[:idx]
-  #     if num.isdigit():
-  #       return int(num)
-  #   if digits.isdigit():
-  #     return int(digits)
+  # label = extract_text_improved(failure_text).lower()
+  # debug(f"raw_improved_label: {label}")
 
-  return 99
+  m = re.search(r"failure\s+(\d{1,3})\s*%", label)
+  if m:
+    return int(m.group(1))
+
+  m = re.search(r"failure\s+(\d+)", label)
+  if m:
+    digits = m.group(1)
+    idx = digits.find("9")
+    if idx > 0:
+      num = digits[:idx]
+      if num.isdigit():
+        return int(num)
+    if digits.isdigit():
+      return int(digits)
+
+  return -1
 
 # Check mood
 def check_mood():
@@ -291,26 +302,46 @@ def check_turn():
     turn = enhanced_screenshot(TURN_REGION)
     turn_text = extract_text(turn)
 
+    turn_num = enhanced_screenshot(TURN_NUMBER_REGION)
+    turn_num_ex = extract_number(turn_num)
+
+    debug(f"raw_turn_text: {turn_text}")
+    debug(f"raw_turn_num: {turn_num_ex}")
+
     if "race" in turn_text.lower():
         return "Race Day"
     if "goal" in turn_text.lower():
         return "Goal"
 
     turn_text = turn_text.replace("I", "1")
+    debug(f"clean_turn_text: {turn_text}")
+
     digits_only = re.sub(r"[^\d]", "", turn_text)
 
     if digits_only:
       if 0 < int(digits_only) < 50:
         return int(digits_only)
-    
-    turn_num = enhanced_screenshot(TURN_NUMBER_REGION)
-    turn_num_ex = extract_text(turn_num)
+
     if turn_num_ex:
         if 0 < int(turn_num_ex) < 50:
           return int(turn_num_ex)
-    
-    debug(f"turn_text: {turn_text}")
-    debug(f"turn_num: {turn_num_ex}")
+
+    # if normal version fail use improved version
+    turn_text = extract_text_improved(turn)
+    if "race" in turn_text.lower():
+        return "Race Day"
+    if "goal" in turn_text.lower():
+        return "Goal"
+
+    turn_text = turn_text.replace("I", "1")
+    debug(f"clean_improved_turn_text: {turn_text}")
+
+    digits_only = re.sub(r"[^\d]", "", turn_text)
+
+    if digits_only:
+      if 0 < int(digits_only) < 50:
+        return int(digits_only)
+
     return -1
 
 def _norm(s: str) -> str:
