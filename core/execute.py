@@ -10,7 +10,7 @@ from utils.log import info, warning, error, debug
 import utils.constants as constants
 
 from core.recognizer import is_btn_active, match_template, multi_match_templates
-from utils.process import event_choice, race_prep, after_race
+from utils.process import event_choice, check_fan, race_process, after_race
 from utils.tools import click, sleep
 
 from logic.ura import ura_logic
@@ -33,7 +33,9 @@ templates = {
 
 state.PREFERRED_POSITION_SET = False
 state.FORCE_REST = False
+state.DONE_DEBUT = False
 def career_lobby():
+  after_race()
   # Program start
   state.PREFERRED_POSITION_SET = False
   while state.is_bot_running and not state.stop_event.is_set():
@@ -54,9 +56,7 @@ def career_lobby():
     if click(boxes=matches["inspiration"], text="Inspiration found."):
       continue
     if matches["view_result"]:
-      race_prep()
-      sleep(1)
-      after_race()
+      race_process()
       continue
     if click(boxes=matches["next"], text="next"):
       continue
@@ -92,6 +92,9 @@ def career_lobby():
     criteria = check_criteria()
     current_stats = stat_state()
 
+    if (not state.DONE_DEBUT or state.FAN_COUNT == -1) and year != "Junior Year Pre-Debut":
+      check_fan()
+
     state.CURRENT_ENERGY_LEVEL = energy_level
     state.MAX_ENERGY = max_energy
     state.CURRENT_MOOD_INDEX = mood_index
@@ -100,6 +103,11 @@ def career_lobby():
     state.CUSTOM_FAILURE = state.MAX_FAILURE
     state.CURRENT_TURN_LEFT = turn
     state.CRITERIA = criteria
+
+    if state.DONE_DEBUT:
+        debut_status = "Finish"
+    else:
+        debut_status = "Unfinish"
 
     state.FORCE_REST = False
 
@@ -111,6 +119,9 @@ def career_lobby():
     info(f"Mood: {mood}")
     info(f"Turn: {turn}")
     info(f"Criteria: {criteria}")
+    print("\n=======================================================================================\n")
+    info(f"Debut Status: {debut_status}")
+    info(f"fans: {state.FAN_COUNT}")
     print("\n=======================================================================================\n")
 
     if "URA" in state.SCENARIO_NAME:

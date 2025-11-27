@@ -63,7 +63,7 @@ def parse_outcome_block(text: str) -> dict:
 
         # full recovery to HP +200
         if re.search(r"\bfull\s+energy\s+recovery\b", ln, re.I):
-            add(d, "HP", 200.0)           # or use "Energy" if that's your key
+            add(d, "HP", 200.0)
             continue
 
         # Skill hint lines, possibly more than one per choice.
@@ -125,11 +125,10 @@ def parse_randomly(text: str) -> dict:
     combined_hints: list[str] = []
 
     for part in parts:
-        d = parse_outcome_block(part)  # already returns with Skill Hint as list
+        d = parse_outcome_block(part)
         if first_d is None:
             first_d = d
 
-        # collect all skill hints from every branch
         hints = d.get("Skill Hint") or []
         if not isinstance(hints, list):
             hints = [hints]
@@ -138,7 +137,6 @@ def parse_randomly(text: str) -> dict:
             if h and h not in combined_hints:
                 combined_hints.append(h)
 
-        # pick the numerically "worst" branch (same as before)
         nums = [v for v in d.values() if isinstance(v, (int, float))]
         if nums:
             key = (min(nums), sum(nums))
@@ -149,7 +147,6 @@ def parse_randomly(text: str) -> dict:
     if worst_d is None:
         worst_d = first_d or blank_stats()
 
-    # union of all hints from every random branch
     worst_d["Skill Hint"] = combined_hints
     worst_d["random"] = True
 

@@ -327,55 +327,66 @@ def decide_race_for_goal(year, turn, criteria, keywords):
     no_race = (False, None)
     year_parts = year.split(" ")
 
-    # Skip pre-debut and late turns
+    # Skip pre-debut
     if year == "Junior Year Pre-Debut":
         return no_race
     if turn >= 10:
         return no_race
 
     criteria_text = criteria or ""
+    criteria_text = criteria_text.lower()
 
-    # Match recognized keywords
     if any(word in criteria_text for word in keywords):
         info("Criteria word found. Trying to find races.")
 
-        GRADED_TRIGGERS = ("progress", "fan")
-        if any(w in criteria_text for w in GRADED_TRIGGERS):
-            info(f'"progress" or "fan" is in criteria text.')
+        if state.DONE_DEBUT:
+            GRADED_TRIGGERS = ("progress", "fan")
+            if any(w in criteria_text for w in GRADED_TRIGGERS):
+                info(f'"progress" or "fan" is in criteria text.')
 
-            # Get races for this year
-            race_list = constants.RACE_LOOKUP.get(year, [])
-            if not race_list:
-                return False, None
-
-            if year_parts[0] in ["Junior"]:
-                ALLOWED_GRADES = {"G1", "G2", "G3"}
-            else:
-                ALLOWED_GRADES = {"G1", "G2"}
-
-            filtered = [r for r in race_list if r.get("grade") in ALLOWED_GRADES]
-            if not filtered:
-                info("No allow graded races available for this turn.")
-                return False, None
-
-            if "G1" in criteria_text or "GI" in criteria_text:
-                info('Goal mentions "G1"; restricting to only G1 races.')
-                filtered = [r for r in filtered if r.get("grade") == "G1"]
-
-                if not filtered:
-                    info("No G1 races available for this year.")
+                # Get races for this year
+                race_list = constants.RACE_LOOKUP.get(year, [])
+                if not race_list:
                     return False, None
 
-            best_race = filter_races_by_aptitude(filtered, state.APTITUDES)
-            if not best_race:
-                info("No matching race by aptitude.")
-                return False, None
+                if year_parts[0] in ["Junior"]:
+                    ALLOWED_GRADES = {"G1", "G2", "G3"}
+                else:
+                    ALLOWED_GRADES = {"G1", "G2"}
 
-            return True, best_race["name"]
+                filtered = [r for r in race_list if r.get("grade") in ALLOWED_GRADES]
+                if not filtered:
+                    info("No allow graded races available for this turn.")
+                    return False, None
 
-        else:
-            # If criteria keyword matches but no progress → fallback
-            return False, "any"
+                if "G1" in criteria_text or "GI" in criteria_text:
+                    info('Goal mentions "G1"; restricting to only G1 races.')
+                    filtered = [r for r in filtered if r.get("grade") == "G1"]
+
+                    if not filtered:
+                        info("No G1 races available for this year.")
+                        return False, None
+
+                current_fans = state.FAN_COUNT
+                
+                if current_fans != -1:
+                    filtered = [
+                        r for r in filtered
+                        if r.get("fans", {}).get("required", 0) <= current_fans
+                    ]
+                    if not filtered:
+                        info(f"No races meet fan requirement. Current fans = {current_fans}.")
+                        return False, None
+
+                best_race = filter_races_by_aptitude(filtered, state.APTITUDES)
+                if not best_race:
+                    info("No matching race by aptitude.")
+                    return False, None
+
+                return True, best_race["name"]
+
+        # If criteria keyword matches but no progress → fallback
+        return False, "any"
 
     return no_race
 

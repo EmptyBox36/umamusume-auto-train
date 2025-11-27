@@ -46,6 +46,8 @@ CURRENT_TURN_LEFT = None
 PREFERRED_POSITION_SET = None
 SCENARIO_NAME = ""
 CRITERIA = None
+DONE_DEBUT = None
+FAN_COUNT = -1
 
 TURN_REGION = (0,0,0,0)
 YEAR_REGION = (0,0,0,0)
@@ -59,7 +61,8 @@ def load_config():
 def reload_config():
   global PRIORITY_STAT, PRIORITY_WEIGHT, MINIMUM_MOOD, MINIMUM_MOOD_JUNIOR_YEAR, MAX_FAILURE, MINIMUM_MOOD_WITH_FRIEND
   global PRIORITIZE_G1_RACE, CANCEL_CONSECUTIVE_RACE, STAT_CAPS
-  global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, PREFERRED_POSITION, SUMMER_PRIORITY_EFFECTS_LIST
+  global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, SUMMER_PRIORITY_EFFECTS_LIST
+  global POSITION_FOR_SPECIFIC_RACE, PREFERRED_POSITION
   global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER, STOP_BEFORE_RACE
   global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
   global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE, EVENT_CHOICES
@@ -112,6 +115,7 @@ def reload_config():
   UNITY_SPIRIT_BURST_POSITION = config["unity"]["spirit_burst_position"]
   # STOP_BEFORE_RACE = config["stop_bot_before_race"]
   SUMMER_PRIORITY_EFFECTS_LIST = {i: v for i, v in enumerate(config["summer_priority_weights"])}
+  POSITION_FOR_SPECIFIC_RACE = config["position_for_specific_race"]
 
   # URA Starter
   if "URA" in SCENARIO_NAME:
@@ -305,8 +309,8 @@ def check_turn():
     turn_num = enhanced_screenshot(TURN_NUMBER_REGION)
     turn_num_ex = extract_number(turn_num)
 
-    debug(f"raw_turn_text: {turn_text}")
-    debug(f"raw_turn_num: {turn_num_ex}")
+    # debug(f"raw_turn_text: {turn_text}")
+    # debug(f"raw_turn_num: {turn_num_ex}")
 
     if "race" in turn_text.lower():
         return "Race Day"
@@ -314,7 +318,7 @@ def check_turn():
         return "Goal"
 
     turn_text = turn_text.replace("I", "1")
-    debug(f"clean_turn_text: {turn_text}")
+    # debug(f"clean_turn_text: {turn_text}")
 
     digits_only = re.sub(r"[^\d]", "", turn_text)
 
@@ -334,7 +338,7 @@ def check_turn():
         return "Goal"
 
     turn_text = turn_text.replace("I", "1")
-    debug(f"clean_improved_turn_text: {turn_text}")
+    # debug(f"clean_improved_turn_text: {turn_text}")
 
     digits_only = re.sub(r"[^\d]", "", turn_text)
 
@@ -385,6 +389,61 @@ def check_criteria_detail():
   text = extract_text(img)
   return text
 
+def check_debut_status():
+  global DONE_DEBUT
+  region = (440, 620, 430+1, 620+1)
+  pixel = find_color_of_pixel(region)
+
+  if isinstance(pixel, int):
+    return False
+
+  not_debut_color = (213,213,213)
+
+  pixel = np.array(pixel)
+  target = np.array(not_debut_color)
+
+  is_match = np.all(np.abs(pixel - target) <= 5)
+  if not is_match:
+    debug("Already Finish Debut Race.")
+    DONE_DEBUT = True
+    return
+    
+  debug("Debut Race is Not Finish.")
+  DONE_DEBUT = False
+  return
+
+def check_fans():
+    global FAN_COUNT
+    img = enhanced_screenshot(constants.FANS_REGION)
+    text = extract_text(img)
+
+    text = re.sub(r"\(.*?\)", "", text)
+    text = re.sub(r"[^\d,]", "", text)
+    text = text.replace(",", "")
+
+    if text.isdigit():
+        FAN_COUNT = int(text)
+    else:
+        FAN_COUNT = -1
+
+    return FAN_COUNT
+
+def check_fans_after_race(region):
+    global FAN_COUNT
+    img = enhanced_screenshot(region)
+    text = extract_text(img)
+
+    text = re.sub(r"\(.*?\)", "", text)
+    text = re.sub(r"[^\d,]", "", text)
+    text = text.replace(",", "")
+
+    if text.isdigit():
+        FAN_COUNT = int(text)
+    else:
+        FAN_COUNT = -1
+
+    return FAN_COUNT
+
 def check_skill_pts():
   img = enhanced_screenshot(constants.SKILL_PTS_REGION)
   text = extract_number(img)
@@ -433,6 +492,12 @@ def get_race_type():
   race_info_text = extract_text(race_info_screen)
   debug(f"Race info text: {race_info_text}")
   return race_info_text
+
+def get_race_name():
+  race_name_screen = enhanced_screenshot(constants.RACE_NAME_TEXT_REGION)
+  race_name_text = extract_text(race_name_screen)
+  debug(f"Race name text: {race_name_text}")
+  return race_name_text
 
 # Severity -> 0 is doesn't matter / incurable, 1 is "can be ignored for a few turns", 2 is "must be cured immediately"
 BAD_STATUS_EFFECTS={

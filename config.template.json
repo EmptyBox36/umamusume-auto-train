@@ -88,6 +88,9 @@
     "medium": "late",
     "long": "end"
   },
+  "position_for_specific_race": [
+
+  ],
   "race_schedule": [
     {
       "name": "Satsuki Sho",

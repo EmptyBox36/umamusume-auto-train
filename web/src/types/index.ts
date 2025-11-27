@@ -19,6 +19,12 @@ export type RaceScheduleType = {
   date: string;
 };
 
+export type PositionForSpecificRace = {
+    race_name: string;
+    year: string;
+    position: string;
+};
+
 export type ChoiceWeight = {
     spd: number;
     sta: number;
@@ -101,6 +107,7 @@ export type Config = {
     long: string;
   };
   race_schedule: RaceScheduleType[];
+  position_for_specific_race: PositionForSpecificRace[];
   stat_caps: Stat;
   skill: Skill;
   window_name: string;
