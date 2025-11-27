@@ -349,7 +349,7 @@ def decide_race_for_goal(year, turn, criteria, keywords):
                 return False, None
 
             if year_parts[0] in ["Junior"]:
-                ALLOWED_GRADES = {"G1", "G2"}
+                ALLOWED_GRADES = {"G1", "G2", "G3"}
             else:
                 ALLOWED_GRADES = {"G1", "G2"}
 
