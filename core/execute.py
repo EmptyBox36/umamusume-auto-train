@@ -35,7 +35,6 @@ state.PREFERRED_POSITION_SET = False
 state.FORCE_REST = False
 state.DONE_DEBUT = False
 def career_lobby():
-  after_race()
   # Program start
   state.PREFERRED_POSITION_SET = False
   while state.is_bot_running and not state.stop_event.is_set():
