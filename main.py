@@ -16,6 +16,8 @@ import core.state as state
 from server.main import app
 from update_config import update_config
 
+from server.live_log import attach_web_log_handler
+
 hotkey = "f1"
 
 def focus_umamusume():
@@ -135,6 +137,7 @@ def start_server():
   server.run()
 
 if __name__ == "__main__":
+  attach_web_log_handler()
   update_config()
   threading.Thread(target=hotkey_listener, daemon=True).start()
   start_server()

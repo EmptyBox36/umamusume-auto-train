@@ -9,8 +9,6 @@ from server.live_log import attach_web_log_handler, get_logs_since, get_latest_i
 
 app = FastAPI()
 
-attach_web_log_handler()
-
 app.add_middleware(
   CORSMiddleware,
   allow_origins=["*"],
@@ -18,6 +16,10 @@ app.add_middleware(
   allow_methods=["*"],
   allow_headers=["*"],
 )
+
+@app.on_event("startup")
+async def _attach_live_log_handler() -> None:
+    attach_web_log_handler()
 
 @app.get("/config")
 def get_config():
@@ -66,6 +68,15 @@ async def get_data_2(path: str):
 
   raise HTTPException(status_code=404, detail="Not found")
 
+@app.get("/api/logs")
+def api_logs(since: int = Query(-1, description="last seen log id")):
+    entries = get_logs_since(since)
+    if entries:
+        nxt = entries[-1]["id"]
+    else:
+        nxt = get_latest_id()
+    return {"next": nxt, "entries": entries}
+
 @app.get("/{path:path}")
 async def fallback(path: str):
   file_path = os.path.join(PATH, path)
@@ -80,15 +91,3 @@ async def fallback(path: str):
     return FileResponse(file_path, media_type=media_type, headers=headers)
 
   return FileResponse(os.path.join(PATH, "index.html"), headers=headers)
-
-@app.get("/api/logs")
-def api_logs(since: int = Query(-1, description="last seen log id")):
-    """
-    Return log entries newer than 'since', plus the next cursor.
-    """
-    entries = get_logs_since(since)
-    if entries:
-        nxt = entries[-1]["id"]
-    else:
-        nxt = get_latest_id()
-    return {"next": nxt, "entries": entries}
