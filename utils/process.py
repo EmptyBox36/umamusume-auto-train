@@ -1,11 +1,12 @@
+from turtle import width
 import pyautogui
 import re
 import core.state as state
 import utils.constants as constants
 
-from utils.tools import sleep, drag_scroll, get_secs, click
+from utils.tools import sleep, drag_scroll, get_secs, click, wait_for_image
 from utils.log import info, warning, error, debug
-from core.state import check_support_card, check_failure, check_skill_pts, get_race_type, get_event_name, stop_bot
+from core.state import check_support_card, check_failure, check_skill_pts, get_race_type, get_event_name, stop_bot, check_debut_status, get_race_name, check_fans, check_fans_after_race
 from core.recognizer import is_btn_active
 from core.skill import buy_skill
 from core.events import get_optimal_choice
@@ -111,7 +112,7 @@ def do_recreation(method = None):
   elif recreation_summer_btn:
     click(boxes=recreation_summer_btn)
 
-def do_race(prioritize_g1 = False, img = None):
+def do_race(found_race = False, img = None):
   if state.stop_event.is_set():
     return False
   click(img="assets/buttons/races_btn.png", minSearch=get_secs(10))
@@ -124,7 +125,7 @@ def do_race(prioritize_g1 = False, img = None):
     click(img="assets/buttons/ok_btn.png", minSearch=get_secs(0.7))
 
   sleep(0.7)
-  found = race_select(prioritize_g1=prioritize_g1, img=img)
+  found = race_select(found_race=found_race, img=img)
   if not found:
     if img is not None:
       info(f"{img} not found.")
@@ -159,13 +160,13 @@ def race_day():
   sleep(1)
   after_race()
 
-def race_select(prioritize_g1=False, img=None):
+def race_select(found_race=False, img=None):
     if state.stop_event.is_set():
         return False
     pyautogui.moveTo(constants.SCROLLING_SELECTION_MOUSE_POS)
     sleep(0.3)
 
-    if prioritize_g1 and img:
+    if found_race and img:
         info(f"Looking for {img}.")
         for _ in range(6):
             if state.stop_event.is_set():
@@ -210,7 +211,6 @@ def race_select(prioritize_g1=False, img=None):
         return False
 
 def race_prep():
-
   if state.stop_event.is_set():
     return
   
@@ -218,8 +218,21 @@ def race_prep():
   # if STOP_BEFORE_RACE:
   #     stop_bot()
   #     return
+  wait_for_image(img_path="assets/buttons/view_results.png", region=constants.SCREEN_BOTTOM_REGION)
+  race_name_text = get_race_name()
+  specific_position = None
+  for specific in state.POSITION_FOR_SPECIFIC_RACE:
+    if specific["race_name"] == race_name_text:
+      specific_position = specific["position"]
+      break
 
-  if state.POSITION_SELECTION_ENABLED:
+  if specific_position:
+    info(f"Selecting specific position: {specific_position} for {race_name_text}")
+    click(img="assets/buttons/change_btn.png",minSearch=get_secs(6),region=constants.SCREEN_MIDDLE_REGION)
+    click(img=f"assets/buttons/positions/{specific_position}_position_btn.png",minSearch=get_secs(2),region=constants.SCREEN_MIDDLE_REGION)
+    click(img="assets/buttons/confirm_btn.png",minSearch=get_secs(2),region=constants.SCREEN_MIDDLE_REGION)
+
+  elif state.POSITION_SELECTION_ENABLED:
     # these two are mutually exclusive, so we only use preferred position if positions by race is not enabled.
     if state.ENABLE_POSITIONS_BY_RACE:
       sleep(0.5)
@@ -297,6 +310,21 @@ def after_race():
     return
   click(img="assets/buttons/next_btn.png", minSearch=get_secs(5))
   sleep(0.3)
+  
+  ok, box = wait_for_image(
+    "assets/ui/fans_label.png",
+     timeout=10,
+     confidence=0.85,
+     region=constants.GAME_SCREEN
+  )
+
+  if not ok:
+    info("Fans label not detected.")
+    return
+  
+  fan_region = (box.left + box.width + 11, box.top - box.height + 10, 390, 40)
+  check_fans_after_race(region=fan_region)
+
   pyautogui.click()
   click(img="assets/buttons/next2_btn.png", minSearch=get_secs(5))
 
@@ -348,3 +376,16 @@ def event_choice():
 
   click(boxes=(x, y, 1, 1), text=f"Selecting optimal choice: {choice}")
   return True
+
+def check_fan():
+    click("assets/buttons/info_btn.png")
+    sleep(0.5)
+    check_debut_status()
+    check_fans()
+    sleep(0.5)
+    click("assets/buttons/close_btn.png")
+
+def race_process():
+    race_prep()
+    sleep(1)
+    after_race()

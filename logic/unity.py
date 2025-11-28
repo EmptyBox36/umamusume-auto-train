@@ -37,6 +37,11 @@ def _filter_by_stat_caps(results, current_stats):
     if current_stats.get(stat, 0) < state.STAT_CAPS.get(stat, 1200)
   }
 
+def _friend_recreation() -> bool:
+    if match_template("assets/icons/friend_recreation_available.png", region=(125, 800, 1000, 1080)): # SCREEN_BOTTOM_REGION
+        return True
+    return False
+
 def _need_recreation(year: str) -> bool:
   current_mood = state.CURRENT_MOOD_INDEX
   minimum_mood = constants.MOOD_LIST.index(state.MINIMUM_MOOD)
@@ -47,7 +52,7 @@ def _need_recreation(year: str) -> bool:
   if year_parts[0] == "Junior":
     mood_check = minimum_mood_junior_year
   else:
-    if match_template("assets/icons/friend_recreation_available.png", region=(125, 800, 1000, 1080)): # SCREEN_BOTTOM_REGION
+    if _friend_recreation():
       # debug("Friend recreation is available")
       mood_check = minimum_mood_with_friend
     else:
@@ -57,6 +62,10 @@ def _need_recreation(year: str) -> bool:
   return missing_mood
 
 def _need_infirmary() -> Tuple[Optional[List[str]], int, Optional[object]]:
+  if matches["infirmary"]:
+    debug("matches['infirmary']")
+  if is_btn_active(matches["infirmary"][0]):
+    debug("is_btn_active(matches['infirmary'][0])")
   if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
     info("Check for condition.")
     if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
@@ -252,7 +261,9 @@ def unity_logic() -> str:
     info(f"Current stats: {current_stats}") 
 
     #########################################################################################
-    # if year_parts[0] in ["Senior"] and year_parts[2] == "Early" and year_parts[3] == "Jul":
+    # if year_parts[0] in ["Senior"]:
+    #     stop_bot()
+    # if year_parts[0] in ["Senior"] and year_parts[2] == "Late" and year_parts[3] == "Oct":
     #     stop_bot()
     # if year_parts[0] in ["Senior"] and year_parts[2] == "Late" and year_parts[3] == "Dec":
     #     stop_bot()
@@ -302,13 +313,13 @@ def unity_logic() -> str:
     if not "Achieved" in criteria:
         keywords = ("fan", "Maiden", "Progress")
 
-        prioritize_g1, race_name = decide_race_for_goal(year, turn, criteria, keywords)
-        info(f"prioritize_g1: {prioritize_g1}, race_name: {race_name}")
+        found_race, race_name = decide_race_for_goal(year, turn, criteria, keywords)
+        info(f"found_race: {found_race}, race_name: {race_name}")
         if race_name:
             if race_name == "any":
-                race_found = do_race(prioritize_g1, img=None)
+                race_found = do_race(found_race, img=None)
             else:
-                race_found = do_race(prioritize_g1, img=race_name)
+                race_found = do_race(found_race, img=race_name)
 
             if race_found:
                 return
@@ -352,28 +363,37 @@ def unity_logic() -> str:
             return
 
     missing_mood = _need_recreation(year)
-    conditions, total_severity, infirmary_box = _need_infirmary()
-    if total_severity > 0:
-        if total_severity <= 1 and missing_mood > 0 and not (_summer_camp(year) and missing_energy < 40):
-            info("[UNITY] Mood low & Status condition present → Recreation.")
-            sleep(0.5)
-            do_recreation()
-            return
-        # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
-        if max(0, missing_energy) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
-            if total_severity > 1 and infirmary_box:
-                info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
+    summer_camp = _summer_camp(year)
+
+    if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
+        conditions, total_severity, infirmary_box = _need_infirmary()
+        if total_severity > 0:
+            if total_severity <= 1 and missing_mood > 0 and not (_summer_camp(year) and missing_energy < 40):
+                info("[UNITY] Mood low & Status condition present → Recreation.")
                 sleep(0.5)
-                click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+                do_recreation()
                 return
+            # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
+            if max(0, missing_energy) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
+                if total_severity > 1 and infirmary_box:
+                    info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
+                    sleep(0.5)
+                    click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+                    return
+                else:
+                    info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
             else:
-                info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
-        else:
-            if infirmary_box:
-                info("[UNITY] Status condition present → Infirmary.")
-                sleep(0.5)
-                click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
-                return
+                if infirmary_box:
+                    info("[UNITY] Status condition present → Infirmary.")
+                    sleep(0.5)
+                    click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+                    return
+
+    if missing_mood > 2:
+        info("[UNITY] Mood is very low → Recreation.")
+        sleep(0.5)
+        do_recreation()
+        return
 
     if missing_mood > 1:
         info("[UNITY] Mood is very low → Recreation.")
@@ -390,7 +410,7 @@ def unity_logic() -> str:
             do_train(result)
             return
 
-    if missing_mood > 0:
+    if missing_mood > 0 and not (summer_camp and missing_energy < 40):
         info("[UNITY] Mood is low → Recreation.")
         sleep(0.5)
         do_recreation("friend")
@@ -430,13 +450,18 @@ def unity_logic() -> str:
                info(f"[UNITY] most_support_card training found → Train {results.upper()}.")
                return
 
-    if "Finale" in year and "Finals" in criteria:
-        sleep(0.5)
-        go_to_training()
-        sleep(0.5)
-        do_train("wit")
-        info(f"[UNITY] No training found, but it was last turn → Train WIT.")
-        return
+    if "Finale" in year:
+        if "Finals" in criteria:
+            sleep(0.5)
+            go_to_training()
+            sleep(0.5)
+            do_train("wit")
+            info(f"[UNITY] No training found, but it was last turn → Train WIT.")
+            return
+        # if _friend_recreation():
+        #     sleep(0.5)
+        #     do_recreation("friend")
+        #     return
 
     info(f"[UNITY] No training found → Rest.")
     do_rest(energy_level)

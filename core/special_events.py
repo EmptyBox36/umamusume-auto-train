@@ -26,7 +26,6 @@ def run_special_event(ev_key: str) -> bool:
 # ---- Unity A Team at Last ----
 
 def _pref_from_config() -> str:
-    # Event key must match your cleaner: lowercased, punctuation stripped
     chosen = (EVENT_CHOICES_MAP.get("a team at last") or 0)
 
     if chosen == 1:
@@ -36,11 +35,11 @@ def _pref_from_config() -> str:
     if chosen == 3:
         return "pudding"
     if chosen == 4:
-        return "blooms"
+        return "bloom"
     if chosen == 5:
-        return "carrots"
+        return "carrot"
 
-    return "carrots"
+    return "carrot"
 
 @_register("a team at last")   # cleaned event key
 def handle_unity_team_name() -> bool:
@@ -51,13 +50,16 @@ def handle_unity_team_name() -> bool:
 
     pref = _pref_from_config()
     if pref == "sunny":
-        if click(img="assets/unity_cup/team_sunny.png", confidence=0.80, minSearch=get_secs(1.0), text=f"[UNITY] Select Team Sunny Day Runners", region=constants.GAME_SCREEN):
+        if click(img="assets/unity_cup/team_sunny.png", confidence=0.80, minSearch=get_secs(1.0), text=f"[UNITY] Select Team Sunny Runners", region=constants.GAME_SCREEN):
             return True
-    if pref == "carrots":
-        if click(img="assets/unity_cup/team_carrot.png", confidence=0.80, minSearch=get_secs(1.0), text=f"[UNITY] Select Team Carrots", region=constants.GAME_SCREEN):
+    if pref == "bloom":
+        if click(img="assets/unity_cup/team_bloom.png", confidence=0.80, minSearch=get_secs(1.0), text=f"[UNITY] Select Team Blue Bloom", region=constants.GAME_SCREEN):
+            return True
+    if pref == "carrot":
+        if click(img="assets/unity_cup/team_carrot.png", confidence=0.80, minSearch=get_secs(1.0), text=f"[UNITY] Select Team Carrot", region=constants.GAME_SCREEN):
             return True
 
-    if click(img="assets/unity_cup/team_carrot.png", confidence=0.80, minSearch=get_secs(1.0), text=f"[UNITY] Select Team Carrots", region=constants.GAME_SCREEN):
+    if click(img="assets/unity_cup/team_carrot.png", confidence=0.80, minSearch=get_secs(1.0), text=f"[UNITY] Select Team Carrot", region=constants.GAME_SCREEN):
         return True
     debug("cant click")
     return False

@@ -8,11 +8,15 @@ from core.EventsDatabase import CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABAS
 from core.EventsDatabase import find_closest_event
 from core.logic import get_stat_priority
 from core.special_events import run_special_event
-from core.state import check_energy_level
+from core.state import check_energy_level, stop_bot
 
 def get_optimal_choice(event_name: str):
     choice = 0
     key = clean_event_name(event_name)
+    
+    # # For Debug
+    # if key == "a team at last":
+    #     stop_bot()
 
     if run_special_event(key):
         info(f"[Special] handled: {key}")
@@ -64,12 +68,20 @@ def pick_choice_by_skill_hint(event_name: str, desired_skills: set[str]):
     hints = SKILL_HINT_BY_EVENT.get(event_name, {})
     if not hints or not desired_skills:
         return None
+
     desired_norm = {_norm_hint(x) for x in desired_skills}
+
     for choice, hint in hints.items():
-        if _norm_hint(str(hint)) in desired_norm:
-            # total = EVENT_TOTALS.get(event_name, len(hints))
-            info(f"[Hint] {event_name}: choice {choice} ({hint})")
-            return choice
+        if isinstance(hint, list):
+            for h in hint:
+                if _norm_hint(h) in desired_norm:
+                    info(f"[Hint] {event_name}: choice {choice} ({h})")
+                    return choice
+        else:
+            if _norm_hint(hint) in desired_norm:
+                info(f"[Hint] {event_name}: choice {choice} ({hint})")
+                return choice
+
     return None
 
 def _f(x, default=0.0):
@@ -109,7 +121,7 @@ def score_choice(choice_row):
 
     energy_gain = float(choice_row.get("HP", 0) or 0)
     if energy_gain < 0:
-        energy_penalty = 0 # if choice give negative energy not have effect on score
+        energy_penalty = 0.1 # if choice give negative energy have less effect on score
     elif missing_energy >= energy_gain or (energy_gain >= 50 and missing_energy >= 50):
         energy_penalty = 1 # 1 = No Penalty
     else:
@@ -120,23 +132,10 @@ def score_choice(choice_row):
     # Score from Mood
     mood_index = (state.CURRENT_MOOD_INDEX or 2)
     mood_gain = float(choice_row.get("Mood", 0) or 0)
-    minimum_mood = constants.MOOD_LIST.index(state.MINIMUM_MOOD)
-    minimum_mood_junior_year = constants.MOOD_LIST.index(state.MINIMUM_MOOD_JUNIOR_YEAR)
-    year = state.CURRENT_YEAR
-
-    if year is None:
-        mood_check = minimum_mood
-    else:
-        year_parts = year.split(" ")
-
-        if year_parts[0] == "Junior":
-            mood_check = minimum_mood_junior_year
-        else:
-            mood_check = minimum_mood
 
     if mood_gain < 0:
         mood_penalty = 0 # if choice give negative mood not have effect on score
-    elif mood_index < mood_check:
+    elif mood_index < 4: # GREAT
         mood_penalty = 1 # 1 = No Penalty
     else:
         mood_penalty = 0

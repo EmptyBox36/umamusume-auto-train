@@ -1,5 +1,11 @@
 import { memo, useEffect, useMemo, useState, useCallback } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
@@ -53,14 +59,19 @@ function ChoicePill({
             type="button"
             onClick={onClick}
             variant={selected ? "default" : "secondary"}
-            className={["h-8 w-8 p-0", "rounded-md", "text-sm font-semibold", "shadow-sm", selected ? "" : "opacity-90"].join(" ")}
+            className={[
+                "h-8 w-8 p-0",
+                "rounded-md",
+                "text-sm font-semibold",
+                "shadow-sm",
+                selected ? "" : "opacity-90",
+            ].join(" ")}
         >
             {label}
         </Button>
     );
 }
 
-// Memoized section to prevent remounts on unrelated updates
 const Section = memo(function Section({
     label,
     rows,
@@ -84,7 +95,13 @@ const Section = memo(function Section({
         <div className="rounded-xl border bg-muted/30 overflow-hidden">
             <div className="flex items-center justify-between px-4 py-3">
                 <div className="font-semibold">{label} Events</div>
-                <Button type="button" size="sm" variant="secondary" onClick={toggleOpen} className="h-8 px-3">
+                <Button
+                    type="button"
+                    size="sm"
+                    variant="secondary"
+                    onClick={toggleOpen}
+                    className="h-8 px-3"
+                >
                     {isOpen ? "Hide" : "Show"}
                 </Button>
             </div>
@@ -97,7 +114,6 @@ const Section = memo(function Section({
                         value={search}
                         placeholder="Search by event name"
                         onChange={(e) => setSearch(e.target.value)}
-                        // keep typing inside input; do not bubble to dialog/accordion
                         onClick={(e) => e.stopPropagation()}
                         onMouseDown={(e) => e.stopPropagation()}
                         onKeyDown={(e) => {
@@ -134,7 +150,9 @@ const Section = memo(function Section({
                         </ul>
 
                         {filterBySearch(rows, search).length === 0 && (
-                            <div className="text-muted-foreground text-sm px-1 py-6 text-center">No events.</div>
+                            <div className="text-muted-foreground text-sm px-1 py-6 text-center">
+                                No events.
+                            </div>
                         )}
                     </div>
                 </div>
@@ -142,6 +160,100 @@ const Section = memo(function Section({
         </div>
     );
 });
+
+function SelectedList({
+    items,
+    search,
+    setSearch,
+    onDelete,
+    isOpen,
+    toggleOpen,
+}: {
+    items: { key: string; name: string; chosen: number }[];
+    search: string;
+    setSearch: (v: string) => void;
+    onDelete: (key: string) => void;
+    isOpen: boolean;
+    toggleOpen: () => void;
+}) {
+    const filtered = useMemo(() => {
+        const q = normalize(search);
+        if (!q) return items;
+        const tokens = q.split(" ");
+        return items.filter((it) => {
+            const h = normalize(it.name);
+            return tokens.every((t) => h.includes(t));
+        });
+    }, [items, search]);
+
+    return (
+        <div className="rounded-xl border bg-muted/30 overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3">
+                <div className="font-semibold">Selected Events</div>
+                <Button
+                    type="button"
+                    size="sm"
+                    variant="secondary"
+                    onClick={toggleOpen}
+                    className="h-8 px-3"
+                >
+                    {isOpen ? "Hide" : "Show"}
+                </Button>
+            </div>
+
+            {isOpen && (
+                <div className="px-4 pb-4 space-y-3">
+                    <Input
+                        type="search"
+                        autoComplete="off"
+                        value={search}
+                        placeholder="Search selected..."
+                        onChange={(e) => setSearch(e.target.value)}
+                        onClick={(e) => e.stopPropagation()}
+                        onMouseDown={(e) => e.stopPropagation()}
+                        className="h-10"
+                    />
+
+                    <div className="max-h-[56svh] overflow-auto">
+                        {filtered.length === 0 ? (
+                            <div className="text-muted-foreground text-sm px-1 py-6 text-center">
+                                No selected events.
+                            </div>
+                        ) : (
+                            <ul className="divide-y">
+                                {filtered.map((it) => (
+                                    <li
+                                        key={it.key}
+                                        className="flex items-center justify-between gap-3 py-2.5 px-3 rounded-lg hover:bg-muted/60"
+                                    >
+                                        <div className="truncate text-sm font-medium">
+                                            {it.name}
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-md bg-secondary px-2 text-sm font-semibold">
+                                                {it.chosen}
+                                            </span>
+                                            <Button
+                                                type="button"
+                                                variant="ghost"
+                                                size="icon"
+                                                className="h-7 w-7 rounded-full border border-border"
+                                                onClick={() => onDelete(it.key)}
+                                            >
+                                                <span aria-hidden="true">&times;</span>
+                                                <span className="sr-only">Remove</span>
+                                            </Button>
+                                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+}
 
 export default function CustomEventPicker({
     trainee,
@@ -152,11 +264,13 @@ export default function CustomEventPicker({
     const [open, setOpen] = useState(false);
 
     // per-section searches
+    const [searchSel, setSearchSel] = useState("");
     const [searchChar, setSearchChar] = useState("");
     const [searchScen, setSearchScen] = useState("");
     const [searchSupp, setSearchSupp] = useState("");
 
     const [openSection, setOpenSection] = useState<Record<string, boolean>>({
+        Selected: false,
         Character: false,
         Scenario: false,
         Support: false,
@@ -215,7 +329,6 @@ export default function CustomEventPicker({
         }));
     }, [scenario, scenarios]);
 
-    // supports can be flat or nested
     const supportRows: EventRow[] = useMemo(() => {
         const rows: EventRow[] = [];
         Object.entries(supports).forEach(([k, v]) => {
@@ -249,7 +362,18 @@ export default function CustomEventPicker({
         return rows;
     }, [supports]);
 
-    const keyForRow = useCallback((row: EventRow) => `${row.source}:${row.name}`, []);
+    const catalogMap = useMemo(() => {
+        const map = new Map<string, EventRow>();
+        for (const r of [...characterRows, ...scenarioRows, ...supportRows]) {
+            map.set(`${r.source}:${r.name}`, r);
+        }
+        return map;
+    }, [characterRows, scenarioRows, supportRows]);
+
+    const keyForRow = useCallback(
+        (row: EventRow) => `${row.source}:${row.name}`,
+        []
+    );
 
     const getSelectedInfo = useCallback(
         (row: EventRow) => {
@@ -281,19 +405,55 @@ export default function CustomEventPicker({
         [eventChoices, getSelectedInfo, setEventChoices]
     );
 
+    const selectedItems = useMemo(() => {
+        const list: { key: string; name: string; chosen: number }[] = [];
+        (eventChoices ?? []).forEach(({ event_name, chosen }) => {
+            const row = catalogMap.get(event_name);
+            if (row) {
+                list.push({ key: event_name, name: row.name, chosen });
+            } else {
+                list.push({ key: event_name, name: event_name, chosen });
+            }
+        });
+        list.sort((a, b) => a.name.localeCompare(b.name));
+        return list;
+    }, [eventChoices, catalogMap]);
+
+    const deleteSelected = useCallback(
+        (key: string) => {
+            const current = eventChoices ?? [];
+            const next = current.filter((e) => e.event_name !== key);
+            setEventChoices(next);
+        },
+        [eventChoices, setEventChoices]
+    );
+
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button className="font-semibold">Custom Event Choices</Button>
             </DialogTrigger>
 
-            <DialogContent className="w-[min(96vw,1000px)] h-[85svh] p-0">
+            <DialogContent className="min-h-[90vh] max-w-5xl max-h-[90vh]">
                 <div className="flex h-full flex-col min-h-0">
-                    <DialogHeader className="p-6 pb-3 sticky top-0 z-10 bg-background">
-                        <DialogTitle>Event Choice Picker</DialogTitle>
+                    <DialogHeader className="p-6 pb-3 sticky top-0 z-10">
+                        <div className="flex items-center justify-between">
+                            <DialogTitle>Event Choice Picker</DialogTitle>
+                        </div>
                     </DialogHeader>
 
-                    <div className="flex-1 overflow-y-auto px-6 pb-6 space-y-4">
+                    <div className="flex-1 overflow-y-auto px-6 pb-6 space-y-4 max-h-[80vh]">
+                        <SelectedList
+                            items={selectedItems}
+                            search={searchSel}
+                            setSearch={setSearchSel}
+                            onDelete={deleteSelected}
+                            isOpen={openSection.Selected}
+                            toggleOpen={() =>
+                                setOpenSection((s) => ({ ...s, Selected: !s.Selected }))
+                            }
+                        />
+
                         <Section
                             label="Character"
                             rows={characterRows}
@@ -302,8 +462,11 @@ export default function CustomEventPicker({
                             getSelectedInfo={getSelectedInfo}
                             addChoice={addChoice}
                             isOpen={openSection.Character}
-                            toggleOpen={() => setOpenSection((s) => ({ ...s, Character: !s.Character }))}
+                            toggleOpen={() =>
+                                setOpenSection((s) => ({ ...s, Character: !s.Character }))
+                            }
                         />
+
                         <Section
                             label="Scenario"
                             rows={scenarioRows}
@@ -312,8 +475,11 @@ export default function CustomEventPicker({
                             getSelectedInfo={getSelectedInfo}
                             addChoice={addChoice}
                             isOpen={openSection.Scenario}
-                            toggleOpen={() => setOpenSection((s) => ({ ...s, Scenario: !s.Scenario }))}
+                            toggleOpen={() =>
+                                setOpenSection((s) => ({ ...s, Scenario: !s.Scenario }))
+                            }
                         />
+
                         <Section
                             label="Support"
                             rows={supportRows}
@@ -322,7 +488,9 @@ export default function CustomEventPicker({
                             getSelectedInfo={getSelectedInfo}
                             addChoice={addChoice}
                             isOpen={openSection.Support}
-                            toggleOpen={() => setOpenSection((s) => ({ ...s, Support: !s.Support }))}
+                            toggleOpen={() =>
+                                setOpenSection((s) => ({ ...s, Support: !s.Support }))
+                            }
                         />
                     </div>
                 </div>

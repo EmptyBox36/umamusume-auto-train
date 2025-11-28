@@ -46,6 +46,8 @@ CURRENT_TURN_LEFT = None
 PREFERRED_POSITION_SET = None
 SCENARIO_NAME = ""
 CRITERIA = None
+DONE_DEBUT = None
+FAN_COUNT = -1
 
 TURN_REGION = (0,0,0,0)
 YEAR_REGION = (0,0,0,0)
@@ -59,7 +61,8 @@ def load_config():
 def reload_config():
   global PRIORITY_STAT, PRIORITY_WEIGHT, MINIMUM_MOOD, MINIMUM_MOOD_JUNIOR_YEAR, MAX_FAILURE, MINIMUM_MOOD_WITH_FRIEND
   global PRIORITIZE_G1_RACE, CANCEL_CONSECUTIVE_RACE, STAT_CAPS
-  global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, PREFERRED_POSITION, SUMMER_PRIORITY_EFFECTS_LIST
+  global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, SUMMER_PRIORITY_EFFECTS_LIST
+  global POSITION_FOR_SPECIFIC_RACE, PREFERRED_POSITION
   global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER, STOP_BEFORE_RACE
   global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
   global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE, EVENT_CHOICES
@@ -112,10 +115,12 @@ def reload_config():
   UNITY_SPIRIT_BURST_POSITION = config["unity"]["spirit_burst_position"]
   # STOP_BEFORE_RACE = config["stop_bot_before_race"]
   SUMMER_PRIORITY_EFFECTS_LIST = {i: v for i, v in enumerate(config["summer_priority_weights"])}
+  POSITION_FOR_SPECIFIC_RACE = config["position_for_specific_race"]
 
   # URA Starter
   if "URA" in SCENARIO_NAME:
-    TURN_REGION=(260, 81, 370 - 260, 140 - 87)
+    TURN_REGION=(260, 81, 370 - 260, 140 - 81)
+    TURN_NUMBER_REGION=(260, 81, 370 - 260, 135 - 81)
     YEAR_REGION=(255, 35, 420 - 255, 60 - 35)
     FAILURE_REGION=(250, 770, 855 - 295, 835 - 770)
     FAILURE_PERCENT_REGION=(250, 790, 855 - 295, 835 - 790)
@@ -243,36 +248,46 @@ def check_failure():
   # if val != -1:
   #   return int(val)
 
-  # 0) verify we're on a Failure badge
   label = extract_text(failure_text).lower()
+  pct_text = extract_text(failure_percent)
+
+  debug(f"raw_label: {label}")
+  debug(f"raw_pct_text: {pct_text}")
+
   if not label.startswith("failure"):
     return -1
 
   # 1) read percent from the badge region only
-  pct_text = extract_text(failure_percent)
   hits = list(re.finditer(r'(\d(?:\s?\d){0,2})\s*%', pct_text))
   if hits:
     v = int(hits[-1].group(1).replace(" ", ""))               # rightmost match
     if 0 <= v <= 100:
       return v
 
-  # 2) legacy fallbacks on the full label text (kept from your original)
+  # 2) legacy fallbacks on the full label text
   m = re.search(r"failure\s+(\d{1,3})\s*%", label)
   if m:
     return int(m.group(1))
 
-  # m = re.search(r"failure\s+(\d+)", label)
-  # if m:
-  #   digits = m.group(1)
-  #   idx = digits.find("9")
-  #   if idx > 0:
-  #     num = digits[:idx]
-  #     if num.isdigit():
-  #       return int(num)
-  #   if digits.isdigit():
-  #     return int(digits)
+  # label = extract_text_improved(failure_text).lower()
+  # debug(f"raw_improved_label: {label}")
 
-  return 99
+  m = re.search(r"failure\s+(\d{1,3})\s*%", label)
+  if m:
+    return int(m.group(1))
+
+  m = re.search(r"failure\s+(\d+)", label)
+  if m:
+    digits = m.group(1)
+    idx = digits.find("9")
+    if idx > 0:
+      num = digits[:idx]
+      if num.isdigit():
+        return int(num)
+    if digits.isdigit():
+      return int(digits)
+
+  return -1
 
 # Check mood
 def check_mood():
@@ -291,26 +306,46 @@ def check_turn():
     turn = enhanced_screenshot(TURN_REGION)
     turn_text = extract_text(turn)
 
+    turn_num = enhanced_screenshot(TURN_NUMBER_REGION)
+    turn_num_ex = extract_number(turn_num)
+
+    # debug(f"raw_turn_text: {turn_text}")
+    # debug(f"raw_turn_num: {turn_num_ex}")
+
     if "race" in turn_text.lower():
         return "Race Day"
     if "goal" in turn_text.lower():
         return "Goal"
 
     turn_text = turn_text.replace("I", "1")
+    # debug(f"clean_turn_text: {turn_text}")
+
     digits_only = re.sub(r"[^\d]", "", turn_text)
 
     if digits_only:
       if 0 < int(digits_only) < 50:
         return int(digits_only)
-    
-    turn_num = enhanced_screenshot(TURN_NUMBER_REGION)
-    turn_num_ex = extract_text(turn_num)
+
     if turn_num_ex:
         if 0 < int(turn_num_ex) < 50:
           return int(turn_num_ex)
-    
-    debug(f"turn_text: {turn_text}")
-    debug(f"turn_num: {turn_num_ex}")
+
+    # if normal version fail use improved version
+    turn_text = extract_text_improved(turn)
+    if "race" in turn_text.lower():
+        return "Race Day"
+    if "goal" in turn_text.lower():
+        return "Goal"
+
+    turn_text = turn_text.replace("I", "1")
+    # debug(f"clean_improved_turn_text: {turn_text}")
+
+    digits_only = re.sub(r"[^\d]", "", turn_text)
+
+    if digits_only:
+      if 0 < int(digits_only) < 50:
+        return int(digits_only)
+
     return -1
 
 def _norm(s: str) -> str:
@@ -353,6 +388,61 @@ def check_criteria_detail():
   img = enhanced_screenshot(constants.CRITERIA_DETAIL_REGION)
   text = extract_text(img)
   return text
+
+def check_debut_status():
+  global DONE_DEBUT
+  region = (440, 620, 430+1, 620+1)
+  pixel = find_color_of_pixel(region)
+
+  if isinstance(pixel, int):
+    return False
+
+  not_debut_color = (213,213,213)
+
+  pixel = np.array(pixel)
+  target = np.array(not_debut_color)
+
+  is_match = np.all(np.abs(pixel - target) <= 5)
+  if not is_match:
+    debug("Already Finish Debut Race.")
+    DONE_DEBUT = True
+    return
+    
+  debug("Debut Race is Not Finish.")
+  DONE_DEBUT = False
+  return
+
+def check_fans():
+    global FAN_COUNT
+    img = enhanced_screenshot(constants.FANS_REGION)
+    text = extract_text(img)
+
+    text = re.sub(r"\(.*?\)", "", text)
+    text = re.sub(r"[^\d,]", "", text)
+    text = text.replace(",", "")
+
+    if text.isdigit():
+        FAN_COUNT = int(text)
+    else:
+        FAN_COUNT = -1
+
+    return FAN_COUNT
+
+def check_fans_after_race(region):
+    global FAN_COUNT
+    img = enhanced_screenshot(region)
+    text = extract_text(img)
+
+    text = re.sub(r"\(.*?\)", "", text)
+    text = re.sub(r"[^\d,]", "", text)
+    text = text.replace(",", "")
+
+    if text.isdigit():
+        FAN_COUNT = int(text)
+    else:
+        FAN_COUNT = -1
+
+    return FAN_COUNT
 
 def check_skill_pts():
   img = enhanced_screenshot(constants.SKILL_PTS_REGION)
@@ -402,6 +492,12 @@ def get_race_type():
   race_info_text = extract_text(race_info_screen)
   debug(f"Race info text: {race_info_text}")
   return race_info_text
+
+def get_race_name():
+  race_name_screen = enhanced_screenshot(constants.RACE_NAME_TEXT_REGION)
+  race_name_text = extract_text(race_name_screen)
+  debug(f"Race name text: {race_name_text}")
+  return race_name_text
 
 # Severity -> 0 is doesn't matter / incurable, 1 is "can be ignored for a few turns", 2 is "must be cured immediately"
 BAD_STATUS_EFFECTS={

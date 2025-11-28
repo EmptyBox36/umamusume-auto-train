@@ -8,7 +8,12 @@ SCREEN_BOTTOM_REGION=(125, 800, 1000-125, 1080-800)
 SCREEN_MIDDLE_REGION=(125, 300, 1000-125, 800-300)
 SCREEN_TOP_REGION=(125, 0, 1000-125, 300)
 RACE_INFO_TEXT_REGION=(285, 335, 810-285, 370-335)
+RACE_NAME_TEXT_REGION=(350, 25, 780-350, 55-25)
 RACE_LIST_BOX_REGION=(260, 580, 850-265, 870-580)
+
+AFTER_RACE_FANS_REGION=(410,535,800-410,575-535)
+FANS_REGION=(540,680,830-540,715-680)
+FANS_LABEL_REGION=(260,530,830-260,580-530)
 
 FULL_STATS_STATUS_REGION=(265, 575, 845-265, 940-575)
 FULL_STATS_APTITUDE_REGION=(395, 340, 820-395, 440-340)
@@ -93,7 +98,7 @@ def adjust_constants_x_coords(offset=405):
 
 # Load all races once to be used when selecting them
 RACES = ""
-with open("data/races.json", "r", encoding="utf-8") as file:
+with open("scraper/data/races.json", "r", encoding="utf-8") as file:
   RACES = json.load(file)
 
 # Build a lookup dict for fast (year, date) searches

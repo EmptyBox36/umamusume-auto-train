@@ -62,3 +62,23 @@ def click(img: str = None, confidence: float = 0.8, minSearch:float = 2, click: 
     return True
 
   return False
+
+def wait_for_image(img_path, timeout=10, confidence=0.85, region=None, interval=0.15):
+    """ 
+    Returns:
+        (True, box) if image found
+        (False, None) if timeout
+    """
+    start = time.time()
+
+    while time.time() - start < get_secs(timeout):
+        box = pyautogui.locateOnScreen(
+            img_path,
+            confidence=confidence,
+            region=region
+        )
+        if box:
+            return True, box
+        time.sleep(get_secs(interval))
+
+    return False, None

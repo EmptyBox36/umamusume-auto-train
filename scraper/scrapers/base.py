@@ -21,7 +21,8 @@ TOOLTIP_HEADER_REL = ".//div[1]"
 # ---- helpers ----
 def blank_stats():
     d = {k: 0.0 for k in STAT_KEYS}
-    d["Skill Hint"] = ""
+    # collect all skill hints for this outcome as a list
+    d["Skill Hint"] = []
     return d
 
 def _worst_num(text: str) -> float | None:
@@ -34,9 +35,21 @@ def add(d: dict, k: str, v: float):
        
 def _finish(d: dict) -> dict:
     d.pop("Skill", None)
+
     for k in STAT_KEYS:
         if k not in d:
-            d[k] = "" if k == "Skill Hint" else 0.0
+            if k == "Skill Hint":
+                d[k] = []
+            else:
+                d[k] = 0.0
+
+    # if older code ever left a non-list here, normalize it
+    if not isinstance(d.get("Skill Hint"), list):
+        if d.get("Skill Hint"):
+            d["Skill Hint"] = [d["Skill Hint"]]
+        else:
+            d["Skill Hint"] = []
+
     return d
 
 def _is_ignorable(line: str) -> bool:
@@ -45,17 +58,25 @@ def _is_ignorable(line: str) -> bool:
 def parse_outcome_block(text: str) -> dict:
     d = blank_stats()
     for ln in (x.strip() for x in text.splitlines() if x.strip()):
-        if _is_ignorable(ln): 
+        if _is_ignorable(ln):
             continue
 
         # full recovery to HP +200
         if re.search(r"\bfull\s+energy\s+recovery\b", ln, re.I):
-            add(d, "HP", 200.0)           # or use "Energy" if that's your key
+            add(d, "HP", 200.0)
             continue
 
-        # Skill hint: keep only the skill name; "(random)" → ""
+        # Skill hint lines, possibly more than one per choice.
         if re.search(r"\bhint\b", ln, re.I):
-            d["Skill Hint"] = "" if re.search(r"\(random\)", ln, re.I) else re.sub(r"\s*hint.*", "", ln, flags=re.I).strip()
+            # skip random skills like "Skill hint (random)"
+            if re.search(r"\(random\)", ln, re.I):
+                continue
+
+            skill_name = re.sub(r"\s*hint.*", "", ln, flags=re.I).strip()
+            if skill_name:
+                if not isinstance(d.get("Skill Hint"), list):
+                    d["Skill Hint"] = []
+                d["Skill Hint"].append(skill_name)
             continue
 
         # Bond → Friendship
@@ -87,28 +108,49 @@ def parse_outcome_block(text: str) -> dict:
                 if val is not None:
                     add(d, key, val)
             continue
+    d["random"] = False
+
     return _finish(d)
 
 def parse_randomly(text: str) -> dict:
     # drop the header line
-    body = re.sub(r"^\s*Randomly either.*?\n", "", text, flags=re.I|re.S)
+    body = re.sub(r"^\s*Randomly either.*?\n", "", text, flags=re.I | re.S)
     # split on dashed dividers OR an 'or' line (with optional percentage)
     parts = [p.strip() for p in RAND_SPLIT_RE.split(body) if p.strip()]
     if not parts:
         return parse_outcome_block(text)
 
-    # choose worst: most negative single delta, then lowest sum
     worst_d, worst_key = None, (0, float("inf"))
+    first_d = None
+    combined_hints: list[str] = []
+
     for part in parts:
         d = parse_outcome_block(part)
-        nums = [v for v in d.values() if isinstance(v, (int, float))]
-        if not nums:
-            continue
-        key = (min(nums), sum(nums))
-        if key < worst_key:
-            worst_d, worst_key = d, key
+        if first_d is None:
+            first_d = d
 
-    return _finish(worst_d or blank_stats())
+        hints = d.get("Skill Hint") or []
+        if not isinstance(hints, list):
+            hints = [hints]
+        for h in hints:
+            h = (h or "").strip()
+            if h and h not in combined_hints:
+                combined_hints.append(h)
+
+        nums = [v for v in d.values() if isinstance(v, (int, float))]
+        if nums:
+            key = (min(nums), sum(nums))
+            if key < worst_key:
+                worst_d, worst_key = d, key
+
+    # if no numeric stats, fall back to the first parsed branch
+    if worst_d is None:
+        worst_d = first_d or blank_stats()
+
+    worst_d["Skill Hint"] = combined_hints
+    worst_d["random"] = True
+
+    return _finish(worst_d)
 
 def parse_outcome(text: str) -> dict:
     return parse_randomly(text) if "Randomly either" in text else parse_outcome_block(text)

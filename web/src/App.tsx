@@ -105,6 +105,7 @@ function App() {
     use_prioritize_on_junior,
     failure,
     event,
+    position_for_specific_race,
   } = config;
 
   const {
@@ -331,15 +332,41 @@ function App() {
                 <PrioritizeG1 prioritizeG1Race={prioritize_g1_race} setPrioritizeG1={(val) => updateConfig("prioritize_g1_race", val)} />
                 <CancelConsecutive cancelConsecutive={cancel_consecutive_race} setCancelConsecutive={(val) => updateConfig("cancel_consecutive_race", val)} />
                 <RaceSchedule
-                raceSchedule={race_schedule}
-                addRaceSchedule={(val) => updateConfig("race_schedule", [...race_schedule, val])}
-                deleteRaceSchedule={(name, year) =>
-                    updateConfig(
-                    "race_schedule",
-                    race_schedule.filter((race) => race.name !== name || race.year !== year)
-                    )
-                }
-                clearRaceSchedule={() => updateConfig("race_schedule", [])}
+                  raceSchedule={race_schedule}
+                  addRaceSchedule={(val) =>
+                    updateConfig("race_schedule", [...race_schedule, val])
+                  }
+                  deleteRaceSchedule={(name, year) => {
+                    const removed = race_schedule.find(
+                      (race) => race.name === name && race.year === year,
+                    );
+
+                    const nextSchedule = race_schedule.filter(
+                      (race) => race.name !== name || race.year !== year,
+                    );
+
+                    let nextSpecific = position_for_specific_race ?? [];
+                    if (removed) {
+                      const fullYear = `${removed.year} ${removed.date}`;
+                      nextSpecific = nextSpecific.filter(
+                        (p) => !(p.race_name === removed.name && p.year === fullYear),
+                      );
+                    }
+
+                    updateConfig("race_schedule", nextSchedule);
+                    updateConfig("position_for_specific_race", nextSpecific);
+                  }}
+                  clearRaceSchedule={() => {
+                    updateConfig("race_schedule", []);
+                    updateConfig("position_for_specific_race", []);
+                  }}
+                  positionForSpecificRace={position_for_specific_race ?? []}
+                  setPositionForSpecificRace={(next) =>
+                    updateConfig("position_for_specific_race", next)
+                  }
+                  clearPositionForSpecificRace={() =>
+                    updateConfig("position_for_specific_race", [])
+                  }
                 />
               </div>
             </div>

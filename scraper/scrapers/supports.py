@@ -6,17 +6,36 @@ from selenium.common.exceptions import TimeoutException, WebDriverException
 from .base import BaseScraper, create_chromedriver
 
 def _go(driver, url, tries=2):
-    for _ in range(tries):
+    for attempt in range(1, tries + 1):
         try:
             driver.get(url)
             return True
-        except (TimeoutException, WebDriverException):
+
+        except Exception as e:
+            msg = str(e)
+            logging.error(f"_go error on attempt {attempt}/{tries}: {msg}")
+
+            # Detect broken chrome/CDP session
+            if "HTTPConnectionPool" in msg or "Read timed out" in msg:
+                return "RESTART"   # signal caller to recreate driver
+
+            # Normal retry
             try:
                 driver.execute_script("window.stop();")
             except Exception:
                 pass
-        except RequestsReadTimeout:
-            pass
+            time.sleep(2)
+
+    return False
+
+def load_with_retry(driver, url: str, max_retry: int = 3, delay: float = 10.0):
+    for attempt in range(1, max_retry + 1):
+        try:
+            driver.get(url)
+            return True  # success
+        except Exception as e:
+            logging.error(f"Load failed ({attempt}/{max_retry}) for {url}: {e}")
+            time.sleep(delay)
     return False
 
 class SupportCardScraper(BaseScraper):
@@ -43,7 +62,26 @@ class SupportCardScraper(BaseScraper):
                 time.sleep(1)
 
             logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
-            driver.get(link); time.sleep(3)
+
+            result = _go(driver, link, tries=2)
+
+            if result == "RESTART":
+                logging.warning("Restarting Chrome due to connection failure...")
+                driver.quit()
+                driver = create_chromedriver()
+                _ = _go(driver, self.url)
+                time.sleep(1)
+                # retry the SAME link again
+                if _go(driver, link, tries=2) is not True:
+                    if not load_with_retry(driver, link, max_retry=5, delay=10):
+                        raise RuntimeError(f"Could not load {link} after Chrome restart")
+            elif result is False:
+                logging.warning("Normal _go failure, trying extended retries...")
+                if not load_with_retry(driver, link, max_retry=5, delay=10):
+                    raise RuntimeError(f"Could not load {link}")
+
+            time.sleep(3)
+
             raw = driver.find_element(By.XPATH, "//h1[contains(@class, 'utils_headingXl')]").text
             name = re.sub(r'\s*\(.*?\)', '', raw.replace("Support Card", "")).strip()
             temp_dict = {}
