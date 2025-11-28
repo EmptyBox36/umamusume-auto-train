@@ -16,19 +16,19 @@ Use responsibly and at your own discretion.
 - Automatically trains Uma
 - Keeps racing until fan count meets the goal, and always picks races with matching aptitude
 - Checks mood
-- Handle debuffs
+- Handle debuffs, if debuffed and mood is below threshold bot will pick recreation to try to get temple date
 - Rest
 - Selectable races in the race schedule
 - Stat target feature, if a stat already hits the target, skip training that one
 - Auto-purchase skill
 - Web Interface for easier configuration
-- Select running style position
+- Select running style position and select specific position for specific race
 - Detailed config
-- Auto pick event choice
-- Automatically picks event choice base on energy, desire skill, and stats.
+- Auto pick event choice choice base on energy, desire skill, and stats
 - Can custom pick event choice
-- URA and Unity cup support (i still didn't have assets for some team name, it only work with team sunny and carrots for now)
+- URA and Unity cup support (i still didn't have assets for some team name, it only work with team sunny runner, blue bloom and carrots for now)
 - Can manual update the events database (/scraper/main.py or /scraper/start.bat)
+- Smart recreation, if mood is below prefered mood by 1 level it will try to recreation with friend first but if mood is too low it will use the normal recration to try to get karaoke or claw machine. And it can also detect when friend recreation is available
   
 ## Getting Started
 
