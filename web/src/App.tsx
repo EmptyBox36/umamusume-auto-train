@@ -42,11 +42,13 @@ import ConfigManager from "./components/config/ConfigManager";
 import CustomEventPicker from "./components/Event/CustomEventPicker";
 import ScenarioConfig from "./components/setting/ScenarioConfig";
 import SummerPriorityWeights from "./components/training/SummerPriorityWeights";
+import LiveLogDialog from "@/components/LiveLogDialog";
 
 function App() {
   const defaultConfig = rawConfig as Config;
   const { activeIndex, activeConfig, presets, setActiveIndex, setNamePreset, savePreset } = useConfigPreset();
   const { config, setConfig, saveConfig } = useConfig(activeConfig ?? defaultConfig);
+  const [isDirty, setIsDirty] = useState(false);
   const [presetName, setPresetName] = useState<string>("");
   const [traineeOptions, setTraineeOptions] = useState<string[]>([]);
   const [scenarioOptions, setScenarioOptions] = useState<string[]>([]);
@@ -122,15 +124,54 @@ function App() {
 
   const updateConfig = <K extends keyof typeof config>(key: K, value: (typeof config)[K]) => {
     setConfig((prev) => ({ ...prev, [key]: value }));
+    setIsDirty(true);
+  };
+
+  const updateConfigSilent = <K extends keyof typeof config>(key: K, value: (typeof config)[K]) => {
+    setConfig((prev) => ({ ...prev, [key]: value }));
   };
 
   const setEventChoices = (next: SkillEventChoice[]) => {
     updateConfig("event", { ...event, event_choices: next });
   };
 
+  const reloadFromServer = async () => {
+    if (isDirty) return; // do not override user edits
+
+    try {
+      const res = await fetch("/config?ts=" + Date.now());
+      if (!res.ok) return;
+      const fresh = await res.json();
+
+      setConfig((prev) => {
+        if (!prev) {
+          setIsDirty(false);
+          return fresh;
+        }
+        if (JSON.stringify(prev) === JSON.stringify(fresh)) {
+          setIsDirty(false);
+          return prev;
+        }
+        setIsDirty(false);
+        return fresh;
+      });
+
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (!isDirty) reloadFromServer();
+    }, 3000);
+
+    return () => clearInterval(id);
+  }, [isDirty]);
+
   useEffect(() => {
     if (!failure.enable_custom_failure) {
-      updateConfig("failure", {
+      updateConfigSilent("failure", {
         ...failure,
         enable_custom_low_failure: false,
         enable_custom_high_failure: false,
@@ -151,23 +192,29 @@ function App() {
               Press <span className="font-bold text-primary">F1</span> to start/stop the bot.
             </p>
             <ConfigManager
-                config={config}
-                setConfig={setConfig}
-                saveConfig={saveConfig}
-                savePreset={savePreset}
-                setNamePreset={setNamePreset}
-                activeIndex={activeIndex}
-                presetName={presetName}
+               config={config}
+               setConfig={setConfig}
+               saveConfig={() => { saveConfig(); setIsDirty(false); }}
+               savePreset={savePreset}
+               setNamePreset={setNamePreset}
+               activeIndex={activeIndex}
+               presetName={presetName}
             />
           </div>
         </header>
 
-        <div className="flex flex-wrap gap-4 mb-8">
-          {presets.map((_, i) => (
-            <Button key={_.name} variant={i === activeIndex ? "default" : "outline"} size="sm" onClick={() => setActiveIndex(i)}>
-              Preset {i + 1}
-            </Button>
-          ))}
+        <div className="mb-8 flex items-center justify-between gap-4">
+          {/* left: preset buttons */}
+          <div className="flex flex-wrap gap-4">
+            {presets.map((_, i) => (
+              <Button key={_.name} variant={i === activeIndex ? "default" : "outline"} size="sm" onClick={() => {setActiveIndex(i); if (!isDirty) reloadFromServer();}}>
+                Preset {i + 1}
+              </Button>
+            ))}
+          </div>
+
+          {/* right: View Log button (opens dialog) */}
+          <LiveLogDialog />
         </div>
 
         {/* Preset Grid */}
