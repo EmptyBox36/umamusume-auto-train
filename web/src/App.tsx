@@ -68,6 +68,12 @@ function App() {
     window.location.hostname !== "localhost";
 
   useEffect(() => {
+    if (isReadOnly) {
+      window.alert("This page is view-only. Only the host PC (localhost) can change settings.");
+    }
+  }, [isReadOnly]);
+
+  useEffect(() => {
     if (presets[activeIndex]) {
       setPresetName(presets[activeIndex].name);
       setConfig(presets[activeIndex].config ?? defaultConfig);
