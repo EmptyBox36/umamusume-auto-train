@@ -159,14 +159,17 @@ def _training(results: dict):
         WHITE_FLAME_POINT = 0.5
         BLUE_FLAME_POINT = 1.5
 
-        if _summer_camp(year):
-            rainbow_point = 2
-            WHITE_FLAME_POINT = 0.25
         if year_parts[0] == "Junior":
             rainbow_point = 0.75
-        if year_parts[0] == "Classic":
+        elif year_parts[0] == "Classic":
             friend_value_point = 1.5
-        if year_parts[0] == "Finale":
+        elif year_parts[0] == "Senior":
+            friend_value_point = 1.5
+        elif year_parts[0] == "Finale":
+            WHITE_FLAME_POINT = 0.25
+
+        if _summer_camp(year):
+            rainbow_point = 2
             WHITE_FLAME_POINT = 0.25
 
         score = (friend_value_point * friend_value) + (rainbow_point * friend_training)
