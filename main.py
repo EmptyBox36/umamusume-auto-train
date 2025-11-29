@@ -1,4 +1,5 @@
 ﻿from utils.tools import sleep
+from pathlib import Path
 import pygetwindow as gw
 import threading
 import uvicorn
@@ -6,6 +7,7 @@ import keyboard
 import pyautogui
 import time
 import traceback
+import json
 
 import utils.constants as constants
 from utils.log import info, warning, error, debug
@@ -13,6 +15,8 @@ from utils.log import info, warning, error, debug
 import core.state as state
 from server.main import app
 from update_config import update_config
+
+from server.live_log import attach_web_log_handler
 
 hotkey = "f1"
 
@@ -115,6 +119,17 @@ def start_server():
     return
   host = "127.0.0.1"
   port = 8000
+
+  cfg_path = Path("local_settings.json")
+  if cfg_path.exists():
+    try:
+      with cfg_path.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+      host = data.get("host", host)
+      port = int(data.get("port", port))
+    except Exception as e:
+      warning(f"Failed to read local_settings.json: {e}")
+
   info(f"Press '{hotkey}' to start/stop the bot.")
   print(f"[SERVER] Open http://{host}:{port} to configure the bot.")
   config = uvicorn.Config(app, host=host, port=port, workers=1, log_level="warning")
@@ -122,6 +137,7 @@ def start_server():
   server.run()
 
 if __name__ == "__main__":
+  attach_web_log_handler()
   update_config()
   threading.Thread(target=hotkey_listener, daemon=True).start()
   start_server()

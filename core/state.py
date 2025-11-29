@@ -48,6 +48,7 @@ SCENARIO_NAME = ""
 CRITERIA = None
 DONE_DEBUT = None
 FAN_COUNT = -1
+TRAINING_RESTRICTED = None
 
 TURN_REGION = (0,0,0,0)
 YEAR_REGION = (0,0,0,0)
@@ -238,56 +239,71 @@ def check_support_card(threshold=0.8, target="none"):
 
   return count_result
 
-# Get failure chance (idk how to get energy value)
-def check_failure():
-  failure_text = enhanced_screenshot(FAILURE_REGION)
-  failure_percent = enhanced_screenshot(FAILURE_PERCENT_REGION)
+def _parse_failure_digits(raw: str) -> int | None:
+    digits = re.sub(r"[^\d]", "", raw or "")
+    if not digits:
+        return None
 
-  # # use new OCR that protects against misread errors
-  # val = extract_percent(failure_percent)
-  # if val != -1:
-  #   return int(val)
+    # --- Case A: 3-digit OCR cases like 399, 309 ---
+    if len(digits) == 3:
+        first_two = digits[:2]
+        if first_two.isdigit():
+            v = int(first_two)
+            if 0 <= v <= 100:
+                return v
 
-  label = extract_text(failure_text).lower()
-  pct_text = extract_text(failure_percent)
+    # --- Case B: 2-digit ambiguous cases like 39, 29, 19 ---
+    if len(digits) == 2:
+        # If OCR adds a trailing '9', real value is usually single digit (3% → 39)
+        if digits[1] == "9":
+            return int(digits[0])
+        # no trailing 9 → treat normally (e.g., 30, 23)
+        return int(digits)
 
-  debug(f"raw_label: {label}")
-  debug(f"raw_pct_text: {pct_text}")
+    # --- Case C: 1-digit clean value ---
+    if len(digits) == 1:
+        return int(digits)
 
-  if not label.startswith("failure"):
-    return -1
-
-  # 1) read percent from the badge region only
-  hits = list(re.finditer(r'(\d(?:\s?\d){0,2})\s*%', pct_text))
-  if hits:
-    v = int(hits[-1].group(1).replace(" ", ""))               # rightmost match
-    if 0 <= v <= 100:
-      return v
-
-  # 2) legacy fallbacks on the full label text
-  m = re.search(r"failure\s+(\d{1,3})\s*%", label)
-  if m:
-    return int(m.group(1))
-
-  # label = extract_text_improved(failure_text).lower()
-  # debug(f"raw_improved_label: {label}")
-
-  m = re.search(r"failure\s+(\d{1,3})\s*%", label)
-  if m:
-    return int(m.group(1))
-
-  m = re.search(r"failure\s+(\d+)", label)
-  if m:
-    digits = m.group(1)
-    idx = digits.find("9")
-    if idx > 0:
-      num = digits[:idx]
-      if num.isdigit():
-        return int(num)
+    # --- Case D: fallback for clean 0–100 ---
     if digits.isdigit():
-      return int(digits)
+        v = int(digits)
+        if 0 <= v <= 100:
+            return v
 
-  return -1
+    return None
+
+def check_failure():
+    failure_text = enhanced_screenshot(FAILURE_REGION)
+    failure_percent = enhanced_screenshot(FAILURE_PERCENT_REGION)
+
+    label = extract_text(failure_text).lower()
+    pct_text = extract_text(failure_percent)
+
+    debug(f"raw_label: {label}")
+    debug(f"raw_pct_text: {pct_text}")
+
+    if not label.startswith("failure"):
+        return -1
+
+    # 1) read percent from the badge region only
+    hits = list(re.finditer(r'(\d(?:\s?\d){0,2})\s*%', pct_text))
+    if hits:
+      v = int(hits[-1].group(1).replace(" ", ""))
+      if 0 <= v <= 100:
+        return v
+
+    # 2) legacy fallbacks on the full label text
+    m = re.search(r"failure\s+(\d{1,3})\s*%", label)
+    if m:
+      return int(m.group(1))
+
+    m = re.search(r"failure\s+(\d+)", label)
+    if m:
+        v = _parse_failure_digits(m.group(1))
+        if v is not None:
+            return v
+
+    return -1
 
 # Check mood
 def check_mood():

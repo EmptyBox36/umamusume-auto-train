@@ -115,17 +115,17 @@ def dump_event(event_name: str):
     for idx, row in (payload.get('stats') or {}).items():
         info(f"choice {idx}: {row}")
 
-def find_closest_event(event_name, event_list, threshold=0.8):
+def find_closest_event(event_name, event_list, threshold=0.7):
     if not event_name:
         return None
 
-    best_match, best_score = None, 0
+    best_match, training_score = None, 0
     for db_event in event_list:
         score = fuzz.token_sort_ratio(event_name.lower(), db_event.lower()) / 100
-        if score > best_score:
-            best_score = score
+        if score > training_score:
+            training_score = score
             best_match = db_event
-    return best_match if best_score >= threshold else None
+    return best_match if training_score >= threshold else None
 
 def rebuild_all_event_keys() -> None:
     """Recompute the global set of normalized event keys."""

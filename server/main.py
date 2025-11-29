@@ -1,10 +1,12 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
+import logging
 
 from server.utils import load_config, save_config
+from server.live_log import attach_web_log_handler, get_logs_since, get_latest_id
 
 app = FastAPI()
 
@@ -15,6 +17,10 @@ app.add_middleware(
   allow_methods=["*"],
   allow_headers=["*"],
 )
+
+@app.on_event("startup")
+async def _attach_live_log_handler() -> None:
+    attach_web_log_handler(logging.DEBUG)
 
 @app.get("/config")
 def get_config():
@@ -62,6 +68,15 @@ async def get_data_2(path: str):
     return FileResponse(file_path, headers=headers)
 
   raise HTTPException(status_code=404, detail="Not found")
+
+@app.get("/api/logs")
+def api_logs(since: int = Query(-1, description="last seen log id")):
+    entries = get_logs_since(since)
+    if entries:
+        nxt = entries[-1]["id"]
+    else:
+        nxt = get_latest_id()
+    return {"next": nxt, "entries": entries}
 
 @app.get("/{path:path}")
 async def fallback(path: str):

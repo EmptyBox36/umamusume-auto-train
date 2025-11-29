@@ -127,12 +127,12 @@ def ura_training(results: dict):
             score += state.HINT_POINT
 
         if _summer_camp(year):
-            data["best_score"] = score * summer_multiplier
+            data["training_score"] = score * summer_multiplier
         else:
-            data["best_score"] = score * multiplier
+            data["training_score"] = score * multiplier
 
         info(f"[{stat_name.upper()}] -> Non Max Support: {friend_value}, Rainbow Support: {friend_training}, Hint: {data['total_hints']}")
-        info(f"[{stat_name.upper()}] -> Score: {data['best_score']}")
+        info(f"[{stat_name.upper()}] -> Score: {data['training_score']}")
 
     any_nonmaxed = any(
         data.get("total_non_maxed_support", 0) > 0 
@@ -141,7 +141,7 @@ def ura_training(results: dict):
     best_stat, best_point = max(
         training_candidates.items(),
         key=lambda kv: (
-            kv[1]["score_befor_multiplier"],
+            kv[1]["training_score"],
             -_get_stat_priority(kv[0])
         ),
     )
@@ -160,7 +160,7 @@ def ura_training(results: dict):
     # filter by failure & avoid WIT spam
     filtered = {
         k: v for k, v in training_candidates.items()
-        if int(v["failure"]) <= state.CUSTOM_FAILURE and not (k == "wit" and v["best_score"] < 1)
+        if int(v["failure"]) <= state.CUSTOM_FAILURE and not (k == "wit" and v["training_score"] < 1)
     }
 
     if not filtered:
@@ -177,9 +177,9 @@ def ura_training(results: dict):
 
     best_key, best_data = max(
         filtered.items(),
-        key=lambda kv: (kv[1]["best_score"], -_get_stat_priority(kv[0])))
+        key=lambda kv: (kv[1]["training_score"], -_get_stat_priority(kv[0])))
       
-    info(f"[URA] Training selected: {best_key.upper()} with {best_data['best_score']} points and {best_data['failure']}% fail chance")
+    info(f"[URA] Training selected: {best_key.upper()} with {best_data['training_score']} points and {best_data['failure']}% fail chance")
     return best_key, best_data
 
 def ura_logic() -> str:
@@ -220,7 +220,7 @@ def ura_logic() -> str:
         if "Finale" not in year:
             if match_template("assets/buttons/race_day_btn.png", region=(125, 800, 1000, 1080)): # SCREEN_BOTTOM_REGION
                 info("Race Day.")
-                if state.IS_AUTO_BUY_SKILL and year_parts[0] != "Junior":
+                if state.IS_AUTO_BUY_SKILL:
                     auto_buy_skill()
                 race_day()
         return
@@ -272,24 +272,43 @@ def ura_logic() -> str:
     result, best_data = ura_training(filtered)
 
     if _summer_next_turn(year):
-        if best_data is None:
+        if best_data is None and missing_energy < 50:
+            info("[URA] Summer camp next & okay energy → Train WIT.")
+            sleep(0.5)
+            go_to_training()
+            sleep(0.5)
+            do_train("wit")
+            return
+        elif best_data is None and missing_energy > 50:
             state.FORCE_REST = True
             info("[URA] Summer camp next & low energy → Rest.")
             do_rest(energy_level)
             return
 
-        if best_data["best_score"] < 2:
-            if state.CURRENT_ENERGY_LEVEL <= 50:
-                state.FORCE_REST = True
-                info("[URA] Summer camp next & low energy → Rest.")
-                do_rest(energy_level)
-            else:
+        if not state.TRAINING_RESTRICTED:
+            if result == "wit":
                 info("[URA] Summer camp next & okay energy → Train WIT.")
                 sleep(0.5)
                 go_to_training()
                 sleep(0.5)
                 do_train("wit")
-            return
+                return
+            elif best_data["training_score"] < 2:
+                if state.CURRENT_ENERGY_LEVEL <= 50:
+                    state.FORCE_REST = True
+                    info("[URA] Summer camp next & low energy → Rest.")
+                    do_rest(energy_level)
+                    return
+        else:
+            if _friend_recreation() and missing_energy < 30:
+                sleep(0.5)
+                do_recreation("friend")
+                return
+            else:
+                state.FORCE_REST = True
+                sleep(0.5)
+                do_rest(energy_level)
+                return
 
     missing_mood = _need_recreation(year)
     summer_camp = _summer_camp(year)
@@ -325,7 +344,7 @@ def ura_logic() -> str:
             return
 
     if best_data is not None:
-        if best_data["best_score"] >= 3 or (summer_camp and best_data["best_score"] >= 1.5):
+        if best_data["training_score"] >= 3 or (summer_camp and best_data["training_score"] >= 1.5):
             info(f"[URA] Best Trainind Found → Train {result.upper()}.")
             sleep(0.5)
             go_to_training()
@@ -340,7 +359,7 @@ def ura_logic() -> str:
         return
 
     if best_data is not None:
-        if best_data["best_score"] >= 1:
+        if best_data["training_score"] >= 1:
             info(f"[URA] Found 1 Friend Training → Train {result.upper()}.")
             sleep(0.5)
             go_to_training()
@@ -349,7 +368,7 @@ def ura_logic() -> str:
             return
 
     if best_data is not None:
-        if best_data["best_score"] >= 0:
+        if best_data["training_score"] >= 0:
             info(f"[URA] Use most_support_card.")
             results = most_support_card(filtered)
             if results is not None:
