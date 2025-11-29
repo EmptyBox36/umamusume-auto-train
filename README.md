@@ -88,7 +88,7 @@ Open your browser and go to: `http://127.0.0.1:8000/` to easily edit the bot's c
 
 ### Known Issue
 
-- Some Uma that has special event/target goals (like ~~Restricted Train Goldship~~ or ~~2 G1 Race Oguri Cap~~) may not working. For Oguri Cap G1 race event goal, you need to set the races in the race schedule that match the dates of her G1 goal events. It can deal with training resticted now but sometimes it not selected a good choice.
+- Some Uma that has special event/target goals (like ~~Restricted Train Goldship~~ or ~~2 G1 Race Oguri Cap~~) may not working. For Oguri Cap G1 race event goal, you need to set the races in the race schedule that match the dates of her G1 goal events. It can deal with training resticted now but sometimes it didn't make a good decision.
 - OCR might misread failure chance (e.g., reads 33% as 3%) and proceeds with training anyway. Now i should be better i add on more step to failure check.
 - If you bring multiple friend support cards (like Tazuna/Aoi Kiryuin) and do recreation, the bot always date with the friend support card in order.
 - The bot is very slow because it have to read and process many thing. so, i will improve it later.
