@@ -25,34 +25,45 @@ def go_to_training():
   return click("assets/buttons/training_btn.png")
 
 def check_training():
-  if state.stop_event.is_set():
-    return {}
-
-  results = {}
-
-  # failcheck enum "train","no_train","check_all"
-  # failcheck="check_all"
-  for key, icon_path in training_types.items():
     if state.stop_event.is_set():
-      return {}
+        return {}
 
-    pos = pyautogui.locateCenterOnScreen(icon_path, confidence=0.8, region=constants.SCREEN_BOTTOM_REGION)
-    if pos:
-      pyautogui.moveTo(pos, duration=0.1)
-      pyautogui.mouseDown()
-      support_card_results = check_support_card()
+    results = {}
 
-      failure_chance = check_failure()
+    for key, icon_path in training_types.items():
+        if state.stop_event.is_set():
+            return {}
 
-      support_card_results["failure"] = failure_chance
-      results[key] = support_card_results
+        pos = pyautogui.locateOnScreen(icon_path, confidence=0.8, region=constants.SCREEN_BOTTOM_REGION)
+        if pos:
+            if not is_btn_active(pos, treshold=120):
+                state.TRAINING_RESTRICTED = True
+                debug(f"[TRAINING] {key} inactive → skip")
+                continue
 
-      debug(f"[{key.upper()}] → Total Supports: {support_card_results['total_supports']}, Total Non-Maxed Supports: {support_card_results['total_non_maxed_support']}, Levels:{support_card_results['total_friendship_levels']}, Fail: {failure_chance}%, Hint: {support_card_results['total_hints']}")
-      sleep(0.1)
+            cx = pos.left + pos.width // 2
+            cy = pos.top + pos.height // 2
+            pyautogui.moveTo(cx, cy, duration=0.1)
+            pyautogui.mouseDown()
 
-  pyautogui.mouseUp()
-  click(img="assets/buttons/back_btn.png")
-  return results
+            support_card_results = check_support_card()
+            failure_chance = check_failure()
+            support_card_results["failure"] = failure_chance
+            results[key] = support_card_results
+
+            debug(
+                f"[{key.upper()}] → Total Supports: {support_card_results['total_supports']}, "
+                f"Total Non-Maxed Supports: {support_card_results['total_non_maxed_support']}, "
+                f"Levels:{support_card_results['total_friendship_levels']}, "
+                f"Fail: {failure_chance}%, Hint: {support_card_results['total_hints']}"
+            )
+            sleep(0.1)
+
+    back = pyautogui.locateOnScreen("assets/buttons/back_btn.png", confidence=0.8, region=constants.SCREEN_BOTTOM_REGION)
+    pyautogui.moveTo(back, duration=0.2)
+    pyautogui.mouseUp()
+    click(img="assets/buttons/back_btn.png")
+    return results
 
 def do_train(train):
   if state.stop_event.is_set():
@@ -163,6 +174,11 @@ def race_day():
 def race_select(found_race=False, img=None):
     if state.stop_event.is_set():
         return False
+
+    ok, _ = wait_for_image(img_path="assets/buttons/race_btn.png", region=constants.GAME_SCREEN)
+    if not ok:
+        return
+
     pyautogui.moveTo(constants.SCROLLING_SELECTION_MOUSE_POS)
     sleep(0.3)
 
@@ -378,7 +394,11 @@ def event_choice():
   return True
 
 def check_fan():
-    click("assets/buttons/info_btn.png")
+    if "Unity" in state.SCENARIO_NAME:
+        fan_check_region = constants.SCREEN_MIDDLE_REGION
+    else:
+        fan_check_region = None
+    click("assets/buttons/info_btn.png", region=fan_check_region)
     sleep(0.5)
     check_debut_status()
     check_fans()

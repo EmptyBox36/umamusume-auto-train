@@ -11,7 +11,7 @@ import utils.constants as constants
 
 from core.recognizer import is_btn_active, match_template, multi_match_templates
 from utils.process import event_choice, check_fan, race_process, after_race
-from utils.tools import click, sleep
+from utils.tools import click, sleep, wait_for_image, get_secs
 
 from logic.ura import ura_logic
 from logic.unity import race_prep, unity_logic, unity_race
@@ -31,12 +31,12 @@ templates = {
   "view_result":"assets/buttons/view_results.png"
 }
 
-state.PREFERRED_POSITION_SET = False
-state.FORCE_REST = False
-state.DONE_DEBUT = False
 def career_lobby():
   # Program start
   state.PREFERRED_POSITION_SET = False
+  state.DONE_DEBUT = False
+  state.FAN_COUNT = -1
+  state.APTITUDES = {}
   while state.is_bot_running and not state.stop_event.is_set():
     screen = ImageGrab.grab()
     matches = multi_match_templates(templates, screen=screen)
@@ -109,19 +109,20 @@ def career_lobby():
         debut_status = "Unfinish"
 
     state.FORCE_REST = False
+    state.TRAINING_RESTRICTED = False
 
-    info("\n=======================================================================================\n")
+    print("\n=======================================================================================\n")
     info(f"Trainee: {state.TRAINEE_NAME}")
     info(f"Scenario: {state.SCENARIO_NAME}")
-    info("\n=======================================================================================\n")
+    print("\n=======================================================================================\n")
     info(f"Year: {year}")
     info(f"Mood: {mood}")
     info(f"Turn: {turn}")
     info(f"Criteria: {criteria}")
-    info("\n=======================================================================================\n")
+    print("\n=======================================================================================\n")
     info(f"Debut Status: {debut_status}")
     info(f"fans: {state.FAN_COUNT}")
-    info("\n=======================================================================================\n")
+    print("\n=======================================================================================\n")
 
     if "URA" in state.SCENARIO_NAME:
         ura_logic()

@@ -2,7 +2,7 @@ from PIL import ImageGrab
 from typing import Tuple, List, Optional
 from utils.log import info, warning, error, debug
 from core.recognizer import is_btn_active, match_template, multi_match_templates
-from utils.tools import click, sleep, get_secs
+from utils.tools import click, sleep, get_secs, wait_for_image
 from utils.process import do_race, auto_buy_skill, race_day, do_rest, race_prep, after_race, do_recreation, do_train, go_to_training, check_training
 from core.state import check_status_effects, check_criteria, check_aptitudes, stop_bot, check_unity
 from core.logic import decide_race_for_goal, most_support_card
@@ -62,10 +62,6 @@ def _need_recreation(year: str) -> bool:
   return missing_mood
 
 def _need_infirmary() -> Tuple[Optional[List[str]], int, Optional[object]]:
-  if matches["infirmary"]:
-    debug("matches['infirmary']")
-  if is_btn_active(matches["infirmary"][0]):
-    debug("is_btn_active(matches['infirmary'][0])")
   if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
     info("Check for condition.")
     if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
@@ -166,10 +162,10 @@ def _training(results: dict):
         if _summer_camp(year):
             rainbow_point = 2
             WHITE_FLAME_POINT = 0.25
-
         if year_parts[0] == "Junior":
-            rainbow_point = 1
-
+            rainbow_point = 0.75
+        if year_parts[0] == "Classic":
+            friend_value_point = 1.5
         if year_parts[0] == "Finale":
             WHITE_FLAME_POINT = 0.25
 
@@ -184,6 +180,8 @@ def _training(results: dict):
             score += BLUE_FLAME_POINT * data["total_blue_flame"]
         # else:
         #     score -= 0 * data["total_blue_flame"]
+
+        data["score_befor_multiplier"] = score
 
         if _summer_camp(year):
             data["training_score"] = score * summer_multiplier
@@ -207,14 +205,14 @@ def _training(results: dict):
 
     if state.ENABLE_CUSTOM_FAILURE_CHANCE:
       if state.ENABLE_CUSTOM_HIGH_FAILURE:
-          if best_point["training_score"] > state.HIGH_FAILURE_CONDITION["point"]:
+          if best_point["score_befor_multiplier"] > state.HIGH_FAILURE_CONDITION["point"]:
               state.CUSTOM_FAILURE = state.HIGH_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have high ({best_point['training_score']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
+              info(f"Due to {best_stat.upper()} have high ({best_point['score_befor_multiplier']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
 
       if state.ENABLE_CUSTOM_LOW_FAILURE:
-          if best_point["training_score"] < state.LOW_FAILURE_CONDITION["point"]:
+          if best_point["score_befor_multiplier"] < state.LOW_FAILURE_CONDITION["point"]:
               state.CUSTOM_FAILURE = state.LOW_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have low ({best_point['training_score']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
+              info(f"Due to {best_stat.upper()} have low ({best_point['score_befor_multiplier']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
 
     # filter by failure & avoid WIT spam
     filtered = {
@@ -260,15 +258,6 @@ def unity_logic() -> str:
 
     info(f"Current stats: {current_stats}") 
 
-    #########################################################################################
-    # if year_parts[0] in ["Senior"]:
-    #     stop_bot()
-    # if year_parts[0] in ["Senior"] and year_parts[2] == "Late" and year_parts[3] == "Oct":
-    #     stop_bot()
-    # if year_parts[0] in ["Senior"] and year_parts[2] == "Late" and year_parts[3] == "Dec":
-    #     stop_bot()
-    #########################################################################################
-
     if turn == "Goal":
         if "Finale" in year:
             info("URA Finale")
@@ -288,7 +277,7 @@ def unity_logic() -> str:
         if "Finale" not in year:
             if match_template("assets/buttons/race_day_btn.png", region=(125, 800, 1000, 1080)): # SCREEN_BOTTOM_REGION
                 info("Race Day.")
-                if state.IS_AUTO_BUY_SKILL and year_parts[0] != "Junior":
+                if state.IS_AUTO_BUY_SKILL:
                     auto_buy_skill()
                 race_day()
         return
@@ -339,76 +328,106 @@ def unity_logic() -> str:
 
     result, best_data = _training(filtered)
 
-    # if result == "wit":
-    #     best_data["training_score"] = best_data["training_score"] - 1
+    wait_for_image(img_path="assets/ui/tazuna_hint.png", timeout=get_secs(5))
+    sleep(2)
 
     if _summer_next_turn(year):
-        if best_data is None:
+        if best_data is None and missing_energy < 50:
+            info("[UNITY] Summer camp next & okay energy → Train WIT.")
+            sleep(0.5)
+            go_to_training()
+            sleep(0.5)
+            do_train("wit")
+            return
+        elif best_data is None and missing_energy > 50:
             state.FORCE_REST = True
             info("[UNITY] Summer camp next & low energy → Rest.")
             do_rest(energy_level)
             return
 
-        if best_data["training_score"] < 4:
-            if state.CURRENT_ENERGY_LEVEL <= 50:
-                state.FORCE_REST = True
-                info("[UNITY] Summer camp next & low energy → Rest.")
-                do_rest(energy_level)
-            else:
+        if not state.TRAINING_RESTRICTED:
+            if result == "wit":
                 info("[UNITY] Summer camp next & okay energy → Train WIT.")
                 sleep(0.5)
                 go_to_training()
                 sleep(0.5)
                 do_train("wit")
-            return
-
+                return
+            elif best_data["training_score"] < 4:
+                if state.CURRENT_ENERGY_LEVEL <= 50:
+                    state.FORCE_REST = True
+                    info("[UNITY] Summer camp next & low energy → Rest.")
+                    do_rest(energy_level)
+                    return
+        else:
+            if _friend_recreation() and missing_energy < 30:
+                sleep(0.5)
+                do_recreation("friend")
+                return
+            else:
+                state.FORCE_REST = True
+                sleep(0.5)
+                do_rest(energy_level)
+                return
+                
     missing_mood = _need_recreation(year)
     summer_camp = _summer_camp(year)
 
-    if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
-        conditions, total_severity, infirmary_box = _need_infirmary()
-        if total_severity > 0:
-            if total_severity <= 1 and missing_mood > 0 and not (_summer_camp(year) and missing_energy < 40):
-                info("[UNITY] Mood low & Status condition present → Recreation.")
+    conditions, total_severity, infirmary_box = _need_infirmary()
+    if total_severity > 1 and infirmary_box:
+        info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
+        sleep(0.5)
+        click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+        return
+
+    if state.TRAINING_RESTRICTED and best_data is not None:
+        if best_data["training_score"] < 1:
+            if result == "wit":
                 sleep(0.5)
-                do_recreation()
+                go_to_training()
+                sleep(0.5)
+                do_train("wit")
                 return
-            # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
-            if max(0, missing_energy) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
-                if total_severity > 1 and infirmary_box:
-                    info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
-                    sleep(0.5)
-                    click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
-                    return
-                else:
-                    info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
-            else:
-                if infirmary_box:
-                    info("[UNITY] Status condition present → Infirmary.")
-                    sleep(0.5)
-                    click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
-                    return
-
-    if missing_mood > 2:
-        info("[UNITY] Mood is very low → Recreation.")
-        sleep(0.5)
-        do_recreation()
-        return
-
-    if missing_mood > 1:
-        info("[UNITY] Mood is very low → Recreation.")
-        sleep(0.5)
-        do_recreation("friend")
-        return
+            elif _friend_recreation() and missing_energy < 30:
+                sleep(0.5)
+                do_recreation("friend")
+                return
+            elif missing_energy > 50:
+                state.FORCE_REST = True
+                sleep(0.5)
+                do_rest(energy_level)
+                return
 
     if best_data is not None:
-        if best_data["training_score"] >= 3:
+        if best_data["training_score"] > 3:
             info(f"[UNITY] Best Trainind Found → Train {result.upper()}.")
             sleep(0.5)
             go_to_training()
             sleep(0.5)
             do_train(result)
             return
+
+    if missing_mood > 1:
+        info("[UNITY] Mood is very low → Recreation.")
+        sleep(0.5)
+        do_recreation()
+        return
+
+    if total_severity == 1: # Light condition, can skip infirmary if have better training
+        if total_severity <= 1 and missing_mood > 0 and not (_summer_camp(year) and missing_energy < 40):
+            info("[UNITY] Mood low & Status condition present → Recreation.")
+            sleep(0.5)
+            do_recreation()
+            return
+        # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
+        if max(0, missing_energy) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
+            info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
+        else:
+            if infirmary_box:
+                info("[UNITY] Status condition present → Infirmary.")
+                sleep(0.5)
+                click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+                return
 
     if missing_mood > 0 and not (summer_camp and missing_energy < 40):
         info("[UNITY] Mood is low → Recreation.")

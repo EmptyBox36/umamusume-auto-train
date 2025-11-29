@@ -107,6 +107,10 @@ def most_support_card(results):
         info("Only WIT without support left, Force Rest.")
         state.FORCE_REST = True
         return None
+      elif best_data["total_supports"] == 0:
+        info(f"Only {best_key.upper()} without support left, Force Rest.")
+        state.FORCE_REST = True
+        return None
       else:
         info(f"Energy is over {state.NEVER_REST_ENERGY}, train anyway.")
         return best_key
@@ -307,10 +311,10 @@ def do_something(results):
     return None
 
   # if "Junior Year" in year:
-  #   result, best_score = focus_max_friendships(filtered)
+  #   result, training_score = focus_max_friendships(filtered)
 
   #   # If the best option for raising friendship is just one friend, with no hint bonus
-  #   if best_score <= 1.3:
+  #   if training_score <= 1.3:
   #     return most_support_card(filtered)
 
   # else:
