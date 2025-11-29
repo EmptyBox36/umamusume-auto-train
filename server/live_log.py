@@ -7,7 +7,6 @@ from collections import deque
 from dataclasses import dataclass, asdict
 from typing import Deque, List, Dict, Any
 
-
 @dataclass
 class LogEntry:
     id: int
@@ -45,7 +44,7 @@ class WebLogHandler(logging.Handler):
             _next_id += 1
 
 
-def attach_web_log_handler(level: int = logging.INFO) -> None:
+def attach_web_log_handler(level: int = logging.DEBUG) -> None:
     """
     Attach the web log handler to the root logger.
     Safe to call more than once.
@@ -60,11 +59,12 @@ def attach_web_log_handler(level: int = logging.INFO) -> None:
 
     root = logging.getLogger()
     root.addHandler(handler)
+
+    if root.level > level or root.level == logging.NOTSET:
+        root.setLevel(level)
+
     _attached = True
-
-    # visible once in console so we know it ran
-    logging.getLogger().warning(">>>> WebLogHandler ATTACHED <<<<")
-
+    root.warning(">>>> WebLogHandler ATTACHED <<<<")
 
 def get_logs_since(since_id: int) -> List[Dict[str, Any]]:
     with _lock:

@@ -3,6 +3,7 @@ from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 import os
+import logging
 
 from server.utils import load_config, save_config
 from server.live_log import attach_web_log_handler, get_logs_since, get_latest_id
@@ -19,7 +20,7 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def _attach_live_log_handler() -> None:
-    attach_web_log_handler()
+    attach_web_log_handler(logging.DEBUG)
 
 @app.get("/config")
 def get_config():
