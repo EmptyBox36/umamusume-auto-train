@@ -238,7 +238,7 @@ def race_prep():
   race_name_text = get_race_name()
   specific_position = None
   for specific in state.POSITION_FOR_SPECIFIC_RACE:
-    if specific["race_name"] == race_name_text:
+    if specific["race_name"] == race_name_text and specific["year"] == state.CURRENT_YEAR:
       specific_position = specific["position"]
       break
 
