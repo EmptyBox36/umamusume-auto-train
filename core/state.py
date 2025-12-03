@@ -49,6 +49,7 @@ DONE_DEBUT = None
 FAN_COUNT = -1
 TRAINING_RESTRICTED = None
 LAST_VALID_STATS = None
+VIRTUAL_TURN = None
 
 TURN_REGION = (0,0,0,0)
 YEAR_REGION = (0,0,0,0)
@@ -681,3 +682,60 @@ def stop_bot():
     info("[BOT] Stopping...")
     stop_event.set()
     is_bot_running = False
+
+def _find_index_by_substring(text: str, candidates: list[str]) -> int:
+    """
+    Return index of first candidate whose lowercase substring
+    appears in text (case-insensitive). Return -1 if not found.
+    """
+    if not text:
+        return -1
+    lower = text.lower()
+    for i, c in enumerate(candidates):
+        if c.lower() in lower:
+            return i
+    return -1
+
+def get_virtual_turn(year_text: str, criteria: str) -> int:
+    """
+    Map OCR year text to a virtual turn number:
+
+    Pre-Debut  -> 0
+    Junior/Classic/Senior (Jan–Dec, Early/Late) -> 1–72
+    Finale -> 73
+
+    Returns -1 if parsing fails.
+    """
+    if not isinstance(year_text, str):
+        return -1
+
+    year_lower = year_text.lower()
+    criteria_lower = criteria.lower()
+
+    if "pre-debut" in year_lower or "pre debut" in year_lower:
+        return 0
+
+    if "finale" in year_lower:
+        if "qualifier" in criteria_lower:
+            return 73
+        if "semifinal" in criteria_lower:
+            return 74
+        if "final" in criteria_lower:
+            return 75
+
+    year_idx = _find_index_by_substring(year_text, constants.YEAR_ORDER)
+    month_idx = _find_index_by_substring(year_text, constants.MONTH_ORDER)
+    phase_idx = _find_index_by_substring(year_text, constants.PHASE_ORDER)
+
+    if phase_idx == -1:
+        if "early" in year_lower or "first" in year_lower or "1st" in year_lower:
+            phase_idx = 0
+        elif "late" in year_lower or "second" in year_lower or "2nd" in year_lower:
+            phase_idx = 1
+
+    if year_idx == -1 or month_idx == -1 or phase_idx == -1:
+        warning(f"Failed to parse virtual turn from year_text='{year_text}'")
+        return -1
+
+    index_0 = year_idx * 24 + month_idx * 2 + phase_idx + 1
+    return index_0

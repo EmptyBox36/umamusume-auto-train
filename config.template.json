@@ -95,17 +95,20 @@
     {
       "name": "Satsuki Sho",
       "year": "Classic Year",
-      "date": "Early Apr"
+      "date": "Early Apr",
+      "turnNumber": 31
     },
     {
       "name": "Tokyo Yushun Japanese Derby",
       "year": "Classic Year",
-      "date": "Late May"
+      "date": "Late May",
+      "turnNumber": 34
     },
     {
       "name": "Kikuka Sho",
       "year": "Classic Year",
-      "date": "Late Oct"
+      "date": "Late Oct",
+      "turnNumber": 44
     }
   ],
   "stat_caps": {

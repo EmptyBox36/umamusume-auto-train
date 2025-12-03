@@ -6,7 +6,7 @@ from core.recognizer import is_btn_active, match_template, multi_match_templates
 from utils.tools import click, sleep, get_secs, wait_for_image
 from utils.process import do_race, auto_buy_skill, race_day, do_rest, race_prep, after_race, do_recreation, do_train, go_to_training, check_training
 from core.state import check_status_effects, check_criteria, check_aptitudes, stop_bot, check_unity
-from core.logic import decide_race_for_goal, most_support_card
+from core.logic import decide_race_for_goal, most_support_card, check_fans_for_upcoming_schedule
 from utils.scenario import ura, unity
 
 import core.state as state
@@ -313,6 +313,8 @@ def unity_logic() -> str:
         return
 
     if state.RACE_SCHEDULE:
+        if check_fans_for_upcoming_schedule():
+            return
         race_done = False
         for race_list in state.RACE_SCHEDULE:
             if state.stop_event.is_set():
@@ -400,7 +402,12 @@ def unity_logic() -> str:
                 sleep(0.5)
                 do_rest(energy_level)
                 return
-                
+    
+    # if conditions and "Slow Metabolism" in conditions and result in ("sta", "pwr"):
+    #     total_severity = max(0, total_severity - 2)
+    #     conditions = [c for c in conditions if c != "Slow Metabolism"]
+    #     info(f"[UNITY] Slow Metabolism active but training {result.upper()} → reduce severity by 2 and remove condition.")
+
     if total_severity > 1 and infirmary_box:
         info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
         sleep(0.5)
