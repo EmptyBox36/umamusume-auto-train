@@ -8,7 +8,7 @@ from core.EventsDatabase import CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABAS
 from core.EventsDatabase import find_closest_event
 from core.logic import get_stat_priority
 from core.special_events import run_special_event
-from core.state import check_energy_level, stop_bot
+from core.state import check_energy_level, stop_bot,check_mood
 
 def get_optimal_choice(event_name: str):
     choice = 0
@@ -91,72 +91,97 @@ def _f(x, default=0.0):
         return float(default)
 
 def score_choice(choice_row):
-    # Score from Stat
     current_stats = state.CURRENT_STATS or {}
     choice_weight = state.CHOICE_WEIGHT
     caps = state.STAT_CAPS
 
-    choice_score = 0.0
-    for k_map, key in [("spd","Speed"),("sta","Stamina"),("pwr","Power"),("guts","Guts"),("wit","Wit")]:
-        gain = _f(choice_row.get(key, 0), 0)
-        cap  = _f(caps[k_map], 1)
-        current = _f(current_stats.get(k_map, 0.0), 0.0) 
+    score = 0.0
 
-        # norm = gain * (max(0.0, cap - current) / cap)
-        if cap > current:
-            norm = (cap - current) / cap
-        else: # over-capped
-            norm = 0
+    # 1) Stats: Speed, Stamina, Power, Guts, Wit
+    for k_map, key in [("spd","Speed"),("sta","Stamina"),("pwr","Power"),("guts","Guts"),("wit","Wit")]:
+        gain = _f(choice_row.get(key, 0), 0.0)
+        if gain == 0:
+            continue
+
+        cap = _f(caps.get(k_map, 0), 0.0)
+        current = _f(current_stats.get(k_map, 0.0), 0.0)
+
+        if gain > 0:
+            if cap > 0:
+                if current >= cap:
+                    norm = 0.0
+                else:
+                    norm = max(0.0, min(1.0, (cap - current) / cap))
+            else:
+                norm = 1.0
+        else:
+            norm = 0.5
 
         if state.USE_PRIORITY_ON_CHOICE:
-            multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(k_map)]
+            priority_bonus = state.PRIORITY_EFFECTS_LIST[get_stat_priority(k_map)]
+            multiplier = 1.0 + priority_bonus
         else:
-            multiplier = 1
+            multiplier = 1.0
 
-        choice_score += choice_weight[k_map] * multiplier * norm * gain
+        score += choice_weight[k_map] * multiplier * norm * gain
 
-    # Score from Energy
+    # 2) HP (Energy)
     energy_level, max_energy = check_energy_level()
-    missing_energy = max_energy - energy_level
+    energy_gain = _f(choice_row.get("HP", 0), 0.0)
 
-    energy_gain = float(choice_row.get("HP", 0) or 0)
-    if energy_gain < 0:
-        energy_penalty = 0.1 # if choice give negative energy have less effect on score
-    elif missing_energy >= energy_gain or (energy_gain >= 50 and missing_energy >= 50):
-        energy_penalty = 1 # 1 = No Penalty
-    else:
-        energy_penalty = 0
+    if max_energy > 0 and energy_gain != 0:
+        missing_energy = max_energy - energy_level
 
-    choice_score += choice_weight["hp"] * energy_gain * energy_penalty
+        if energy_gain > 0:
+            overflow = max(0.0, energy_gain - missing_energy)
 
-    # Score from Mood
-    mood_index = (state.CURRENT_MOOD_INDEX or 2)
-    mood_gain = float(choice_row.get("Mood", 0) or 0)
+            if energy_gain > 0:
+                overflow_ratio = overflow / energy_gain
+            else:
+                overflow_ratio = 0.0
 
-    if mood_gain < 0:
-        mood_penalty = 0 # if choice give negative mood not have effect on score
-    elif mood_index < 4: # GREAT
-        mood_penalty = 1 # 1 = No Penalty
-    else:
-        mood_penalty = 0
+            overflow_penalty_weight = 1.0
 
-    choice_score += choice_weight["mood"] * mood_gain * mood_penalty
+            if energy_gain > 100:
+                overflow_penalty_weight = 0.4
 
-    # Score from Other factors
-    choice_score += choice_weight["max_energy"] * float(choice_row.get("Max Energy", 0) or 0)
-    choice_score += choice_weight["skillpts"] * float(choice_row.get("Skill Pts", 0) or 0)
-    choice_score += choice_weight["bond"] * float(choice_row.get("Friendship", 0) or 0)
+            overflow_mult = 1.0 - (overflow_ratio * overflow_penalty_weight)
 
-    return choice_score
+            score += choice_weight["hp"] * energy_gain * overflow_mult
+        else:
+            hp_penalty_mult = 0.0
+            score += choice_weight["hp"] * energy_gain * hp_penalty_mult
+
+    # 3) Mood
+    mood = check_mood()
+    mood_index = constants.MOOD_LIST.index(mood)
+    mood_gain = _f(choice_row.get("Mood", 0), 0.0)
+    if mood_gain != 0:
+        if mood_gain > 0:
+            if mood_index < 4:
+                mood_mult = 1.0
+            else:
+                mood_mult = 0.0
+        else:
+            mood_mult = 0.0
+        score += choice_weight["mood"] * mood_gain * mood_mult
+
+    # 4) Other factors (Max Energy, Skill Pts, Friendship/Bond)
+    score += choice_weight["max_energy"] * _f(choice_row.get("Max Energy", 0), 0.0)
+    score += choice_weight["skillpts"] * _f(choice_row.get("Skill Pts", 0), 0.0)
+    score += choice_weight["bond"] * _f(choice_row.get("Friendship", 0), 0.0)
+
+    # 5) Randomness penalty: prefer stable outcomes when all else equal.
+    if choice_row.get("random"):
+        score *= 1.3
+
+    return score
 
 def pick_choice_by_score(key: str, db: dict):
     payload = db.get(key) or {}
     stats = payload.get("stats") or {}
 
-    # total = EVENT_TOTALS.get(key, len(payload.get("choices", {})) or len(stats))
-
-    best_idx, training_score = 1, float("-inf")
-    best_stat_priority = float("-inf")
+    best_idx, best_score = 1, float("-inf")
     for idx, row in stats.items():
         try:
             i = int(idx)
@@ -164,12 +189,12 @@ def pick_choice_by_score(key: str, db: dict):
             continue
         if not isinstance(row, dict):
             continue
+
         score = score_choice(row)
         debug(f"[Score] {key} -> choice {i}: {score:.3f}")
 
-        # if this choice has higher score, or equal score but higher stat priority
-        if score > training_score:
-            training_score = score
+        if score > best_score:
+            best_score = score
             best_idx = i
 
     return best_idx
