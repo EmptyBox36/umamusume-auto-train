@@ -38,7 +38,7 @@ def check_training():
         if pos:
             if not is_btn_active(pos, treshold=120):
                 state.TRAINING_RESTRICTED = True
-                debug(f"[TRAINING] {key} inactive → skip")
+                warning(f"[TRAINING] {key} inactive → skip")
                 continue
 
             cx = pos.left + pos.width // 2

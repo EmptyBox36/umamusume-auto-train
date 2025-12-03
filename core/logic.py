@@ -28,7 +28,7 @@ def most_support_card(results):
   # Get all training but wit
   non_wit_results = {
     k: v for k, v in results.items()
-    if k != "wit" and int(v["failure"]) <= state.CUSTOM_FAILURE
+    if k != "wit" and int(v["failure"]) <= state.MAX_FAILURE
   }
 
   # Check if train is bad
@@ -39,12 +39,12 @@ def most_support_card(results):
     info("All trainings are unsafe and WIT training won't help go back up to safe levels, resting instead.")
     return None
 
-  if all_others_bad and wit_data and int(wit_data["failure"]) <= state.CUSTOM_FAILURE and wit_data["total_supports"] >= 2:
+  if all_others_bad and wit_data and int(wit_data["failure"]) <= state.MAX_FAILURE and wit_data["total_supports"] >= 2:
     info("All trainings are unsafe, but WIT is safe and has enough support cards.")
     return "wit"
 
   filtered_results = {
-    k: v for k, v in results.items() if int(v["failure"]) <= state.CUSTOM_FAILURE
+    k: v for k, v in results.items() if int(v["failure"]) <= state.MAX_FAILURE
     }
 
   if not filtered_results:
@@ -146,148 +146,6 @@ def training_score(x):
 
   return (total, -get_stat_priority(x[0]))
 
-# Do training
-def training_logic(results):
-  global PRIORITY_WEIGHTS_LIST
-  year = state.CURRENT_YEAR
-  year_parts = year.split(" ")
-  energy_level = state.CURRENT_ENERGY_LEVEL
-  priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
-  # 2 points for rainbow supports, 1 point for normal supports, 1.5 point for non-maxed supports, +0.5 For Hint, stat priority tie breaker
-
-  training_candidates = results
-  for stat_name in training_candidates:
-    multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(stat_name)] * priority_weight
-    data = training_candidates[stat_name]
-    total_rainbow_friends = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
-    total_non_maxed_support = data["total_supports"] - ( data["total_friendship_levels"]["yellow"] + data["total_friendship_levels"]["max"] )
-
-    if "Junior Year" in year:
-        if not state.JUNIOR_YEAR_STAT_PRIORITIZE:
-            multiplier = 1
-
-    #adding total rainbow friends on top of total supports for two times value nudging the formula towards more rainbows
-    total_points = ( 1.5 * total_rainbow_friends) + ( 1 * total_non_maxed_support )
-
-    hint_with_non_maxed = 0
-    if data["total_hints"] > 0 and total_non_maxed_support > 0:
-      hint_with_non_maxed = 1
-      total_points = total_points + hint_with_non_maxed
-    
-    training_candidates[stat_name]["easy_point"] = total_points
-
-    if data["total_hints"] > 0:
-      total_points = total_points + state.HINT_POINT - hint_with_non_maxed
-    if total_rainbow_friends > 1:
-      total_points = total_points + (1 * total_rainbow_friends)
-    if total_non_maxed_support > 2:
-      total_points = total_points + (2 * total_non_maxed_support)
- 
-    # Now, Non-maxed = 1, Rainbow = 1.5, if more than 1 rainbow (1 Rainbow = 2.5), if more than 2 non-maxed (1 non-maxed = 3), 0.25 per maxed supports
-    # use this training logic: https://docs.google.com/spreadsheets/d/e/2PACX-1vRwrUHivwEYuyROD3oxp5VaKAzpQLUBszAImv38tjEq64_7KiTsktXyDgJA0XEWlU4STFwTPPWw2ONu/pubhtml?gid=0&single=true
-
-    total_points = total_points + (0.25 * (data["total_supports"] - total_rainbow_friends - total_non_maxed_support))
-    total_points = total_points * multiplier
-    training_candidates[stat_name]["total_points"] = total_points
-    training_candidates[stat_name]["total_rainbow_friends"] = total_rainbow_friends
-    training_candidates[stat_name]["total_non_maxed_support"] = total_non_maxed_support
-
-    info(f"[{stat_name.upper()}] -> Total Non-Maxed Supports: {total_non_maxed_support}, Total Rainbow Supports: {total_rainbow_friends}, Training point: {total_points}, Condition point:{training_candidates[stat_name]['easy_point']}")
-
-  any_nonmaxed = any(
-    data.get("total_non_maxed_support", 0) > 0 
-    for data in training_candidates.values())
-
-  highest_points = max(
-      training_candidates.items(),
-      key=lambda kv: (
-          kv[1]["easy_point"],
-          -get_stat_priority(kv[0])
-      ),
-  )
-
-  best_stat, best_point = highest_points
-  if state.ENABLE_CUSTOM_FAILURE_CHANCE:
-      if state.ENABLE_CUSTOM_HIGH_FAILURE:
-          if best_point["easy_point"] > state.HIGH_FAILURE_CONDITION["point"]:
-              state.CUSTOM_FAILURE = state.HIGH_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have high ({best_point['easy_point']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
-
-      # if state.ENABLE_CUSTOM_LOW_FAILURE:
-      #     if best_point["easy_point"] < state.LOW_FAILURE_CONDITION["point"]:
-      #         state.CUSTOM_FAILURE = state.LOW_FAILURE_CONDITION["failure"]
-      #         info(f"Due to {best_stat.upper()} have low ({best_point['easy_point']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
-
-  # Filter out high failure
-  training_candidates = {
-    stat: data for stat, data in results.items()
-    if int(data["failure"]) <= state.CUSTOM_FAILURE
-    and not (stat == "wit" and data["easy_point"] < 1)}
-
-  if best_point["easy_point"] < 3 and year_parts[0] in ["Classic", "Senior"] and year_parts[3] in ["Jun"]:
-    if (year_parts[2] in ["Early"] and state.CURRENT_TURN_LEFT == "1") or year_parts[2] in ["Late"]:
-      if state.CURRENT_ENERGY_LEVEL <= 50:
-        state.FORCE_REST = True
-        info(f"Next turn is summer camp and training not good enough. Do rest.")
-        return False
-      else:
-        info(f"Next turn is summer camp and training not good enough. Train WIT to get some energy.")
-        return "wit"
-
-  if not training_candidates:
-    if energy_level > state.SKIP_TRAINING_ENERGY:
-      info(f"No suitable training in training logic. But have energy more than skip training energy. Fallback to most support training.")
-      return None
-    if energy_level <= state.SKIP_TRAINING_ENERGY:
-      info(f"Energy level is lower that skip training energy. Do rest.")
-      return False
-
-  if len(training_candidates) == 1 and "wit" in training_candidates:
-    if any_nonmaxed:
-        info(f"Fallback to most support training to avoid training too much wit on junior year.")
-        return None
-
-  # training_candidates = {
-  #   stat: data for stat, data in results.items()
-  #   if int(data["failure"]) <= state.CUSTOM_FAILURE
-  #      and data["easy_point"] >= 1
-  #      and not (stat == "wit" and data["easy_point"] < 1)
-  # }
-
-  # if not training_candidates:
-  #   info("No suitable training found under failure threshold.")
-  #   return None
-
-  # Find support card in training
-  best_rainbow = max(
-    training_candidates.items(),
-    key=lambda x: (
-      x[1]["total_points"],
-      -get_stat_priority(x[0])
-    )
-  )
-
-  best_key, best_data = best_rainbow
-  if best_data["easy_point"] < 1.5:
-    info(f"Max Friend Value less or equal to 1")
-    if training_candidates.get("wit", {}).get("easy_point", 0) >= 1:
-        info(f"WIT have Friend Value = 1, train WIT.")
-        return "wit"
-    elif best_data["easy_point"] == 0:
-        if energy_level > 50:
-            info(f"Proceeding to most support training.")
-            return None
-
-        if energy_level >= state.NEVER_REST_ENERGY:
-            info(f"Energy is higher than never rest energy. Fallback to most support training.")
-            return None
-        else:
-            return False
-    info(f"{best_key.upper()} have Friend Value = 1, train {best_key.upper()}.")
-      
-  info(f"Training logic selected: {best_key.upper()} with {best_data['total_points']} points and {best_data['failure']}% fail chance")
-  return best_key
-
 def filter_by_stat_caps(results, current_stats):
   return {
     stat: data for stat, data in results.items()
@@ -297,34 +155,6 @@ def filter_by_stat_caps(results, current_stats):
 def all_values_equal(dictionary):
     values = list(dictionary.values())
     return all(value == values[0] for value in values[1:])
-
-# Decide training
-def do_something(results):
-  year = state.CURRENT_YEAR
-  current_stats = state.CURRENT_STATS
-  info(f"Current stats: {current_stats}")
-
-  filtered = filter_by_stat_caps(results, current_stats)
-
-  if not filtered:
-    info("All stats capped or no valid training.")
-    return None
-
-  # if "Junior Year" in year:
-  #   result, training_score = focus_max_friendships(filtered)
-
-  #   # If the best option for raising friendship is just one friend, with no hint bonus
-  #   if training_score <= 1.3:
-  #     return most_support_card(filtered)
-
-  # else:
-  result = training_logic(filtered)
-  if result is None:
-    info("Falling back to most_support_card because rainbow not available.")
-    return most_support_card(filtered)
-  elif result is False:
-    return None
-  return result
 
 # helper functions
 def decide_race_for_goal(year, turn, criteria, keywords):
@@ -356,7 +186,7 @@ def decide_race_for_goal(year, turn, criteria, keywords):
                 if year_parts[0] in ["Junior"]:
                     ALLOWED_GRADES = {"G1", "G2", "G3"}
                 else:
-                    ALLOWED_GRADES = {"G1", "G2"}
+                    ALLOWED_GRADES = {"G1", "G2", "G3"}
 
                 filtered = [r for r in race_list if r.get("grade") in ALLOWED_GRADES]
                 if not filtered:

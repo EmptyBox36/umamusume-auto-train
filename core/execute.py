@@ -4,7 +4,7 @@ from PIL import ImageGrab
 pyautogui.useImageNotFoundException(False)
 
 import core.state as state
-from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, stat_state, check_aptitudes, check_unity, stop_bot
+from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, stat_state, check_aptitudes, check_unity, stop_bot, check_stats
 
 from utils.log import info, warning, error, debug
 import utils.constants as constants
@@ -89,7 +89,7 @@ def career_lobby():
     turn = check_turn()
     year = check_current_year()
     criteria = check_criteria()
-    current_stats = stat_state()
+    current_stats = check_stats()
 
     if (not state.DONE_DEBUT or state.FAN_COUNT == -1) and year != "Junior Year Pre-Debut":
       check_fan()
@@ -99,7 +99,6 @@ def career_lobby():
     state.CURRENT_MOOD_INDEX = mood_index
     state.CURRENT_STATS = current_stats
     state.CURRENT_YEAR = year
-    state.CUSTOM_FAILURE = state.MAX_FAILURE
     state.CURRENT_TURN_LEFT = turn
     state.CRITERIA = criteria
 
