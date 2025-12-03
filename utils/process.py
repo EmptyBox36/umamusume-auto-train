@@ -38,7 +38,7 @@ def check_training():
         if pos:
             if not is_btn_active(pos, treshold=120):
                 state.TRAINING_RESTRICTED = True
-                debug(f"[TRAINING] {key} inactive → skip")
+                warning(f"[TRAINING] {key} inactive → skip")
                 continue
 
             cx = pos.left + pos.width // 2
@@ -238,7 +238,7 @@ def race_prep():
   race_name_text = get_race_name()
   specific_position = None
   for specific in state.POSITION_FOR_SPECIFIC_RACE:
-    if specific["race_name"] == race_name_text:
+    if specific["race_name"] == race_name_text and specific["year"] == state.CURRENT_YEAR:
       specific_position = specific["position"]
       break
 

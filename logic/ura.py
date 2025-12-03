@@ -62,7 +62,7 @@ def _need_recreation(year: str) -> bool:
   return missing_mood
 
 def _need_infirmary() -> Tuple[Optional[List[str]], int, Optional[object]]:
-  if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
+  if matches["infirmary"] and is_btn_active(matches["infirmary"][0]) and not _summer_camp(year=state.CURRENT_YEAR):
     info("Check for condition.")
     if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
       sleep(0.5)
@@ -99,10 +99,14 @@ def ura_training(results: dict):
     training_candidates = results
     energy_level = state.CURRENT_ENERGY_LEVEL
     year = state.CURRENT_YEAR
+    year_parts = year.split(" ")
     priority_weight = PRIORITY_WEIGHTS_LIST[state.PRIORITY_WEIGHT]
 
     for stat_name in training_candidates:
-        multiplier = 1 + state.PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
+        if year_parts[0] == "Junior":
+            multiplier = 1
+        else:
+            multiplier = 1 + state.PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
         summer_multiplier = 1 + state.SUMMER_PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
 
         data = training_candidates[stat_name]
@@ -131,36 +135,50 @@ def ura_training(results: dict):
         else:
             data["training_score"] = score * multiplier
 
-        info(f"[{stat_name.upper()}] -> Non Max Support: {friend_value}, Rainbow Support: {friend_training}, Hint: {data['total_hints']}")
-        info(f"[{stat_name.upper()}] -> Score: {data['training_score']}")
+        info(f"[{stat_name.upper()}] -> Non Max Support: {friend_value:.3f}, Rainbow Support: {friend_training}, Hint: {data['total_hints']}")
+        info(f"[{stat_name.upper()}] -> Score: {data['training_score']:.3f}")
 
     any_nonmaxed = any(
         data.get("total_non_maxed_support", 0) > 0 
         for data in training_candidates.values())
 
-    best_stat, best_point = max(
-        training_candidates.items(),
-        key=lambda kv: (
-            kv[1]["training_score"],
-            -_get_stat_priority(kv[0])
-        ),
-    )
+    base_failure = state.MAX_FAILURE
+    max_failure_by_stat = {
+        stat_name: base_failure for stat_name in training_candidates.keys()
+    }
 
     if state.ENABLE_CUSTOM_FAILURE_CHANCE:
-      if state.ENABLE_CUSTOM_HIGH_FAILURE:
-          if best_point["score_befor_multiplier"] > state.HIGH_FAILURE_CONDITION["point"]:
-              state.CUSTOM_FAILURE = state.HIGH_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have high ({best_point['score_befor_multiplier']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
+        for stat_name, data in training_candidates.items():
+            score_before = data.get("score_befor_multiplier", 0)
 
-      if state.ENABLE_CUSTOM_LOW_FAILURE:
-          if best_point["score_befor_multiplier"] < state.LOW_FAILURE_CONDITION["point"]:
-              state.CUSTOM_FAILURE = state.LOW_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have low ({best_point['score_befor_multiplier']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
+            # High failure condition for this stat
+            if (
+                state.ENABLE_CUSTOM_HIGH_FAILURE
+                and score_before > state.HIGH_FAILURE_CONDITION["point"]
+            ):
+                max_failure_by_stat[stat_name] = state.HIGH_FAILURE_CONDITION["failure"]
+                debug(
+                    f"Due to {stat_name.upper()} have high ({score_before:.3f}) training point, "
+                    f"set maximum failure to {max_failure_by_stat[stat_name]}%."
+                )
 
-    # filter by failure & avoid WIT spam
+            # Low failure condition for this stat
+            elif (
+                state.ENABLE_CUSTOM_LOW_FAILURE
+                and score_before < state.LOW_FAILURE_CONDITION["point"]
+            ):
+                max_failure_by_stat[stat_name] = state.LOW_FAILURE_CONDITION["failure"]
+                debug(
+                    f"Due to {stat_name.upper()} have low ({score_before:.3f}) training point, "
+                    f"set maximum failure to {max_failure_by_stat[stat_name]}%."
+                )
+
+    # Filter by each stat's own failure cap & avoid WIT spam
     filtered = {
-        k: v for k, v in training_candidates.items()
-        if int(v["failure"]) <= state.CUSTOM_FAILURE and not (k == "wit" and v["training_score"] < 1)
+        k: v
+        for k, v in training_candidates.items()
+        if int(v["failure"]) <= max_failure_by_stat.get(k, base_failure)
+        and not (k == "wit" and v["training_score"] < 1)
     }
 
     if not filtered:
@@ -179,7 +197,7 @@ def ura_training(results: dict):
         filtered.items(),
         key=lambda kv: (kv[1]["training_score"], -_get_stat_priority(kv[0])))
       
-    info(f"[URA] Training selected: {best_key.upper()} with {best_data['training_score']} points and {best_data['failure']}% fail chance")
+    info(f"[URA] Training selected: {best_key.upper()} with {best_data['training_score']:.3f} points and {best_data['failure']}% fail chance")
     return best_key, best_data
 
 def ura_logic() -> str:
@@ -260,6 +278,10 @@ def ura_logic() -> str:
                 click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="Proceeding to training.")
                 sleep(0.5)
 
+    conditions, total_severity, infirmary_box = _need_infirmary()
+    missing_mood = _need_recreation(year)
+    summer_camp = _summer_camp(year)
+
     go_to_training()
     sleep(0.5)
     results_training = check_training()
@@ -310,32 +332,28 @@ def ura_logic() -> str:
                 do_rest(energy_level)
                 return
 
-    missing_mood = _need_recreation(year)
-    summer_camp = _summer_camp(year)
-
-    if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
-        conditions, total_severity, infirmary_box = _need_infirmary()
-        if total_severity > 0:
-            if total_severity <= 1 and missing_mood > 0 and not (summer_camp and missing_energy < 40):
-                info("[URA] Mood low & Status condition present → Recreation.")
+    if total_severity > 0:
+        if total_severity <= 1 and missing_mood > 0 and not (summer_camp and missing_energy < 40):
+            info("[URA] Mood low & Status condition present → Recreation.")
+            sleep(0.5)
+            do_recreation()
+            return
+        # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
+        if max(0, missing_energy) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
+            if total_severity > 1 and infirmary_box:
+                info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
                 sleep(0.5)
-                do_recreation()
+                click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
                 return
-            # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
-            if max(0, missing_energy) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
-                if total_severity > 1 and infirmary_box:
-                    info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
-                    sleep(0.5)
-                    click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
-                    return
-                else:
-                    info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
             else:
-                if infirmary_box:
-                    info("[URA] Status condition present → Infirmary.")
-                    sleep(0.5)
-                    click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
-                    return
+                info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
+        else:
+            if infirmary_box:
+                info("[URA] Status condition present → Infirmary.")
+                sleep(0.5)
+                click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+                return
+
     if not summer_camp:
         if missing_mood > 1:
             info("[URA] Mood is low → Recreation.")

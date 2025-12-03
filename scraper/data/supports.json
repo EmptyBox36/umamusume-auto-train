@@ -1,8 +1,8 @@
 {
     "(❯) Mummy Hunt! Drop the Jokes!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -39,8 +39,8 @@
     },
     "Tamamo's School Tour": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -75,8 +75,8 @@
     },
     "A Battle I Can't Lose!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -113,9 +113,9 @@
     },
     "(❯❯) The Bookworm and the Mage's Event": {
         "choices": {
-            "1": "Top",
-            "2": "Mid",
-            "3": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2",
+            "3": "Choice 3"
         },
         "stats": {
             "1": {
@@ -168,8 +168,8 @@
     },
     "Book-lover Quirks": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -204,8 +204,8 @@
     },
     "A Tale Entrusted": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -242,8 +242,8 @@
     },
     "(❯) Status—Boring?": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -280,8 +280,8 @@
     },
     "Do No Harm": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -316,8 +316,8 @@
     },
     "Orders Must Be Followed": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -354,8 +354,8 @@
     },
     "(❯❯) Are U the Problem?": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -392,8 +392,8 @@
     },
     "Ikuno-Style Flawless Method": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -428,8 +428,8 @@
     },
     "Ikuno-Style Management": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -466,8 +466,8 @@
     },
     "(❯) Rainy Day, Floating Flowers": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -504,8 +504,8 @@
     },
     "(❯❯) Magical Flowers, Forever Fair": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -540,8 +540,8 @@
     },
     "A Page of Flower Shop Assistance": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -576,8 +576,8 @@
     },
     "A Page About Cloudy Weather": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -614,8 +614,8 @@
     },
     "(❯❯❯) Picture Their Joy": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -650,8 +650,8 @@
     },
     "The Kashimoto Art of Tidying Up": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -684,11 +684,11 @@
             }
         }
     },
-    "Unexpected Side": {
+    "Unexpected Side\nDating starts": {
         "choices": {
-            "1": "Top",
-            "2": "Mid",
-            "3": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2",
+            "3": "Choice 3"
         },
         "stats": {
             "1": {
@@ -742,8 +742,8 @@
     },
     "(❯) A Winning Vocalist": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -782,8 +782,8 @@
     },
     "On and On": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -818,8 +818,8 @@
     },
     "What Should I Do?": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -856,8 +856,8 @@
     },
     "(❯❯) Irrepressible Feelings": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -892,8 +892,8 @@
     },
     "Not like Meow": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -928,8 +928,8 @@
     },
     "(Delicious) Burden": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -966,8 +966,8 @@
     },
     "(❯) Fickle Genius Magical Girl Sweepy ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1004,8 +1004,8 @@
     },
     "(❯❯) A Drop of Black Magic ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1040,8 +1040,8 @@
     },
     "Miracle ☆ Escape!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1076,8 +1076,8 @@
     },
     "Wonderful ☆ Mistake!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1112,8 +1112,8 @@
     },
     "(❯❯) Tickezo☆Friendship!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1153,8 +1153,8 @@
     },
     "Full-Power Muscles!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1189,8 +1189,8 @@
     },
     "Full-Power Racing!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1227,8 +1227,8 @@
     },
     "(❯) Number One Reactions?": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1263,8 +1263,8 @@
     },
     "I'm Going to Win Tomorrow!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1299,8 +1299,8 @@
     },
     "This Is Nothing!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1337,8 +1337,8 @@
     },
     "Student Council Member!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1373,8 +1373,8 @@
     },
     "Lone Wolf": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1411,8 +1411,8 @@
     },
     "(❯) Flustered Afternoon Tea!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1449,8 +1449,8 @@
     },
     "My Muscles and Me, Onward to Tomorrow!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1485,8 +1485,8 @@
     },
     "It's Not Like I Like Romance!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1523,8 +1523,8 @@
     },
     "(❯) Sudden Murder Mystery! Part 1": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1559,8 +1559,8 @@
     },
     "(❯❯) Sudden Murder Mystery! Part 2": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1597,8 +1597,8 @@
     },
     "(❯❯❯) Sudden Murder Mystery! Part 3": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1635,8 +1635,8 @@
     },
     "Recruiting Cat Catchers": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1671,8 +1671,8 @@
     },
     "Recruiting Advisors": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1709,8 +1709,8 @@
     },
     "(❯) A Captivating Invitation": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1749,8 +1749,8 @@
     },
     "(❯❯) Dancer's Pride": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1785,8 +1785,8 @@
     },
     "You May Socialize With Me!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1821,8 +1821,8 @@
     },
     "You May Advise Me!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1859,8 +1859,8 @@
     },
     "(❯) Raising the Uma Lord's Castle": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1895,8 +1895,8 @@
     },
     "(❯❯❯) Assembling the Uma Lord's Minions": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1936,8 +1936,8 @@
     },
     "Adventurer Gold Ship": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -1972,8 +1972,8 @@
     },
     "Revive the Brand! Golshi's Yakisoba": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2010,9 +2010,9 @@
     },
     "(❯❯) No One Is Above Discipline!": {
         "choices": {
-            "1": "Top",
-            "2": "Mid",
-            "3": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2",
+            "3": "Choice 3"
         },
         "stats": {
             "1": {
@@ -2065,8 +2065,8 @@
     },
     "Overthrow the Rival!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2101,8 +2101,8 @@
     },
     "Tons of Trouble!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2139,8 +2139,8 @@
     },
     "(❯) Modestly! Boldly!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2177,8 +2177,8 @@
     },
     "(❯❯❯) Hit It! Princess Road!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2215,8 +2215,8 @@
     },
     "Princess Punch!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2251,8 +2251,8 @@
     },
     "Princess Escape!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2289,8 +2289,8 @@
     },
     "(❯❯) Let's Go... Buono ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2329,8 +2329,8 @@
     },
     "Eat Up ♪": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2365,8 +2365,8 @@
     },
     "Leave It to Me ♪": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2403,8 +2403,8 @@
     },
     "(❯) One Step Forward": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2439,8 +2439,8 @@
     },
     "Give It a Try": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2475,8 +2475,8 @@
     },
     "Hope She'll Like It...": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2513,8 +2513,8 @@
     },
     "(❯❯) Blooming Hope!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2551,8 +2551,8 @@
     },
     "(❯❯❯) Someday, I'll Bloom!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2589,8 +2589,8 @@
     },
     "Today's Words of Wisdom!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2625,8 +2625,8 @@
     },
     "Until I Bloom...": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2663,8 +2663,8 @@
     },
     "(❯❯) A Reasonable Diet vs. an Explosive Diet": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2701,8 +2701,8 @@
     },
     "Firm and Plain, Yet Close to Virtue": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2737,8 +2737,8 @@
     },
     "The Will to Protect!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2775,8 +2775,8 @@
     },
     "(❯) Cozy Memories of Wanko Soba": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2815,8 +2815,8 @@
     },
     "(❯❯) The Class Rep's Intense Crash Course": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2851,8 +2851,8 @@
     },
     "(❯❯❯) I Wanna Win!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2891,8 +2891,8 @@
     },
     "For a Spiffy Concert": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2927,8 +2927,8 @@
     },
     "Aiming for the City Spots": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -2965,8 +2965,8 @@
     },
     "(❯❯) Paying It Forward": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3003,8 +3003,8 @@
     },
     "Ah, Friendship": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3039,8 +3039,8 @@
     },
     "Ah, Home Sweet Home": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3075,8 +3075,8 @@
     },
     "(❯❯) Diamond Fixation": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3111,8 +3111,8 @@
     },
     "(❯❯❯) Only for You": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3151,8 +3151,8 @@
     },
     "I Love New Things!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3187,8 +3187,8 @@
     },
     "I Love Complicated Things!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3225,8 +3225,8 @@
     },
     "(❯) Seeking Uniqueness!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3261,8 +3261,8 @@
     },
     "Just Your Typical Hard Work!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3297,8 +3297,8 @@
     },
     "Just A Typical Accident?!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3335,8 +3335,8 @@
     },
     "(❯) Run Away to First Base": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3375,8 +3375,8 @@
     },
     "(❯❯) Runaway Romance": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3413,8 +3413,8 @@
     },
     "(❯❯❯) Optimistic Escapism: Never Give Up!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3454,8 +3454,8 @@
     },
     "An Inescapable Choice?": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3490,8 +3490,8 @@
     },
     "Optimistic Escapism": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3528,8 +3528,8 @@
     },
     "(❯) I'm Not Afraid!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3564,8 +3564,8 @@
     },
     "(❯❯) Can't Catch Me!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3602,8 +3602,8 @@
     },
     "(❯❯❯) Turbo Is Strong!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3643,8 +3643,8 @@
     },
     "Just Start Running!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3679,8 +3679,8 @@
     },
     "I'm All Fired Up!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3717,8 +3717,8 @@
     },
     "(❯❯) How Should I Respond?": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3757,8 +3757,8 @@
     },
     "(❯❯❯) What I Want to Say": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3795,8 +3795,8 @@
     },
     "How Should I Respond?": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3831,8 +3831,8 @@
     },
     "Conquering the Crowds": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3869,9 +3869,9 @@
     },
     "(❯❯) Just a Little Closer": {
         "choices": {
-            "1": "Top",
-            "2": "Mid",
-            "3": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2",
+            "3": "Choice 3"
         },
         "stats": {
             "1": {
@@ -3922,8 +3922,8 @@
     },
     "Watch Where You're Going!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3960,8 +3960,8 @@
     },
     "So Many Options!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -3996,8 +3996,8 @@
     },
     "(❯❯) A Roller Coaster of Feelings!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4034,8 +4034,8 @@
     },
     "My Way, Or...": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4070,8 +4070,8 @@
     },
     "My Weapon": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4108,8 +4108,8 @@
     },
     "The Coolest Line": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4144,8 +4144,8 @@
     },
     "Enemies on Main Street": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4182,8 +4182,8 @@
     },
     "(❯❯) A Moment's Respite": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4218,8 +4218,8 @@
     },
     "Library Vexation": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4254,8 +4254,8 @@
     },
     "A Friendly Daytime Discussion": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4294,8 +4294,8 @@
     },
     "(❯❯) Uma-me": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4332,8 +4332,8 @@
     },
     "Blazing Fire!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4368,8 +4368,8 @@
     },
     "Secret Notebook!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4406,8 +4406,8 @@
     },
     "(❯) Be Strategic ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4446,9 +4446,9 @@
     },
     "(❯) Lovely Training Weather ♪": {
         "choices": {
-            "1": "Top",
-            "2": "Mid",
-            "3": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2",
+            "3": "Choice 3"
         },
         "stats": {
             "1": {
@@ -4497,8 +4497,8 @@
     },
     "Wonderful New Shoes": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4533,8 +4533,8 @@
     },
     "Reminiscent Clover": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4571,8 +4571,8 @@
     },
     "It's a Game of Tag!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4609,8 +4609,8 @@
     },
     "Ten Minutes Left!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4645,8 +4645,8 @@
     },
     "//Verification Required": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4681,8 +4681,8 @@
     },
     "//Absolute Desire": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4719,8 +4719,8 @@
     },
     "08:36 / Crap, I Overslept": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4755,8 +4755,8 @@
     },
     "13:12 / Lunch Break, Gotta Get Myself Together": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4793,8 +4793,8 @@
     },
     "Genius Efficiency!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4829,8 +4829,8 @@
     },
     "Enough to Break into a Dash!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4867,8 +4867,8 @@
     },
     "Leave it to Me to Help Out! ♪": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4903,8 +4903,8 @@
     },
     "Leave it to Me to Be Considerate! ♪": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4941,8 +4941,8 @@
     },
     "(❯) Always on Stage ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -4981,8 +4981,8 @@
     },
     "Chants Are the Life of a Concert ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5017,8 +5017,8 @@
     },
     "If I'm Cute, Come to My Show! ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5055,8 +5055,8 @@
     },
     "(❯❯) Aspiring to Adulthood": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5091,8 +5091,8 @@
     },
     "Warmth, Love, and Lunch": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5127,8 +5127,8 @@
     },
     "Let's Bloom Beautifully ♪": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5163,8 +5163,8 @@
     },
     "Urara's ☆ Study Review": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5199,8 +5199,8 @@
     },
     "Urara's ☆ Long Shot Dash!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5237,8 +5237,8 @@
     },
     "A Hero's Woes": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5273,8 +5273,8 @@
     },
     "Preparing My Special Move!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5311,8 +5311,8 @@
     },
     "(❯❯❯) Memories of Cinema": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5347,8 +5347,8 @@
     },
     "My Chosen Way of Life": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5381,10 +5381,10 @@
             }
         }
     },
-    "Enthusiastic Pair": {
+    "Enthusiastic Pair\nDating starts": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5421,8 +5421,8 @@
     },
     "To Maintain My Weight": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5457,8 +5457,8 @@
     },
     "To Reach the Greatest Heights": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5495,8 +5495,8 @@
     },
     "(❯) Nail Artist on the Turf": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5531,8 +5531,8 @@
     },
     "(❯❯) Not Just for Show": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5569,8 +5569,8 @@
     },
     "Doomscrolling the Time Away": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5605,8 +5605,8 @@
     },
     "Sponsored Posts Can Be Low-Key Sus": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5643,8 +5643,8 @@
     },
     "(❯) Special Drinks Made with Friends ♪": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5679,8 +5679,8 @@
     },
     "The Glass Girl Wants to Study": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5715,8 +5715,8 @@
     },
     "The Glass Girl Wants to Play": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5753,8 +5753,8 @@
     },
     "(❯) Dig Here, Windy!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5789,8 +5789,8 @@
     },
     "Chomp Extermination!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5825,8 +5825,8 @@
     },
     "Chomp Attack!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5863,9 +5863,9 @@
     },
     "(❯) No More Words ♪ Use Body Language!": {
         "choices": {
-            "1": "Top",
-            "2": "Mid",
-            "3": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2",
+            "3": "Choice 3"
         },
         "stats": {
             "1": {
@@ -5916,8 +5916,8 @@
     },
     "Full-Power Passion!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5952,8 +5952,8 @@
     },
     "Full-Power Thinking!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -5990,8 +5990,8 @@
     },
     "(❯) The Bookworm and the Magical Girl": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6026,8 +6026,8 @@
     },
     "(❯❯) I Want to Say Thank You!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6066,8 +6066,8 @@
     },
     "(❯) Chasing Their Backs": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6100,10 +6100,50 @@
             }
         }
     },
+    "(❯❯) Ikuno-Style Support": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Frenzied Front Runners"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 15.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Frenzied End Closers"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 15.0,
+                "random": false
+            }
+        }
+    },
     "(❯) #BFF #Party!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6138,8 +6178,8 @@
     },
     "(❯❯) #LOL #Party! #Round2": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6178,8 +6218,8 @@
     },
     "Encounter With the Sun ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6214,8 +6254,8 @@
     },
     "Smiles Forever": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6252,8 +6292,8 @@
     },
     "(❯) Some Very Green Friends": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6292,8 +6332,8 @@
     },
     "(❯❯) Premeditated Mischief": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6332,8 +6372,8 @@
     },
     "Sleight of Hand": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6368,8 +6408,8 @@
     },
     "Misdirection": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6406,8 +6446,8 @@
     },
     "Hishiama's Struggles: Problem Children": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6442,8 +6482,8 @@
     },
     "Hishiama's Struggles: Final Stretch": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6480,8 +6520,8 @@
     },
     "Strict but Gracious": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6518,8 +6558,8 @@
     },
     "Agile but Strong": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6554,8 +6594,8 @@
     },
     "Umamusume Deficiency!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6590,8 +6630,8 @@
     },
     "Heavy Romance": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6630,8 +6670,8 @@
     },
     "Last-Minute Modal Theory": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6666,8 +6706,8 @@
     },
     "Step-Out-of-Your-Comfort-Zone Theory": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6704,8 +6744,8 @@
     },
     "Snack Advice for Mayano!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6740,8 +6780,8 @@
     },
     "Fashion Advice for Mayano!": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6778,8 +6818,8 @@
     },
     "Solo Nighttime Run": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6814,8 +6854,8 @@
     },
     "A Taste of Silence": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6852,8 +6892,8 @@
     },
     "(❯) I'm Not a Cyborg": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6890,8 +6930,8 @@
     },
     "The Correlation between Sleep and Efficiency": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6926,8 +6966,8 @@
     },
     "Happenstance Introduced Through Intervention": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -6964,8 +7004,8 @@
     },
     "Unforeseen Lunch": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7000,8 +7040,8 @@
     },
     "Responding to the Unforeseen": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7038,8 +7078,8 @@
     },
     "Just Leave Me Alone": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7074,8 +7114,8 @@
     },
     "Just Don't Bother Me": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7112,8 +7152,8 @@
     },
     "Marvelous, No Question ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7148,8 +7188,8 @@
     },
     "How To Be More Marvelous ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7186,8 +7226,8 @@
     },
     "(❯❯) Guidance and Friends": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7224,8 +7264,8 @@
     },
     "Maximum Spirituality": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7260,8 +7300,8 @@
     },
     "When Piety and Kindness Intersect": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7296,8 +7336,8 @@
     },
     "(❯) What I'm Destined For...": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7332,8 +7372,8 @@
     },
     "I... Will Change": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7368,8 +7408,8 @@
     },
     "Please... Buy Some Carrots": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7406,8 +7446,8 @@
     },
     "(❯❯) How I Play at the Park": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7442,8 +7482,8 @@
     },
     "Trainer Tip: Always Improve Your Coaching": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7476,10 +7516,10 @@
             }
         }
     },
-    "The Search for a Hobby": {
+    "The Search for a Hobby\nDating starts": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7516,8 +7556,8 @@
     },
     "For an Adorable Younger Student": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7554,8 +7594,8 @@
     },
     "Drive Destination": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7590,8 +7630,8 @@
     },
     "Yes! Let's Hug ☆": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7624,48 +7664,10 @@
             }
         }
     },
-    "Yeehaw! Party Tonight ☆": {
-        "choices": {
-            "1": "Top",
-            "2": "Bot"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 10.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Prepared to Pass"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            }
-        }
-    },
     "Etude to Victory": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7700,8 +7702,8 @@
     },
     "Beyond Our Limited Time": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7738,8 +7740,8 @@
     },
     "The Emperor's Encouragement": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {
@@ -7774,8 +7776,8 @@
     },
     "The Student Council President's Thoughtfulness": {
         "choices": {
-            "1": "Top",
-            "2": "Bot"
+            "1": "Choice 1",
+            "2": "Choice 2"
         },
         "stats": {
             "1": {

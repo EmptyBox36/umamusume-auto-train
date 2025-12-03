@@ -40,7 +40,6 @@ MAX_ENERGY = None
 CURRENT_MOOD_INDEX = None
 CURRENT_STATS = {}
 CURRENT_YEAR = None
-CUSTOM_FAILURE = 0
 FORCE_REST = False
 CURRENT_TURN_LEFT = None
 PREFERRED_POSITION_SET = None
@@ -49,6 +48,7 @@ CRITERIA = None
 DONE_DEBUT = None
 FAN_COUNT = -1
 TRAINING_RESTRICTED = None
+LAST_VALID_STATS = None
 
 TURN_REGION = (0,0,0,0)
 YEAR_REGION = (0,0,0,0)
@@ -148,8 +148,46 @@ def stat_state():
   for stat, region in stat_regions.items():
     img = enhanced_screenshot(region)
     val = extract_number(img)
+    try:
+        val_int = int(val)
+    except (TypeError, ValueError):
+        val_int = None
+
+    cap = STAT_CAPS.get(stat, 1200)
+    if val_int is not None and 0 <= val_int <= cap:
+        result[stat] = val_int
+        continue
+
+    text = extract_text(img).lower()
+    if "max" in text:
+        result[stat] = cap
+    else:
+        result[stat] = -1
     result[stat] = val
   return result
+
+def check_stats():
+    """
+    Wrapper for stat_state().
+    If any stat is -1 (OCR failure), return LAST_VALID_STATS instead.
+    Otherwise update LAST_VALID_STATS.
+    """
+    global LAST_VALID_STATS
+
+    new_stats = stat_state()
+
+    # OCR error: some stats are -1
+    if any(v == -1 for v in new_stats.values()):
+        warning(f"OCR stat error detected: {new_stats} -> using LAST_VALID_STATS")
+        if LAST_VALID_STATS is not None:
+            return LAST_VALID_STATS.copy()
+        else:
+            # No previous stats (first turn)
+            return new_stats
+
+    # Valid stats → update LAST_VALID_STATS
+    LAST_VALID_STATS = new_stats.copy()
+    return new_stats
 
 # Check support card in each training
 def check_support_card(threshold=0.8, target="none"):
@@ -303,7 +341,7 @@ def check_failure():
         if v is not None:
             return v
 
-    return -1
+    return 99
 
 # Check mood
 def check_mood():
