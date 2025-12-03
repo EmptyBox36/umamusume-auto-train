@@ -1,3 +1,4 @@
+from tracemalloc import stop
 from PIL import ImageGrab
 from typing import Tuple, List, Optional
 from utils.log import info, warning, error, debug
@@ -62,7 +63,7 @@ def _need_recreation(year: str) -> bool:
   return missing_mood
 
 def _need_infirmary() -> Tuple[Optional[List[str]], int, Optional[object]]:
-  if matches["infirmary"] and is_btn_active(matches["infirmary"][0]):
+  if matches["infirmary"] and is_btn_active(matches["infirmary"][0]) and not _summer_camp(year=state.CURRENT_YEAR):
     info("Check for condition.")
     if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
       sleep(0.5)
@@ -140,13 +141,18 @@ def _training(results: dict):
     training_candidates = results
 
     for stat_name in training_candidates:
-        multiplier = 1 + state.PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
+        if year_parts[0] == "Junior":
+            multiplier = 1
+        else:
+            multiplier = 1 + state.PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
         summer_multiplier = 1 + state.SUMMER_PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
 
         data = training_candidates[stat_name]
 
         # max_friend_support_card = data["friend"]["friendship_levels"]["green"]  
-        friend_value =  data["total_friendship_levels"]["gray"] + data["total_friendship_levels"]["blue"] + data["total_friendship_levels"]["green"]
+        friend_value =  1.1 * data["total_friendship_levels"]["gray"] \
+            + 1.05 * data["total_friendship_levels"]["blue"] \
+            + 1 * data["total_friendship_levels"]["green"]
         friend_training = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
 
         if friend_value > 2:
@@ -157,7 +163,7 @@ def _training(results: dict):
         friend_value_point = 1
         rainbow_point = 1.5
         WHITE_FLAME_POINT = 0.5
-        BLUE_FLAME_POINT = 1.5
+        BLUE_FLAME_POINT = 2
 
         if year_parts[0] == "Junior":
             rainbow_point = 0.75
@@ -184,43 +190,60 @@ def _training(results: dict):
         # else:
         #     score -= 0 * data["total_blue_flame"]
 
-        data["score_befor_multiplier"] = score
+        data["score_before_multiplier"] = score
+
+        if stat_name == "wit":
+            score += 0.5
 
         if _summer_camp(year):
             data["training_score"] = score * summer_multiplier
         else:
             data["training_score"] = score * multiplier
 
-        info(f"[{stat_name.upper()}] -> Non Max Support: {friend_value}, Rainbow Support: {friend_training}, Hint: {data['total_hints']}, White Flame: {data['total_white_flame']}, Blue Flame: {data['total_blue_flame']}")
-        info(f"[{stat_name.upper()}] -> Score: {data['training_score']}")
+        info(f"[{stat_name.upper()}] -> Non Max Support: {friend_value:.3f}, Rainbow Support: {friend_training}, Hint: {data['total_hints']}, White Flame: {data['total_white_flame']}, Blue Flame: {data['total_blue_flame']}")
+        info(f"[{stat_name.upper()}] -> Score: {data['training_score']:.3f}")
 
     any_nonmaxed = any(
         data.get("total_non_maxed_support", 0) > 0 
         for data in training_candidates.values())
 
-    best_stat, best_point = max(
-        training_candidates.items(),
-        key=lambda kv: (
-            kv[1]["training_score"],
-            -_get_stat_priority(kv[0])
-        ),
-    )
+    base_failure = state.MAX_FAILURE
+    max_failure_by_stat = {
+        stat_name: base_failure for stat_name in training_candidates.keys()
+    }
 
     if state.ENABLE_CUSTOM_FAILURE_CHANCE:
-      if state.ENABLE_CUSTOM_HIGH_FAILURE:
-          if best_point["score_befor_multiplier"] > state.HIGH_FAILURE_CONDITION["point"]:
-              state.CUSTOM_FAILURE = state.HIGH_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have high ({best_point['score_befor_multiplier']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
+        for stat_name, data in training_candidates.items():
+            score_before = data.get("score_before_multiplier", 0)
 
-      if state.ENABLE_CUSTOM_LOW_FAILURE:
-          if best_point["score_befor_multiplier"] < state.LOW_FAILURE_CONDITION["point"]:
-              state.CUSTOM_FAILURE = state.LOW_FAILURE_CONDITION["failure"]
-              info(f"Due to {best_stat.upper()} have low ({best_point['score_befor_multiplier']}) training point, set maximum failure to {state.CUSTOM_FAILURE}%.")
+            # High failure condition for this stat
+            if (
+                state.ENABLE_CUSTOM_HIGH_FAILURE
+                and score_before > state.HIGH_FAILURE_CONDITION["point"]
+            ):
+                max_failure_by_stat[stat_name] = state.HIGH_FAILURE_CONDITION["failure"]
+                debug(
+                    f"Due to {stat_name.upper()} have high ({score_before:.3f}) training point, "
+                    f"set maximum failure to {max_failure_by_stat[stat_name]}%."
+                )
 
-    # filter by failure & avoid WIT spam
+            # Low failure condition for this stat
+            elif (
+                state.ENABLE_CUSTOM_LOW_FAILURE
+                and score_before < state.LOW_FAILURE_CONDITION["point"]
+            ):
+                max_failure_by_stat[stat_name] = state.LOW_FAILURE_CONDITION["failure"]
+                debug(
+                    f"Due to {stat_name.upper()} have low ({score_before:.3f}) training point, "
+                    f"set maximum failure to {max_failure_by_stat[stat_name]}%."
+                )
+
+    # Filter by each stat's own failure cap & avoid WIT spam
     filtered = {
-        k: v for k, v in training_candidates.items()
-        if int(v["failure"]) <= state.CUSTOM_FAILURE and not (k == "wit" and v["training_score"] < 1.5)
+        k: v
+        for k, v in training_candidates.items()
+        if int(v["failure"]) <= max_failure_by_stat.get(k, base_failure)
+        and not (k == "wit" and v["training_score"] < 1.5)
     }
 
     if not filtered:
@@ -239,7 +262,7 @@ def _training(results: dict):
         filtered.items(),
         key=lambda kv: (kv[1]["training_score"], -_get_stat_priority(kv[0])))
       
-    info(f"[UNITY] Training selected: {best_key.upper()} with {best_data['training_score']} points and {best_data['failure']}% fail chance")
+    info(f"[UNITY] Training selected: {best_key.upper()} with {best_data['training_score']:.3f} points and {best_data['failure']}% fail chance")
     return best_key, best_data
 
 def unity_logic() -> str:
@@ -251,6 +274,10 @@ def unity_logic() -> str:
     max_energy = state.MAX_ENERGY
     missing_energy = max_energy - energy_level
     current_stats = state.CURRENT_STATS
+
+    # if year == "Classic Year Early Jan":
+    #     stop_bot()
+    #     return
 
     if state.APTITUDES == {}:
         sleep(0.1)
@@ -320,6 +347,10 @@ def unity_logic() -> str:
                 click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="Proceeding to training.")
                 sleep(0.5)
 
+    missing_mood = _need_recreation(year)
+    summer_camp = _summer_camp(year)
+    conditions, total_severity, infirmary_box = _need_infirmary()
+
     go_to_training()
     sleep(0.5)
     results_training = check_training()
@@ -330,9 +361,6 @@ def unity_logic() -> str:
         return
 
     result, best_data = _training(filtered)
-
-    wait_for_image(img_path="assets/ui/tazuna_hint.png", timeout=get_secs(5))
-    sleep(2)
 
     if _summer_next_turn(year):
         if best_data is None and missing_energy < 50:
@@ -367,16 +395,12 @@ def unity_logic() -> str:
                 sleep(0.5)
                 do_recreation("friend")
                 return
-            else:
+            elif missing_energy > 50:
                 state.FORCE_REST = True
                 sleep(0.5)
                 do_rest(energy_level)
                 return
                 
-    missing_mood = _need_recreation(year)
-    summer_camp = _summer_camp(year)
-
-    conditions, total_severity, infirmary_box = _need_infirmary()
     if total_severity > 1 and infirmary_box:
         info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
         sleep(0.5)
@@ -473,6 +497,10 @@ def unity_logic() -> str:
                return
 
     if "Finale" in year:
+        if _friend_recreation():
+            sleep(0.5)
+            do_recreation("friend")
+            return
         if "Finals" in criteria:
             sleep(0.5)
             go_to_training()
@@ -480,10 +508,6 @@ def unity_logic() -> str:
             do_train("wit")
             info(f"[UNITY] No training found, but it was last turn → Train WIT.")
             return
-        # if _friend_recreation():
-        #     sleep(0.5)
-        #     do_recreation("friend")
-        #     return
 
     info(f"[UNITY] No training found → Rest.")
     do_rest(energy_level)
