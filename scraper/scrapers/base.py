@@ -344,10 +344,12 @@ class BaseScraper:
 
             # Event title inside tooltip
             try:
-                tooltip_title = tooltip.find_element(
+                raw_title = tooltip.find_element(
                     By.XPATH,
                     ".//div[contains(@class, 'sc-') and contains(@class, '-2 ')]"
                 ).text.strip()
+
+                tooltip_title = raw_title.split("\n", 1)[0].strip()
                 if not tooltip_title:
                     logging.warning(f"Empty tooltip title for training event ({j + 1}/{len(all_training_events)}).")
                     continue
