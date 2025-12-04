@@ -150,10 +150,13 @@ def _training(results: dict):
         data = training_candidates[stat_name]
 
         # max_friend_support_card = data["friend"]["friendship_levels"]["green"]  
-        friend_value =  1.1 * data["total_friendship_levels"]["gray"] \
-            + 1.05 * data["total_friendship_levels"]["blue"] \
+        friend_value =  1.02 * data["total_friendship_levels"]["gray"] \
+            + 1.01 * data["total_friendship_levels"]["blue"] \
             + 1 * data["total_friendship_levels"]["green"]
         friend_training = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
+
+        non_maxed_speed = data["spd"]["friendship_levels"]["gray"] + data["spd"]["friendship_levels"]["blue"] + data["spd"]["friendship_levels"]["green"]
+        non_maxed_power = data["pwr"]["friendship_levels"]["gray"] + data["pwr"]["friendship_levels"]["blue"] + data["pwr"]["friendship_levels"]["green"]
 
         if friend_value > 2:
             friend_value += 0.5 * friend_value
@@ -178,7 +181,7 @@ def _training(results: dict):
             rainbow_point = 2
             WHITE_FLAME_POINT = 0.25
 
-        score = (friend_value_point * friend_value) + (rainbow_point * friend_training)
+        score = (friend_value_point * friend_value) + (rainbow_point * friend_training) + (0.25 * non_maxed_speed)
 
         if data["total_hints"] > 0:
             score += state.HINT_POINT
@@ -313,8 +316,8 @@ def unity_logic() -> str:
         return
 
     if state.RACE_SCHEDULE:
-        if check_fans_for_upcoming_schedule():
-            return
+        # if check_fans_for_upcoming_schedule():
+        #     return
         race_done = False
         for race_list in state.RACE_SCHEDULE:
             if state.stop_event.is_set():
@@ -504,17 +507,18 @@ def unity_logic() -> str:
                return
 
     if "Finale" in year:
-        if _friend_recreation():
-            sleep(0.5)
-            do_recreation("friend")
-            return
         if "Finals" in criteria:
-            sleep(0.5)
-            go_to_training()
-            sleep(0.5)
-            do_train("wit")
-            info(f"[UNITY] No training found, but it was last turn → Train WIT.")
-            return
+            if _friend_recreation():
+                sleep(0.5)
+                do_recreation("friend")
+                return
+            else:
+                sleep(0.5)
+                go_to_training()
+                sleep(0.5)
+                do_train("wit")
+                info(f"[UNITY] No training found, but it was last turn → Train WIT.")
+                return
 
     info(f"[UNITY] No training found → Rest.")
     do_rest(energy_level)

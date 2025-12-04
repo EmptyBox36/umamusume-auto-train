@@ -258,7 +258,7 @@ def _get_next_scheduled_race():
     for r in schedule:
         if not isinstance(r, dict):
             continue
-        tn = r["turnNumber"]
+        tn = r.get("turnNumber")
         if isinstance(tn, int) and tn >= virtual_turn:
             candidates.append(r)
 
@@ -309,7 +309,7 @@ def check_fans_for_upcoming_schedule() -> bool:
         return False
 
     # "very low" gap → tweakable threshold
-    MAX_GAP_TURNS = 10
+    MAX_GAP_TURNS = 3
     if gap > MAX_GAP_TURNS:
         return False
 
@@ -328,9 +328,8 @@ def check_fans_for_upcoming_schedule() -> bool:
 
     # Use current year/turn-left like other logic
     year = state.CURRENT_YEAR
-    turn_left = gap
 
-    race_found, race_name = decide_race_for_goal(year, turn_left, fake_criteria, keywords)
+    race_found, race_name = decide_race_for_goal(year, gap, fake_criteria, keywords)
     info(f"[FAN_FARM] race_found={race_found}, race_name={race_name}")
 
     if not race_name:
