@@ -21,10 +21,10 @@ type RaceType = {
   racetrack: string;
   terrain: "Turf" | "Dirt";
   distance: { type: "Short" | "Mile" | "Medium" | "Long"; meters: number };
-  grade?: string;
+  grade: string;
   sparks?: string[];
-  fans?: { required?: number; gained?: number };
-  turnNumber?: number;
+  fans: { required?: number; gained?: number };
+  turnNumber: number;
 };
 
 type RaceScheduleDataType = {

@@ -42,10 +42,7 @@ UNITY_ROUND_REGION = (450, 290, 660 - 450, 330 - 290)
 UNITY_ROUND_LIST = ["Preseason Round 1", "Preseason Round 2", "Preseason Round 3", "Preseason Round 4", "Finals"]
 
 YEAR_ORDER = ["Junior", "Classic", "Senior"]
-MONTH_ORDER = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-]
+MONTH_ORDER = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 PHASE_ORDER = ["Early", "Late"]
 
 

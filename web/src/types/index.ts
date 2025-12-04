@@ -17,7 +17,7 @@ export type RaceScheduleType = {
   name: string;
   year: string;
   date: string;
-  turnNumber?: number;
+  turnNumber: number;
 };
 
 export type PositionForSpecificRace = {
