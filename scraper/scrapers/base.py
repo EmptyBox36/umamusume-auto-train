@@ -356,10 +356,7 @@ class BaseScraper:
 
                 key = clean_event_title(tooltip_title)
                 if key in data_dict:
-                    logging.info(
-                        f"Training event {tooltip_title} ({j + 1}/{len(all_training_events)}) "
-                        f"was already scraped. Skipping."
-                    )
+                    logging.info(f"Training event {tooltip_title} ({j + 1}/{len(all_training_events)}) was already scraped. Skipping this...")
                     continue
             except NoSuchElementException:
                 logging.warning(

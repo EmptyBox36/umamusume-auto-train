@@ -62,8 +62,7 @@ class CharacterScraper(BaseScraper):
 
             while attempt < max_link_retry:
                 try:
-                    # periodic clean restart (optional; keep if you like)
-                    if i % 2 == 0 and attempt == 0:
+                    if i % 1 == 0:
                         driver.quit()
                         driver = create_chromedriver()
                         _ = _go(driver, self.url)
@@ -98,9 +97,11 @@ class CharacterScraper(BaseScraper):
                     variant = m.group(2)
                     name = f"{base} ({variant})" if variant else base
 
-                    if name not in self.data:
-                        self.data[name] = {}
-                    self.process_training_events(driver, name, self.data[name])
+                    attempt_data = {}
+
+                    self.process_training_events(driver, name, attempt_data)
+
+                    self.data[name] = attempt_data
 
                     # success: break out of while and move to next character
                     break
