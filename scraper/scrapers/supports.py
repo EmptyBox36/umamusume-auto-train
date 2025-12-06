@@ -16,8 +16,8 @@ def _go(driver, url, tries=2):
             logging.error(f"_go error on attempt {attempt}/{tries}: {msg}")
 
             # Detect broken chrome/CDP session
-            if "HTTPConnectionPool" in msg or "Read timed out" in msg:
-                return "RESTART"   # signal caller to recreate driver
+            if "HTTPConnectionPool" in msg or "Read timed out" in msg or "Repeated tooltip title detected" in msg:
+                return "RESTART"
 
             # Normal retry
             try:

@@ -156,21 +156,13 @@ def parse_outcome(text: str) -> dict:
     return parse_randomly(text) if "Randomly either" in text else parse_outcome_block(text)
 
 def create_chromedriver():
-
     opts = Options()
     opts.add_argument("--headless=new")
-    opts.add_argument("--disable-gpu")
     opts.add_argument("--no-sandbox")
     opts.add_argument("--disable-dev-shm-usage")
-    opts.add_argument("--disable-extensions")
-    opts.add_argument("--disable-features=PrivacySandboxAdsAPIs")
-    opts.add_argument("--disable-background-networking")
-    opts.add_argument("--disable-renderer-backgrounding")
-    opts.add_argument("--renderer-process-limit=2")
-    opts.add_argument("--force-device-scale-factor=1")
 
     caps = DesiredCapabilities.CHROME.copy()
-    caps["pageLoadStrategy"] = "eager"  # don’t wait for ads/analytics
+    caps["pageLoadStrategy"] = "eager"
 
     driver = uc.Chrome(
         headless=True,
@@ -329,6 +321,9 @@ class BaseScraper:
         logging.info(f"Found {len(all_training_events)} training events for {item_name}.")
 
         ad_banner_closed = False
+        last_title = None
+        same_title_run = 0
+        SAME_TITLE_RUN_LIMIT = 3
 
         for j, training_event in enumerate(all_training_events):
             # Click the event row (with JS fallback)
@@ -353,6 +348,19 @@ class BaseScraper:
                 if not tooltip_title:
                     logging.warning(f"Empty tooltip title for training event ({j + 1}/{len(all_training_events)}).")
                     continue
+
+                if tooltip_title == last_title:
+                    same_title_run += 1
+                else:
+                    last_title = tooltip_title
+                    same_title_run = 0
+
+                if same_title_run >= SAME_TITLE_RUN_LIMIT:
+                    # Force the caller to retry this page
+                    raise RuntimeError(
+                        f"Suspicious repeated tooltip title '{tooltip_title}' "
+                        f"for {item_name}: seen {same_title_run + 1} times in a row."
+                    )
 
                 key = clean_event_title(tooltip_title)
                 if key in data_dict:
