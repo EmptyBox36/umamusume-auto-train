@@ -1,8 +1,5 @@
 import time, re, logging
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
-from requests.exceptions import ReadTimeout as RequestsReadTimeout
-from selenium.common.exceptions import TimeoutException, WebDriverException
 
 from .base import BaseScraper, create_chromedriver
 from utils.utils import clean_event_title, COMMON_EVENT_TITLES
