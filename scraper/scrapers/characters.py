@@ -67,7 +67,7 @@ class CharacterScraper(BaseScraper):
 
                     logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
 
-                    result = _go(driver, link, tries=2)
+                    result = _go(driver, link, tries=5)
 
                     if result == "RESTART":
                         logging.warning("Restarting Chrome due to connection failure...")
@@ -76,7 +76,7 @@ class CharacterScraper(BaseScraper):
                         _ = _go(driver, self.url)
                         time.sleep(1)
                         # retry the SAME link again
-                        if _go(driver, link, tries=2) is not True:
+                        if _go(driver, link, tries=5) is not True:
                             if not load_with_retry(driver, link, max_retry=5, delay=10):
                                 raise RuntimeError(f"Could not load {link} after Chrome restart")
                     elif result is False:
