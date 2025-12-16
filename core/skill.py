@@ -36,8 +36,8 @@ def buy_skill():
           else:
             same_count = 0
 
-          if same_count >= 3:
-            info("Skill list unchanged for 3 loops. Exiting early.")
+          if same_count >= 1:
+            info("Skill list unchanged for 1 loops. Exiting early.")
             return found
         prev_img = curr_img
 

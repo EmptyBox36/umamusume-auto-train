@@ -13,6 +13,7 @@
                 "gained": 3100
             },
             "grade": "G3",
+            "turnNumber": 14,
             "id": 10001
         },
         "Chukyo Junior Stakes": {
@@ -28,6 +29,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 14,
             "id": 10002
         },
         "Cosmos Sho": {
@@ -43,6 +45,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 15,
             "id": 10003
         },
         "Dahlia Sho": {
@@ -58,6 +61,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 15,
             "id": 10004
         },
         "Phoenix Sho": {
@@ -73,6 +77,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 15,
             "id": 10005
         },
         "Niigata Junior Stakes": {
@@ -88,6 +93,7 @@
                 "gained": 3100
             },
             "grade": "G3",
+            "turnNumber": 16,
             "id": 10006
         },
         "Clover Sho": {
@@ -103,6 +109,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 16,
             "id": 10007
         },
         "Kokura Junior Stakes": {
@@ -118,6 +125,7 @@
                 "gained": 3100
             },
             "grade": "G3",
+            "turnNumber": 17,
             "id": 10008
         },
         "Sapporo Junior Stakes": {
@@ -133,6 +141,7 @@
                 "gained": 3100
             },
             "grade": "G3",
+            "turnNumber": 17,
             "id": 10009
         },
         "Nojigiku Stakes": {
@@ -148,6 +157,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 17,
             "id": 10010
         },
         "Suzuran Sho": {
@@ -163,6 +173,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 17,
             "id": 10011
         },
         "Aster Sho": {
@@ -178,6 +189,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 17,
             "id": 10012
         },
         "Canna Stakes": {
@@ -193,6 +205,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 18,
             "id": 10013
         },
         "Fuyo Stakes": {
@@ -208,6 +221,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 18,
             "id": 10014
         },
         "Kikyo Stakes": {
@@ -223,6 +237,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 18,
             "id": 10015
         },
         "Saffron Sho": {
@@ -238,6 +253,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 18,
             "id": 10016
         },
         "Saudi Arabia Royal Cup": {
@@ -253,6 +269,7 @@
                 "gained": 3300
             },
             "grade": "G3",
+            "turnNumber": 19,
             "id": 10017
         },
         "Momiji Stakes": {
@@ -268,6 +285,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 19,
             "id": 10018
         },
         "Platanus Sho": {
@@ -283,6 +301,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 19,
             "id": 10019
         },
         "Rindo Sho": {
@@ -298,6 +317,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 19,
             "id": 10020
         },
         "Shigiku Sho": {
@@ -313,6 +333,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 19,
             "id": 10021
         },
         "Artemis Stakes": {
@@ -328,6 +349,7 @@
                 "gained": 2900
             },
             "grade": "G3",
+            "turnNumber": 20,
             "id": 10022
         },
         "Hagi Stakes": {
@@ -343,6 +365,7 @@
                 "gained": 1700
             },
             "grade": "OP",
+            "turnNumber": 20,
             "id": 10023
         },
         "Ivy Stakes": {
@@ -358,6 +381,7 @@
                 "gained": 1700
             },
             "grade": "OP",
+            "turnNumber": 20,
             "id": 10024
         },
         "Nadeshiko Sho": {
@@ -373,6 +397,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 20,
             "id": 10025
         },
         "Daily Hai Junior Stakes": {
@@ -388,6 +413,7 @@
                 "gained": 3800
             },
             "grade": "G2",
+            "turnNumber": 21,
             "id": 10026
         },
         "Keio Hai Junior Stakes": {
@@ -403,6 +429,7 @@
                 "gained": 3800
             },
             "grade": "G2",
+            "turnNumber": 21,
             "id": 10027
         },
         "Fantasy Stakes": {
@@ -418,6 +445,7 @@
                 "gained": 2900
             },
             "grade": "G3",
+            "turnNumber": 21,
             "id": 10028
         },
         "Fukushima Junior Stakes": {
@@ -433,6 +461,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 21,
             "id": 10029
         },
         "Hyakunichiso Tokubetsu": {
@@ -448,6 +477,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 21,
             "id": 10030
         },
         "Kigiku Sho": {
@@ -463,6 +493,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 21,
             "id": 10031
         },
         "Kimmokusei Tokubetsu": {
@@ -478,6 +509,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 21,
             "id": 10032
         },
         "Oxalis Sho": {
@@ -493,6 +525,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 21,
             "id": 10033
         },
         "Kyoto Junior Stakes": {
@@ -508,6 +541,7 @@
                 "gained": 3300
             },
             "grade": "G3",
+            "turnNumber": 22,
             "id": 10034
         },
         "Tokyo Sports Hai Junior Stakes": {
@@ -523,6 +557,7 @@
                 "gained": 3300
             },
             "grade": "G3",
+            "turnNumber": 22,
             "id": 10035
         },
         "Akamatsu Sho": {
@@ -538,6 +573,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 22,
             "id": 10036
         },
         "Begonia Sho": {
@@ -553,6 +589,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 22,
             "id": 10037
         },
         "Cattleya Sho": {
@@ -568,6 +605,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 22,
             "id": 10038
         },
         "Habotan Sho": {
@@ -583,6 +621,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 22,
             "id": 10039
         },
         "Koyamaki Sho": {
@@ -598,6 +637,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 22,
             "id": 10040
         },
         "Mochinoki Sho": {
@@ -613,6 +653,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 22,
             "id": 10041
         },
         "Shiragiku Sho": {
@@ -628,6 +669,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 22,
             "id": 10042
         },
         "Shumeigiku Sho": {
@@ -643,6 +685,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 22,
             "id": 10043
         },
         "Asahi Hai Futurity Stakes": {
@@ -662,6 +705,7 @@
                 "Speed",
                 "Guts"
             ],
+            "turnNumber": 23,
             "id": 10044
         },
         "Hanshin Juvenile Fillies": {
@@ -681,6 +725,7 @@
                 "Speed",
                 "Power"
             ],
+            "turnNumber": 23,
             "id": 10045
         },
         "Erica Sho": {
@@ -696,6 +741,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 23,
             "id": 10046
         },
         "Hiiragi Sho": {
@@ -711,6 +757,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 23,
             "id": 10047
         },
         "Kantsubaki Sho": {
@@ -726,6 +773,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 23,
             "id": 10048
         },
         "Kuromatsu Sho": {
@@ -741,6 +789,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 23,
             "id": 10049
         },
         "Manryo Sho": {
@@ -756,6 +805,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 23,
             "id": 10050
         },
         "Sazanka Sho": {
@@ -771,6 +821,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 23,
             "id": 10051
         },
         "Tsuwabuki Sho": {
@@ -786,6 +837,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 23,
             "id": 10052
         },
         "Hopeful Stakes": {
@@ -805,6 +857,7 @@
                 "Speed",
                 "Stamina"
             ],
+            "turnNumber": 24,
             "id": 10053
         },
         "Christmas Rose Stakes": {
@@ -820,6 +873,7 @@
                 "gained": 1600
             },
             "grade": "OP",
+            "turnNumber": 24,
             "id": 10054
         },
         "Senryo Sho": {
@@ -835,6 +889,7 @@
                 "gained": 1000
             },
             "grade": "Pre-OP",
+            "turnNumber": 24,
             "id": 10055
         }
     },
@@ -852,6 +907,7 @@
                 "gained": 3500
             },
             "grade": "G3",
+            "turnNumber": 25,
             "id": 10056
         },
         "Keisei Hai": {
@@ -867,6 +923,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 25,
             "id": 10057
         },
         "Shinzan Kinen": {
@@ -882,6 +939,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 25,
             "id": 10058
         },
         "Junior Cup": {
@@ -897,6 +955,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 25,
             "id": 10059
         },
         "Kobai Stakes": {
@@ -912,6 +971,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 25,
             "id": 10060
         },
         "Crocus Stakes": {
@@ -927,6 +987,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 26,
             "id": 10061
         },
         "Wakagoma Stakes": {
@@ -942,6 +1003,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 26,
             "id": 10062
         },
         "Kisaragi Sho": {
@@ -957,6 +1019,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 27,
             "id": 10063
         },
         "Kyodo News Hai": {
@@ -972,6 +1035,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 27,
             "id": 10064
         },
         "Queen Cup": {
@@ -987,6 +1051,7 @@
                 "gained": 3500
             },
             "grade": "G3",
+            "turnNumber": 27,
             "id": 10065
         },
         "Elfin Stakes": {
@@ -1002,6 +1067,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 27,
             "id": 10066
         },
         "Hyacinth Stakes": {
@@ -1017,6 +1083,7 @@
                 "gained": 1900
             },
             "grade": "OP",
+            "turnNumber": 28,
             "id": 10067
         },
         "Marguerite Stakes": {
@@ -1032,6 +1099,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 28,
             "id": 10068
         },
         "Sumire Stakes": {
@@ -1047,6 +1115,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 28,
             "id": 10069
         },
         "Fillies' Revue": {
@@ -1062,6 +1131,7 @@
                 "gained": 5200
             },
             "grade": "G2",
+            "turnNumber": 29,
             "id": 10070
         },
         "Tulip Sho": {
@@ -1077,6 +1147,7 @@
                 "gained": 5200
             },
             "grade": "G2",
+            "turnNumber": 29,
             "id": 10071
         },
         "Yayoi Sho": {
@@ -1092,6 +1163,7 @@
                 "gained": 5400
             },
             "grade": "G2",
+            "turnNumber": 29,
             "id": 10072
         },
         "Anemone Stakes": {
@@ -1107,6 +1179,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 29,
             "id": 10073
         },
         "Shoryu Stakes": {
@@ -1122,6 +1195,7 @@
                 "gained": 1800
             },
             "grade": "OP",
+            "turnNumber": 29,
             "id": 10074
         },
         "Spring Stakes": {
@@ -1137,6 +1211,7 @@
                 "gained": 5400
             },
             "grade": "G2",
+            "turnNumber": 30,
             "id": 10075
         },
         "Falcon Stakes": {
@@ -1152,6 +1227,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 30,
             "id": 10076
         },
         "Flower Cup": {
@@ -1167,6 +1243,7 @@
                 "gained": 3500
             },
             "grade": "G3",
+            "turnNumber": 30,
             "id": 10077
         },
         "Mainichi Hai": {
@@ -1182,6 +1259,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 30,
             "id": 10078
         },
         "Wakaba Stakes": {
@@ -1197,6 +1275,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 30,
             "id": 10079
         },
         "Oka Sho": {
@@ -1216,6 +1295,7 @@
                 "Hanshin Racecourse ○",
                 "Guts"
             ],
+            "turnNumber": 31,
             "id": 10080
         },
         "Satsuki Sho": {
@@ -1235,6 +1315,7 @@
                 "Nakayama Racecourse ○",
                 "Power"
             ],
+            "turnNumber": 31,
             "id": 10081
         },
         "New Zealand Trophy": {
@@ -1250,6 +1331,7 @@
                 "gained": 5400
             },
             "grade": "G2",
+            "turnNumber": 31,
             "id": 10082
         },
         "Arlington Cup": {
@@ -1265,6 +1347,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 31,
             "id": 10083
         },
         "Fukuryu Stakes": {
@@ -1280,6 +1363,7 @@
                 "gained": 1800
             },
             "grade": "OP",
+            "turnNumber": 31,
             "id": 10084
         },
         "Wasurenagusa Sho": {
@@ -1295,6 +1379,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 31,
             "id": 10085
         },
         "Aoba Sho": {
@@ -1310,6 +1395,7 @@
                 "gained": 5400
             },
             "grade": "G2",
+            "turnNumber": 32,
             "id": 10086
         },
         "Flora Stakes": {
@@ -1325,6 +1411,7 @@
                 "gained": 5200
             },
             "grade": "G2",
+            "turnNumber": 32,
             "id": 10087
         },
         "Sweetpea Stakes": {
@@ -1340,6 +1427,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 32,
             "id": 10088
         },
         "Tachibana Stakes": {
@@ -1355,6 +1443,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 32,
             "id": 10089
         },
         "Tango Stakes": {
@@ -1370,6 +1459,7 @@
                 "gained": 1800
             },
             "grade": "OP",
+            "turnNumber": 32,
             "id": 10090
         },
         "NHK Mile Cup": {
@@ -1389,6 +1479,7 @@
                 "Speed",
                 "Power"
             ],
+            "turnNumber": 33,
             "id": 10091
         },
         "Kyoto Shimbun Hai": {
@@ -1404,6 +1495,7 @@
                 "gained": 5400
             },
             "grade": "G2",
+            "turnNumber": 33,
             "id": 10092
         },
         "Principal Stakes": {
@@ -1419,6 +1511,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 33,
             "id": 10093
         },
         "Seiryu Stakes": {
@@ -1434,6 +1527,7 @@
                 "gained": 1800
             },
             "grade": "OP",
+            "turnNumber": 33,
             "id": 10094
         },
         "Japanese Oaks": {
@@ -1453,6 +1547,7 @@
                 "Tokyo Racecourse ○",
                 "Stamina"
             ],
+            "turnNumber": 34,
             "id": 10095
         },
         "Tokyo Yushun (Japanese Derby)": {
@@ -1472,6 +1567,7 @@
                 "Tokyo Racecourse ○",
                 "Guts"
             ],
+            "turnNumber": 34,
             "id": 10096
         },
         "Aoi Stakes": {
@@ -1487,6 +1583,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 34,
             "id": 10097
         },
         "Hosu Stakes": {
@@ -1502,6 +1599,7 @@
                 "gained": 1900
             },
             "grade": "OP",
+            "turnNumber": 34,
             "id": 10098
         },
         "Shirayuri Stakes": {
@@ -1517,6 +1615,7 @@
                 "gained": 2000
             },
             "grade": "OP",
+            "turnNumber": 34,
             "id": 10099
         },
         "Yasuda Kinen": {
@@ -1536,6 +1635,7 @@
                 "Tokyo Racecourse ○",
                 "Speed"
             ],
+            "turnNumber": 35,
             "id": 10100
         },
         "Epsom Cup": {
@@ -1551,6 +1651,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 35,
             "id": 10101
         },
         "Mermaid Stakes": {
@@ -1566,6 +1667,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 35,
             "id": 10102
         },
         "Naruo Kinen": {
@@ -1581,6 +1683,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 35,
             "id": 10103
         },
         "Sleipnir Stakes": {
@@ -1596,6 +1699,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 35,
             "id": 10104
         },
         "Tempozan Stakes": {
@@ -1611,6 +1715,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 35,
             "id": 10105
         },
         "Takarazuka Kinen": {
@@ -1630,6 +1735,7 @@
                 "Summer Runner ○",
                 "Guts"
             ],
+            "turnNumber": 36,
             "id": 10106
         },
         "Hakodate Sprint Stakes": {
@@ -1645,6 +1751,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 36,
             "id": 10107
         },
         "Unicorn Stakes": {
@@ -1660,6 +1767,7 @@
                 "gained": 3500
             },
             "grade": "G3",
+            "turnNumber": 36,
             "id": 10108
         },
         "Akhalteke Stakes": {
@@ -1675,6 +1783,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 36,
             "id": 10109
         },
         "Onuma Stakes": {
@@ -1690,6 +1799,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 36,
             "id": 10110
         },
         "Paradise Stakes": {
@@ -1705,6 +1815,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 36,
             "id": 10111
         },
         "Sannomiya Stakes": {
@@ -1720,6 +1831,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 36,
             "id": 10112
         },
         "Yonago Stakes": {
@@ -1735,6 +1847,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 36,
             "id": 10113
         },
         "Japan Dirt Derby": {
@@ -1754,6 +1867,7 @@
                 "Oi Racecourse ○",
                 "Power"
             ],
+            "turnNumber": 37,
             "id": 10114
         },
         "CBC Sho": {
@@ -1769,6 +1883,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 37,
             "id": 10115
         },
         "Hakodate Kinen": {
@@ -1784,6 +1899,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 37,
             "id": 10116
         },
         "Procyon Stakes": {
@@ -1799,6 +1915,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 37,
             "id": 10117
         },
         "Radio Nikkei Sho": {
@@ -1814,6 +1931,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 37,
             "id": 10118
         },
         "Tanabata Sho": {
@@ -1829,6 +1947,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 37,
             "id": 10119
         },
         "Marine Stakes": {
@@ -1844,6 +1963,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 37,
             "id": 10120
         },
         "Meitetsu Hai": {
@@ -1859,6 +1979,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 37,
             "id": 10121
         },
         "Tomoe Sho": {
@@ -1874,6 +1995,7 @@
                 "gained": 2400
             },
             "grade": "OP",
+            "turnNumber": 37,
             "id": 10122
         },
         "Chukyo Kinen": {
@@ -1889,6 +2011,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 38,
             "id": 10123
         },
         "Ibis Summer Dash": {
@@ -1904,6 +2027,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 38,
             "id": 10124
         },
         "Queen Stakes": {
@@ -1919,6 +2043,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 38,
             "id": 10125
         },
         "Fukushima TV Open": {
@@ -1934,6 +2059,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 38,
             "id": 10126
         },
         "Elm Stakes": {
@@ -1949,6 +2075,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 39,
             "id": 10127
         },
         "Kokura Kinen": {
@@ -1964,6 +2091,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 39,
             "id": 10128
         },
         "Leopard Stakes": {
@@ -1979,6 +2107,7 @@
                 "gained": 4000
             },
             "grade": "G3",
+            "turnNumber": 39,
             "id": 10129
         },
         "Sekiya Kinen": {
@@ -1994,6 +2123,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 39,
             "id": 10130
         },
         "Aso Stakes": {
@@ -2009,6 +2139,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 39,
             "id": 10131
         },
         "Kanetsu Stakes": {
@@ -2024,6 +2155,7 @@
                 "gained": 2400
             },
             "grade": "OP",
+            "turnNumber": 39,
             "id": 10132
         },
         "Sapporo Nikkei Open": {
@@ -2039,6 +2171,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 39,
             "id": 10133
         },
         "UHB Sho": {
@@ -2054,6 +2187,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 39,
             "id": 10134
         },
         "Sapporo Kinen": {
@@ -2069,6 +2203,7 @@
                 "gained": 7000
             },
             "grade": "G2",
+            "turnNumber": 40,
             "id": 10135
         },
         "Keeneland Cup": {
@@ -2084,6 +2219,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 40,
             "id": 10136
         },
         "Kitakyushu Kinen": {
@@ -2099,6 +2235,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 40,
             "id": 10137
         },
         "BSN Sho": {
@@ -2114,6 +2251,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 40,
             "id": 10138
         },
         "Kokura Nikkei Open": {
@@ -2129,6 +2267,7 @@
                 "gained": 2400
             },
             "grade": "OP",
+            "turnNumber": 40,
             "id": 10139
         },
         "NST Sho": {
@@ -2144,6 +2283,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 40,
             "id": 10140
         },
         "Toki Stakes": {
@@ -2159,6 +2299,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 40,
             "id": 10141
         },
         "Centaur Stakes": {
@@ -2174,6 +2315,7 @@
                 "gained": 5900
             },
             "grade": "G2",
+            "turnNumber": 41,
             "id": 10142
         },
         "Rose Stakes": {
@@ -2189,6 +2331,7 @@
                 "gained": 5200
             },
             "grade": "G2",
+            "turnNumber": 41,
             "id": 10143
         },
         "Keisei Hai Autumn Handicap": {
@@ -2204,6 +2347,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 41,
             "id": 10144
         },
         "Niigata Kinen": {
@@ -2219,6 +2363,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 41,
             "id": 10145
         },
         "Shion Stakes": {
@@ -2234,6 +2379,7 @@
                 "gained": 3500
             },
             "grade": "G3",
+            "turnNumber": 41,
             "id": 10146
         },
         "Enif Stakes": {
@@ -2249,6 +2395,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 41,
             "id": 10147
         },
         "Radio Nippon Sho": {
@@ -2264,6 +2411,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 41,
             "id": 10148
         },
         "Tancho Stakes": {
@@ -2279,6 +2427,7 @@
                 "gained": 2400
             },
             "grade": "OP",
+            "turnNumber": 41,
             "id": 10149
         },
         "Sprinters Stakes": {
@@ -2298,6 +2447,7 @@
                 "Standard Distance ○",
                 "Speed"
             ],
+            "turnNumber": 42,
             "id": 10150
         },
         "All Comers": {
@@ -2313,6 +2463,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 42,
             "id": 10151
         },
         "Kobe Shimbun Hai": {
@@ -2328,6 +2479,7 @@
                 "gained": 5400
             },
             "grade": "G2",
+            "turnNumber": 42,
             "id": 10152
         },
         "St. Lite Kinen": {
@@ -2343,6 +2495,7 @@
                 "gained": 5400
             },
             "grade": "G2",
+            "turnNumber": 42,
             "id": 10153
         },
         "Sirius Stakes": {
@@ -2358,6 +2511,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 42,
             "id": 10154
         },
         "Nagatsuki Stakes": {
@@ -2373,6 +2527,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 42,
             "id": 10155
         },
         "Port Island Stakes": {
@@ -2388,6 +2543,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 42,
             "id": 10156
         },
         "Fuchu Umamusume Stakes": {
@@ -2403,6 +2559,7 @@
                 "gained": 5500
             },
             "grade": "G2",
+            "turnNumber": 43,
             "id": 10157
         },
         "Kyoto Daishoten": {
@@ -2418,6 +2575,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 43,
             "id": 10158
         },
         "Mainichi Okan": {
@@ -2433,6 +2591,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 43,
             "id": 10159
         },
         "Green Channel Cup": {
@@ -2448,6 +2607,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 43,
             "id": 10160
         },
         "October Stakes": {
@@ -2463,6 +2623,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 43,
             "id": 10161
         },
         "Opal Stakes": {
@@ -2478,6 +2639,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 43,
             "id": 10162
         },
         "Shinetsu Stakes": {
@@ -2493,6 +2655,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 43,
             "id": 10163
         },
         "Uzumasa Stakes": {
@@ -2508,6 +2671,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 43,
             "id": 10164
         },
         "Kikuka Sho": {
@@ -2527,6 +2691,7 @@
                 "Kyoto Racecourse ○",
                 "Stamina"
             ],
+            "turnNumber": 44,
             "id": 10165
         },
         "Shuka Sho": {
@@ -2546,6 +2711,7 @@
                 "Kyoto Racecourse ○",
                 "Wit"
             ],
+            "turnNumber": 44,
             "id": 10166
         },
         "Tenno Sho (Autumn)": {
@@ -2565,6 +2731,7 @@
                 "Fall Runner ○",
                 "Speed"
             ],
+            "turnNumber": 44,
             "id": 10167
         },
         "Fuji Stakes": {
@@ -2580,6 +2747,7 @@
                 "gained": 5900
             },
             "grade": "G2",
+            "turnNumber": 44,
             "id": 10168
         },
         "Swan Stakes": {
@@ -2595,6 +2763,7 @@
                 "gained": 5900
             },
             "grade": "G2",
+            "turnNumber": 44,
             "id": 10169
         },
         "Brazil Cup": {
@@ -2610,6 +2779,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 44,
             "id": 10170
         },
         "Cassiopeia Stakes": {
@@ -2625,6 +2795,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 44,
             "id": 10171
         },
         "Lumiere Autumn Dash": {
@@ -2640,6 +2811,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 44,
             "id": 10172
         },
         "Muromachi Stakes": {
@@ -2655,6 +2827,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 44,
             "id": 10173
         },
         "JBC Classic": {
@@ -2674,6 +2847,7 @@
                 "Stamina",
                 "Guts"
             ],
+            "turnNumber": 45,
             "id": 10174
         },
         "JBC Ladies' Classic": {
@@ -2690,6 +2864,7 @@
             },
             "grade": "G1",
             "sparks": [],
+            "turnNumber": 45,
             "id": 10175
         },
         "JBC Sprint": {
@@ -2709,6 +2884,7 @@
                 "Power",
                 "Guts"
             ],
+            "turnNumber": 45,
             "id": 10176
         },
         "Queen Elizabeth II Cup": {
@@ -2728,6 +2904,7 @@
                 "Non-Standard Distance ○",
                 "Stamina"
             ],
+            "turnNumber": 45,
             "id": 10177
         },
         "Copa Republica Argentina": {
@@ -2743,6 +2920,7 @@
                 "gained": 5700
             },
             "grade": "G2",
+            "turnNumber": 45,
             "id": 10178
         },
         "Fukushima Kinen": {
@@ -2758,6 +2936,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 45,
             "id": 10179
         },
         "Miyako Stakes": {
@@ -2773,6 +2952,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 45,
             "id": 10180
         },
         "Musashino Stakes": {
@@ -2788,6 +2968,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 45,
             "id": 10181
         },
         "Oro Cup": {
@@ -2803,6 +2984,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 45,
             "id": 10182
         },
         "Japan Cup": {
@@ -2822,6 +3004,7 @@
                 "Tokyo Racecourse ○",
                 "Stamina"
             ],
+            "turnNumber": 46,
             "id": 10183
         },
         "Mile Championship": {
@@ -2841,6 +3024,7 @@
                 "Standard Distance ○",
                 "Speed"
             ],
+            "turnNumber": 46,
             "id": 10184
         },
         "Keihan Hai": {
@@ -2856,6 +3040,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 46,
             "id": 10185
         },
         "Andromeda Stakes": {
@@ -2871,6 +3056,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 46,
             "id": 10186
         },
         "Autumn Leaf Stakes": {
@@ -2886,6 +3072,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 46,
             "id": 10187
         },
         "Capital Stakes": {
@@ -2901,6 +3088,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 46,
             "id": 10188
         },
         "Fukushima Minyu Cup": {
@@ -2916,6 +3104,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 46,
             "id": 10189
         },
         "Shimotsuki Stakes": {
@@ -2931,6 +3120,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 46,
             "id": 10190
         },
         "Champions Cup": {
@@ -2950,6 +3140,7 @@
                 "Chukyo Racecourse ○",
                 "Power"
             ],
+            "turnNumber": 47,
             "id": 10191
         },
         "Stayers Stakes": {
@@ -2965,6 +3156,7 @@
                 "gained": 6200
             },
             "grade": "G2",
+            "turnNumber": 47,
             "id": 10192
         },
         "Capella Stakes": {
@@ -2980,6 +3172,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 47,
             "id": 10193
         },
         "Challenge Cup": {
@@ -2995,6 +3188,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 47,
             "id": 10194
         },
         "Chunichi Shimbun Hai": {
@@ -3010,6 +3204,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 47,
             "id": 10195
         },
         "Turquoise Stakes": {
@@ -3025,6 +3220,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 47,
             "id": 10196
         },
         "December Stakes": {
@@ -3040,6 +3236,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 47,
             "id": 10197
         },
         "Lapis Lazuli Stakes": {
@@ -3055,6 +3252,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 47,
             "id": 10198
         },
         "Rigel Stakes": {
@@ -3070,6 +3268,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 47,
             "id": 10199
         },
         "Shiwasu Stakes": {
@@ -3085,6 +3284,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 47,
             "id": 10200
         },
         "Tanzanite Stakes": {
@@ -3100,6 +3300,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 47,
             "id": 10201
         },
         "Arima Kinen": {
@@ -3119,6 +3320,7 @@
                 "Nakayama Racecourse ○",
                 "Guts"
             ],
+            "turnNumber": 48,
             "id": 10202
         },
         "Tokyo Daishoten": {
@@ -3138,6 +3340,7 @@
                 "Oi Racecourse ○",
                 "Power"
             ],
+            "turnNumber": 48,
             "id": 10203
         },
         "Hanshin Cup": {
@@ -3153,6 +3356,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 48,
             "id": 10204
         },
         "Betelgeuse Stakes": {
@@ -3168,6 +3372,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 48,
             "id": 10205
         },
         "Galaxy Stakes": {
@@ -3183,6 +3388,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 48,
             "id": 10206
         }
     },
@@ -3200,6 +3406,7 @@
                 "gained": 5700
             },
             "grade": "G2",
+            "turnNumber": 49,
             "id": 10207
         },
         "Aichi Hai": {
@@ -3215,6 +3422,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 49,
             "id": 10208
         },
         "Kyoto Kimpai": {
@@ -3230,6 +3438,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 49,
             "id": 10209
         },
         "Nakayama Kimpai": {
@@ -3245,6 +3454,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 49,
             "id": 10210
         },
         "Carbuncle Stakes": {
@@ -3260,6 +3470,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 49,
             "id": 10211
         },
         "January Stakes": {
@@ -3275,6 +3486,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 49,
             "id": 10212
         },
         "Manyo Stakes": {
@@ -3290,6 +3502,7 @@
                 "gained": 2400
             },
             "grade": "OP",
+            "turnNumber": 49,
             "id": 10213
         },
         "New Year Stakes": {
@@ -3305,6 +3518,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 49,
             "id": 10214
         },
         "Pollux Stakes": {
@@ -3320,6 +3534,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 49,
             "id": 10215
         },
         "Yodo Tankyori Stakes": {
@@ -3335,6 +3550,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 49,
             "id": 10216
         },
         "American JCC": {
@@ -3350,6 +3566,7 @@
                 "gained": 6200
             },
             "grade": "G2",
+            "turnNumber": 50,
             "id": 10217
         },
         "Tokai Stakes": {
@@ -3365,6 +3582,7 @@
                 "gained": 5500
             },
             "grade": "G2",
+            "turnNumber": 50,
             "id": 10218
         },
         "Negishi Stakes": {
@@ -3380,6 +3598,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 50,
             "id": 10219
         },
         "Silk Road Stakes": {
@@ -3395,6 +3614,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 50,
             "id": 10220
         },
         "Shirafuji Stakes": {
@@ -3410,6 +3630,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 50,
             "id": 10221
         },
         "Subaru Stakes": {
@@ -3425,6 +3646,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 50,
             "id": 10222
         },
         "Kyoto Kinen": {
@@ -3440,6 +3662,7 @@
                 "gained": 6200
             },
             "grade": "G2",
+            "turnNumber": 51,
             "id": 10223
         },
         "Tokyo Shimbun Hai": {
@@ -3455,6 +3678,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 51,
             "id": 10224
         },
         "Aldebaran Stakes": {
@@ -3470,6 +3694,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 51,
             "id": 10225
         },
         "Rakuyo Stakes": {
@@ -3485,6 +3710,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 51,
             "id": 10226
         },
         "Valentine Stakes": {
@@ -3500,6 +3726,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 51,
             "id": 10227
         },
         "Yamato Stakes": {
@@ -3515,6 +3742,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 51,
             "id": 10228
         },
         "February Stakes": {
@@ -3534,6 +3762,7 @@
                 "Winter Runner ○",
                 "Power"
             ],
+            "turnNumber": 52,
             "id": 10229
         },
         "Nakayama Kinen": {
@@ -3549,6 +3778,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 52,
             "id": 10230
         },
         "Diamond Stakes": {
@@ -3564,6 +3794,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 52,
             "id": 10231
         },
         "Hankyu Hai": {
@@ -3579,6 +3810,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 52,
             "id": 10232
         },
         "Kokura Daishoten": {
@@ -3594,6 +3826,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 52,
             "id": 10233
         },
         "Kyoto Umamusume Stakes": {
@@ -3609,6 +3842,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 52,
             "id": 10234
         },
         "Kitakyushu Tankyori Stakes": {
@@ -3624,6 +3858,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 52,
             "id": 10235
         },
         "Sobu Stakes": {
@@ -3639,6 +3874,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 52,
             "id": 10236
         },
         "Kinko Sho": {
@@ -3654,6 +3890,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 53,
             "id": 10237
         },
         "Nakayama Umamusume Stakes": {
@@ -3669,6 +3906,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 53,
             "id": 10238
         },
         "Ocean Stakes": {
@@ -3684,6 +3922,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 53,
             "id": 10239
         },
         "Kochi Stakes": {
@@ -3699,6 +3938,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 53,
             "id": 10240
         },
         "Nigawa Stakes": {
@@ -3714,6 +3954,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 53,
             "id": 10241
         },
         "Osakajo Stakes": {
@@ -3729,6 +3970,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 53,
             "id": 10242
         },
         "Polaris Stakes": {
@@ -3744,6 +3986,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 53,
             "id": 10243
         },
         "Osaka Hai": {
@@ -3763,6 +4006,7 @@
                 "Standard Distance ○",
                 "Guts"
             ],
+            "turnNumber": 54,
             "id": 10244
         },
         "Takamatsunomiya Kinen": {
@@ -3782,6 +4026,7 @@
                 "Chukyo Racecourse ○",
                 "Speed"
             ],
+            "turnNumber": 54,
             "id": 10245
         },
         "Hanshin Daishoten": {
@@ -3797,6 +4042,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 54,
             "id": 10246
         },
         "Nikkei Sho": {
@@ -3812,6 +4058,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 54,
             "id": 10247
         },
         "March Stakes": {
@@ -3827,6 +4074,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 54,
             "id": 10248
         },
         "Chiba Stakes": {
@@ -3842,6 +4090,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 54,
             "id": 10249
         },
         "Rokko Stakes": {
@@ -3857,6 +4106,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 54,
             "id": 10250
         },
         "Hanshin Umamusume Stakes": {
@@ -3872,6 +4122,7 @@
                 "gained": 5500
             },
             "grade": "G2",
+            "turnNumber": 55,
             "id": 10251
         },
         "Antares Stakes": {
@@ -3887,6 +4138,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 55,
             "id": 10252
         },
         "Lord Derby Challenge Trophy": {
@@ -3902,6 +4154,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 55,
             "id": 10253
         },
         "Azumakofuji Stakes": {
@@ -3917,6 +4170,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 55,
             "id": 10254
         },
         "Coral Stakes": {
@@ -3932,6 +4186,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 55,
             "id": 10255
         },
         "Fukushima Mimpo Hai": {
@@ -3947,6 +4202,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 55,
             "id": 10256
         },
         "Keiyo Stakes": {
@@ -3962,6 +4218,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 55,
             "id": 10257
         },
         "Shunrai Stakes": {
@@ -3977,6 +4234,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 55,
             "id": 10258
         },
         "Tenno Sho (Spring)": {
@@ -3996,6 +4254,7 @@
                 "Spring Runner ○",
                 "Stamina"
             ],
+            "turnNumber": 56,
             "id": 10259
         },
         "Milers Cup": {
@@ -4011,6 +4270,7 @@
                 "gained": 5900
             },
             "grade": "G2",
+            "turnNumber": 56,
             "id": 10260
         },
         "Fukushima Umamusume Stakes": {
@@ -4026,6 +4286,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 56,
             "id": 10261
         },
         "Oasis Stakes": {
@@ -4041,6 +4302,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 56,
             "id": 10262
         },
         "Tennozan Stakes": {
@@ -4056,6 +4318,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 56,
             "id": 10263
         },
         "Victoria Mile": {
@@ -4075,6 +4338,7 @@
                 "Speed",
                 "Power"
             ],
+            "turnNumber": 57,
             "id": 10264
         },
         "Keio Hai Spring Cup": {
@@ -4090,6 +4354,7 @@
                 "gained": 5900
             },
             "grade": "G2",
+            "turnNumber": 57,
             "id": 10265
         },
         "Niigata Daishoten": {
@@ -4105,6 +4370,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 57,
             "id": 10266
         },
         "Brilliant Stakes": {
@@ -4120,6 +4386,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 57,
             "id": 10267
         },
         "Kurama Stakes": {
@@ -4135,6 +4402,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 57,
             "id": 10268
         },
         "Metropolitan Stakes": {
@@ -4150,6 +4418,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 57,
             "id": 10269
         },
         "Miyakooji Stakes": {
@@ -4165,6 +4434,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 57,
             "id": 10270
         },
         "Ritto Stakes": {
@@ -4180,6 +4450,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 57,
             "id": 10271
         },
         "Tanigawadake Stakes": {
@@ -4195,6 +4466,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 57,
             "id": 10272
         },
         "Meguro Kinen": {
@@ -4210,6 +4482,7 @@
                 "gained": 5700
             },
             "grade": "G2",
+            "turnNumber": 58,
             "id": 10273
         },
         "Heian Stakes": {
@@ -4225,6 +4498,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 58,
             "id": 10274
         },
         "Azuchijo Stakes": {
@@ -4240,6 +4514,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 58,
             "id": 10275
         },
         "Idaten Stakes": {
@@ -4255,6 +4530,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 58,
             "id": 10276
         },
         "Keyaki Stakes": {
@@ -4270,6 +4546,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 58,
             "id": 10277
         },
         "May Stakes": {
@@ -4285,6 +4562,7 @@
                 "gained": 2400
             },
             "grade": "OP",
+            "turnNumber": 58,
             "id": 10278
         },
         "Yasuda Kinen": {
@@ -4304,6 +4582,7 @@
                 "Tokyo Racecourse ○",
                 "Speed"
             ],
+            "turnNumber": 59,
             "id": 10279
         },
         "Epsom Cup": {
@@ -4319,6 +4598,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 59,
             "id": 10280
         },
         "Mermaid Stakes": {
@@ -4334,6 +4614,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 59,
             "id": 10281
         },
         "Naruo Kinen": {
@@ -4349,6 +4630,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 59,
             "id": 10282
         },
         "Sleipnir Stakes": {
@@ -4364,6 +4646,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 59,
             "id": 10283
         },
         "Tempozan Stakes": {
@@ -4379,6 +4662,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 59,
             "id": 10284
         },
         "Takarazuka Kinen": {
@@ -4398,6 +4682,7 @@
                 "Summer Runner ○",
                 "Guts"
             ],
+            "turnNumber": 60,
             "id": 10285
         },
         "Teio Sho": {
@@ -4417,6 +4702,7 @@
                 "Oi Racecourse ○",
                 "Power"
             ],
+            "turnNumber": 60,
             "id": 10286
         },
         "Hakodate Sprint Stakes": {
@@ -4432,6 +4718,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 60,
             "id": 10287
         },
         "Akhalteke Stakes": {
@@ -4447,6 +4734,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 60,
             "id": 10288
         },
         "Onuma Stakes": {
@@ -4462,6 +4750,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 60,
             "id": 10289
         },
         "Paradise Stakes": {
@@ -4477,6 +4766,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 60,
             "id": 10290
         },
         "Sannomiya Stakes": {
@@ -4492,6 +4782,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 60,
             "id": 10291
         },
         "Yonago Stakes": {
@@ -4507,6 +4798,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 60,
             "id": 10292
         },
         "CBC Sho": {
@@ -4522,6 +4814,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 61,
             "id": 10293
         },
         "Hakodate Kinen": {
@@ -4537,6 +4830,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 61,
             "id": 10294
         },
         "Procyon Stakes": {
@@ -4552,6 +4846,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 61,
             "id": 10295
         },
         "Tanabata Sho": {
@@ -4567,6 +4862,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 61,
             "id": 10296
         },
         "Marine Stakes": {
@@ -4582,6 +4878,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 61,
             "id": 10297
         },
         "Meitetsu Hai": {
@@ -4597,6 +4894,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 61,
             "id": 10298
         },
         "Tomoe Sho": {
@@ -4612,6 +4910,7 @@
                 "gained": 2400
             },
             "grade": "OP",
+            "turnNumber": 61,
             "id": 10299
         },
         "Chukyo Kinen": {
@@ -4627,6 +4926,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 62,
             "id": 10300
         },
         "Ibis Summer Dash": {
@@ -4642,6 +4942,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 62,
             "id": 10301
         },
         "Queen Stakes": {
@@ -4657,6 +4958,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 62,
             "id": 10302
         },
         "Fukushima TV Open": {
@@ -4672,6 +4974,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 62,
             "id": 10303
         },
         "Elm Stakes": {
@@ -4687,6 +4990,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 63,
             "id": 10304
         },
         "Kokura Kinen": {
@@ -4702,6 +5006,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 63,
             "id": 10305
         },
         "Sekiya Kinen": {
@@ -4717,6 +5022,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 63,
             "id": 10306
         },
         "Aso Stakes": {
@@ -4732,6 +5038,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 63,
             "id": 10307
         },
         "Kanetsu Stakes": {
@@ -4747,6 +5054,7 @@
                 "gained": 2400
             },
             "grade": "OP",
+            "turnNumber": 63,
             "id": 10308
         },
         "Sapporo Nikkei Open": {
@@ -4762,6 +5070,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 63,
             "id": 10309
         },
         "UHB Sho": {
@@ -4777,6 +5086,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 63,
             "id": 10310
         },
         "Sapporo Kinen": {
@@ -4792,6 +5102,7 @@
                 "gained": 7000
             },
             "grade": "G2",
+            "turnNumber": 64,
             "id": 10311
         },
         "Keeneland Cup": {
@@ -4807,6 +5118,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 64,
             "id": 10312
         },
         "Kitakyushu Kinen": {
@@ -4822,6 +5134,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 64,
             "id": 10313
         },
         "BSN Sho": {
@@ -4837,6 +5150,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 64,
             "id": 10314
         },
         "Kokura Nikkei Open": {
@@ -4852,6 +5166,7 @@
                 "gained": 2400
             },
             "grade": "OP",
+            "turnNumber": 64,
             "id": 10315
         },
         "NST Sho": {
@@ -4867,6 +5182,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 64,
             "id": 10316
         },
         "Toki Stakes": {
@@ -4882,6 +5198,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 64,
             "id": 10317
         },
         "Centaur Stakes": {
@@ -4897,6 +5214,7 @@
                 "gained": 5900
             },
             "grade": "G2",
+            "turnNumber": 65,
             "id": 10318
         },
         "Keisei Hai Autumn Handicap": {
@@ -4912,6 +5230,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 65,
             "id": 10319
         },
         "Niigata Kinen": {
@@ -4927,6 +5246,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 65,
             "id": 10320
         },
         "Enif Stakes": {
@@ -4942,6 +5262,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 65,
             "id": 10321
         },
         "Radio Nippon Sho": {
@@ -4957,6 +5278,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 65,
             "id": 10322
         },
         "Tancho Stakes": {
@@ -4972,6 +5294,7 @@
                 "gained": 2400
             },
             "grade": "OP",
+            "turnNumber": 65,
             "id": 10323
         },
         "Sprinters Stakes": {
@@ -4991,6 +5314,7 @@
                 "Standard Distance ○",
                 "Speed"
             ],
+            "turnNumber": 66,
             "id": 10324
         },
         "All Comers": {
@@ -5006,6 +5330,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 66,
             "id": 10325
         },
         "Sirius Stakes": {
@@ -5021,6 +5346,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 66,
             "id": 10326
         },
         "Nagatsuki Stakes": {
@@ -5036,6 +5362,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 66,
             "id": 10327
         },
         "Port Island Stakes": {
@@ -5051,6 +5378,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 66,
             "id": 10328
         },
         "Fuchu Umamusume Stakes": {
@@ -5066,6 +5394,7 @@
                 "gained": 5500
             },
             "grade": "G2",
+            "turnNumber": 67,
             "id": 10329
         },
         "Kyoto Daishoten": {
@@ -5081,6 +5410,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 67,
             "id": 10330
         },
         "Mainichi Okan": {
@@ -5096,6 +5426,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 67,
             "id": 10331
         },
         "Green Channel Cup": {
@@ -5111,6 +5442,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 67,
             "id": 10332
         },
         "October Stakes": {
@@ -5126,6 +5458,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 67,
             "id": 10333
         },
         "Opal Stakes": {
@@ -5141,6 +5474,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 67,
             "id": 10334
         },
         "Shinetsu Stakes": {
@@ -5156,6 +5490,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 67,
             "id": 10335
         },
         "Uzumasa Stakes": {
@@ -5171,6 +5506,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 67,
             "id": 10336
         },
         "Tenno Sho (Autumn)": {
@@ -5190,6 +5526,7 @@
                 "Fall Runner ○",
                 "Speed"
             ],
+            "turnNumber": 68,
             "id": 10337
         },
         "Fuji Stakes": {
@@ -5205,6 +5542,7 @@
                 "gained": 5900
             },
             "grade": "G2",
+            "turnNumber": 68,
             "id": 10338
         },
         "Swan Stakes": {
@@ -5220,6 +5558,7 @@
                 "gained": 5900
             },
             "grade": "G2",
+            "turnNumber": 68,
             "id": 10339
         },
         "Brazil Cup": {
@@ -5235,6 +5574,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 68,
             "id": 10340
         },
         "Cassiopeia Stakes": {
@@ -5250,6 +5590,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 68,
             "id": 10341
         },
         "Lumiere Autumn Dash": {
@@ -5265,6 +5606,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 68,
             "id": 10342
         },
         "Muromachi Stakes": {
@@ -5280,6 +5622,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 68,
             "id": 10343
         },
         "JBC Classic": {
@@ -5299,6 +5642,7 @@
                 "Stamina",
                 "Guts"
             ],
+            "turnNumber": 69,
             "id": 10344
         },
         "JBC Ladies' Classic": {
@@ -5315,6 +5659,7 @@
             },
             "grade": "G1",
             "sparks": [],
+            "turnNumber": 69,
             "id": 10345
         },
         "JBC Sprint": {
@@ -5334,6 +5679,7 @@
                 "Power",
                 "Guts"
             ],
+            "turnNumber": 69,
             "id": 10346
         },
         "Queen Elizabeth II Cup": {
@@ -5353,6 +5699,7 @@
                 "Non-Standard Distance ○",
                 "Stamina"
             ],
+            "turnNumber": 69,
             "id": 10347
         },
         "Copa Republica Argentina": {
@@ -5368,6 +5715,7 @@
                 "gained": 5700
             },
             "grade": "G2",
+            "turnNumber": 69,
             "id": 10348
         },
         "Fukushima Kinen": {
@@ -5383,6 +5731,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 69,
             "id": 10349
         },
         "Miyako Stakes": {
@@ -5398,6 +5747,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 69,
             "id": 10350
         },
         "Musashino Stakes": {
@@ -5413,6 +5763,7 @@
                 "gained": 3800
             },
             "grade": "G3",
+            "turnNumber": 69,
             "id": 10351
         },
         "Oro Cup": {
@@ -5428,6 +5779,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 69,
             "id": 10352
         },
         "Japan Cup": {
@@ -5447,6 +5799,7 @@
                 "Tokyo Racecourse ○",
                 "Stamina"
             ],
+            "turnNumber": 70,
             "id": 10353
         },
         "Mile Championship": {
@@ -5466,6 +5819,7 @@
                 "Standard Distance ○",
                 "Speed"
             ],
+            "turnNumber": 70,
             "id": 10354
         },
         "Keihan Hai": {
@@ -5481,6 +5835,7 @@
                 "gained": 3900
             },
             "grade": "G3",
+            "turnNumber": 70,
             "id": 10355
         },
         "Andromeda Stakes": {
@@ -5496,6 +5851,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 70,
             "id": 10356
         },
         "Autumn Leaf Stakes": {
@@ -5511,6 +5867,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 70,
             "id": 10357
         },
         "Capital Stakes": {
@@ -5526,6 +5883,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 70,
             "id": 10358
         },
         "Fukushima Minyu Cup": {
@@ -5541,6 +5899,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 70,
             "id": 10359
         },
         "Shimotsuki Stakes": {
@@ -5556,6 +5915,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 70,
             "id": 10360
         },
         "Champions Cup": {
@@ -5575,6 +5935,7 @@
                 "Chukyo Racecourse ○",
                 "Power"
             ],
+            "turnNumber": 71,
             "id": 10361
         },
         "Stayers Stakes": {
@@ -5590,6 +5951,7 @@
                 "gained": 6200
             },
             "grade": "G2",
+            "turnNumber": 71,
             "id": 10362
         },
         "Capella Stakes": {
@@ -5605,6 +5967,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 71,
             "id": 10363
         },
         "Challenge Cup": {
@@ -5620,6 +5983,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 71,
             "id": 10364
         },
         "Chunichi Shimbun Hai": {
@@ -5635,6 +5999,7 @@
                 "gained": 4100
             },
             "grade": "G3",
+            "turnNumber": 71,
             "id": 10365
         },
         "Turquoise Stakes": {
@@ -5650,6 +6015,7 @@
                 "gained": 3600
             },
             "grade": "G3",
+            "turnNumber": 71,
             "id": 10366
         },
         "December Stakes": {
@@ -5665,6 +6031,7 @@
                 "gained": 2600
             },
             "grade": "OP",
+            "turnNumber": 71,
             "id": 10367
         },
         "Lapis Lazuli Stakes": {
@@ -5680,6 +6047,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 71,
             "id": 10368
         },
         "Rigel Stakes": {
@@ -5695,6 +6063,7 @@
                 "gained": 2500
             },
             "grade": "OP",
+            "turnNumber": 71,
             "id": 10369
         },
         "Shiwasu Stakes": {
@@ -5710,6 +6079,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 71,
             "id": 10370
         },
         "Tanzanite Stakes": {
@@ -5725,6 +6095,7 @@
                 "gained": 2300
             },
             "grade": "OP",
+            "turnNumber": 71,
             "id": 10371
         },
         "Arima Kinen": {
@@ -5744,6 +6115,7 @@
                 "Nakayama Racecourse ○",
                 "Guts"
             ],
+            "turnNumber": 72,
             "id": 10372
         },
         "Tokyo Daishoten": {
@@ -5763,6 +6135,7 @@
                 "Oi Racecourse ○",
                 "Power"
             ],
+            "turnNumber": 72,
             "id": 10373
         },
         "Hanshin Cup": {
@@ -5778,6 +6151,7 @@
                 "gained": 6700
             },
             "grade": "G2",
+            "turnNumber": 72,
             "id": 10374
         },
         "Betelgeuse Stakes": {
@@ -5793,6 +6167,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 72,
             "id": 10375
         },
         "Galaxy Stakes": {
@@ -5808,6 +6183,7 @@
                 "gained": 2200
             },
             "grade": "OP",
+            "turnNumber": 72,
             "id": 10376
         }
     }

@@ -4,7 +4,7 @@ from PIL import ImageGrab
 pyautogui.useImageNotFoundException(False)
 
 import core.state as state
-from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, stat_state, check_aptitudes, check_unity, stop_bot, check_stats
+from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, check_unity, stop_bot, check_stats, get_virtual_turn
 
 from utils.log import info, warning, error, debug
 import utils.constants as constants
@@ -14,7 +14,7 @@ from utils.process import event_choice, check_fan, race_process, after_race
 from utils.tools import click, sleep, wait_for_image, get_secs
 
 from logic.ura import ura_logic
-from logic.unity import race_prep, unity_logic, unity_race
+from logic.unity import unity_logic, unity_race
 
 templates = {
   "event": "assets/icons/event_choice_1.png",
@@ -89,6 +89,7 @@ def career_lobby():
     turn = check_turn()
     year = check_current_year()
     criteria = check_criteria()
+    virtual_turn = get_virtual_turn(year, criteria)
     current_stats = check_stats()
 
     if (not state.DONE_DEBUT or state.FAN_COUNT == -1) and year != "Junior Year Pre-Debut":
@@ -101,6 +102,7 @@ def career_lobby():
     state.CURRENT_YEAR = year
     state.CURRENT_TURN_LEFT = turn
     state.CRITERIA = criteria
+    state.VIRTUAL_TURN = virtual_turn
 
     if state.DONE_DEBUT:
         debut_status = "Finish"
@@ -114,9 +116,10 @@ def career_lobby():
     info(f"Trainee: {state.TRAINEE_NAME}")
     info(f"Scenario: {state.SCENARIO_NAME}")
     print("\n=======================================================================================\n")
+    info(f"Turn: {virtual_turn}")
     info(f"Year: {year}")
     info(f"Mood: {mood}")
-    info(f"Turn: {turn}")
+    info(f"Turn Left: {turn}")
     info(f"Criteria: {criteria}")
     print("\n=======================================================================================\n")
     info(f"Debut Status: {debut_status}")

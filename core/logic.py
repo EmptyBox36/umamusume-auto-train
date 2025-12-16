@@ -82,7 +82,7 @@ def most_support_card(results):
 
           fake_criteria = "fan"
           keywords = ("fan", "Maiden", "Progress")
-          fake_turn = 1
+          fake_turn = 5
 
           info("Training point is too low and energy is high, try to do graded race.")
           race_found, race_name = decide_race_for_goal(year, fake_turn, fake_criteria, keywords)
@@ -135,7 +135,7 @@ def training_score(x):
   non_max_friends = x[1]["total_friendship_levels"]["gray"] + \
                     x[1]["total_friendship_levels"]["blue"] + \
                     x[1]["total_friendship_levels"]["green"]
-  base += non_max_friends * 0.5
+  base += non_max_friends * 1
   if x[1]["total_hints"] > 0:
       base += state.HINT_POINT
   multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(x[0])] * priority_weight
@@ -159,12 +159,15 @@ def all_values_equal(dictionary):
 # helper functions
 def decide_race_for_goal(year, turn, criteria, keywords):
     no_race = (False, None)
-    year_parts = year.split(" ")
+    turn_to_race = 10
+
+    if not state.DONE_DEBUT:
+        turn_to_race = 99 # If Fail the Debut race, try to do Maiden race immediately
 
     # Skip pre-debut
     if year == "Junior Year Pre-Debut":
         return no_race
-    if turn >= 10:
+    if turn >= turn_to_race:
         return no_race
 
     criteria_text = criteria or ""
@@ -183,10 +186,10 @@ def decide_race_for_goal(year, turn, criteria, keywords):
                 if not race_list:
                     return False, None
 
-                if year_parts[0] in ["Junior"]:
-                    ALLOWED_GRADES = {"G1", "G2", "G3"}
+                if turn <= 3:
+                    ALLOWED_GRADES = {"G1", "G2", "G3", "OP"}
                 else:
-                    ALLOWED_GRADES = {"G1", "G2", "G3"}
+                    ALLOWED_GRADES = {"G1"}
 
                 filtered = [r for r in race_list if r.get("grade") in ALLOWED_GRADES]
                 if not filtered:
@@ -245,3 +248,119 @@ def filter_races_by_aptitude(race_list, aptitudes):
   # sort best → worst by score, then fans
   results.sort(key=lambda x: (x[0], x[1]), reverse=True)
   return results[0][2]
+
+def _get_next_scheduled_race():
+    """Return the next scheduled race (dict) based on state.VIRTUAL_TURN."""
+    schedule = state.RACE_SCHEDULE or []
+    virtual_turn = state.VIRTUAL_TURN or None
+
+    if virtual_turn is None:
+        return None
+
+    candidates = []
+    for r in schedule:
+        if not isinstance(r, dict):
+            continue
+        tn = r.get("turnNumber")
+        if isinstance(tn, int) and tn >= virtual_turn:
+            candidates.append(r)
+
+    if not candidates:
+        return None
+
+    # nearest future race by turnNumber
+    return min(candidates, key=lambda x: x["turnNumber"])
+
+def _get_required_fans_for_scheduled_race(race_entry: dict) -> int:
+    """
+    Look up the fan requirement of a scheduled race using constants.RACE_LOOKUP
+    and races.json data.
+    """
+    name = race_entry.get("name")
+    year = race_entry.get("year")
+    date = race_entry.get("date")
+
+    if not (name and year and date):
+        return 0
+
+    # RACE_LOOKUP is keyed by "Classic Year Early May", etc.
+    lookup_key = f"{year} {date}"
+    race_list = constants.RACE_LOOKUP.get(lookup_key, [])
+
+    for r in race_list:
+        if r.get("name") == name:
+            return r.get("fans", {}).get("required", 0)
+
+    return 0
+
+def check_fans_for_upcoming_schedule() -> bool:
+    next_race = _get_next_scheduled_race()
+    if not next_race:
+        return False
+
+    virtual_turn = state.VIRTUAL_TURN
+    if virtual_turn is None:
+        return False
+
+    next_turn = next_race.get("turnNumber")
+    if not isinstance(next_turn, int):
+        return False
+
+    gap = next_turn - virtual_turn
+    # ignore past/this-turn races and races that are still far away
+    if gap <= 0:
+        return False
+    # Do objective race before do any optional race
+    if gap >= state.CURRENT_TURN_LEFT:
+        return False
+    # "very low" gap → tweakable threshold
+    MAX_GAP_TURNS = 5
+    if gap > MAX_GAP_TURNS:
+        return False
+
+    required_fans = _get_required_fans_for_scheduled_race(next_race)
+    current_fans = state.FAN_COUNT
+
+    # if we can't read fans or already meet requirement, do nothing
+    if required_fans <= 0 or current_fans == -1 or current_fans >= required_fans:
+        return False
+
+    # Use the same graded-race finder, but with a fan/progress-style criteria.
+    fake_criteria = "fan"
+    keywords = ("fan", "Maiden", "Progress")
+
+    from utils.process import do_race
+
+    # Use current year/turn-left like other logic
+    year = state.CURRENT_YEAR
+
+    race_found, race_name = decide_race_for_goal(year, gap, fake_criteria, keywords)
+    info(f"[FAN_FARM] race_found={race_found}, race_name={race_name}")
+
+    if not race_name:
+        # no race candidate or filtered out by aptitude/requirements
+        return False
+
+    if race_name == "any":
+        # let do_race pick any race
+        race_result = do_race(race_found, img=None)
+    else:
+        race_result = do_race(race_found, img=race_name)
+
+    if race_result is True:
+        info("[FAN_FARM] Extra race done to farm fans before scheduled goal.")
+        return True
+
+    if race_result is False:
+        # race screen opened but could not run anything (no eligible race)
+        info("[FAN_FARM] No suitable race actually run, go back to training.")
+        return False
+
+    # race_result is None or unexpected → make sure we go back
+    click(
+        img="assets/buttons/back_btn.png",
+        minSearch=get_secs(1),
+        text="[FAN_FARM] Aborting extra race, back to training."
+    )
+    sleep(0.5)
+    return False

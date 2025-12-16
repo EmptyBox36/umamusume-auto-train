@@ -1,4 +1,456 @@
 {
+    "(❯) #CurrenPotential": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Stop Right There!"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 5.0,
+                "random": true
+            },
+            "2": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 30.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Playtime's Over!"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "#UrUniqueCuteness": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 10.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 5.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 10.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "#Cuteness4U ☆": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 15.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Intimidate"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "(❯❯) Lord of the Ducks": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": -5.0,
+                "Guts": 10.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Up-Tempo"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": true
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 10.0,
+                "random": false
+            }
+        }
+    },
+    "Student Council Member!": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Lone Wolf": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 3.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 3.0,
+                "Stamina": 3.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Lone Wolf"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "(❯❯) Plain Ol' Charm": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 10.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Snowy Days ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 5.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": -5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Playtime's Over!"
+                ],
+                "Skill Pts": 20.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "For a Spiffy Concert": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 10.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 15.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Aiming for the City Spots": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 10.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Corner Acceleration ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "(❯) Night of Ill Portent": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 5.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 10.0,
+                "Speed": 0.0,
+                "Stamina": 10.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 5.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Sundown Showdown": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 15.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 15.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Sundown Solo Supper": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Nakayama Racecourse ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Hanshin Racecourse ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
     "(❯) Mummy Hunt! Drop the Jokes!": {
         "choices": {
             "1": "Choice 1",
@@ -352,44 +804,6 @@
             }
         }
     },
-    "(❯❯) Are U the Problem?": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 10.0,
-                "Guts": 15.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Go with the Flow"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 15.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 0.0,
-                "Guts": 0.0,
-                "HP": 20.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 10.0,
-                "Speed": 10.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            }
-        }
-    },
     "Ikuno-Style Flawless Method": {
         "choices": {
             "1": "Choice 1",
@@ -684,7 +1098,7 @@
             }
         }
     },
-    "Unexpected Side\nDating starts": {
+    "Unexpected Side": {
         "choices": {
             "1": "Choice 1",
             "2": "Choice 2",
@@ -1327,80 +1741,6 @@
                 "Mood": 1.0,
                 "Power": 0.0,
                 "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            }
-        }
-    },
-    "Student Council Member!": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 1.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            }
-        }
-    },
-    "Lone Wolf": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 3.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 3.0,
-                "Stamina": 3.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Lone Wolf"
-                ],
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
@@ -2885,80 +3225,6 @@
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 10.0,
-                "random": false
-            }
-        }
-    },
-    "For a Spiffy Concert": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 10.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 15.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            }
-        }
-    },
-    "Aiming for the City Spots": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 10.0,
-                "HP": -10.0,
-                "Max Energy": 0.0,
-                "Mood": 1.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Corner Acceleration ○"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
                 "random": false
             }
         }
@@ -5381,7 +5647,7 @@
             }
         }
     },
-    "Enthusiastic Pair\nDating starts": {
+    "Enthusiastic Pair": {
         "choices": {
             "1": "Choice 1",
             "2": "Choice 2"
@@ -5486,6 +5752,118 @@
                     "Early Lead"
                 ],
                 "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "(❯❯) Oil and Water": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": -5.0,
+                "Guts": 0.0,
+                "HP": -5.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 10.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": true
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Shrewd Step"
+                ],
+                "Skill Pts": 20.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Want Me to Teach You?": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -5.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 20.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 10.0,
+                "random": false
+            }
+        }
+    },
+    "Want Me to Help You?": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Disorient"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 5.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 15.0,
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 0.0,
@@ -7224,44 +7602,6 @@
             }
         }
     },
-    "(❯❯) Guidance and Friends": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 45.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": -20.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Right-Handed ○"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": true
-            }
-        }
-    },
     "Maximum Spirituality": {
         "choices": {
             "1": "Choice 1",
@@ -7516,7 +7856,7 @@
             }
         }
     },
-    "The Search for a Hobby\nDating starts": {
+    "The Search for a Hobby": {
         "choices": {
             "1": "Choice 1",
             "2": "Choice 2"
@@ -7658,6 +7998,44 @@
                 "Skill Hint": [],
                 "Skill Pts": 0.0,
                 "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Yeehaw! Party Tonight ☆": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 10.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Prepared to Pass"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 0.0,
                 "random": false

@@ -49,6 +49,7 @@ DONE_DEBUT = None
 FAN_COUNT = -1
 TRAINING_RESTRICTED = None
 LAST_VALID_STATS = None
+VIRTUAL_TURN = None
 
 TURN_REGION = (0,0,0,0)
 YEAR_REGION = (0,0,0,0)
@@ -154,14 +155,19 @@ def stat_state():
         val_int = None
 
     cap = STAT_CAPS.get(stat, 1200)
-    if val_int is not None and 0 <= val_int <= cap:
+    if val_int == 0:
+        debug(f"Can't read the {stat} stat, exit 1")
+        val_int = cap
+    if val_int is not None:
         result[stat] = val_int
         continue
 
     text = extract_text(img).lower()
     if "max" in text:
+        debug(f"Can't read the {stat} stat, exit 2")
         result[stat] = cap
     else:
+        debug(f"Can't read the {stat} stat, exit 3")
         result[stat] = -1
     result[stat] = val
   return result
@@ -681,3 +687,64 @@ def stop_bot():
     info("[BOT] Stopping...")
     stop_event.set()
     is_bot_running = False
+
+def _find_index_by_substring(text: str, candidates: list[str]) -> int:
+    """
+    Return index of first candidate whose lowercase substring
+    appears in text (case-insensitive). Return -1 if not found.
+    """
+    if not text:
+        return -1
+    lower = text.lower()
+    for i, c in enumerate(candidates):
+        if c.lower() in lower:
+            return i
+    return -1
+
+def get_virtual_turn(year_txt: str, criteria: str) -> int:
+    """
+    Map OCR year text to a virtual turn number:
+
+    Pre-Debut  -> 0
+    Junior/Classic/Senior (Jan–Dec, Early/Late) -> 1–72
+    Finale -> 73
+
+    Returns -1 if parsing fails.
+    """
+    year_parts = year_txt.split(" ")
+    
+    if not isinstance(year_txt, str):
+        return -1
+    if year_txt == "Junior Year Pre-Debut":
+        return 0
+    if len(year_parts) < 4:
+        return -1
+
+    if "Finale" in year_txt:
+        if "Qualifier" in criteria:
+            return 73
+        if "Semifinal" in criteria:
+            return 74
+        if "Final" in criteria:
+            return 75
+
+    year = year_parts[0]
+    month = year_parts[3]
+    phase = year_parts[2]
+
+    year_idx = _find_index_by_substring(year, constants.YEAR_ORDER)
+    month_idx = _find_index_by_substring(month, constants.MONTH_ORDER)
+    phase_idx = _find_index_by_substring(phase, constants.PHASE_ORDER)
+
+    if phase_idx == -1:
+        if "Early" in phase:
+            phase_idx = 0
+        elif "Late" in phase:
+            phase_idx = 1
+
+    if year_idx == -1 or month_idx == -1 or phase_idx == -1:
+        warning(f"Failed to parse virtual turn from year_text='{year_txt}'")
+        return -1
+
+    index_0 = year_idx * 24 + month_idx * 2 + phase_idx + 1
+    return index_0

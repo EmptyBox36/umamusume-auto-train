@@ -247,6 +247,7 @@ def race_prep():
     click(img="assets/buttons/change_btn.png",minSearch=get_secs(6),region=constants.SCREEN_MIDDLE_REGION)
     click(img=f"assets/buttons/positions/{specific_position}_position_btn.png",minSearch=get_secs(2),region=constants.SCREEN_MIDDLE_REGION)
     click(img="assets/buttons/confirm_btn.png",minSearch=get_secs(2),region=constants.SCREEN_MIDDLE_REGION)
+    state.PREFERRED_POSITION_SET = False
 
   elif state.POSITION_SELECTION_ENABLED:
     # these two are mutually exclusive, so we only use preferred position if positions by race is not enabled.
@@ -335,6 +336,7 @@ def after_race():
   )
 
   if not ok:
+    state.FAN_COUNT == -1
     info("Fans label not detected.")
     return
   

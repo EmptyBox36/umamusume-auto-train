@@ -1,8 +1,5 @@
 import time, re, logging
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
-from requests.exceptions import ReadTimeout as RequestsReadTimeout
-from selenium.common.exceptions import TimeoutException, WebDriverException
 
 from .base import BaseScraper, create_chromedriver
 from utils.utils import clean_event_title, COMMON_EVENT_TITLES
@@ -18,8 +15,8 @@ def _go(driver, url, tries=2):
             logging.error(f"_go error on attempt {attempt}/{tries}: {msg}")
 
             # Detect broken chrome/CDP session
-            if "HTTPConnectionPool" in msg or "Read timed out" in msg:
-                return "RESTART"   # signal caller to recreate driver
+            if "HTTPConnectionPool" in msg or "Read timed out" in msg or "Repeated tooltip title detected" in msg:
+                return "RESTART"
 
             # Normal retry
             try:
@@ -62,8 +59,7 @@ class CharacterScraper(BaseScraper):
 
             while attempt < max_link_retry:
                 try:
-                    # periodic clean restart (optional; keep if you like)
-                    if i % 2 == 0 and attempt == 0:
+                    if i % 1 == 0:
                         driver.quit()
                         driver = create_chromedriver()
                         _ = _go(driver, self.url)
@@ -71,7 +67,7 @@ class CharacterScraper(BaseScraper):
 
                     logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
 
-                    result = _go(driver, link, tries=2)
+                    result = _go(driver, link, tries=5)
 
                     if result == "RESTART":
                         logging.warning("Restarting Chrome due to connection failure...")
@@ -80,7 +76,7 @@ class CharacterScraper(BaseScraper):
                         _ = _go(driver, self.url)
                         time.sleep(1)
                         # retry the SAME link again
-                        if _go(driver, link, tries=2) is not True:
+                        if _go(driver, link, tries=5) is not True:
                             if not load_with_retry(driver, link, max_retry=5, delay=10):
                                 raise RuntimeError(f"Could not load {link} after Chrome restart")
                     elif result is False:
@@ -98,9 +94,11 @@ class CharacterScraper(BaseScraper):
                     variant = m.group(2)
                     name = f"{base} ({variant})" if variant else base
 
-                    if name not in self.data:
-                        self.data[name] = {}
-                    self.process_training_events(driver, name, self.data[name])
+                    attempt_data = {}
+
+                    self.process_training_events(driver, name, attempt_data)
+
+                    self.data[name] = attempt_data
 
                     # success: break out of while and move to next character
                     break
@@ -114,7 +112,7 @@ class CharacterScraper(BaseScraper):
                     )
 
                     # if Chrome/CDP is broken, restart driver and retry this character
-                    if "HTTPConnectionPool" in msg or "Read timed out" in msg:
+                    if "HTTPConnectionPool" in msg or "Read timed out" in msg or "Repeated tooltip title detected" in msg:
                         driver.quit()
                         driver = create_chromedriver()
                         _ = _go(driver, self.url)
