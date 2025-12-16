@@ -22,9 +22,6 @@ PRIORITY_WEIGHTS_LIST={
   "NONE": 0
 }
 
-screen = ImageGrab.grab()
-matches = multi_match_templates(templates, screen=screen)
-
 # Get priority stat from config
 def _get_stat_priority(stat_key: str) -> int:
   if stat_key in state.PRIORITY_STAT:
@@ -62,6 +59,8 @@ def _need_recreation(year: str) -> bool:
   return missing_mood
 
 def _need_infirmary() -> Tuple[Optional[List[str]], int, Optional[object]]:
+  screen = ImageGrab.grab()
+  matches = multi_match_templates(templates, screen=screen)
   if matches["infirmary"] and is_btn_active(matches["infirmary"][0]) and not _summer_camp(year=state.CURRENT_YEAR):
     info("Check for condition.")
     if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
@@ -361,7 +360,7 @@ def ura_logic() -> str:
                 click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
                 return
 
-    if not summer_camp:
+    if energy_level > 30 or not summer_camp:
         if missing_mood > 1:
             info("[URA] Mood is low → Recreation.")
             sleep(0.5)
@@ -377,11 +376,12 @@ def ura_logic() -> str:
             do_train(result)
             return
 
-    if missing_mood > 0 and not (summer_camp and missing_energy < 40):
-        info("[URA] Mood is low → Recreation.")
-        sleep(0.5)
-        do_recreation("friend")
-        return
+    if energy_level > 30 or not (summer_camp and missing_energy < 40):
+        if missing_mood > 0:
+            info("[URA] Mood is low → Recreation.")
+            sleep(0.5)
+            do_recreation("friend")
+            return
 
     if best_data is not None:
         if best_data["training_score"] >= 1:

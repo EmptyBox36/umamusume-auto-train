@@ -23,9 +23,6 @@ PRIORITY_WEIGHTS_LIST={
   "NONE": 0
 }
 
-screen = ImageGrab.grab()
-matches = multi_match_templates(templates, screen=screen)
-
 # Get priority stat from config
 def _get_stat_priority(stat_key: str) -> int:
   if stat_key in state.PRIORITY_STAT:
@@ -63,6 +60,8 @@ def _need_recreation(year: str) -> bool:
   return missing_mood
 
 def _need_infirmary() -> Tuple[Optional[List[str]], int, Optional[object]]:
+  screen = ImageGrab.grab()
+  matches = multi_match_templates(templates, screen=screen)
   if matches["infirmary"] and is_btn_active(matches["infirmary"][0]) and not _summer_camp(year=state.CURRENT_YEAR):
     info("Check for condition.")
     if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
@@ -149,19 +148,19 @@ def _training(results: dict):
 
         data = training_candidates[stat_name]
 
-        # max_friend_support_card = data["friend"]["friendship_levels"]["green"]  
+        max_friend_support_card = data["friend"]["friendship_levels"]["green"]  
         friend_value =  1.02 * data["total_friendship_levels"]["gray"] \
             + 1.01 * data["total_friendship_levels"]["blue"] \
-            + 1 * data["total_friendship_levels"]["green"]
+            + 1 * data["total_friendship_levels"]["green"] - max_friend_support_card
         friend_training = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
 
         non_maxed_speed = data["spd"]["friendship_levels"]["gray"] + data["spd"]["friendship_levels"]["blue"] + data["spd"]["friendship_levels"]["green"]
         non_maxed_power = data["pwr"]["friendship_levels"]["gray"] + data["pwr"]["friendship_levels"]["blue"] + data["pwr"]["friendship_levels"]["green"]
 
         if friend_value > 2:
-            friend_value += 0.5 * friend_value
+            friend_value += 0.25 * friend_value
         if friend_training > 1:
-            friend_training += 0.5 * friend_training
+            friend_training += 0.25 * friend_training
 
         friend_value_point = 1
         rainbow_point = 1.5
@@ -170,10 +169,10 @@ def _training(results: dict):
 
         if year_parts[0] == "Junior":
             rainbow_point = 0.75
-        elif year_parts[0] == "Classic":
-            friend_value_point = 1.5
-        elif year_parts[0] == "Senior":
-            friend_value_point = 1.5
+        # elif year_parts[0] == "Classic":
+        #     friend_value_point = 1.5
+        # elif year_parts[0] == "Senior":
+        #     friend_value_point = 1.5
         elif year_parts[0] == "Finale":
             WHITE_FLAME_POINT = 0.25
 
@@ -181,7 +180,11 @@ def _training(results: dict):
             rainbow_point = 2
             WHITE_FLAME_POINT = 0.25
 
-        score = (friend_value_point * friend_value) + (rainbow_point * friend_training) + (0.25 * non_maxed_speed)
+        score = (friend_value_point * friend_value) + (rainbow_point * friend_training)
+
+        data["score_before_multiplier"] = score
+
+        score += 0.25 * non_maxed_speed
 
         if data["total_hints"] > 0:
             score += state.HINT_POINT
@@ -192,8 +195,6 @@ def _training(results: dict):
             score += BLUE_FLAME_POINT * data["total_blue_flame"]
         # else:
         #     score -= 0 * data["total_blue_flame"]
-
-        data["score_before_multiplier"] = score
 
         if stat_name == "wit":
             score += 0.5
@@ -246,7 +247,7 @@ def _training(results: dict):
         k: v
         for k, v in training_candidates.items()
         if int(v["failure"]) <= max_failure_by_stat.get(k, base_failure)
-        and not (k == "wit" and v["training_score"] < 1.5)
+        and not (k == "wit" and v["training_score"] < 2)
     }
 
     if not filtered:
@@ -368,14 +369,14 @@ def unity_logic() -> str:
     result, best_data = _training(filtered)
 
     if _summer_next_turn(year):
-        if best_data is None and missing_energy < 50:
+        if best_data is None and energy_level > 50:
             info("[UNITY] Summer camp next & okay energy → Train WIT.")
             sleep(0.5)
             go_to_training()
             sleep(0.5)
             do_train("wit")
             return
-        elif best_data is None and missing_energy > 50:
+        elif best_data is None and energy_level < 50:
             state.FORCE_REST = True
             info("[UNITY] Summer camp next & low energy → Rest.")
             do_rest(energy_level)
@@ -396,20 +397,20 @@ def unity_logic() -> str:
                     do_rest(energy_level)
                     return
         else:
-            if _friend_recreation() and missing_energy < 30:
+            if _friend_recreation() and energy_level > 70:
                 sleep(0.5)
                 do_recreation("friend")
                 return
-            elif missing_energy > 50:
+            elif energy_level < 50:
                 state.FORCE_REST = True
                 sleep(0.5)
                 do_rest(energy_level)
                 return
     
-    # if conditions and "Slow Metabolism" in conditions and result in ("sta", "pwr"):
-    #     total_severity = max(0, total_severity - 2)
-    #     conditions = [c for c in conditions if c != "Slow Metabolism"]
-    #     info(f"[UNITY] Slow Metabolism active but training {result.upper()} → reduce severity by 2 and remove condition.")
+    if conditions and "Slow Metabolism" in conditions and result in ("sta", "pwr"):
+        total_severity = max(0, total_severity - 2)
+        conditions = [c for c in conditions if c != "Slow Metabolism"]
+        info(f"[UNITY] Slow Metabolism active but training {result.upper()} → reduce severity by 2 and remove condition.")
 
     if total_severity > 1 and infirmary_box:
         info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
@@ -447,7 +448,7 @@ def unity_logic() -> str:
     if missing_mood > 1:
         info("[UNITY] Mood is very low → Recreation.")
         sleep(0.5)
-        do_recreation()
+        do_recreation("friend")
         return
 
     if total_severity == 1: # Light condition, can skip infirmary if have better training
@@ -518,6 +519,10 @@ def unity_logic() -> str:
                 sleep(0.5)
                 do_train("wit")
                 info(f"[UNITY] No training found, but it was last turn → Train WIT.")
+                return
+        if _friend_recreation():
+                sleep(0.5)
+                do_recreation("friend")
                 return
 
     info(f"[UNITY] No training found → Rest.")

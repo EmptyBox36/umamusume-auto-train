@@ -65,7 +65,7 @@ def is_btn_active(region, treshold = 150):
   grayscale = screenshot.convert("L")
   stat = ImageStat.Stat(grayscale)
   avg_brightness = stat.mean[0]
-  debug(f"avg_brightness = {avg_brightness}")
+  # debug(f"avg_brightness = {avg_brightness}")
 
   # Treshold btn
   return avg_brightness > treshold

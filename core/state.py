@@ -155,14 +155,19 @@ def stat_state():
         val_int = None
 
     cap = STAT_CAPS.get(stat, 1200)
-    if val_int is not None and 0 <= val_int <= cap:
+    if val_int == 0:
+        debug(f"Can't read the {stat} stat, exit 1")
+        val_int = cap
+    if val_int is not None:
         result[stat] = val_int
         continue
 
     text = extract_text(img).lower()
     if "max" in text:
+        debug(f"Can't read the {stat} stat, exit 2")
         result[stat] = cap
     else:
+        debug(f"Can't read the {stat} stat, exit 3")
         result[stat] = -1
     result[stat] = val
   return result
@@ -742,5 +747,4 @@ def get_virtual_turn(year_txt: str, criteria: str) -> int:
         return -1
 
     index_0 = year_idx * 24 + month_idx * 2 + phase_idx + 1
-    debug(f"{index_0} = {year_idx} * 24 + {month_idx} * 2 + {phase_idx} + 1")
     return index_0
