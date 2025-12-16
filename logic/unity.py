@@ -316,8 +316,8 @@ def unity_logic() -> str:
         return
 
     if state.RACE_SCHEDULE:
-        # if check_fans_for_upcoming_schedule():
-        #     return
+        if check_fans_for_upcoming_schedule():
+            return
         race_done = False
         for race_list in state.RACE_SCHEDULE:
             if state.stop_event.is_set():

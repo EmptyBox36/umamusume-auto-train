@@ -82,7 +82,7 @@ def most_support_card(results):
 
           fake_criteria = "fan"
           keywords = ("fan", "Maiden", "Progress")
-          fake_turn = 1
+          fake_turn = 5
 
           info("Training point is too low and energy is high, try to do graded race.")
           race_found, race_name = decide_race_for_goal(year, fake_turn, fake_criteria, keywords)
@@ -135,7 +135,7 @@ def training_score(x):
   non_max_friends = x[1]["total_friendship_levels"]["gray"] + \
                     x[1]["total_friendship_levels"]["blue"] + \
                     x[1]["total_friendship_levels"]["green"]
-  base += non_max_friends * 0.5
+  base += non_max_friends * 1
   if x[1]["total_hints"] > 0:
       base += state.HINT_POINT
   multiplier = 1 + state.PRIORITY_EFFECTS_LIST[get_stat_priority(x[0])] * priority_weight
@@ -159,12 +159,15 @@ def all_values_equal(dictionary):
 # helper functions
 def decide_race_for_goal(year, turn, criteria, keywords):
     no_race = (False, None)
-    year_parts = year.split(" ")
+    turn_to_race = 10
+
+    if not state.DONE_DEBUT:
+        turn_to_race = 99 # If Fail the Debut race, try to do Maiden race immediately
 
     # Skip pre-debut
     if year == "Junior Year Pre-Debut":
         return no_race
-    if turn >= 10:
+    if turn >= turn_to_race:
         return no_race
 
     criteria_text = criteria or ""
@@ -183,10 +186,10 @@ def decide_race_for_goal(year, turn, criteria, keywords):
                 if not race_list:
                     return False, None
 
-                if turn < 3:
+                if turn <= 3:
                     ALLOWED_GRADES = {"G1", "G2", "G3", "OP"}
                 else:
-                    ALLOWED_GRADES = {"G1", "G2", "G3"}
+                    ALLOWED_GRADES = {"G1"}
 
                 filtered = [r for r in race_list if r.get("grade") in ALLOWED_GRADES]
                 if not filtered:
@@ -307,9 +310,11 @@ def check_fans_for_upcoming_schedule() -> bool:
     # ignore past/this-turn races and races that are still far away
     if gap <= 0:
         return False
-
+    # Do objective race before do any optional race
+    if gap >= state.CURRENT_TURN_LEFT:
+        return False
     # "very low" gap → tweakable threshold
-    MAX_GAP_TURNS = 3
+    MAX_GAP_TURNS = 5
     if gap > MAX_GAP_TURNS:
         return False
 
