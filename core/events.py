@@ -135,7 +135,6 @@ def pick_choice_by_score(key: str, db: dict):
     total = EVENT_TOTALS.get(key, len(payload.get("choices", {})) or len(stats))
 
     best_idx, best_score = 1, float("-inf")
-    best_stat_priority = float("-inf")
     for idx, row in stats.items():
         try:
             i = int(idx)
@@ -145,12 +144,10 @@ def pick_choice_by_score(key: str, db: dict):
             continue
         score = score_choice(key, row)
         debug(f"[Score] {key} -> choice {i}: {score:.3f}")
-        stat_priority = get_stat_priority(key)
 
         # if this choice has higher score, or equal score but higher stat priority
-        if (score > best_score) or (abs(score - best_score) < 1e-6 and stat_priority > best_stat_priority):
+        if score > best_score:
             best_score = score
-            best_stat_priority = stat_priority
             best_idx = i
 
     return (total, best_idx)
