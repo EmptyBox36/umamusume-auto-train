@@ -1,5 +1,4 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-import Tooltips from "../_c/Tooltips";
 
 type Props = {
     scenario: string;
@@ -20,7 +19,6 @@ export default function ScenarioSelect({ scenario, setScenario, options = [] }: 
                     ))}
                 </SelectContent>
             </Select>
-            <Tooltips>Choose Scenario. Used by event logic.</Tooltips>
         </div>
     );
 }

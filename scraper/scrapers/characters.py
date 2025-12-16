@@ -1,9 +1,41 @@
 import time, re, logging
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException
 
 from .base import BaseScraper, create_chromedriver
 from utils.utils import clean_event_title, COMMON_EVENT_TITLES
+
+def _go(driver, url, tries=2):
+    for attempt in range(1, tries + 1):
+        try:
+            driver.get(url)
+            return True
+
+        except Exception as e:
+            msg = str(e)
+            logging.error(f"_go error on attempt {attempt}/{tries}: {msg}")
+
+            # Detect broken chrome/CDP session
+            if "HTTPConnectionPool" in msg or "Read timed out" in msg or "Repeated tooltip title detected" in msg:
+                return "RESTART"
+
+            # Normal retry
+            try:
+                driver.execute_script("window.stop();")
+            except Exception:
+                pass
+            time.sleep(2)
+
+    return False
+
+def load_with_retry(driver, url: str, max_retry: int = 3, delay: float = 10.0):
+    for attempt in range(1, max_retry + 1):
+        try:
+            driver.get(url)
+            return True  # success
+        except Exception as e:
+            logging.error(f"Load failed ({attempt}/{max_retry}) for {url}: {e}")
+            time.sleep(delay)
+    return False
 
 class CharacterScraper(BaseScraper):
     def __init__(self):
@@ -22,14 +54,79 @@ class CharacterScraper(BaseScraper):
         links = [a.get_attribute("href") for a in items]
 
         for i, link in enumerate(links):
-            logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
-            driver.get(link); time.sleep(3)
-            name = driver.find_element(By.XPATH, "//h1[contains(@class, 'utils_headingXl')]").text
-            name = re.sub(r'\s*\(.*?\)', '', name.replace("(Original)", "")).strip()
-            if name not in self.data:
-                self.data[name] = {}
-            self.process_training_events(driver, name, self.data[name])
+            max_link_retry = 3
+            attempt = 0
 
+            while attempt < max_link_retry:
+                try:
+                    if i % 1 == 0:
+                        driver.quit()
+                        driver = create_chromedriver()
+                        _ = _go(driver, self.url)
+                        time.sleep(1)
+
+                    logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
+
+                    result = _go(driver, link, tries=5)
+
+                    if result == "RESTART":
+                        logging.warning("Restarting Chrome due to connection failure...")
+                        driver.quit()
+                        driver = create_chromedriver()
+                        _ = _go(driver, self.url)
+                        time.sleep(1)
+                        # retry the SAME link again
+                        if _go(driver, link, tries=5) is not True:
+                            if not load_with_retry(driver, link, max_retry=5, delay=10):
+                                raise RuntimeError(f"Could not load {link} after Chrome restart")
+                    elif result is False:
+                        logging.warning("Normal _go failure, trying extended retries...")
+                        if not load_with_retry(driver, link, max_retry=5, delay=10):
+                            raise RuntimeError(f"Could not load {link}")
+
+                    time.sleep(3)
+
+                    raw_h1 = driver.find_element(
+                        By.CSS_SELECTOR, "h1[class*='utils_headingXl']"
+                    ).text.strip()
+                    m = re.match(r"^(.*?)(?:\s*\(([^)]+)\))?$", raw_h1)
+                    base = m.group(1).strip()
+                    variant = m.group(2)
+                    name = f"{base} ({variant})" if variant else base
+
+                    attempt_data = {}
+
+                    self.process_training_events(driver, name, attempt_data)
+
+                    self.data[name] = attempt_data
+
+                    # success: break out of while and move to next character
+                    break
+
+                except Exception as e:
+                    msg = str(e)
+                    attempt += 1
+                    logging.error(
+                        f"Error while processing {link} ({i + 1}/{len(links)}), "
+                        f"attempt {attempt}/{max_link_retry}: {msg}"
+                    )
+
+                    # if Chrome/CDP is broken, restart driver and retry this character
+                    if "HTTPConnectionPool" in msg or "Read timed out" in msg or "Repeated tooltip title detected" in msg:
+                        driver.quit()
+                        driver = create_chromedriver()
+                        _ = _go(driver, self.url)
+                        time.sleep(2)
+                        # loop continues, retry same link
+                        continue
+
+                    # other unexpected errors: re-raise immediately
+                    raise
+
+            else:
+                # while exhausted without break
+                raise RuntimeError(f"Could not process {link} after {max_link_retry} attempts")
+        
         self.save_data()
         driver.quit()
 

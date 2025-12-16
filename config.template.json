@@ -2,6 +2,21 @@
   "config_name": "Preset",
   "trainee": "",
   "scenario": "",
+  "unity": {
+    "prefer_team_race": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "spirit_burst_position": [
+      "spd",
+      "sta",
+      "pwr",
+      "guts",
+      "wit"
+    ]
+  },
   "priority_stat": [
     "spd",
     "sta",
@@ -10,49 +25,58 @@
     "guts"
   ],
   "priority_weights": [
-    1.25,
-    1.25,
-    1,
+    0,
+    0,
+    0,
+    0,
+    -1
+  ],
+  "summer_priority_weights": [
+    0,
+    0,
+    0,
     0,
     -1
   ],
   "sleep_time_multiplier": 1,
   "skip_training_energy": 25,
-  "never_rest_energy": 30,
+  "never_rest_energy": 50,
   "skip_infirmary_unless_missing_energy": 20,
   "minimum_mood": "NORMAL",
+  "minimum_mood_with_friend": "GREAT",
   "priority_weight": "LIGHT",
   "hint_point": 0.5,
   "minimum_mood_junior_year": "NORMAL",
-  "maximum_failure": 15,
-  "enable_custom_failure": false,
-  "enable_custom_low_failure": false,
-  "low_failure_condition": {
-    "point": 1,
-    "failure": 10
-  },
-  "enable_custom_high_failure": false,
-  "high_failure_condition": {
-    "point": 3,
-    "failure": 40
+  "failure": {
+    "maximum_failure": 15,
+    "enable_custom_failure": false,
+    "enable_custom_low_failure": false,
+    "low_failure_condition": {
+      "point": 1,
+      "failure": 10
+    },
+    "enable_custom_high_failure": false,
+    "high_failure_condition": {
+      "point": 5,
+      "failure": 40
+    }
   },
   "prioritize_g1_race": false,
-  "use_optimal_event_choices": true,
   "use_prioritize_on_junior": false,
 
   "choice_weight": {
-    "spd": 1,
-    "sta": 1,
-    "pwr": 1,
+    "spd": 3,
+    "sta": 3,
+    "pwr": 3,
     "guts": 1,
-    "wit": 1,
+    "wit": 3,
     "hp": 5,
     "max_energy": 10,
     "skillpts": 1,
     "bond": 2,
     "mood": 10
   },
-
+  "stop_bot_before_race": false,
   "use_priority_on_choice": false,
   "cancel_consecutive_race": true,
   "position_selection_enabled": false,
@@ -64,21 +88,27 @@
     "medium": "late",
     "long": "end"
   },
+  "position_for_specific_race": [
+
+  ],
   "race_schedule": [
     {
       "name": "Satsuki Sho",
       "year": "Classic Year",
-      "date": "Early Apr"
+      "date": "Early Apr",
+      "turnNumber": 31
     },
     {
       "name": "Tokyo Yushun Japanese Derby",
       "year": "Classic Year",
-      "date": "Late May"
+      "date": "Late May",
+      "turnNumber": 34
     },
     {
       "name": "Kikuka Sho",
       "year": "Classic Year",
-      "date": "Late Oct"
+      "date": "Late Oct",
+      "turnNumber": 44
     }
   ],
   "stat_caps": {
@@ -100,7 +130,55 @@
       "U=ma2",
       "Professor of Curvature",
       "Swinging Maestro"
+    ],
+    "desire_skill": [
+      "Lone Wolf"
     ]
   },
-  "window_name": "LDPlayer"
+  "window_name": "LDPlayer",
+  "event": {
+    "use_optimal_event_choices": true,
+    "event_choices": [
+      {
+        "event_name": "A Team at Last",
+        "chosen": 5
+      },
+      {
+        "event_name": "Tutorial",
+        "chosen": 2
+      },
+      {
+        "event_name": "Extra Training",
+        "chosen": 2
+      },
+      {
+        "event_name": "Just an Acupuncturist, No Worries! \u2606",
+        "chosen": 3
+      },
+      {
+        "event_name": "Get Well Soon!",
+        "chosen": 1
+      },
+      {
+        "event_name": "Don't Overdo It!",
+        "chosen": 1
+      },
+      {
+        "event_name": "Victory!",
+        "chosen": 1
+      },
+      {
+        "event_name": "Solid Showing",
+        "chosen": 1
+      },
+      {
+        "event_name": "Defeat",
+        "chosen": 1
+      },
+      {
+        "event_name": "Etsuko's Exhaustive Coverage",
+        "chosen": 2
+      }
+    ]
+  }
 }

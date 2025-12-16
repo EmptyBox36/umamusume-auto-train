@@ -1,5 +1,4 @@
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
-import Tooltips from "../_c/Tooltips";
 
 type Props = {
     trainee: string;
@@ -20,7 +19,6 @@ export default function TraineeSelect({ trainee, setTrainee, options = []}: Prop
                     ))}
                 </SelectContent>
             </Select>
-            <Tooltips>Choose the character to train. Used by event and hint logic.</Tooltips>
         </div>
     );
 }

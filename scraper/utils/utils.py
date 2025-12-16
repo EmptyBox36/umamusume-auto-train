@@ -1,15 +1,16 @@
 ﻿import re
 
-COMMON_EVENT_TITLES = {
-  "Extra Training",
-  "Just an Acupuncturist, No Worries! ☆",
-  "Get Well Soon!",
-  "Don't Overdo It!",
-  "Victory!", 
-  "Solid Showing", 
-  "Defeat", 
-  "Etsuko's Exhaustive Coverage",
-}
+# COMMON_EVENT_TITLES = {
+#   "Extra Training",
+#   "Just an Acupuncturist, No Worries! ☆",
+#   "Get Well Soon!",
+#   "Don't Overdo It!",
+#   "Victory!", 
+#   "Solid Showing", 
+#   "Defeat", 
+#   "Etsuko's Exhaustive Coverage",
+# }
+COMMON_EVENT_TITLES = {}
 
 STAT_KEYS = ["Friendship","Guts","HP","Max Energy","Mood","Power",
              "Skill Hint","Skill Pts","Speed","Stamina","Wit"]
@@ -46,11 +47,9 @@ IGNORE_PATTERNS = (
 )
 
 def clean_event_title(title: str) -> str:
-    # remove decorative prefixes like (❯❯), (▶), (★), etc.
-    title = re.sub(r"^\s*[\(\[\{❯▶★♦■◆☆]*\s*[\)\]\}❯▶★♦■◆☆]*\s*", "", title)
-
-    # remove decorative suffixes like ☆, ★, ◆, etc.
-    title = re.sub(r"[\s❯▶★♦■◆☆]+$", "", title)
+    # ICONS = "❯▶★♦■◆☆"
+    # title = re.sub(fr"^\s*[\[\{{{ICONS}]+\s*[\]\}}{ICONS}]*\s*", "", title)
+    # title = re.sub(fr"[\s{ICONS}]+$", "", title)
 
     # handle special prefix cases (Acupuncture, Failed training)
     for prefix in PREFIX_EVENTS:

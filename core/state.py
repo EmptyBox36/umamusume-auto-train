@@ -3,6 +3,7 @@ from sqlite3 import PrepareProtocol
 import cv2
 import numpy as np
 import re
+import difflib
 import json
 import threading
 from math import floor
@@ -10,7 +11,7 @@ from math import floor
 from utils.log import info, warning, error, debug
 
 from utils.screenshot import capture_region, enhanced_screenshot
-from core.ocr import extract_text, extract_number, extract_percent
+from core.ocr import extract_text, extract_number, extract_text_improved, extract_percent
 from core.recognizer import match_template, count_pixels_of_color, find_color_of_pixel, closest_color, multi_match_templates
 
 import utils.constants as constants
@@ -39,29 +40,47 @@ MAX_ENERGY = None
 CURRENT_MOOD_INDEX = None
 CURRENT_STATS = {}
 CURRENT_YEAR = None
-CUSTOM_FAILURE = 0
+FORCE_REST = False
 CURRENT_TURN_LEFT = None
+PREFERRED_POSITION_SET = None
+SCENARIO_NAME = ""
+CRITERIA = None
+DONE_DEBUT = None
+FAN_COUNT = -1
+TRAINING_RESTRICTED = None
+LAST_VALID_STATS = None
+VIRTUAL_TURN = None
+
+TURN_REGION = (0,0,0,0)
+YEAR_REGION = (0,0,0,0)
+FAILURE_REGION = (0,0,0,0)
+FAILURE_PERCENT_REGION = (0,0,0,0)
 
 def load_config():
   with open("config.json", "r", encoding="utf-8") as file:
     return json.load(file)
 
 def reload_config():
-  global PRIORITY_STAT, PRIORITY_WEIGHT, MINIMUM_MOOD, MINIMUM_MOOD_JUNIOR_YEAR, MAX_FAILURE
-  global PRIORITIZE_G1_RACE, CANCEL_CONSECUTIVE_RACE, STAT_CAPS, IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST
-  global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, PREFERRED_POSITION
-  global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER
+  global PRIORITY_STAT, PRIORITY_WEIGHT, MINIMUM_MOOD, MINIMUM_MOOD_JUNIOR_YEAR, MAX_FAILURE, MINIMUM_MOOD_WITH_FRIEND
+  global PRIORITIZE_G1_RACE, CANCEL_CONSECUTIVE_RACE, STAT_CAPS
+  global PRIORITY_EFFECTS_LIST, SKIP_TRAINING_ENERGY, NEVER_REST_ENERGY, SKIP_INFIRMARY_UNLESS_MISSING_ENERGY, SUMMER_PRIORITY_EFFECTS_LIST
+  global POSITION_FOR_SPECIFIC_RACE, PREFERRED_POSITION
+  global ENABLE_POSITIONS_BY_RACE, POSITIONS_BY_RACE, POSITION_SELECTION_ENABLED, SLEEP_TIME_MULTIPLIER, STOP_BEFORE_RACE
   global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
-  global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE
+  global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE, EVENT_CHOICES
   global ENABLE_CUSTOM_FAILURE_CHANCE, ENABLE_CUSTOM_LOW_FAILURE, ENABLE_CUSTOM_HIGH_FAILURE, LOW_FAILURE_CONDITION, HIGH_FAILURE_CONDITION
+  global IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST, DESIRE_SKILL
+  global TURN_REGION, YEAR_REGION, FAILURE_REGION, FAILURE_PERCENT_REGION, TURN_NUMBER_REGION
+  global UNITY_TEAM_PREFERENCE, UNITY_SPIRIT_BURST_POSITION
 
   config = load_config()
 
   PRIORITY_STAT = config["priority_stat"]
   PRIORITY_WEIGHT = config["priority_weight"]
   MINIMUM_MOOD = config["minimum_mood"]
+  MINIMUM_MOOD_WITH_FRIEND = config["minimum_mood_with_friend"]
   MINIMUM_MOOD_JUNIOR_YEAR = config["minimum_mood_junior_year"]
-  MAX_FAILURE = config["maximum_failure"]
+  MAX_FAILURE = config["failure"]["maximum_failure"]
   PRIORITIZE_G1_RACE = config["prioritize_g1_race"]
   CANCEL_CONSECUTIVE_RACE = config["cancel_consecutive_race"]
   STAT_CAPS = config["stat_caps"]
@@ -80,18 +99,41 @@ def reload_config():
   WINDOW_NAME = config["window_name"]
   RACE_SCHEDULE = config["race_schedule"]
   CONFIG_NAME = config["config_name"]
-  USE_OPTIMAL_EVENT_CHOICES = config["use_optimal_event_choices"]
   CHOICE_WEIGHT = config["choice_weight"]
   HINT_POINT = config["hint_point"]
   TRAINEE_NAME = config["trainee"]
   SCENARIO_NAME = config["scenario"]
-  ENABLE_CUSTOM_FAILURE_CHANCE = config["enable_custom_failure"]
-  ENABLE_CUSTOM_LOW_FAILURE = config["enable_custom_low_failure"]
-  ENABLE_CUSTOM_HIGH_FAILURE = config["enable_custom_high_failure"]
-  LOW_FAILURE_CONDITION = config["low_failure_condition"]
-  HIGH_FAILURE_CONDITION = config["high_failure_condition"]
+  ENABLE_CUSTOM_FAILURE_CHANCE = config["failure"]["enable_custom_failure"]
+  ENABLE_CUSTOM_LOW_FAILURE = config["failure"]["enable_custom_low_failure"]
+  ENABLE_CUSTOM_HIGH_FAILURE = config["failure"]["enable_custom_high_failure"]
+  LOW_FAILURE_CONDITION = config["failure"]["low_failure_condition"]
+  HIGH_FAILURE_CONDITION = config["failure"]["high_failure_condition"]
   JUNIOR_YEAR_STAT_PRIORITIZE = config["use_prioritize_on_junior"]
   USE_PRIORITY_ON_CHOICE = config["use_priority_on_choice"]
+  DESIRE_SKILL = config["skill"]["desire_skill"]
+  USE_OPTIMAL_EVENT_CHOICES = config["event"]["use_optimal_event_choices"]
+  EVENT_CHOICES = config["event"]["event_choices"]
+  UNITY_TEAM_PREFERENCE = config["unity"]["prefer_team_race"]
+  UNITY_SPIRIT_BURST_POSITION = config["unity"]["spirit_burst_position"]
+  # STOP_BEFORE_RACE = config["stop_bot_before_race"]
+  SUMMER_PRIORITY_EFFECTS_LIST = {i: v for i, v in enumerate(config["summer_priority_weights"])}
+  POSITION_FOR_SPECIFIC_RACE = config["position_for_specific_race"]
+
+  # URA Starter
+  if "URA" in SCENARIO_NAME:
+    TURN_REGION=(260, 81, 370 - 260, 140 - 81)
+    TURN_NUMBER_REGION=(260, 81, 370 - 260, 135 - 81)
+    YEAR_REGION=(255, 35, 420 - 255, 60 - 35)
+    FAILURE_REGION=(250, 770, 855 - 295, 835 - 770)
+    FAILURE_PERCENT_REGION=(250, 790, 855 - 295, 835 - 790)
+
+    # Unity Starter
+  if "Unity" in SCENARIO_NAME:
+    TURN_REGION = (260, 55, 375 - 260, 110 - 55)
+    TURN_NUMBER_REGION = (260, 55, 325 - 260, 110 - 55)
+    YEAR_REGION =(385, 40, 565 - 385, 60 - 40)
+    FAILURE_REGION=(250, 760, 855 - 250, 810 - 760)
+    FAILURE_PERCENT_REGION=(250, 780, 855 - 250, 810 - 780)
 
 # Get Stat
 def stat_state():
@@ -107,8 +149,51 @@ def stat_state():
   for stat, region in stat_regions.items():
     img = enhanced_screenshot(region)
     val = extract_number(img)
+    try:
+        val_int = int(val)
+    except (TypeError, ValueError):
+        val_int = None
+
+    cap = STAT_CAPS.get(stat, 1200)
+    if val_int == 0:
+        debug(f"Can't read the {stat} stat, exit 1")
+        val_int = cap
+    if val_int is not None:
+        result[stat] = val_int
+        continue
+
+    text = extract_text(img).lower()
+    if "max" in text:
+        debug(f"Can't read the {stat} stat, exit 2")
+        result[stat] = cap
+    else:
+        debug(f"Can't read the {stat} stat, exit 3")
+        result[stat] = -1
     result[stat] = val
   return result
+
+def check_stats():
+    """
+    Wrapper for stat_state().
+    If any stat is -1 (OCR failure), return LAST_VALID_STATS instead.
+    Otherwise update LAST_VALID_STATS.
+    """
+    global LAST_VALID_STATS
+
+    new_stats = stat_state()
+
+    # OCR error: some stats are -1
+    if any(v == -1 for v in new_stats.values()):
+        warning(f"OCR stat error detected: {new_stats} -> using LAST_VALID_STATS")
+        if LAST_VALID_STATS is not None:
+            return LAST_VALID_STATS.copy()
+        else:
+            # No previous stats (first turn)
+            return new_stats
+
+    # Valid stats → update LAST_VALID_STATS
+    LAST_VALID_STATS = new_stats.copy()
+    return new_stats
 
 # Check support card in each training
 def check_support_card(threshold=0.8, target="none"):
@@ -136,12 +221,27 @@ def check_support_card(threshold=0.8, target="none"):
   count_result["total_hints"] = 0
   count_result["total_friendship_levels"] = {}
   count_result["hints_per_friend_level"] = {}
+  count_result["total_white_flame"] = 0
+  count_result["total_blue_flame"] = 0
 
   for friend_level, color in SUPPORT_FRIEND_LEVELS.items():
     count_result["total_friendship_levels"][friend_level] = 0
     count_result["hints_per_friend_level"][friend_level] = 0
 
   hint_matches = match_template("assets/icons/support_hint.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
+  white_flame_matches = match_template("assets/unity_cup/white_flame.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
+  blue_flame_matches = match_template("assets/unity_cup/blue_flame.png", constants.SUPPORT_CARD_ICON_BBOX, threshold)
+
+  def _dedup(rects, tol=10):
+        uniq = []
+        for (x,y,w,h) in sorted(rects or [], key=lambda r:(r[1], r[0])):
+            if not uniq or abs(y - uniq[-1][1]) > tol or abs(x - uniq[-1][0]) > tol:
+                uniq.append((x,y))
+        return len(uniq)
+
+  count_result["total_white_flame"] = _dedup(white_flame_matches)
+  count_result["total_blue_flame"]  = _dedup(blue_flame_matches)
+
   for key, icon_path in SUPPORT_ICONS.items():
     count_result[key] = {}
     count_result[key]["supports"] = 0
@@ -183,47 +283,75 @@ def check_support_card(threshold=0.8, target="none"):
 
   return count_result
 
-# Get failure chance (idk how to get energy value)
-def check_failure():
-  failure_text = enhanced_screenshot(constants.FAILURE_REGION)
-  failure_percent = enhanced_screenshot(constants.FAILURE_PERCENT_REGION)
-  # # use new OCR that protects against misread errors
-  # val = extract_percent(failure_percent)
-  # if val != -1:
-  #   return int(val)
-  # 0) verify we're on a Failure badge
-  label = extract_text(failure_text).lower()
-  if not label.startswith("failure"):
-    return -1
+def _parse_failure_digits(raw: str) -> int | None:
+    digits = re.sub(r"[^\d]", "", raw or "")
+    if not digits:
+        return None
 
-  # 1) read percent from the badge region only
-  pct_text = extract_text(failure_percent)
-  hits = list(re.finditer(r'(\d(?:\s?\d){0,2})\s*%', pct_text))  # e.g. "3 %", "39%"
-  if hits:
-    v = int(hits[-1].group(1).replace(" ", ""))               # rightmost match
-    if 0 <= v <= 100:
-      return v
+    # --- Case A: 3-digit OCR cases like 399, 309 ---
+    if len(digits) == 3:
+        first_two = digits[:2]
+        if first_two.isdigit():
+            v = int(first_two)
+            if 0 <= v <= 100:
+                return v
 
-  # 2) legacy fallbacks on the full label text (kept from your original)
-  m = re.search(r"failure\s+(\d{1,3})\s*%", label)
-  if m:
-    return int(m.group(1))
+    # --- Case B: 2-digit ambiguous cases like 39, 29, 19 ---
+    if len(digits) == 2:
+        # If OCR adds a trailing '9', real value is usually single digit (3% → 39)
+        if digits[1] == "9":
+            return int(digits[0])
+        # no trailing 9 → treat normally (e.g., 30, 23)
+        return int(digits)
 
-  m = re.search(r"failure\s+(\d+)", label)
-  if m:
-    digits = m.group(1)
-    idx = digits.find("9")
-    if idx > 0:
-      num = digits[:idx]
-      return int(num) if num.isdigit() else -1
+    # --- Case C: 1-digit clean value ---
+    if len(digits) == 1:
+        return int(digits)
+
+    # --- Case D: fallback for clean 0–100 ---
     if digits.isdigit():
-      return int(digits)
+        v = int(digits)
+        if 0 <= v <= 100:
+            return v
 
-  return -1
+    return None
+
+def check_failure():
+    failure_text = enhanced_screenshot(FAILURE_REGION)
+    failure_percent = enhanced_screenshot(FAILURE_PERCENT_REGION)
+
+    label = extract_text(failure_text).lower()
+    pct_text = extract_text(failure_percent)
+
+    debug(f"raw_label: {label}")
+    debug(f"raw_pct_text: {pct_text}")
+
+    if not label.startswith("failure"):
+        return -1
+
+    # 1) read percent from the badge region only
+    hits = list(re.finditer(r'(\d(?:\s?\d){0,2})\s*%', pct_text))
+    if hits:
+      v = int(hits[-1].group(1).replace(" ", ""))
+      if 0 <= v <= 100:
+        return v
+
+    # 2) legacy fallbacks on the full label text
+    m = re.search(r"failure\s+(\d{1,3})\s*%", label)
+    if m:
+      return int(m.group(1))
+
+    m = re.search(r"failure\s+(\d+)", label)
+    if m:
+        v = _parse_failure_digits(m.group(1))
+        if v is not None:
+            return v
+
+    return 99
 
 # Check mood
 def check_mood():
-  mood = capture_region(constants.MOOD_REGION)
+  mood = enhanced_screenshot(constants.MOOD_REGION)
   mood_text = extract_text(mood).upper()
 
   for known_mood in constants.MOOD_LIST:
@@ -235,31 +363,78 @@ def check_mood():
 
 # Check turn
 def check_turn():
-    turn = enhanced_screenshot(constants.TURN_REGION)
+    turn = enhanced_screenshot(TURN_REGION)
     turn_text = extract_text(turn)
 
-    if "Race Day" in turn_text:
+    turn_num = enhanced_screenshot(TURN_NUMBER_REGION)
+    turn_num_ex = extract_number(turn_num)
+
+    # debug(f"raw_turn_text: {turn_text}")
+    # debug(f"raw_turn_num: {turn_num_ex}")
+
+    if "race" in turn_text.lower():
         return "Race Day"
+    if "goal" in turn_text.lower():
+        return "Goal"
 
-    # sometimes easyocr misreads characters instead of numbers
-    cleaned_text = (
-        turn_text
-        .replace("T", "1")
-        .replace("I", "1")
-        .replace("O", "0")
-        .replace("S", "5")
-    )
+    turn_text = turn_text.replace("I", "1")
+    # debug(f"clean_turn_text: {turn_text}")
 
-    digits_only = re.sub(r"[^\d]", "", cleaned_text)
+    digits_only = re.sub(r"[^\d]", "", turn_text)
 
     if digits_only:
-      return int(digits_only)
-    
+      if 0 < int(digits_only) < 50:
+        return int(digits_only)
+
+    if turn_num_ex:
+        if 0 < int(turn_num_ex) < 50:
+          return int(turn_num_ex)
+
+    # if normal version fail use improved version
+    turn_text = extract_text_improved(turn)
+    if "race" in turn_text.lower():
+        return "Race Day"
+    if "goal" in turn_text.lower():
+        return "Goal"
+
+    turn_text = turn_text.replace("I", "1")
+    # debug(f"clean_improved_turn_text: {turn_text}")
+
+    digits_only = re.sub(r"[^\d]", "", turn_text)
+
+    if digits_only:
+      if 0 < int(digits_only) < 50:
+        return int(digits_only)
+
     return -1
+
+def _norm(s: str) -> str:
+    # normalize OCR noise: collapse spaces, lowercase
+    return re.sub(r"\s+", " ", s or "").strip().casefold()
+
+def check_unity() -> str:
+    """
+    Returns the canonical round name ONLY if OCR text is in UNITY_ROUND_LIST.
+    Otherwise returns "".
+    """
+    img = enhanced_screenshot(constants.UNITY_ROUND_REGION)
+    raw = extract_text(img)
+
+    # build normalized lookup of allowed rounds
+    canon_by_norm = {_norm(x): x for x in constants.UNITY_ROUND_LIST}
+
+    key = _norm(raw)
+    if key in canon_by_norm:
+        return canon_by_norm[key]
+
+    # Optional: fuzzy rescue to handle small OCR errors
+    # raise cutoff to be strict
+    match = difflib.get_close_matches(key, canon_by_norm.keys(), n=1, cutoff=0.92)
+    return canon_by_norm[match[0]] if match else None
 
 # Check year
 def check_current_year():
-  year = enhanced_screenshot(constants.YEAR_REGION)
+  year = enhanced_screenshot(YEAR_REGION)
   text = extract_text(year)
   return text
 
@@ -273,6 +448,61 @@ def check_criteria_detail():
   img = enhanced_screenshot(constants.CRITERIA_DETAIL_REGION)
   text = extract_text(img)
   return text
+
+def check_debut_status():
+  global DONE_DEBUT
+  region = (440, 620, 430+1, 620+1)
+  pixel = find_color_of_pixel(region)
+
+  if isinstance(pixel, int):
+    return False
+
+  not_debut_color = (213,213,213)
+
+  pixel = np.array(pixel)
+  target = np.array(not_debut_color)
+
+  is_match = np.all(np.abs(pixel - target) <= 5)
+  if not is_match:
+    debug("Already Finish Debut Race.")
+    DONE_DEBUT = True
+    return
+    
+  debug("Debut Race is Not Finish.")
+  DONE_DEBUT = False
+  return
+
+def check_fans():
+    global FAN_COUNT
+    img = enhanced_screenshot(constants.FANS_REGION)
+    text = extract_text(img)
+
+    text = re.sub(r"\(.*?\)", "", text)
+    text = re.sub(r"[^\d,]", "", text)
+    text = text.replace(",", "")
+
+    if text.isdigit():
+        FAN_COUNT = int(text)
+    else:
+        FAN_COUNT = -1
+
+    return FAN_COUNT
+
+def check_fans_after_race(region):
+    global FAN_COUNT
+    img = enhanced_screenshot(region)
+    text = extract_text(img)
+
+    text = re.sub(r"\(.*?\)", "", text)
+    text = re.sub(r"[^\d,]", "", text)
+    text = text.replace(",", "")
+
+    if text.isdigit():
+        FAN_COUNT = int(text)
+    else:
+        FAN_COUNT = -1
+
+    return FAN_COUNT
 
 def check_skill_pts():
   img = enhanced_screenshot(constants.SKILL_PTS_REGION)
@@ -322,6 +552,12 @@ def get_race_type():
   race_info_text = extract_text(race_info_screen)
   debug(f"Race info text: {race_info_text}")
   return race_info_text
+
+def get_race_name():
+  race_name_screen = enhanced_screenshot(constants.RACE_NAME_TEXT_REGION)
+  race_name_text = extract_text(race_name_screen)
+  debug(f"Race name text: {race_name_text}")
+  return race_name_text
 
 # Severity -> 0 is doesn't matter / incurable, 1 is "can be ignored for a few turns", 2 is "must be cured immediately"
 BAD_STATUS_EFFECTS={
@@ -412,6 +648,7 @@ def check_aptitudes():
   }
 
   aptitude_images = {
+    "s" : "assets/ui/aptitude_s.png",
     "a" : "assets/ui/aptitude_a.png",
     "b" : "assets/ui/aptitude_b.png",
     "c" : "assets/ui/aptitude_c.png",
@@ -451,12 +688,63 @@ def stop_bot():
     stop_event.set()
     is_bot_running = False
 
-    if bot_thread and bot_thread.is_alive():
-        info("[BOT] Waiting for bot to stop...")
-        bot_thread.join(timeout=3)
-        if bot_thread.is_alive():
-            info("[BOT] Bot still running, please wait...")
-        else:
-            info("[BOT] Bot stopped completely")
+def _find_index_by_substring(text: str, candidates: list[str]) -> int:
+    """
+    Return index of first candidate whose lowercase substring
+    appears in text (case-insensitive). Return -1 if not found.
+    """
+    if not text:
+        return -1
+    lower = text.lower()
+    for i, c in enumerate(candidates):
+        if c.lower() in lower:
+            return i
+    return -1
 
-    bot_thread = None
+def get_virtual_turn(year_txt: str, criteria: str) -> int:
+    """
+    Map OCR year text to a virtual turn number:
+
+    Pre-Debut  -> 0
+    Junior/Classic/Senior (Jan–Dec, Early/Late) -> 1–72
+    Finale -> 73
+
+    Returns -1 if parsing fails.
+    """
+    year_parts = year_txt.split(" ")
+    
+    if not isinstance(year_txt, str):
+        return -1
+    if year_txt == "Junior Year Pre-Debut":
+        return 0
+    if len(year_parts) < 4:
+        return -1
+
+    if "Finale" in year_txt:
+        if "Qualifier" in criteria:
+            return 73
+        if "Semifinal" in criteria:
+            return 74
+        if "Final" in criteria:
+            return 75
+
+    year = year_parts[0]
+    month = year_parts[3]
+    phase = year_parts[2]
+
+    year_idx = _find_index_by_substring(year, constants.YEAR_ORDER)
+    month_idx = _find_index_by_substring(month, constants.MONTH_ORDER)
+    phase_idx = _find_index_by_substring(phase, constants.PHASE_ORDER)
+
+    if phase_idx == -1:
+        if "Early" in phase:
+            phase_idx = 0
+        elif "Late" in phase:
+            phase_idx = 1
+
+    if year_idx == -1 or month_idx == -1 or phase_idx == -1:
+        warning(f"Failed to parse virtual turn from year_text='{year_txt}'")
+        return -1
+
+    index_0 = year_idx * 24 + month_idx * 2 + phase_idx + 1
+    return index_0

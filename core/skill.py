@@ -1,6 +1,7 @@
 from utils.tools import sleep, drag_scroll
 import pyautogui
 import Levenshtein
+import numpy as np
 
 import utils.constants as constants
 
@@ -13,11 +14,13 @@ import core.state as state
 def buy_skill():
   pyautogui.moveTo(constants.SCROLLING_SELECTION_MOUSE_POS)
   found = False
+  prev_img = None
+  same_count = 0
 
-  for i in range(10):
+  for i in range(15):
     if state.stop_event.is_set():
       return
-    if i > 8:
+    if i > 10:
       sleep(0.5)
     buy_skill_icon = match_template("assets/icons/buy_skill.png", threshold=0.9)
 
@@ -25,6 +28,19 @@ def buy_skill():
       for x, y, w, h in buy_skill_icon:
         region = (x - 420, y - 40, w + 275, h + 5)
         screenshot = enhanced_screenshot(region)
+
+        curr_img = np.array(screenshot)
+        if prev_img is not None:
+          if np.array_equal(curr_img, prev_img):
+            same_count += 1
+          else:
+            same_count = 0
+
+          if same_count >= 1:
+            info("Skill list unchanged for 1 loops. Exiting early.")
+            return found
+        prev_img = curr_img
+
         text = extract_text(screenshot)
         if is_skill_match(text, state.SKILL_LIST):
           button_region = (x, y, w, h)
