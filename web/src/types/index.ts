@@ -109,6 +109,8 @@ export type Config = {
   };
   race_schedule: RaceScheduleType[];
   position_for_specific_race: PositionForSpecificRace[];
+  enable_race_schedule: boolean;
+  run_race_on_poor_training: boolean;
   stat_caps: Stat;
   skill: Skill;
   window_name: string;

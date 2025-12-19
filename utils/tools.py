@@ -28,8 +28,6 @@ def drag_scroll(mousePos, to):
 def click(img: str = None, confidence: float = 0.8, minSearch:float = 2, click: int = 1, text: str = "", boxes = None, region=None):
   if state.stop_event.is_set():
     return False
-  if not state.is_bot_running:
-    return False
 
   if boxes:
     if isinstance(boxes, list):

@@ -1,6 +1,7 @@
 from turtle import width
 import pyautogui
 import re
+from core.logic import decide_race_for_goal
 import core.state as state
 import utils.constants as constants
 
@@ -79,6 +80,15 @@ def do_rest(energy_level):
     if state.NEVER_REST_ENERGY > 0 and energy_level > state.NEVER_REST_ENERGY:
       info(f"Wanted to rest when energy was above {state.NEVER_REST_ENERGY}, retrying from beginning.")
       return
+  
+  # In Senior or Finale years, prefer friend recreation if available
+  year = getattr(state, "CURRENT_YEAR", "") or ""
+  if ("Senior" in year or "Finale" in year) and pyautogui.locateOnScreen("assets/icons/friend_recreation_available.png", confidence=0.8, minSearchTime=get_secs(0.5), region=(125, 800, 1000, 1080)):
+    info("Friend recreation available in Senior/Finale year → Recreation instead of rest.")
+    sleep(0.5)
+    do_recreation("friend")
+    return
+  
   rest_btn = pyautogui.locateOnScreen("assets/buttons/rest_btn.png", confidence=0.8, region=constants.SCREEN_BOTTOM_REGION)
   rest_summber_btn = pyautogui.locateOnScreen("assets/buttons/rest_summer_btn.png", confidence=0.8, region=constants.SCREEN_BOTTOM_REGION)
 
@@ -122,6 +132,23 @@ def do_recreation(method = None):
 
   elif recreation_summer_btn:
     click(boxes=recreation_summer_btn)
+
+def find_newRace(year: str, turn: str, criteria: str):
+  keywords = ("fan", "Maiden", "Progress")
+  found_race, race_name = decide_race_for_goal(year, turn, criteria, keywords)
+  info(f"found_race: {found_race}, race_name: {race_name}")
+  if race_name:
+      if race_name == "any":
+          race_found = do_race(found_race, img=None)
+      else:
+          race_found = do_race(found_race, img=race_name)
+
+      if race_found:
+          return
+      else:
+          # If there is no race matching to aptitude, go back and do training instead
+          click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="Proceeding to training.")
+          sleep(0.5)
 
 def do_race(found_race = False, img = None):
   if state.stop_event.is_set():
@@ -330,12 +357,13 @@ def after_race():
   
   ok, box = wait_for_image(
     "assets/ui/fans_label.png",
-     timeout=10,
+     timeout=5,
      confidence=0.85,
      region=constants.GAME_SCREEN
   )
 
   if not ok:
+    state.FAN_COUNT = -1
     info("Fans label not detected.")
     return
   

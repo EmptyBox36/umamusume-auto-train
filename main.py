@@ -1,4 +1,5 @@
-﻿from utils.tools import sleep
+﻿from core.skill import buy_skill
+from utils.tools import sleep
 from pathlib import Path
 import pygetwindow as gw
 import threading
@@ -20,6 +21,7 @@ from server.live_log import attach_web_log_handler
 
 hotkey = "f1"
 
+hotkey_buy_skill = "f2"
 def focus_umamusume():
   try:
     win = gw.getWindowsWithTitle("Umamusume")
@@ -112,6 +114,39 @@ def hotkey_listener():
         state.bot_thread.start()
     sleep(0.5)
 
+def buy_skill_hotkey_listener():
+  """Listen for F2 hotkey to trigger buy_skill() directly."""
+  while True:
+    keyboard.wait(hotkey_buy_skill)
+    try:
+      from core.skill import buy_skill
+      debug(f"[HOTKEY] {hotkey_buy_skill.upper()} pressed -> running buy_skill()")
+
+      # Ensure config/state is loaded (hotkey threads start before main/reload_config)
+
+      if not state.SKILL_LIST:
+        debug("[HOTKEY] SKILL_LIST empty — reloading config before buy_skill.")
+        try:
+          state.reload_config()
+        except Exception as e:
+          error(f"Failed to reload config before buy_skill: {e}")
+
+      # Signal other threads to stop so buy_skill runs in isolation
+      try:
+        state.stop_event.clear()
+        # If the bot thread is running, wait briefly for it to stop
+        if state.bot_thread and state.bot_thread.is_alive():
+          debug("[HOTKEY] Waiting for bot thread to stop before buy_skill...")
+          state.bot_thread.join(timeout=3)
+
+        buy_skill(MIN_COST=999, MIN_DISCOUNT=10)
+      finally:
+        # Clear stop_event so normal processing can resume
+        state.stop_event.set()
+    except Exception as e:
+      error(f"Error running buy_skill hotkey: {e}")
+    sleep(0.5)
+
 def start_server():
   res = pyautogui.resolution()
   if res.width != 1920 or res.height != 1080:
@@ -140,4 +175,5 @@ if __name__ == "__main__":
   attach_web_log_handler()
   update_config()
   threading.Thread(target=hotkey_listener, daemon=True).start()
+  threading.Thread(target=buy_skill_hotkey_listener, daemon=True).start()
   start_server()

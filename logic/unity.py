@@ -4,7 +4,7 @@ from typing import Tuple, List, Optional
 from utils.log import info, warning, error, debug
 from core.recognizer import is_btn_active, match_template, multi_match_templates
 from utils.tools import click, sleep, get_secs, wait_for_image
-from utils.process import do_race, auto_buy_skill, race_day, do_rest, race_prep, after_race, do_recreation, do_train, go_to_training, check_training
+from utils.process import do_race, auto_buy_skill, find_newRace, race_day, do_rest, race_prep, after_race, do_recreation, do_train, go_to_training, check_training
 from core.state import check_status_effects, check_criteria, check_aptitudes, stop_bot, check_unity
 from core.logic import decide_race_for_goal, most_support_card, check_fans_for_upcoming_schedule
 from utils.scenario import ura, unity
@@ -317,7 +317,10 @@ def unity_logic() -> str:
                 race_day()
         return
 
-    if state.RACE_SCHEDULE:
+        
+    info(f"Enabled: {state.ENABLE_RACE_SCHEDULE}, Schedule: {state.RACE_SCHEDULE}")
+
+    if state.ENABLE_RACE_SCHEDULE and state.RACE_SCHEDULE:
         if check_fans_for_upcoming_schedule():
             return
         race_done = False
@@ -337,22 +340,7 @@ def unity_logic() -> str:
             return
 
     if not "Achieved" in criteria:
-        keywords = ("fan", "Maiden", "Progress")
-
-        found_race, race_name = decide_race_for_goal(year, turn, criteria, keywords)
-        info(f"found_race: {found_race}, race_name: {race_name}")
-        if race_name:
-            if race_name == "any":
-                race_found = do_race(found_race, img=None)
-            else:
-                race_found = do_race(found_race, img=race_name)
-
-            if race_found:
-                return
-            else:
-                # If there is no race matching to aptitude, go back and do training instead
-                click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="Proceeding to training.")
-                sleep(0.5)
+        find_newRace(year, turn, criteria)
 
     missing_mood = _need_recreation(year)
     summer_camp = _summer_camp(year)
@@ -483,6 +471,12 @@ def unity_logic() -> str:
             do_train(result)
             return
 
+    if best_data is not None:    
+        if missing_energy < 60:
+            if best_data["training_score"] >= 0 and state.RUN_RACE_ON_POOR_TRAINING:
+                info(f"[UNITY] Energy is sufficient ({energy_level}) and poor Training Choices → Search for a Race to Compete.")
+                find_newRace(year, turn, criteria)
+                
     if best_data is not None:
         if best_data["training_score"] >= 0 :
             info(f"[UNITY] Use most_support_card.")

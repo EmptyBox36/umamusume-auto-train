@@ -25,6 +25,8 @@ import PositionByRace from "./components/race/PositionByRace";
 import WindowName from "./components/WindowName";
 import SleepMultiplier from "./components/SleepMultiplier";
 import RaceSchedule from "./components/race/RaceSchedule";
+import EnableRaceSchedule from "./components/race/EnableRaceSchedule";
+import RunRaceOnPoorTraining from "./components/race/RunRaceOnPoorTraining";
 import HintPoint from "./components/training/HintPoint";
 import TraineeSelect from "./components/setting/TraineeSelect";
 import OptionalEvent from "./components/Event/OptionalEvent";
@@ -51,8 +53,26 @@ import ScenarioConfig from "./components/setting/ScenarioConfig";
 import SummerPriorityWeights from "./components/training/SummerPriorityWeights";
 import LiveLogDialog from "@/components/LiveLogDialog";
 
+type RawRaceSchedule = {
+  name: string;
+  year: string;
+  date: string;
+};
+
+function normalizeConfig(raw: any): Config {
+  return {
+    ...raw,
+    race_schedule: (raw.race_schedule ?? []).map(
+      (race: RawRaceSchedule, index: number) => ({
+        ...race,
+        turnNumber: index + 1, // ✅ derive here
+      }),
+    ),
+  };
+}
+
 function App() {
-  const defaultConfig = rawConfig as Config;
+  const defaultConfig = normalizeConfig(rawConfig);
 
   const { activeIndex, activeConfig, presets, setActiveIndex, setNamePreset, savePreset } =
     useConfigPreset();
@@ -119,6 +139,8 @@ function App() {
     preferred_position,
     positions_by_race,
     race_schedule,
+    enable_race_schedule,
+    run_race_on_poor_training,
     stat_caps,
     trainee,
     scenario,
@@ -548,6 +570,14 @@ function App() {
                 Race Schedule
               </h2>
               <div className="flex flex-col gap-4">
+                <EnableRaceSchedule
+                  enableRaceSchedule={enable_race_schedule}
+                  setEnableRaceSchedule={(val) => updateConfig("enable_race_schedule", val)}
+                />
+                <RunRaceOnPoorTraining
+                  runRaceOnPoorTraining={run_race_on_poor_training}
+                  setRunRaceOnPoorTraining={(val) => updateConfig("run_race_on_poor_training", val)}
+                />
                 <PrioritizeG1
                   prioritizeG1Race={prioritize_g1_race}
                   setPrioritizeG1={(val) => updateConfig("prioritize_g1_race", val)}
