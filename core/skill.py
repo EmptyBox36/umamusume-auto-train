@@ -168,7 +168,7 @@ def on_skill(x, y, w, h, ctx):
     ctx keys:
       mode: "collect" | "buy"
       skills: list
-      MIN_COST
+      MAX_COST
       MIN_DISCOUNT
       prev_img
       same_count
@@ -204,7 +204,7 @@ def on_skill(x, y, w, h, ctx):
     except ValueError:
         return False
 
-    if discount < ctx["MIN_DISCOUNT"] or cost > ctx["MIN_COST"]:
+    if discount < ctx["MIN_DISCOUNT"] or cost > ctx["MAX_COST"]:
         return False
 
     if ctx["mode"] == "collect":
@@ -229,11 +229,11 @@ def on_skill(x, y, w, h, ctx):
     return False
 
 
-def buy_skill(MIN_COST=240, MIN_DISCOUNT=30):
+def buy_skill(MAX_COST=240, MIN_DISCOUNT=30):
     collect_ctx = {
         "mode": "collect",
         "skills": [],
-        "MIN_COST": MIN_COST,
+        "MAX_COST": MAX_COST,
         "MIN_DISCOUNT": MIN_DISCOUNT,
         "found": False,
     }
@@ -252,7 +252,7 @@ def buy_skill(MIN_COST=240, MIN_DISCOUNT=30):
     buy_ctx = {
         "mode": "buy",
         "skills": collect_ctx["skills"],
-        "MIN_COST": MIN_COST,
+        "MAX_COST": MAX_COST,
         "MIN_DISCOUNT": MIN_DISCOUNT,
         "found": False,
     }
