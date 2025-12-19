@@ -297,6 +297,7 @@ def unity_logic() -> str:
             info("URA Finale")
             if state.IS_AUTO_BUY_SKILL:
                 auto_buy_skill()
+                sleep(0.5)
             ura()
             for i in range(2):
                 if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
