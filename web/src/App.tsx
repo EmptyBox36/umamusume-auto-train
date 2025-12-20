@@ -162,7 +162,7 @@ function App() {
   } = failure;
 
   const { use_optimal_event_choices } = event;
-  const { is_auto_buy_skill, skill_pts_check, skill_list, desire_skill } = skill;
+  const { is_auto_buy_skill, skill_pts_check, skill_list, desire_skill, max_cost, min_discount } = skill;
 
   // When read-only, updates only affect local UI state; nothing will be saved on disk.
   const updateConfig = <K extends keyof typeof config>(
@@ -549,6 +549,36 @@ function App() {
                     updateConfig("skill", { ...skill, skill_pts_check: val })
                   }
                 />
+                <div className="flex flex-col md:flex-row gap-2 md:items-center">
+                  <div className="flex-1">
+                    <label className="text-sm font-medium text-primary">Max Skill Cost</label>
+                    <Input
+                      type="number"
+                      min={0}
+                      max={999}
+                      className="mt-1 w-full"
+                      value={(max_cost ?? 240).toString()}
+                      onChange={(e) => {
+                        const v = Math.max(0, Math.min(999, Number(e.target.value) || 0));
+                        updateConfig("skill", { ...skill, max_cost: v });
+                      }}
+                    />
+                  </div>
+                  <div className="w-40">
+                    <label className="text-sm font-medium text-primary">Min Discount</label>
+                    <select
+                      className="mt-1 w-full bg-card border border-border/20 rounded-md p-2"
+                      value={(min_discount ?? 30).toString()}
+                      onChange={(e) => updateConfig("skill", { ...skill, min_discount: Number(e.target.value) })}
+                    >
+                      {[0, 10, 20, 30, 35, 40].map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}%
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
                 <SkillList
                   list={skill_list}
                   addSkillList={(val) =>

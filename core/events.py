@@ -1,19 +1,28 @@
-﻿import core.state as state
-import utils.constants as constants
-import re
+﻿import re
 
-from utils.log import info, warning, error, debug
-from utils.strings import clean_event_name 
-from core.EventsDatabase import CHARACTERS_EVENT_DATABASE, SUPPORT_EVENT_DATABASE, SCENARIOS_EVENT_DATABASE, EVENT_TOTALS, SKILL_HINT_BY_EVENT, EVENT_CHOICES_MAP, ALL_EVENT_KEYS
-from core.EventsDatabase import find_closest_event
+import core.state as state
+import utils.constants as constants
+from core.EventsDatabase import (
+    ALL_EVENT_KEYS,
+    CHARACTERS_EVENT_DATABASE,
+    EVENT_CHOICES_MAP,
+    EVENT_TOTALS,
+    SCENARIOS_EVENT_DATABASE,
+    SKILL_HINT_BY_EVENT,
+    SUPPORT_EVENT_DATABASE,
+    find_closest_event,
+)
 from core.logic import get_stat_priority
 from core.special_events import run_special_event
-from core.state import check_energy_level, stop_bot,check_mood
+from core.state import check_energy_level, check_mood
+from utils.log import debug, info, warning
+from utils.strings import clean_event_name
+
 
 def get_optimal_choice(event_name: str):
     choice = 0
     key = clean_event_name(event_name)
-    
+
     # # For Debug
     # if key == "a team at last":
     #     stop_bot()
@@ -47,11 +56,19 @@ def get_optimal_choice(event_name: str):
         return int(chosen)
 
     # 3) Fall back to hint / score like you already do
-    db = (CHARACTERS_EVENT_DATABASE if key in CHARACTERS_EVENT_DATABASE else
-          SUPPORT_EVENT_DATABASE    if key in SUPPORT_EVENT_DATABASE    else
-          SCENARIOS_EVENT_DATABASE  if key in SCENARIOS_EVENT_DATABASE  else None)
+    db = (
+        CHARACTERS_EVENT_DATABASE
+        if key in CHARACTERS_EVENT_DATABASE
+        else (
+            SUPPORT_EVENT_DATABASE
+            if key in SUPPORT_EVENT_DATABASE
+            else SCENARIOS_EVENT_DATABASE if key in SCENARIOS_EVENT_DATABASE else None
+        )
+    )
     if db:
-        result_hint = pick_choice_by_skill_hint(key, {s.casefold() for s in (state.DESIRE_SKILL or [])})
+        result_hint = pick_choice_by_skill_hint(
+            key, {s.casefold() for s in (state.DESIRE_SKILL or [])}
+        )
         if result_hint is not None:
             return result_hint
         return pick_choice_by_score(key, db)
@@ -59,10 +76,12 @@ def get_optimal_choice(event_name: str):
     warning(f"No match found for {event_name}. Defaulting to top choice.")
     return choice
 
+
 def _norm_hint(s: str) -> str:
     # strip common decorations like "○" and normalize case/space
-    s = re.sub(r"[^\w\s'!-]", " ", s)   # drop symbols e.g. ○ ☆
+    s = re.sub(r"[^\w\s'!-]", " ", s)  # drop symbols e.g. ○ ☆
     return " ".join(s.split()).casefold()
+
 
 def pick_choice_by_skill_hint(event_name: str, desired_skills: set[str]):
     hints = SKILL_HINT_BY_EVENT.get(event_name, {})
@@ -84,11 +103,13 @@ def pick_choice_by_skill_hint(event_name: str, desired_skills: set[str]):
 
     return None
 
+
 def _f(x, default=0.0):
     try:
         return float(x)
     except Exception:
         return float(default)
+
 
 def score_choice(choice_row):
     current_stats = state.CURRENT_STATS or {}
@@ -98,7 +119,13 @@ def score_choice(choice_row):
     score = 0.0
 
     # 1) Stats: Speed, Stamina, Power, Guts, Wit
-    for k_map, key in [("spd","Speed"),("sta","Stamina"),("pwr","Power"),("guts","Guts"),("wit","Wit")]:
+    for k_map, key in [
+        ("spd", "Speed"),
+        ("sta", "Stamina"),
+        ("pwr", "Power"),
+        ("guts", "Guts"),
+        ("wit", "Wit"),
+    ]:
         gain = _f(choice_row.get(key, 0), 0.0)
         if gain == 0:
             continue
@@ -177,6 +204,7 @@ def score_choice(choice_row):
 
     return score
 
+
 def pick_choice_by_score(key: str, db: dict):
     payload = db.get(key) or {}
     stats = payload.get("stats") or {}
@@ -199,6 +227,7 @@ def pick_choice_by_score(key: str, db: dict):
 
     return best_idx
 
+
 def _apply_override_if_valid(key: str):
     chosen = EVENT_CHOICES_MAP.get(key)
     if not chosen:
@@ -207,10 +236,17 @@ def _apply_override_if_valid(key: str):
     total = EVENT_TOTALS.get(key)
     if total is None:
         # try to read from any loaded DB
-        payload = (CHARACTERS_EVENT_DATABASE.get(key)
-                   or SUPPORT_EVENT_DATABASE.get(key)
-                   or SCENARIOS_EVENT_DATABASE.get(key) or {})
-        total = len((payload.get("choices") or {})) or len((payload.get("stats") or {})) or 0
+        payload = (
+            CHARACTERS_EVENT_DATABASE.get(key)
+            or SUPPORT_EVENT_DATABASE.get(key)
+            or SCENARIOS_EVENT_DATABASE.get(key)
+            or {}
+        )
+        total = (
+            len((payload.get("choices") or {}))
+            or len((payload.get("stats") or {}))
+            or 0
+        )
     if 1 <= chosen <= total:
         info(f"[Custom DB] Exact match: {key} → choice {chosen}")
         return chosen

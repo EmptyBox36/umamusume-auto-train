@@ -11,6 +11,8 @@ export type Skill = {
   skill_pts_check: number;
   skill_list: string[];
   desire_skill: string[];
+  max_cost?: number;
+  min_discount?: number;
 };
 
 export type RaceScheduleType = {

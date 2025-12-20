@@ -230,6 +230,7 @@ def on_skill(x, y, w, h, ctx):
 
 
 def buy_skill(MAX_COST=240, MIN_DISCOUNT=30):
+
     collect_ctx = {
         "mode": "collect",
         "skills": [],

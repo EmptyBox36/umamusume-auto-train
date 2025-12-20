@@ -64,16 +64,17 @@ def inject_purchased_skills(page):
         if not add_skill_btn:
             warning("'Add Skill' button not found!")
             return False
+        
+        # Open picker
+        add_skill_btn.click()
+        picker_wrapper = page.wait_for_selector(
+            ".horseSkillPickerWrapper", timeout=5000
+        )
 
         try:
             # Wait for specific skill to appear
             skill_elem = picker_wrapper.wait_for_selector(
                 f'.skill:has(.skillName:text("{skill_name}"))', timeout=5000
-            )
-            # Open picker
-            add_skill_btn.click()
-            picker_wrapper = page.wait_for_selector(
-                ".horseSkillPickerWrapper", timeout=5000
             )
             skill_elem.click()
             time.sleep(0.2)  # UI register time
@@ -288,7 +289,7 @@ def select_best_skills_by_mean():
     scan_ctx = {
         "mode": "collect",
         "skills": [],
-        "MIN_COST": 999,
+        "MAX_COST": 999,
         "MIN_DISCOUNT": 0,
         "found": False,
     }
@@ -353,7 +354,7 @@ def select_best_skills_by_mean():
     buy_ctx = {
         "mode": "buy",
         "skills": selected,
-        "MIN_COST": 999,
+        "MAX_COST": 999,
         "MIN_DISCOUNT": 0,
         "found": False,
     }
