@@ -23,90 +23,88 @@ def is_skill_match(
     if not skill_list:
         return True
 
-    racecourses = [
-        "Tokyo",
-        "Nakayama",
-        "Hanshin",
-        "Kyoto",
-        "Chukyo",
-        "Sapporo",
-        "Hakodate",
-        "Fukushima",
-        "Niigata",
-        "Kokura",
-        "Oi",
-    ]
+    # keywords and racecourses (all lowercase for comparisons)
 
-    specific_keywords = racecourses + [
-        "Sprint",
-        "Mile",
-        "Medium",
-        "Long",
-        "Short",
-        "Turf",
-        "Dirt",
-        "Front",
-        "Pace",
-        "Late",
-        "End",
-    ]
+    specific_keywords = [
+            "tokyo",
+            "nakayama",
+            "hanshin",
+            "kyoto",
+            "chukyo",
+            "sapporo",
+            "hakodate",
+            "fukushima",
+            "niigata",
+            "kokura",
+            "oi",
+            "sprint",
+            "mile",
+            "medium",
+            "long",
+            "short",
+            "turf",
+            "dirt",
+            "front",
+            "pace",
+            "late",
+            "end",
+            "ignited spirit",
+            "burning spirit",
+        ]
 
-    text_lower = text.lower()
+    text_lower = (text or "").lower().strip()
     text_words = set(text_lower.split())
 
-    text_specific_keyword = None
-    for keyword in specific_keywords:
-        if keyword.lower() in text_lower:
-            text_specific_keyword = keyword
-            break
+    # fast path: empty text
+    if not text_lower:
+        return False
+
+    # determine if text contains any keyword
+    text_keywords = {k for k in specific_keywords if k in text_lower}
 
     for skill in skill_list:
-        skill_lower = skill.lower()
-        skill_words = set(skill_lower.split())
-
-        skill_specific_keyword = None
-        for keyword in specific_keywords:
-            if keyword.lower() in skill_lower:
-                skill_specific_keyword = keyword
-                break
+        skill_lower = (skill or "").lower().strip()
+        if not skill_lower:
+            continue
 
         similarity = Levenshtein.ratio(text_lower, skill_lower)
 
-        common_words = text_words & skill_words
+        # no special prefix handling — prefixes are treated as normal keywords
+
+        # keyword-aware stricter matching: if either contains any specific keyword
+        skill_keywords = {k for k in specific_keywords if k in skill_lower}
+        shared_keywords = text_keywords & skill_keywords
+        if shared_keywords:
+            if similarity >= 0.85:
+                debug(f"Keyword match ({shared_keywords}): '{text}' ~ '{skill}' ({similarity:.2f})")
+                return True
+            else:
+                continue
+
+        # if only one side contains a keyword, require very strict similarity
+        if (text_keywords and not skill_keywords) or (skill_keywords and not text_keywords):
+            if similarity >= 0.92:
+                debug(f"Strict keyword-side match: '{text}' ~ '{skill}' ({similarity:.2f})")
+                return True
+            continue
+
+        # fallback: general string similarity or strong word overlap
+        common_words = text_words & set(skill_lower.split())
         word_overlap = (
-            len(common_words) / max(len(text_words), len(skill_words))
-            if max(len(text_words), len(skill_words)) > 0
+            len(common_words) / max(len(text_words), len(skill_lower.split()))
+            if max(len(text_words), len(skill_lower.split())) > 0
             else 0
         )
 
-        if text_specific_keyword and skill_specific_keyword:
-            if (
-                text_specific_keyword.lower() == skill_specific_keyword.lower()
-                and similarity >= 0.9
-            ):
-                debug(f"Specific skill match: '{text}' ~ '{skill}' ({similarity:.2f})")
-                return True
+        if similarity >= threshold:
+            debug(f"General skill match (string): '{text}' ~ '{skill}' ({similarity:.2f})")
+            return True
 
-        elif skill_specific_keyword and not text_specific_keyword:
-            if similarity >= 0.9:
-                debug(f"Specific skill match: '{text}' ~ '{skill}' ({similarity:.2f})")
-                return True
-
-        elif text_specific_keyword and not skill_specific_keyword:
-            continue
-
-        else:
-            if similarity >= threshold:
-                debug(
-                    f"General skill match (string): '{text}' ~ '{skill}' ({similarity:.2f})"
-                )
-                return True
-            elif word_overlap >= 0.85 and len(common_words) >= 3:
-                debug(
-                    f"General skill match (word reorder): "
-                    f"'{text}' ~ '{skill}' (overlap: {word_overlap:.2f})"
-                )
-                return True
+        if word_overlap >= 0.85 and len(common_words) >= 3:
+            debug(
+                f"General skill match (word reorder): '{text}' ~ '{skill}' (overlap: {word_overlap:.2f})"
+            )
+            return True
 
     debug(f"No match for '{text}'")
     return False

@@ -64,23 +64,57 @@ def inject_purchased_skills(page):
         if not add_skill_btn:
             warning("'Add Skill' button not found!")
             return False
-        
-        # Open picker
-        add_skill_btn.click()
-        picker_wrapper = page.wait_for_selector(
-            ".horseSkillPickerWrapper", timeout=5000
-        )
+        # Determine if the picker is already open
+        picker_open = page.query_selector(".horseSkillPickerWrapper.open")
+        we_opened = False
+
+        if not picker_open:
+            # Open picker (but only if it's not already open)
+            try:
+                add_skill_btn.click()
+                # Wait for the picker to appear
+                try:
+                    page.wait_for_selector(".horseSkillPickerWrapper.open", timeout=5000)
+                except Exception:
+                    # Fallback to any wrapper
+                    page.wait_for_selector(".horseSkillPickerWrapper", timeout=2000)
+                we_opened = True
+            except Exception:
+                # If click failed but picker is open now, continue; otherwise error
+                if not page.query_selector(".horseSkillPickerWrapper.open"):
+                    warning("Failed to open skill picker")
+                    return False
+
+        time.sleep(0.2)  # UI register time
 
         try:
-            # Wait for specific skill to appear
+            picker_wrapper = page.query_selector(".horseSkillPickerWrapper")
+            # Wait for specific skill to appear inside the picker
             skill_elem = picker_wrapper.wait_for_selector(
-                f'.skill:has(.skillName:text("{skill_name}"))', timeout=5000
+                f'.skill:has(.skillName:text("{skill_name}"))', timeout=3000
             )
             skill_elem.click()
             time.sleep(0.2)  # UI register time
+
+            # After selecting, wait for the picker to close if it does
+            try:
+                page.wait_for_selector(".horseSkillPickerWrapper.open", state="detached", timeout=3000)
+            except Exception:
+                # Not critical if it stays open
+                pass
+
             return True
         except Exception:
             warning(f"Skill not found in picker: {skill_name}")
+            # If we opened the picker for this attempt, try to close it so next attempt can reopen cleanly
+            if we_opened:
+                try:
+                    add_skill_btn.click()
+                except Exception:
+                    try:
+                        page.keyboard.press("Escape")
+                    except Exception:
+                        pass
             return False
 
     for skill_name in state.PURCHASED_SKILLS:
