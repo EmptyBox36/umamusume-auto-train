@@ -804,6 +804,44 @@
             }
         }
     },
+    "(❯❯) Are U the Problem?": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 10.0,
+                "Guts": 15.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Go with the Flow"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 15.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 20.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 10.0,
+                "Speed": 10.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
     "Ikuno-Style Flawless Method": {
         "choices": {
             "1": "Choice 1",
@@ -3225,44 +3263,6 @@
                 "Speed": 0.0,
                 "Stamina": 0.0,
                 "Wit": 10.0,
-                "random": false
-            }
-        }
-    },
-    "(❯❯) Paying It Forward": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 10.0,
-                "Max Energy": 0.0,
-                "Mood": 1.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Straightaway Adept"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
                 "random": false
             }
         }
@@ -7599,6 +7599,44 @@
                 "Stamina": 0.0,
                 "Wit": 0.0,
                 "random": false
+            }
+        }
+    },
+    "(❯❯) Guidance and Friends": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 45.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -20.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Right-Handed ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": true
             }
         }
     },
