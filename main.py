@@ -10,7 +10,7 @@ import pyautogui
 import pygetwindow as gw
 import utils.constants as constants
 import uvicorn
-from core.WebSkills import select_best_skills_by_mean
+from core.WebSkills import select_best_skills_by_mean, fetch_and_save_presets
 from server.live_log import attach_web_log_handler
 from server.main import app
 from update_config import update_config
@@ -186,6 +186,7 @@ def start_server():
 if __name__ == "__main__":
     attach_web_log_handler()
     update_config()
+    fetch_and_save_presets()
     threading.Thread(target=hotkey_listener, daemon=True).start()
     threading.Thread(target=buy_skill_hotkey_listener, daemon=True).start()
     start_server()

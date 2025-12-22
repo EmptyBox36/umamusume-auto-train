@@ -81,6 +81,7 @@ function App() {
   const [presetName, setPresetName] = useState<string>("");
   const [traineeOptions, setTraineeOptions] = useState<string[]>([]);
   const [scenarioOptions, setScenarioOptions] = useState<string[]>([]);
+  const [umalatorPresets, setUmalatorPresets] = useState<{ label: string; value: string }[]>([]);
 
   const isReadOnly =
     typeof window !== "undefined" &&
@@ -115,6 +116,19 @@ function App() {
       .then((r) => r.json())
       .then((j) => setScenarioOptions(Object.keys(j).sort()))
       .catch(() => setScenarioOptions([]));
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const r = await fetch("/scraper/data/preset_names.json", { cache: "no-store" });
+        const j = await r.json();
+        const presets = (j?.presets ?? []).filter((p: any) => (p?.label ?? "").trim() !== "");
+        setUmalatorPresets(presets);
+      } catch (e) {
+        setUmalatorPresets([]);
+      }
+    })();
   }, []);
 
   const {
@@ -543,12 +557,33 @@ function App() {
                     updateConfig("skill", { ...skill, is_auto_buy_skill: val })
                   }
                 />
-                <SkillPtsCheck
-                  skillPtsCheck={skill_pts_check}
-                  setSkillPtsCheck={(val) =>
-                    updateConfig("skill", { ...skill, skill_pts_check: val })
-                  }
-                />
+                <div className="flex flex-col md:flex-row gap-2 md:items-center">
+                  <div className="flex-1 md:flex md:items-center md:gap-4">
+                    <SkillPtsCheck
+                      skillPtsCheck={skill_pts_check}
+                      setSkillPtsCheck={(val) =>
+                        updateConfig("skill", { ...skill, skill_pts_check: val })
+                      }
+                    />
+
+                    <div className="w-64">
+                      <label className="text-sm font-medium text-primary">Race Preset</label>
+                      <select
+                        className="mt-1 w-full bg-card border border-border/20 rounded-md p-2"
+                        value={(skill?.preset_name ?? "") as string}
+                        onChange={(e) => updateConfig("skill", { ...skill, preset_name: e.target.value })}
+                      >
+                        <option value="">(none)</option>
+                        {umalatorPresets.map((p) => (
+                          <option key={p.value ?? p.label} value={p.label}>
+                            {p.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex flex-col md:flex-row gap-2 md:items-center">
                   <div className="flex-1">
                     <label className="text-sm font-medium text-primary">Max Skill Cost</label>

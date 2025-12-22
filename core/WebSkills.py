@@ -1,5 +1,7 @@
 # WebSkills.py
 import time
+import json
+from pathlib import Path
 
 import core.state as state
 from core.ocr import extract_text
@@ -59,7 +61,9 @@ def inject_purchased_skills(page):
                 add_skill_btn.click()
                 # Wait for the picker to appear
                 try:
-                    page.wait_for_selector(".horseSkillPickerWrapper.open", timeout=5000)
+                    page.wait_for_selector(
+                        ".horseSkillPickerWrapper.open", timeout=5000
+                    )
                 except Exception:
                     # Fallback to any wrapper
                     page.wait_for_selector(".horseSkillPickerWrapper", timeout=2000)
@@ -81,14 +85,15 @@ def inject_purchased_skills(page):
             time.sleep(0.2)  # UI register time
 
             # After selecting, wait for the picker to close if it does
-            page.wait_for_selector(".horseSkillPickerWrapper.open", state="detached", timeout=3000)
+            page.wait_for_selector(
+                ".horseSkillPickerWrapper.open", state="detached", timeout=3000
+            )
 
             found = True
         except Exception:
             warning(f"Skill not found in picker: {skill_name}")
             found = False
-        
-        
+
         # Click outside the picker to close it
         try:
             overlay = page.query_selector(".horseSkillPickerOverlay")
@@ -265,6 +270,57 @@ def run_umalator_sim(
         browser.close()
         skills.sort(key=lambda s: s["mean"], reverse=True)
         return skills
+
+
+def fetch_and_save_presets(url: str = UMALATOR_URL, out_path: str = "scraper/data/preset_names.json") -> list:
+    """Fetch preset options from the Umalator page and save them to JSON.
+
+    Returns a list of {label, value} objects.
+    """
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+            page.goto(url, timeout=15000)
+
+            # Try well-known select id first, then fall back to the first <select>
+            select_el = None
+            try:
+                select_el = page.wait_for_selector("select#P0-0", timeout=5000)
+            except Exception:
+                try:
+                    select_el = page.wait_for_selector("select", timeout=5000)
+                except Exception:
+                    select_el = None
+
+            presets: list[dict] = []
+            if select_el:
+                for opt in select_el.query_selector_all("option"):
+                    try:
+                        label = opt.inner_text().strip()
+                        value = opt.get_attribute("value")
+                        # Exclude empty labels and sentinel values
+                        if not label:
+                            continue
+                        if str(value) == "-1":
+                            continue
+                        presets.append({"label": label, "value": value})
+                    except Exception:
+                        continue
+
+            browser.close()
+
+        # Ensure directory exists and write file
+        out_file = Path(out_path)
+        out_file.parent.mkdir(parents=True, exist_ok=True)
+        with out_file.open("w", encoding="utf-8") as f:
+            json.dump({"presets": presets}, f, ensure_ascii=False, indent=2)
+
+        info(f"Saved {len(presets)} presets to {out_path}")
+        return presets
+    except Exception as e:
+        error(f"Failed to fetch/save presets from {url}: {e}")
+        return []
 
 
 # =========================

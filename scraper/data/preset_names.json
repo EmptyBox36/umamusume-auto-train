@@ -1,0 +1,32 @@
+{
+  "presets": [
+    {
+      "label": "Scorpio Cup",
+      "value": "0"
+    },
+    {
+      "label": "Libra Cup",
+      "value": "1"
+    },
+    {
+      "label": "Virgo Cup",
+      "value": "2"
+    },
+    {
+      "label": "Leo Cup",
+      "value": "3"
+    },
+    {
+      "label": "Cancer Cup",
+      "value": "4"
+    },
+    {
+      "label": "Gemini Cup",
+      "value": "5"
+    },
+    {
+      "label": "Taurus Cup",
+      "value": "6"
+    }
+  ]
+}

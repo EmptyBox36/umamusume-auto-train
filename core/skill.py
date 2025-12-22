@@ -26,31 +26,31 @@ def is_skill_match(
     # keywords and racecourses (all lowercase for comparisons)
 
     specific_keywords = [
-            "tokyo",
-            "nakayama",
-            "hanshin",
-            "kyoto",
-            "chukyo",
-            "sapporo",
-            "hakodate",
-            "fukushima",
-            "niigata",
-            "kokura",
-            "oi",
-            "sprint",
-            "mile",
-            "medium",
-            "long",
-            "short",
-            "turf",
-            "dirt",
-            "front",
-            "pace",
-            "late",
-            "end",
-            "ignited spirit",
-            "burning spirit",
-        ]
+        "tokyo",
+        "nakayama",
+        "hanshin",
+        "kyoto",
+        "chukyo",
+        "sapporo",
+        "hakodate",
+        "fukushima",
+        "niigata",
+        "kokura",
+        "oi",
+        "sprint",
+        "mile",
+        "medium",
+        "long",
+        "short",
+        "turf",
+        "dirt",
+        "front",
+        "pace",
+        "late",
+        "end",
+        "ignited spirit",
+        "burning spirit",
+    ]
 
     text_lower = (text or "").lower().strip()
     text_words = set(text_lower.split())
@@ -87,7 +87,9 @@ def is_skill_match(
         )
 
         if similarity >= threshold:
-            debug(f"General skill match (string): '{text}' ~ '{skill}' ({similarity:.2f})")
+            debug(
+                f"General skill match (string): '{text}' ~ '{skill}' ({similarity:.2f})"
+            )
             return True
 
         if word_overlap >= 0.85 and len(common_words) >= 3:

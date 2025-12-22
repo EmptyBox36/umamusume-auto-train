@@ -12,6 +12,7 @@ export type Skill = {
   skill_list: string[];
   desire_skill: string[];
   skill_blacklist?: string[];
+  preset_name?: string;
   max_cost?: number;
   min_discount?: number;
 };

@@ -204,7 +204,7 @@ def decide_race_for_goal(year, turn, criteria, keywords):
 
     keywords = [k.casefold() for k in keywords]
     criteria_text = (criteria or "").casefold()
-    
+
     if any(word in criteria_text for word in keywords):
         info("Criteria word found. Trying to find races.")
 
