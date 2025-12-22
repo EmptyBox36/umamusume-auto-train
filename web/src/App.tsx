@@ -162,7 +162,7 @@ function App() {
   } = failure;
 
   const { use_optimal_event_choices } = event;
-  const { is_auto_buy_skill, skill_pts_check, skill_list, desire_skill, max_cost, min_discount } = skill;
+  const { is_auto_buy_skill, skill_pts_check, skill_list, desire_skill, max_cost, min_discount, skill_blacklist } = skill;
 
   // When read-only, updates only affect local UI state; nothing will be saved on disk.
   const updateConfig = <K extends keyof typeof config>(
@@ -591,6 +591,21 @@ function App() {
                     })
                   }
                 />
+                <div className="mt-4">
+                  <SkillList
+                    title="Skill Blacklist"
+                    list={skill_blacklist ?? []}
+                    addSkillList={(val) =>
+                      updateConfig("skill", { ...skill, skill_blacklist: [val, ...(skill_blacklist ?? [])] })
+                    }
+                    deleteSkillList={(val) =>
+                      updateConfig("skill", {
+                        ...skill,
+                        skill_blacklist: (skill_blacklist ?? []).filter((s) => s !== val),
+                      })
+                    }
+                  />
+                </div>
               </div>
             </div>
 
