@@ -69,22 +69,12 @@ def is_skill_match(
 
         similarity = Levenshtein.ratio(text_lower, skill_lower)
 
-        # no special prefix handling — prefixes are treated as normal keywords
-
-        # keyword-aware stricter matching: if either contains any specific keyword
         skill_keywords = {k for k in specific_keywords if k in skill_lower}
-        shared_keywords = text_keywords & skill_keywords
-        if shared_keywords:
-            if similarity >= 0.85:
-                debug(f"Keyword match ({shared_keywords}): '{text}' ~ '{skill}' ({similarity:.2f})")
-                return True
-            else:
-                continue
 
-        # if only one side contains a keyword, require very strict similarity
-        if (text_keywords and not skill_keywords) or (skill_keywords and not text_keywords):
-            if similarity >= 0.92:
-                debug(f"Strict keyword-side match: '{text}' ~ '{skill}' ({similarity:.2f})")
+        # If either side contains any specific keyword, require a strict match
+        if text_keywords or skill_keywords:
+            if similarity >= 0.93:
+                debug(f"Keyword-strict match: '{text}' ~ '{skill}' ({similarity:.2f})")
                 return True
             continue
 

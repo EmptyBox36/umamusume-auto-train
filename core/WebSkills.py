@@ -26,13 +26,6 @@ RUNNING_STYLE_MAP = {
 
 UMALATOR_URL = "https://alpha123.github.io/uma-tools/umalator-global/"
 
-# =========================
-# MANUAL SKILL BLACKLIST
-# =========================
-
-# Skill blacklist is now configurable via `config.json` and loaded into `core.state.SKILL_BLACKLIST`.
-# The code below will consult `state.SKILL_BLACKLIST` at runtime.
-
 
 # =========================
 # UTILS
