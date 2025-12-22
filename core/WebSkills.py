@@ -30,15 +30,8 @@ UMALATOR_URL = "https://alpha123.github.io/uma-tools/umalator-global/"
 # MANUAL SKILL BLACKLIST
 # =========================
 
-SKILL_BLACKLIST = {
-    "Maverick ◎",
-    "Maverick ○",
-    "Sympathy",
-    "Lone Wolf",
-    "Competitive Spirit ◎",
-    "Competitive Spirit ○",
-    "Wallflower",
-}
+# Skill blacklist is now configurable via `config.json` and loaded into `core.state.SKILL_BLACKLIST`.
+# The code below will consult `state.SKILL_BLACKLIST` at runtime.
 
 
 # =========================
@@ -66,7 +59,6 @@ def inject_purchased_skills(page):
             return False
         # Determine if the picker is already open
         picker_open = page.query_selector(".horseSkillPickerWrapper.open")
-        we_opened = False
 
         if not picker_open:
             # Open picker (but only if it's not already open)
@@ -78,7 +70,6 @@ def inject_purchased_skills(page):
                 except Exception:
                     # Fallback to any wrapper
                     page.wait_for_selector(".horseSkillPickerWrapper", timeout=2000)
-                we_opened = True
             except Exception:
                 # If click failed but picker is open now, continue; otherwise error
                 if not page.query_selector(".horseSkillPickerWrapper.open"):
@@ -97,25 +88,37 @@ def inject_purchased_skills(page):
             time.sleep(0.2)  # UI register time
 
             # After selecting, wait for the picker to close if it does
-            try:
-                page.wait_for_selector(".horseSkillPickerWrapper.open", state="detached", timeout=3000)
-            except Exception:
-                # Not critical if it stays open
-                pass
+            page.wait_for_selector(".horseSkillPickerWrapper.open", state="detached", timeout=3000)
 
-            return True
+            found = True
         except Exception:
             warning(f"Skill not found in picker: {skill_name}")
-            # If we opened the picker for this attempt, try to close it so next attempt can reopen cleanly
-            if we_opened:
+            found = False
+        
+        
+        # Click outside the picker to close it
+        try:
+            overlay = page.query_selector(".horseSkillPickerOverlay")
+            if overlay:
+                overlay.click()
+            else:
+                # Click just outside the wrapper (to the right) as a fallback
                 try:
-                    add_skill_btn.click()
+                    box = picker_wrapper.bounding_box()
+                    if box:
+                        x = box["x"] + box["width"] + 8
+                        y = box["y"] + box["height"] / 2
+                        page.mouse.click(x, y)
                 except Exception:
+                    # As a last resort, click near the top-left corner
                     try:
-                        page.keyboard.press("Escape")
+                        page.mouse.click(10, 10)
                     except Exception:
                         pass
-            return False
+        except Exception:
+            pass
+
+        return found
 
     for skill_name in state.PURCHASED_SKILLS:
         if is_excluded_uma_skill(skill_name):
@@ -130,9 +133,13 @@ def inject_purchased_skills(page):
 
 
 def is_excluded_uma_skill(name: str) -> bool:
-    # Explicit blacklist
-    if name in SKILL_BLACKLIST:
-        return True
+    # Explicit blacklist from config (loaded into state.SKILL_BLACKLIST)
+    try:
+        if name in state.SKILL_BLACKLIST:
+            return True
+    except Exception:
+        # State may not be initialized; fall back to no explicit blacklist
+        pass
 
     # Exclude prerequisite-tier skills (○)
     if name.strip().endswith("○"):
@@ -144,10 +151,10 @@ def is_excluded_uma_skill(name: str) -> bool:
 def adjust_skill_cost(name: str, cost: int) -> int:
     """
     ◎ skills require buying the ○ prerequisite.
-    Approximate by doubling the cost.
+    Approximate by increasing the cost proportionally
     """
     if name.strip().endswith("◎"):
-        return cost * 2
+        return cost * 20 / 9
     return cost
 
 
