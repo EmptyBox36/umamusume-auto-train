@@ -336,7 +336,6 @@ def after_race():
   )
 
   if not ok:
-    state.FAN_COUNT == -1
     info("Fans label not detected.")
     return
   
