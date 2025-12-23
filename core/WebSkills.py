@@ -44,81 +44,6 @@ def inject_purchased_skills(page):
     after chart mode is selected.
     """
 
-    def click_skill(page, skill_name: str):
-        """
-        Open picker, wait for skill to appear, then click the skill.
-        Returns True if skill was successfully clicked.
-        """
-        add_skill_btn = page.query_selector("div.skill.addSkillButton")
-        if not add_skill_btn:
-            warning("'Add Skill' button not found!")
-            return False
-        # Determine if the picker is already open
-        picker_open = page.query_selector(".horseSkillPickerWrapper.open")
-
-        if not picker_open:
-            # Open picker (but only if it's not already open)
-            try:
-                add_skill_btn.click()
-                # Wait for the picker to appear
-                try:
-                    page.wait_for_selector(
-                        ".horseSkillPickerWrapper.open", timeout=5000
-                    )
-                except Exception:
-                    # Fallback to any wrapper
-                    page.wait_for_selector(".horseSkillPickerWrapper", timeout=2000)
-            except Exception:
-                # If click failed but picker is open now, continue; otherwise error
-                if not page.query_selector(".horseSkillPickerWrapper.open"):
-                    warning("Failed to open skill picker")
-                    return False
-
-        time.sleep(0.2)  # UI register time
-
-        try:
-            picker_wrapper = page.query_selector(".horseSkillPickerWrapper")
-            # Wait for specific skill to appear inside the picker
-            skill_elem = picker_wrapper.wait_for_selector(
-                f'.skill:has(.skillName:text("{skill_name}"))', timeout=3000
-            )
-            skill_elem.click()
-            time.sleep(0.2)  # UI register time
-
-            # After selecting, wait for the picker to close if it does
-            page.wait_for_selector(
-                ".horseSkillPickerWrapper.open", state="detached", timeout=3000
-            )
-
-            found = True
-        except Exception:
-            warning(f"Skill not found in picker: {skill_name}")
-            found = False
-
-        # Click outside the picker to close it
-        try:
-            overlay = page.query_selector(".horseSkillPickerOverlay")
-            if overlay:
-                overlay.click()
-            else:
-                # Click just outside the wrapper (to the right) as a fallback
-                try:
-                    box = picker_wrapper.bounding_box()
-                    if box:
-                        x = box["x"] + box["width"] + 8
-                        y = box["y"] + box["height"] / 2
-                        page.mouse.click(x, y)
-                except Exception:
-                    # As a last resort, click near the top-left corner
-                    try:
-                        page.mouse.click(10, 10)
-                    except Exception:
-                        pass
-        except Exception:
-            pass
-
-        return found
-
     for skill_name in state.PURCHASED_SKILLS:
         if is_excluded_uma_skill(skill_name):
             debug(f"Skipping blacklisted skill: {skill_name}")
@@ -129,6 +54,62 @@ def inject_purchased_skills(page):
             info(f"Selected purchased skill: {skill_name}")
         else:
             warning(f"Purchased skill not available in simulator: {skill_name}")
+
+def click_skill(page, skill_name: str):
+    """
+    Open picker, wait for skill to appear, then click the skill.
+    Returns True if skill was successfully clicked.
+    """
+
+    add_skill_btn = page.query_selector("div.skill.addSkillButton")
+    if not add_skill_btn:
+        warning("'Add Skill' button not found!")
+        return False
+    # Determine if the picker is already open
+    picker_open = page.query_selector(".horseSkillPickerWrapper.open")
+
+    if not picker_open:
+        # Open picker (but only if it's not already open)
+        try:
+            add_skill_btn.click()
+            # Wait for the picker to appear
+            try:
+                page.wait_for_selector(
+                    ".horseSkillPickerWrapper.open", timeout=5000
+                )
+            except Exception:
+                # Fallback to any wrapper
+                page.wait_for_selector(".horseSkillPickerWrapper", timeout=2000)
+        except Exception:
+            # If click failed but picker is open now, continue; otherwise error
+            if not page.query_selector(".horseSkillPickerWrapper.open"):
+                warning("Failed to open skill picker")
+                return False
+
+    time.sleep(0.2)  # UI register time
+
+    try:
+        picker_wrapper = page.query_selector(".horseSkillPickerWrapper")
+        # Wait for specific skill to appear inside the picker
+        skill_elem = picker_wrapper.wait_for_selector(
+            f'.skill:has(.skillName:text("{skill_name}"))', timeout=3000
+        )
+        skill_elem.click()
+        time.sleep(0.2)  # UI register time
+
+        # After selecting, wait for the picker to close if it does
+        page.wait_for_selector(
+            ".horseSkillPickerWrapper.open", state="detached", timeout=3000
+        )
+
+        found = True
+        return found
+    except Exception:
+        # If skill not found, try to close picker and return False
+        warning(f"Skill not found in picker: {skill_name}")
+        page.mouse.click(10, 10)
+        found = False
+    return found
 
 
 def is_excluded_uma_skill(name: str) -> bool:
@@ -363,6 +344,29 @@ def select_best_skills_by_mean():
         debug("Using stat caps")
         umastats = state.STAT_CAPS
 
+    # --- OCR scan (collect mode) ---
+    scan_ctx = {
+        "mode": "collect",
+        "skills": [],
+        "MAX_COST": 999,
+        "MIN_DISCOUNT": 0,
+        "found": False,
+    }
+
+    click(img="assets/buttons/finale_skills.png")
+    sleep(0.5)
+    scan_skills(scan_ctx)
+    sleep(0.5)
+    click(img="assets/buttons/back_btn.png")
+    sleep(0.5)
+
+    if not scan_ctx["skills"]:
+        info("No matching skills found. Exiting early.")
+        return []
+    
+    click(img="assets/buttons/skills_btn.png")
+    sleep(0.5)
+
     # --- Run Umalator ---
     uma_results = run_umalator_sim(
         preset_name=preset_name, uma_stats=umastats, running_style=state.PREFERRED_POSITION
@@ -379,24 +383,6 @@ def select_best_skills_by_mean():
     }
 
     debug(f"Allowed Umalator skills: {len(allowed_uma)}")
-
-    # --- OCR scan (collect mode) ---
-    scan_ctx = {
-        "mode": "collect",
-        "skills": [],
-        "MAX_COST": 999,
-        "MIN_DISCOUNT": 0,
-        "found": False,
-    }
-
-    click(img="assets/buttons/finale_skills.png")
-    sleep(0.5)
-    scan_skills(scan_ctx)
-    sleep(0.5)
-    click(img="assets/buttons/back_btn.png")
-    sleep(0.5)
-    click(img="assets/buttons/skills_btn.png")
-    sleep(0.5)
 
     # --- Merge OCR → Umalator (UMA-gated) ---
     merged = []
@@ -416,7 +402,7 @@ def select_best_skills_by_mean():
         warning("No OCR skills matched allowed Umalator skills")
         return []
 
-    # --- Deduplicate ---
+    # --- Deduplicate If needed ---
     unique = {}
     for s in merged:
         if s["name"] not in unique or s["mean"] > unique[s["name"]]["mean"]:
@@ -441,6 +427,10 @@ def select_best_skills_by_mean():
 
     _, best_idxs = max(dp, key=lambda x: x[0])
     selected = [candidates[i] for i in best_idxs]
+
+    if not selected:
+        info("No matching skills found. Exiting early.")
+        return []
 
     debug("Final selected skills:")
     for s in selected:

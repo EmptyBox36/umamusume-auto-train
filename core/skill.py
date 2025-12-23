@@ -196,16 +196,19 @@ def on_skill(x, y, w, h, ctx):
 
     if discount < ctx["MIN_DISCOUNT"] or cost > ctx["MAX_COST"]:
         return False
+    
+    normalized_name = skill_name.strip()
+    selected_skill_names = {s["name"].strip() for s in ctx["skills"]}
 
     if ctx["mode"] == "collect":
-        ctx["skills"].append({"name": skill_name, "discount": discount, "cost": cost})
+        # Normalize name and avoid duplicates in collect mode
+        if normalized_name in selected_skill_names:
+            return False
+        else:
+            ctx["skills"].append({"name": normalized_name, "discount": discount, "cost": cost})
+            info(f"Collected {normalized_name} (discount: {discount}%, cost: {cost})")
 
     elif ctx["mode"] == "buy":
-        selected_skill_names = {s["name"] for s in ctx["skills"]}
-
-        # normalize name to reduce OCR variance
-        normalized_name = skill_name.strip()
-
         if normalized_name in selected_skill_names:
             if is_btn_active((x, y, w, h)):
                 info(f"Buy {normalized_name}")
@@ -231,12 +234,13 @@ def buy_skill(MAX_COST=240, MIN_DISCOUNT=30):
 
     scan_skills(collect_ctx, skill_list=state.SKILL_LIST)
 
+    click(img="assets/buttons/back_btn.png")
+    sleep(0.5)
+
     if not collect_ctx["skills"]:
         info("No matching skills found. Exiting early.")
         return False
-
-    click(img="assets/buttons/back_btn.png")
-    sleep(0.5)
+    
     click(img="assets/buttons/skills_btn.png")
     sleep(0.5)
 

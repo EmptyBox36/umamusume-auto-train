@@ -135,10 +135,18 @@
     ],
     "desire_skill": [
       "Lone Wolf"
-    ]
-    ,
+    ],
     "max_cost": 240,
-    "min_discount": 30
+    "min_discount": 30,
+    "preset_name": "Scorpio Cup",
+    "skill_blacklist": [
+      "Wallflower",
+      "Competitive Spirit \u25cb",
+      "Competitive Spirit \u25ce",
+      "Maverick \u25cb",
+      "Maverick \u25ce",
+      "Sympathy"
+    ]
   },
   "window_name": "LDPlayer",
   "event": {
