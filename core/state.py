@@ -59,6 +59,7 @@ RUN_RACE_ON_POOR_TRAINING = None
 VIRTUAL_TURN = None
 PURCHASED_SKILLS: list[str] = []
 SKILL_BLACKLIST = set()
+SKILL_PRESET_NAME = ""
 
 
 TURN_REGION = (0, 0, 0, 0)
@@ -81,7 +82,7 @@ def reload_config():
     global WINDOW_NAME, RACE_SCHEDULE, CONFIG_NAME
     global USE_OPTIMAL_EVENT_CHOICES, HINT_POINT, TRAINEE_NAME, CHOICE_WEIGHT, SCENARIO_NAME, JUNIOR_YEAR_STAT_PRIORITIZE, USE_PRIORITY_ON_CHOICE, EVENT_CHOICES
     global ENABLE_CUSTOM_FAILURE_CHANCE, ENABLE_CUSTOM_LOW_FAILURE, ENABLE_CUSTOM_HIGH_FAILURE, LOW_FAILURE_CONDITION, HIGH_FAILURE_CONDITION
-    global IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST, DESIRE_SKILL, SKILL_MAX_COST, SKILL_MIN_DISCOUNT, SKILL_BLACKLIST
+    global IS_AUTO_BUY_SKILL, SKILL_PTS_CHECK, SKILL_LIST, DESIRE_SKILL, SKILL_MAX_COST, SKILL_MIN_DISCOUNT, SKILL_BLACKLIST, SKILL_PRESET_NAME
     global TURN_REGION, YEAR_REGION, FAILURE_REGION, FAILURE_PERCENT_REGION, TURN_NUMBER_REGION
     global UNITY_TEAM_PREFERENCE, UNITY_SPIRIT_BURST_POSITION, ENABLE_RACE_SCHEDULE, RUN_RACE_ON_POOR_TRAINING, PURCHASED_SKILLS
 
@@ -102,9 +103,7 @@ def reload_config():
     PRIORITY_EFFECTS_LIST = {i: v for i, v in enumerate(config["priority_weights"])}
     SKIP_TRAINING_ENERGY = config["skip_training_energy"]
     NEVER_REST_ENERGY = config["never_rest_energy"]
-    SKIP_INFIRMARY_UNLESS_MISSING_ENERGY = config[
-        "skip_infirmary_unless_missing_energy"
-    ]
+    SKIP_INFIRMARY_UNLESS_MISSING_ENERGY = config["skip_infirmary_unless_missing_energy"]
     PREFERRED_POSITION = config["preferred_position"]
     ENABLE_POSITIONS_BY_RACE = config["enable_positions_by_race"]
     POSITIONS_BY_RACE = config["positions_by_race"]
@@ -127,8 +126,8 @@ def reload_config():
     JUNIOR_YEAR_STAT_PRIORITIZE = config["use_prioritize_on_junior"]
     USE_PRIORITY_ON_CHOICE = config["use_priority_on_choice"]
     DESIRE_SKILL = config["skill"]["desire_skill"]
-    # Skill blacklist (optional)
     SKILL_BLACKLIST = set(config["skill"].get("skill_blacklist", []))
+    SKILL_PRESET_NAME = config["skill"].get("preset_name", "")
     # populate skill purchase thresholds
     SKILL_MAX_COST = config["skill"]["max_cost"]
     SKILL_MIN_DISCOUNT = config["skill"]["min_discount"]

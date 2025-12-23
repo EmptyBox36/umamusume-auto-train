@@ -1,6 +1,7 @@
 # WebSkills.py
 import time
 import json
+import math
 from pathlib import Path
 
 import core.state as state
@@ -334,6 +335,10 @@ def select_best_skills_by_mean():
     Umalator defines which skills are allowed and total improvement
     OCR can NEVER introduce new skills
     """
+    preset_name = getattr(state, "SKILL_PRESET_NAME", "") or ""
+    if not preset_name.strip():
+        info("No race preset selected (preset_name empty) — skipping Umalator run")
+        return []
 
     # --- Read SP ---
     screen = enhanced_screenshot(CAREER_COMPLETE_SP_REGION)
@@ -360,7 +365,7 @@ def select_best_skills_by_mean():
 
     # --- Run Umalator ---
     uma_results = run_umalator_sim(
-        uma_stats=umastats, running_style=state.PREFERRED_POSITION
+        preset_name=preset_name, uma_stats=umastats, running_style=state.PREFERRED_POSITION
     )
 
     if not uma_results:
@@ -420,11 +425,12 @@ def select_best_skills_by_mean():
     candidates = list(unique.values())
 
     # --- Knapsack ---
-    max_sp = current_sp
+    max_sp = int(current_sp)
     dp = [(0.0, []) for _ in range(max_sp + 1)]
 
     for idx, skill in enumerate(candidates):
-        cost = skill["cost"]
+        # ensure cost is an integer index (ceil to be conservative)
+        cost = int(math.ceil(skill["cost"]))
         value = skill["mean"]
 
         for sp in range(max_sp, cost - 1, -1):
