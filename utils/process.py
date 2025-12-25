@@ -551,29 +551,28 @@ def race_prep():
 
 
 def after_race():
-    if state.stop_event.is_set():
-        return
-    click(img="assets/buttons/next_btn.png", minSearch=get_secs(5))
-    sleep(0.3)
+  if state.stop_event.is_set():
+    return
+  click(img="assets/buttons/next_btn.png", minSearch=get_secs(5))
+  sleep(0.3)
+  
+  ok, box = wait_for_image(
+    "assets/ui/fans_label.png",
+     timeout=10,
+     confidence=0.85,
+     region=constants.GAME_SCREEN
+  )
 
-    ok, box = wait_for_image(
-        "assets/ui/fans_label.png",
-        timeout=5,
-        confidence=0.85,
-        region=constants.GAME_SCREEN,
-    )
+  if not ok:
+    # If not detect fans label just not update the FAN_COUNT. it was faster
+    info("Fans label not detected.")
+    return
+  
+  fan_region = (box.left + box.width + 11, box.top - box.height + 10, 390, 40)
+  check_fans_after_race(region=fan_region)
 
-    if not ok:
-        state.FAN_COUNT == -1
-        info("Fans label not detected.")
-        return
-
-    fan_region = (box.left + box.width + 11, box.top - box.height + 10, 390, 40)
-    check_fans_after_race(region=fan_region)
-
-    pyautogui.click()
-    click(img="assets/buttons/next2_btn.png", minSearch=get_secs(5))
-
+  pyautogui.click()
+  click(img="assets/buttons/next2_btn.png", minSearch=get_secs(5))
 
 def auto_buy_skill():
     if state.stop_event.is_set():
