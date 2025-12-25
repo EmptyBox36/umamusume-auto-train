@@ -25,6 +25,8 @@ import PositionByRace from "./components/race/PositionByRace";
 import WindowName from "./components/WindowName";
 import SleepMultiplier from "./components/SleepMultiplier";
 import RaceSchedule from "./components/race/RaceSchedule";
+import EnableRaceSchedule from "./components/race/EnableRaceSchedule";
+import RunRaceOnPoorTraining from "./components/race/RunRaceOnPoorTraining";
 import HintPoint from "./components/training/HintPoint";
 import TraineeSelect from "./components/setting/TraineeSelect";
 import OptionalEvent from "./components/Event/OptionalEvent";
@@ -51,8 +53,26 @@ import ScenarioConfig from "./components/setting/ScenarioConfig";
 import SummerPriorityWeights from "./components/training/SummerPriorityWeights";
 import LiveLogDialog from "@/components/LiveLogDialog";
 
+type RawRaceSchedule = {
+  name: string;
+  year: string;
+  date: string;
+};
+
+function normalizeConfig(raw: any): Config {
+  return {
+    ...raw,
+    race_schedule: (raw.race_schedule ?? []).map(
+      (race: RawRaceSchedule, index: number) => ({
+        ...race,
+        turnNumber: index + 1, // ✅ derive here
+      }),
+    ),
+  };
+}
+
 function App() {
-  const defaultConfig = rawConfig as Config;
+  const defaultConfig = normalizeConfig(rawConfig);
 
   const { activeIndex, activeConfig, presets, setActiveIndex, setNamePreset, savePreset } =
     useConfigPreset();
@@ -61,6 +81,7 @@ function App() {
   const [presetName, setPresetName] = useState<string>("");
   const [traineeOptions, setTraineeOptions] = useState<string[]>([]);
   const [scenarioOptions, setScenarioOptions] = useState<string[]>([]);
+  const [umalatorPresets, setUmalatorPresets] = useState<{ label: string; value: string }[]>([]);
 
   const isReadOnly =
     typeof window !== "undefined" &&
@@ -97,6 +118,19 @@ function App() {
       .catch(() => setScenarioOptions([]));
   }, []);
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const r = await fetch("/scraper/data/preset_names.json", { cache: "no-store" });
+        const j = await r.json();
+        const presets = (j?.presets ?? []).filter((p: any) => (p?.label ?? "").trim() !== "");
+        setUmalatorPresets(presets);
+      } catch (e) {
+        setUmalatorPresets([]);
+      }
+    })();
+  }, []);
+
   const {
     priority_stat,
     priority_weights,
@@ -119,6 +153,8 @@ function App() {
     preferred_position,
     positions_by_race,
     race_schedule,
+    enable_race_schedule,
+    run_race_on_poor_training,
     stat_caps,
     trainee,
     scenario,
@@ -140,7 +176,7 @@ function App() {
   } = failure;
 
   const { use_optimal_event_choices } = event;
-  const { is_auto_buy_skill, skill_pts_check, skill_list, desire_skill } = skill;
+  const { is_auto_buy_skill, skill_pts_check, skill_list, desire_skill, max_cost, min_discount, skill_blacklist } = skill;
 
   // When read-only, updates only affect local UI state; nothing will be saved on disk.
   const updateConfig = <K extends keyof typeof config>(
@@ -521,12 +557,63 @@ function App() {
                     updateConfig("skill", { ...skill, is_auto_buy_skill: val })
                   }
                 />
-                <SkillPtsCheck
-                  skillPtsCheck={skill_pts_check}
-                  setSkillPtsCheck={(val) =>
-                    updateConfig("skill", { ...skill, skill_pts_check: val })
-                  }
-                />
+                <div className="flex flex-col md:flex-row gap-2 md:items-center">
+                  <div className="flex-1 md:flex md:items-center md:gap-4">
+                    <SkillPtsCheck
+                      skillPtsCheck={skill_pts_check}
+                      setSkillPtsCheck={(val) =>
+                        updateConfig("skill", { ...skill, skill_pts_check: val })
+                      }
+                    />
+
+                    <div className="w-64">
+                      <label className="text-sm font-medium text-primary">Race Preset</label>
+                      <select
+                        className="mt-1 w-full bg-card border border-border/20 rounded-md p-2"
+                        value={(skill?.preset_name ?? "") as string}
+                        onChange={(e) => updateConfig("skill", { ...skill, preset_name: e.target.value })}
+                      >
+                        <option value="">(none)</option>
+                        {umalatorPresets.map((p) => (
+                          <option key={p.value ?? p.label} value={p.label}>
+                            {p.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col md:flex-row gap-2 md:items-center">
+                  <div className="flex-1">
+                    <label className="text-sm font-medium text-primary">Max Skill Cost</label>
+                    <Input
+                      type="number"
+                      min={0}
+                      max={999}
+                      className="mt-1 w-full"
+                      value={(max_cost ?? 240).toString()}
+                      onChange={(e) => {
+                        const v = Math.max(0, Math.min(999, Number(e.target.value) || 0));
+                        updateConfig("skill", { ...skill, max_cost: v });
+                      }}
+                    />
+                  </div>
+                  <div className="w-40">
+                    <label className="text-sm font-medium text-primary">Min Discount</label>
+                    <select
+                      className="mt-1 w-full bg-card border border-border/20 rounded-md p-2"
+                      value={(min_discount ?? 30).toString()}
+                      onChange={(e) => updateConfig("skill", { ...skill, min_discount: Number(e.target.value) })}
+                    >
+                      {[0, 10, 20, 30, 35, 40].map((opt) => (
+                        <option key={opt} value={opt}>
+                          {opt}%
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
                 <SkillList
                   list={skill_list}
                   addSkillList={(val) =>
@@ -539,6 +626,21 @@ function App() {
                     })
                   }
                 />
+                <div className="mt-4">
+                  <SkillList
+                    title="Skill Blacklist"
+                    list={skill_blacklist ?? []}
+                    addSkillList={(val) =>
+                      updateConfig("skill", { ...skill, skill_blacklist: [val, ...(skill_blacklist ?? [])] })
+                    }
+                    deleteSkillList={(val) =>
+                      updateConfig("skill", {
+                        ...skill,
+                        skill_blacklist: (skill_blacklist ?? []).filter((s) => s !== val),
+                      })
+                    }
+                  />
+                </div>
               </div>
             </div>
 
@@ -548,6 +650,14 @@ function App() {
                 Race Schedule
               </h2>
               <div className="flex flex-col gap-4">
+                <EnableRaceSchedule
+                  enableRaceSchedule={enable_race_schedule}
+                  setEnableRaceSchedule={(val) => updateConfig("enable_race_schedule", val)}
+                />
+                <RunRaceOnPoorTraining
+                  runRaceOnPoorTraining={run_race_on_poor_training}
+                  setRunRaceOnPoorTraining={(val) => updateConfig("run_race_on_poor_training", val)}
+                />
                 <PrioritizeG1
                   prioritizeG1Race={prioritize_g1_race}
                   setPrioritizeG1={(val) => updateConfig("prioritize_g1_race", val)}

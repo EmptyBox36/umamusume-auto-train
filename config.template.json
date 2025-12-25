@@ -111,6 +111,8 @@
       "turnNumber": 44
     }
   ],
+  "enable_race_schedule": true,
+  "run_race_on_poor_training": false,
   "stat_caps": {
     "spd": 1100,
     "sta": 1100,
@@ -133,6 +135,17 @@
     ],
     "desire_skill": [
       "Lone Wolf"
+    ],
+    "max_cost": 240,
+    "min_discount": 30,
+    "preset_name": "Scorpio Cup",
+    "skill_blacklist": [
+      "Wallflower",
+      "Competitive Spirit \u25cb",
+      "Competitive Spirit \u25ce",
+      "Maverick \u25cb",
+      "Maverick \u25ce",
+      "Sympathy"
     ]
   },
   "window_name": "LDPlayer",

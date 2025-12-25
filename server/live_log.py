@@ -4,8 +4,9 @@ import logging
 import threading
 import time
 from collections import deque
-from dataclasses import dataclass, asdict
-from typing import Deque, List, Dict, Any
+from dataclasses import asdict, dataclass
+from typing import Any, Deque, Dict, List
+
 
 @dataclass
 class LogEntry:
@@ -65,6 +66,7 @@ def attach_web_log_handler(level: int = logging.DEBUG) -> None:
 
     _attached = True
     root.warning(">>>> WebLogHandler ATTACHED <<<<")
+
 
 def get_logs_since(since_id: int) -> List[Dict[str, Any]]:
     with _lock:

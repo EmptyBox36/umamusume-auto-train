@@ -3,10 +3,7 @@ import logging
 import os
 from logging.handlers import RotatingFileHandler
 
-logging.basicConfig(
-    level=logging.DEBUG,
-    format="[%(levelname)s] %(message)s"
-)
+logging.basicConfig(level=logging.DEBUG, format="[%(levelname)s] %(message)s")
 
 info = logging.info
 warning = logging.warning
@@ -20,7 +17,7 @@ handler = RotatingFileHandler(
     os.path.join(log_dir, "log.txt"),
     maxBytes=1_000_000,
     backupCount=10,
-    encoding="utf-8"
+    encoding="utf-8",
 )
 
 logging.getLogger().addHandler(handler)

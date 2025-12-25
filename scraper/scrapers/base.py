@@ -1,22 +1,35 @@
-﻿import json, re, time, logging
-from typing import Optional
+﻿import json
+import logging
+import re
+import time
 from pathlib import Path
-from typing import List, Dict
-import undetected_chromedriver as uc
-from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, WebDriverException, TimeoutException, StaleElementReferenceException
-from selenium.webdriver.remote.webelement import WebElement
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support import expected_conditions as EC
+from typing import Dict, List, Optional
 
-from utils.utils import clean_event_title, STAT_KEYS, ALIASES, DIVIDER_RE, IGNORE_PATTERNS, ALL_STATS, COMMON_EVENT_TITLES, RAND_SPLIT_RE
+import undetected_chromedriver as uc
+from selenium.common.exceptions import (
+    ElementClickInterceptedException,
+    NoSuchElementException,
+    WebDriverException,
+)
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from utils.utils import (
+    ALIASES,
+    ALL_STATS,
+    IGNORE_PATTERNS,
+    RAND_SPLIT_RE,
+    STAT_KEYS,
+    clean_event_title,
+)
 
 TOOLTIP_VISIBLE = "//div[contains(@class,'tippy-content')]"
 # header is the first div inside tippy-content that holds the event title text
 TOOLTIP_HEADER_REL = ".//div[1]"
+
 
 # ---- helpers ----
 def blank_stats():
@@ -25,14 +38,17 @@ def blank_stats():
     d["Skill Hint"] = []
     return d
 
+
 def _worst_num(text: str) -> float | None:
     nums = re.findall(r"[+-]?\d+", text)
     return float(min(int(n) for n in nums)) if nums else None
 
+
 def add(d: dict, k: str, v: float):
     if k in d:
         d[k] += v
-       
+
+
 def _finish(d: dict) -> dict:
     d.pop("Skill", None)
 
@@ -52,8 +68,10 @@ def _finish(d: dict) -> dict:
 
     return d
 
+
 def _is_ignorable(line: str) -> bool:
     return any(p in line for p in IGNORE_PATTERNS)
+
 
 def parse_outcome_block(text: str) -> dict:
     d = blank_stats()
@@ -112,6 +130,7 @@ def parse_outcome_block(text: str) -> dict:
 
     return _finish(d)
 
+
 def parse_randomly(text: str) -> dict:
     # drop the header line
     body = re.sub(r"^\s*Randomly either.*?\n", "", text, flags=re.I | re.S)
@@ -152,8 +171,12 @@ def parse_randomly(text: str) -> dict:
 
     return _finish(worst_d)
 
+
 def parse_outcome(text: str) -> dict:
-    return parse_randomly(text) if "Randomly either" in text else parse_outcome_block(text)
+    return (
+        parse_randomly(text) if "Randomly either" in text else parse_outcome_block(text)
+    )
+
 
 def create_chromedriver():
     opts = Options()
@@ -174,6 +197,7 @@ def create_chromedriver():
     driver.set_script_timeout(15)
     return driver
 
+
 class BaseScraper:
     def __init__(self, url: str, output_filename: str):
         self.url = url
@@ -181,7 +205,13 @@ class BaseScraper:
         self.data = {}
         self.cookie_accepted = False
 
-    def safe_click(self, driver: uc.Chrome, element: WebElement, retries: int = 3, delay: float = 0.5):
+    def safe_click(
+        self,
+        driver: uc.Chrome,
+        element: WebElement,
+        retries: int = 3,
+        delay: float = 0.5,
+    ):
         for _ in range(retries):
             try:
                 element.click()
@@ -198,7 +228,9 @@ class BaseScraper:
     def save_data(self, save_path=None):
         # set default to ../data relative to script location
         base_dir = Path(__file__).resolve().parent.parent / "data"
-        output_path = Path(save_path) if save_path else base_dir / Path(self.output_filename).name
+        output_path = (
+            Path(save_path) if save_path else base_dir / Path(self.output_filename).name
+        )
 
         # ensure the folder exists
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -211,7 +243,9 @@ class BaseScraper:
     def handle_cookie_consent(self, driver: uc.Chrome):
         if not self.cookie_accepted:
             try:
-                btn = driver.find_element(By.XPATH, "//button[contains(@class, 'legal_cookie_banner_button')]")
+                btn = driver.find_element(
+                    By.XPATH, "//button[contains(@class, 'legal_cookie_banner_button')]"
+                )
                 if btn:
                     btn.click()
                     time.sleep(0.1)
@@ -224,7 +258,10 @@ class BaseScraper:
     def handle_ad_banner(self, driver: uc.Chrome, skip=False):
         if not skip:
             try:
-                btn = driver.find_element(By.XPATH, "//div[contains(@class, 'publift-widget-sticky_footer-button')]")
+                btn = driver.find_element(
+                    By.XPATH,
+                    "//div[contains(@class, 'publift-widget-sticky_footer-button')]",
+                )
                 if btn and btn.is_displayed():
                     btn.click()
                     time.sleep(0.1)
@@ -235,7 +272,9 @@ class BaseScraper:
             return False
         return True
 
-    def _get_visible_tooltip_for(self, driver: uc.Chrome, title: str) -> Optional[WebElement]:
+    def _get_visible_tooltip_for(
+        self, driver: uc.Chrome, title: str
+    ) -> Optional[WebElement]:
         WebDriverWait(driver, 6).until(
             EC.presence_of_element_located((By.XPATH, TOOLTIP_VISIBLE))
         )
@@ -244,7 +283,9 @@ class BaseScraper:
 
         for tip in reversed(tips):  # newest usually last
             try:
-                header = tip.find_element(By.XPATH, TOOLTIP_HEADER_REL).text.strip().lower()
+                header = (
+                    tip.find_element(By.XPATH, TOOLTIP_HEADER_REL).text.strip().lower()
+                )
             except Exception:
                 header = ""
             if title_norm and title_norm in header:
@@ -264,7 +305,7 @@ class BaseScraper:
                 # Main content block for this option
                 event_option_div = tooltip_row.find_element(
                     By.XPATH,
-                    ".//div[contains(@class, 'sc-') and contains(@class, '-2 ')]"
+                    ".//div[contains(@class, 'sc-') and contains(@class, '-2 ')]",
                 )
             except NoSuchElementException:
                 # Fallback: use the row itself if inner div not found
@@ -272,7 +313,9 @@ class BaseScraper:
 
             # All text fragments inside this option
             event_result_divs = event_option_div.find_elements(By.XPATH, ".//div")
-            text_fragments = [div.text.strip() for div in event_result_divs if div.text.strip()]
+            text_fragments = [
+                div.text.strip() for div in event_result_divs if div.text.strip()
+            ]
 
             if not text_fragments:
                 continue
@@ -315,10 +358,11 @@ class BaseScraper:
         """
         # All training-event buttons in the infobox
         all_training_events = driver.find_elements(
-            By.XPATH,
-            "//button[contains(@class, 'sc-') and contains(@class, '-0 ')]"
+            By.XPATH, "//button[contains(@class, 'sc-') and contains(@class, '-0 ')]"
         )
-        logging.info(f"Found {len(all_training_events)} training events for {item_name}.")
+        logging.info(
+            f"Found {len(all_training_events)} training events for {item_name}."
+        )
 
         ad_banner_closed = False
         last_title = None
@@ -334,19 +378,23 @@ class BaseScraper:
             try:
                 tooltip = driver.find_element(By.XPATH, "//div[@data-tippy-root]")
             except NoSuchElementException:
-                logging.warning(f"No tooltip root for training event ({j + 1}/{len(all_training_events)}).")
+                logging.warning(
+                    f"No tooltip root for training event ({j + 1}/{len(all_training_events)})."
+                )
                 continue
 
             # Event title inside tooltip
             try:
                 raw_title = tooltip.find_element(
                     By.XPATH,
-                    ".//div[contains(@class, 'sc-') and contains(@class, '-2 ')]"
+                    ".//div[contains(@class, 'sc-') and contains(@class, '-2 ')]",
                 ).text.strip()
 
                 tooltip_title = raw_title.split("\n", 1)[0].strip()
                 if not tooltip_title:
-                    logging.warning(f"Empty tooltip title for training event ({j + 1}/{len(all_training_events)}).")
+                    logging.warning(
+                        f"Empty tooltip title for training event ({j + 1}/{len(all_training_events)})."
+                    )
                     continue
 
                 if tooltip_title == last_title:
@@ -364,7 +412,9 @@ class BaseScraper:
 
                 key = clean_event_title(tooltip_title)
                 if key in data_dict:
-                    logging.info(f"Training event {tooltip_title} ({j + 1}/{len(all_training_events)}) was already scraped. Skipping this...")
+                    logging.info(
+                        f"Training event {tooltip_title} ({j + 1}/{len(all_training_events)}) was already scraped. Skipping this..."
+                    )
                     continue
             except NoSuchElementException:
                 logging.warning(
@@ -374,8 +424,7 @@ class BaseScraper:
 
             # Each option row inside the tooltip
             tooltip_rows = tooltip.find_elements(
-                By.XPATH,
-                ".//div[contains(@class, 'sc-') and contains(@class, '-0 ')]"
+                By.XPATH, ".//div[contains(@class, 'sc-') and contains(@class, '-0 ')]"
             )
             if len(tooltip_rows) == 0:
                 logging.warning(

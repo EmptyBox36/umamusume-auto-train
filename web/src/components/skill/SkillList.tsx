@@ -13,9 +13,10 @@ type Props = {
     list: string[];
     addSkillList: (newList: string) => void;
     deleteSkillList: (newList: string) => void;
+    title?: string;
 };
 
-export default function SkillList({ list, addSkillList, deleteSkillList }: Props) {
+export default function SkillList({ list, addSkillList, deleteSkillList, title }: Props) {
     const [open, setOpen] = useState(false);
     const [data, setData] = useState<Skill[]>([]);
     const [search, setSearch] = useState("");
@@ -31,9 +32,10 @@ export default function SkillList({ list, addSkillList, deleteSkillList }: Props
             try {
                 const res = await fetch("/scraper/data/skills.json");
                 const skills: Skill[] = await res.json();
+                console.debug("[SkillList] fetched skills count", skills.length);
                 setData(skills);
             } catch (err) {
-                console.error("Failed to fetch skills:", err);
+                console.error("[SkillList] Failed to fetch skills:", err);
             }
         })();
     }, []);
@@ -53,13 +55,16 @@ export default function SkillList({ list, addSkillList, deleteSkillList }: Props
         [filteredByText, list]
     );
 
+    const titleText = ("Select skill you want to buy");
     return (
         <div>
-            <p className="text-lg font-medium mb-2">Select skill you want to buy</p>
+            <p className="text-lg font-medium mb-2">{title ?? titleText}</p>
             <Dialog open={open} onOpenChange={setOpen}>
-                <DialogTrigger asChild>
-                    <Button className="cursor-pointer font-semibold">Open</Button>
-                </DialogTrigger>
+                                <DialogTrigger asChild>
+                                        <Button className="cursor-pointer font-semibold" onClick={() => console.debug('[SkillList] Open skills dialog')}>
+                                            Open
+                                        </Button>
+                                </DialogTrigger>
 
                 <DialogContent className="min-h-[512px] max-w-4xl">
                     <DialogHeader>
@@ -82,6 +87,7 @@ export default function SkillList({ list, addSkillList, deleteSkillList }: Props
                                         key={`${skill.name}-${idx}`}
                                         className="w-full border-2 border-border rounded-lg px-3 py-2 cursor-pointer hover:border-primary/50 transition"
                                         onClick={() => {
+                                            console.debug('[SkillList] add skill click', skill.name);
                                             if (!list.includes(skill.name)) addSkillList(skill.name);
                                         }}
                                     >

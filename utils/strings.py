@@ -7,6 +7,7 @@ import unicodedata
 #     s = " ".join(s.split()).lower()  # collapse spaces + lowercase
 #     return s
 
+
 # Normalize punctuation variants but KEEP parentheses content for display
 def normalize_event_title(s: str) -> str:
     if not s:
@@ -16,6 +17,7 @@ def normalize_event_title(s: str) -> str:
     # collapse spaces
     s = " ".join(s.split())
     return s.strip()
+
 
 # Produce a robust lookup key:
 # - lowercase
@@ -31,6 +33,7 @@ def event_match_key(s: str) -> str:
     s = re.sub(r"[^\w\s]", " ", s)
     s = " ".join(s.split()).lower()
     return s
+
 
 def clean_event_name(s: str) -> str:
     return event_match_key(s)

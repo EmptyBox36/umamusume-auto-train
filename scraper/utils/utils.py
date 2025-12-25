@@ -5,26 +5,35 @@
 #   "Just an Acupuncturist, No Worries! ☆",
 #   "Get Well Soon!",
 #   "Don't Overdo It!",
-#   "Victory!", 
-#   "Solid Showing", 
-#   "Defeat", 
+#   "Victory!",
+#   "Solid Showing",
+#   "Defeat",
 #   "Etsuko's Exhaustive Coverage",
 # }
 COMMON_EVENT_TITLES = {}
 
-STAT_KEYS = ["Friendship","Guts","HP","Max Energy","Mood","Power",
-             "Skill Hint","Skill Pts","Speed","Stamina","Wit"]
+STAT_KEYS = [
+    "Friendship",
+    "Guts",
+    "HP",
+    "Max Energy",
+    "Mood",
+    "Power",
+    "Skill Hint",
+    "Skill Pts",
+    "Speed",
+    "Stamina",
+    "Wit",
+]
 
-PREFIX_EVENTS = {
-    "Acupuncture",
-    "Failed training"
-}
+PREFIX_EVENTS = {"Acupuncture", "Failed training"}
 
 RACE_RESULT_EVENTS = {
-    "Victory!", 
-    "Solid Showing", 
-    "Defeat", 
-    "Etsuko's Exhaustive Coverage"}
+    "Victory!",
+    "Solid Showing",
+    "Defeat",
+    "Etsuko's Exhaustive Coverage",
+}
 
 ALIASES = {
     "Energy": "HP",
@@ -37,14 +46,20 @@ ALIASES = {
     "Skill Hint": "Skill Hint",
 }
 
-ALL_STATS = ["Speed","Stamina","Power","Guts","Wit"]
+ALL_STATS = ["Speed", "Stamina", "Power", "Guts", "Wit"]
 DIVIDER_RE = re.compile(r"\n[-─—]{3,}\n", re.U)
 RAND_SPLIT_RE = re.compile(r"\n(?:[-─—]{3,}\n|\s*or(?:\s*\([^)]+\))?\s*\n)", re.I)
 
 IGNORE_PATTERNS = (
-    "Get ", "status", "Nothing happens", "or (~", "Last trained stat",
-    "random stat", "random stats"
+    "Get ",
+    "status",
+    "Nothing happens",
+    "or (~",
+    "Last trained stat",
+    "random stat",
+    "random stats",
 )
+
 
 def clean_event_title(title: str) -> str:
     # ICONS = "❯▶★♦■◆☆"

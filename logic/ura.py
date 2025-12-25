@@ -1,76 +1,99 @@
-from PIL import ImageGrab
-from typing import Tuple, List, Optional
-from utils.log import info, warning, error, debug
-from core.recognizer import is_btn_active, match_template, multi_match_templates
-from utils.tools import click, sleep, get_secs
-from utils.process import do_race, auto_buy_skill, race_day, do_rest, race_prep, after_race, do_recreation, do_train, go_to_training, check_training
-from core.state import check_status_effects, check_criteria, check_aptitudes, stop_bot
-from core.logic import decide_race_for_goal, most_support_card, check_fans_for_upcoming_schedule
-from utils.scenario import ura
+from typing import List, Optional, Tuple
 
 import core.state as state
 import utils.constants as constants
+from core.logic import (
+    check_fans_for_upcoming_schedule,
+    decide_race_for_goal,
+    most_support_card,
+)
+from core.recognizer import is_btn_active, match_template, multi_match_templates
+from core.state import check_aptitudes, check_status_effects
+from PIL import ImageGrab
+from utils.log import debug, info, warning
+from utils.process import (
+    after_race,
+    auto_buy_skill,
+    check_training,
+    do_race,
+    do_recreation,
+    do_rest,
+    do_train,
+    go_to_training,
+    race_day,
+    race_prep,
+)
+from utils.scenario import ura
+from utils.tools import click, get_secs, sleep
 
 templates = {
-  "infirmary": "assets/buttons/infirmary_btn.png",
+    "infirmary": "assets/buttons/infirmary_btn.png",
 }
 
-PRIORITY_WEIGHTS_LIST={
-  "HEAVY": 0.75,
-  "MEDIUM": 0.5,
-  "LIGHT": 0.25,
-  "NONE": 0
-}
+PRIORITY_WEIGHTS_LIST = {"HEAVY": 0.75, "MEDIUM": 0.5, "LIGHT": 0.25, "NONE": 0}
+
 
 # Get priority stat from config
 def _get_stat_priority(stat_key: str) -> int:
-  if stat_key in state.PRIORITY_STAT:
-    return state.PRIORITY_STAT.index(stat_key) 
-  return 999
+    if stat_key in state.PRIORITY_STAT:
+        return state.PRIORITY_STAT.index(stat_key)
+    return 999
+
 
 def _filter_by_stat_caps(results, current_stats):
-  return {
-    stat: data for stat, data in results.items()
-    if current_stats.get(stat, 0) < state.STAT_CAPS.get(stat, 1200)
-  }
+    return {
+        stat: data
+        for stat, data in results.items()
+        if current_stats.get(stat, 0) < state.STAT_CAPS.get(stat, 1200)
+    }
+
 
 def _friend_recreation() -> bool:
-    if match_template("assets/icons/friend_recreation_available.png", region=(125, 800, 1000, 1080)): # SCREEN_BOTTOM_REGION
+    if match_template(
+        "assets/icons/friend_recreation_available.png", region=(125, 800, 1000, 1080)
+    ):  # SCREEN_BOTTOM_REGION
         return True
     return False
 
+
 def _need_recreation(year: str) -> bool:
-  current_mood = state.CURRENT_MOOD_INDEX
-  minimum_mood = constants.MOOD_LIST.index(state.MINIMUM_MOOD)
-  minimum_mood_with_friend = constants.MOOD_LIST.index(state.MINIMUM_MOOD_WITH_FRIEND)
-  minimum_mood_junior_year = constants.MOOD_LIST.index(state.MINIMUM_MOOD_JUNIOR_YEAR)
-  year_parts = year.split(" ")
+    current_mood = state.CURRENT_MOOD_INDEX
+    minimum_mood = constants.MOOD_LIST.index(state.MINIMUM_MOOD)
+    minimum_mood_with_friend = constants.MOOD_LIST.index(state.MINIMUM_MOOD_WITH_FRIEND)
+    minimum_mood_junior_year = constants.MOOD_LIST.index(state.MINIMUM_MOOD_JUNIOR_YEAR)
+    year_parts = year.split(" ")
 
-  if year_parts[0] == "Junior":
-    mood_check = minimum_mood_junior_year
-  else:
-    if _friend_recreation():
-      # debug("Friend recreation is available")
-      mood_check = minimum_mood_with_friend
+    if year_parts[0] == "Junior":
+        mood_check = minimum_mood_junior_year
     else:
-      mood_check = minimum_mood
+        if _friend_recreation():
+            # debug("Friend recreation is available")
+            mood_check = minimum_mood_with_friend
+        else:
+            mood_check = minimum_mood
 
-  missing_mood =  mood_check - current_mood
-  return missing_mood
+    missing_mood = mood_check - current_mood
+    return missing_mood
+
 
 def _need_infirmary() -> Tuple[Optional[List[str]], int, Optional[object]]:
-  screen = ImageGrab.grab()
-  matches = multi_match_templates(templates, screen=screen)
-  if matches["infirmary"] and is_btn_active(matches["infirmary"][0]) and not _summer_camp(year=state.CURRENT_YEAR):
-    info("Check for condition.")
-    if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
-      sleep(0.5)
-      conditions, total_severity = check_status_effects()
-      click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
-      return (conditions, total_severity, matches["infirmary"][0])
-    else:
-        warning("Couldn't find full stats button.")
-  return (None, 0, None)
+    screen = ImageGrab.grab()
+    matches = multi_match_templates(templates, screen=screen)
+    if (
+        matches["infirmary"]
+        and is_btn_active(matches["infirmary"][0])
+        and not _summer_camp(year=state.CURRENT_YEAR)
+    ):
+        info("Check for condition.")
+        if click(img="assets/buttons/full_stats.png", minSearch=get_secs(1)):
+            sleep(0.5)
+            conditions, total_severity = check_status_effects()
+            click(img="assets/buttons/close_btn.png", minSearch=get_secs(1))
+            return (conditions, total_severity, matches["infirmary"][0])
+        else:
+            warning("Couldn't find full stats button.")
+    return (None, 0, None)
+
 
 def _summer_next_turn(year: str) -> bool:
     year_parts = year.split(" ")
@@ -86,13 +109,15 @@ def _summer_next_turn(year: str) -> bool:
             return True
     return False
 
+
 def _summer_camp(year: str) -> bool:
     year_parts = year.split(" ")
     if len(year_parts) < 4:
         return False
-    if year_parts[0] in ["Classic", "Senior"] and year_parts[3] in ["Jul","Aug"]:
+    if year_parts[0] in ["Classic", "Senior"] and year_parts[3] in ["Jul", "Aug"]:
         return True
     return False
+
 
 def ura_training(results: dict):
     training_candidates = results
@@ -105,14 +130,29 @@ def ura_training(results: dict):
         if year_parts[0] == "Junior":
             multiplier = 1
         else:
-            multiplier = 1 + state.PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
-        summer_multiplier = 1 + state.SUMMER_PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)] * priority_weight
+            multiplier = (
+                1
+                + state.PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)]
+                * priority_weight
+            )
+        summer_multiplier = (
+            1
+            + state.SUMMER_PRIORITY_EFFECTS_LIST[_get_stat_priority(stat_name)]
+            * priority_weight
+        )
 
         data = training_candidates[stat_name]
 
-        # max_friend_support_card = data["friend"]["friendship_levels"]["green"]  
-        friend_value =  data["total_friendship_levels"]["gray"] + data["total_friendship_levels"]["blue"] + data["total_friendship_levels"]["green"]
-        friend_training = data[stat_name]["friendship_levels"]["yellow"] + data[stat_name]["friendship_levels"]["max"]
+        # max_friend_support_card = data["friend"]["friendship_levels"]["green"]
+        friend_value = (
+            data["total_friendship_levels"]["gray"]
+            + data["total_friendship_levels"]["blue"]
+            + data["total_friendship_levels"]["green"]
+        )
+        friend_training = (
+            data[stat_name]["friendship_levels"]["yellow"]
+            + data[stat_name]["friendship_levels"]["max"]
+        )
 
         if friend_value > 2:
             friend_value += 0.5 * friend_value
@@ -134,12 +174,15 @@ def ura_training(results: dict):
         else:
             data["training_score"] = score * multiplier
 
-        info(f"[{stat_name.upper()}] -> Non Max Support: {friend_value:.3f}, Rainbow Support: {friend_training}, Hint: {data['total_hints']}")
+        info(
+            f"[{stat_name.upper()}] -> Non Max Support: {friend_value:.3f}, Rainbow Support: {friend_training}, Hint: {data['total_hints']}"
+        )
         info(f"[{stat_name.upper()}] -> Score: {data['training_score']:.3f}")
 
     any_nonmaxed = any(
-        data.get("total_non_maxed_support", 0) > 0 
-        for data in training_candidates.values())
+        data.get("total_non_maxed_support", 0) > 0
+        for data in training_candidates.values()
+    )
 
     base_failure = state.MAX_FAILURE
     max_failure_by_stat = {
@@ -194,10 +237,14 @@ def ura_training(results: dict):
 
     best_key, best_data = max(
         filtered.items(),
-        key=lambda kv: (kv[1]["training_score"], -_get_stat_priority(kv[0])))
-      
-    info(f"[URA] Training selected: {best_key.upper()} with {best_data['training_score']:.3f} points and {best_data['failure']}% fail chance")
+        key=lambda kv: (kv[1]["training_score"], -_get_stat_priority(kv[0])),
+    )
+
+    info(
+        f"[URA] Training selected: {best_key.upper()} with {best_data['training_score']:.3f} points and {best_data['failure']}% fail chance"
+    )
     return best_key, best_data
+
 
 def ura_logic() -> str:
     criteria = state.CRITERIA
@@ -226,7 +273,10 @@ def ura_logic() -> str:
             ura()
             for i in range(2):
                 if not click(img="assets/buttons/race_btn.png", minSearch=get_secs(2)):
-                    click(img="assets/buttons/bluestacks/race_btn.png", minSearch=get_secs(2))
+                    click(
+                        img="assets/buttons/bluestacks/race_btn.png",
+                        minSearch=get_secs(2),
+                    )
                 sleep(0.5)
 
             race_prep()
@@ -235,7 +285,9 @@ def ura_logic() -> str:
 
         # If calendar is race day, do race
         if "Finale" not in year:
-            if match_template("assets/buttons/race_day_btn.png", region=(125, 800, 1000, 1080)): # SCREEN_BOTTOM_REGION
+            if match_template(
+                "assets/buttons/race_day_btn.png", region=(125, 800, 1000, 1080)
+            ):  # SCREEN_BOTTOM_REGION
                 info("Race Day.")
                 if state.IS_AUTO_BUY_SKILL:
                     auto_buy_skill()
@@ -243,23 +295,29 @@ def ura_logic() -> str:
         return
 
     if state.RACE_SCHEDULE:
-      if check_fans_for_upcoming_schedule():
-        return
-      race_done = False
-      for race_list in state.RACE_SCHEDULE:
-        if state.stop_event.is_set():
-          break
-        if len(race_list):
-          if race_list['year'] in year and race_list['date'] in year:
-            debug(f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}")
-            if do_race(state.PRIORITIZE_G1_RACE, img=race_list['name']):
-              race_done = True
-              break
-            else:
-              click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text=f"{race_list['name']} race not found. Proceeding to training.")
-              sleep(0.5)
-      if race_done:
-        return
+        if check_fans_for_upcoming_schedule():
+            return
+        race_done = False
+        for race_list in state.RACE_SCHEDULE:
+            if state.stop_event.is_set():
+                break
+            if len(race_list):
+                if race_list["year"] in year and race_list["date"] in year:
+                    debug(
+                        f"Race now, {race_list['name']}, {race_list['year']} {race_list['date']}"
+                    )
+                    if do_race(state.PRIORITIZE_G1_RACE, img=race_list["name"]):
+                        race_done = True
+                        break
+                    else:
+                        click(
+                            img="assets/buttons/back_btn.png",
+                            minSearch=get_secs(1),
+                            text=f"{race_list['name']} race not found. Proceeding to training.",
+                        )
+                        sleep(0.5)
+        if race_done:
+            return
 
     if not "Achieved" in criteria:
         keywords = ("fan", "Maiden", "Progress")
@@ -276,7 +334,11 @@ def ura_logic() -> str:
                 return
             else:
                 # If there is no race matching to aptitude, go back and do training instead
-                click(img="assets/buttons/back_btn.png", minSearch=get_secs(1), text="Proceeding to training.")
+                click(
+                    img="assets/buttons/back_btn.png",
+                    minSearch=get_secs(1),
+                    text="Proceeding to training.",
+                )
                 sleep(0.5)
 
     conditions, total_severity, infirmary_box = _need_infirmary()
@@ -339,7 +401,11 @@ def ura_logic() -> str:
     #     info(f"[UNITY] Slow Metabolism active but training {result.upper()} → reduce severity by 2 and remove condition.")
 
     if total_severity > 0:
-        if total_severity <= 1 and missing_mood > 0 and not (summer_camp and missing_energy < 40):
+        if (
+            total_severity <= 1
+            and missing_mood > 0
+            and not (summer_camp and missing_energy < 40)
+        ):
             info("[URA] Mood low & Status condition present → Recreation.")
             sleep(0.5)
             do_recreation()
@@ -347,17 +413,25 @@ def ura_logic() -> str:
         # infirmary always gives 20 energy, it's better to spend energy before going to the infirmary 99% of the time.
         if max(0, missing_energy) < state.SKIP_INFIRMARY_UNLESS_MISSING_ENERGY:
             if total_severity > 1 and infirmary_box:
-                info(f"Urgent condition ({conditions}) found, visiting infirmary immediately.")
+                info(
+                    f"Urgent condition ({conditions}) found, visiting infirmary immediately."
+                )
                 sleep(0.5)
-                click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+                click(
+                    boxes=infirmary_box, text="Character debuffed, going to infirmary."
+                )
                 return
             else:
-                info(f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy.")
+                info(
+                    f"Non-urgent condition ({conditions}) found, skipping infirmary because of high energy."
+                )
         else:
             if infirmary_box:
                 info("[URA] Status condition present → Infirmary.")
                 sleep(0.5)
-                click(boxes=infirmary_box, text="Character debuffed, going to infirmary.")
+                click(
+                    boxes=infirmary_box, text="Character debuffed, going to infirmary."
+                )
                 return
 
     if energy_level > 30 or not summer_camp:
@@ -368,7 +442,9 @@ def ura_logic() -> str:
             return
 
     if best_data is not None:
-        if best_data["training_score"] >= 3 or (summer_camp and best_data["training_score"] >= 1.5):
+        if best_data["training_score"] >= 3 or (
+            summer_camp and best_data["training_score"] >= 1.5
+        ):
             info(f"[URA] Best Trainind Found → Train {result.upper()}.")
             sleep(0.5)
             go_to_training()
@@ -398,12 +474,14 @@ def ura_logic() -> str:
             results = most_support_card(filtered)
             if results is not None:
                 if results is not False:
-                   sleep(0.5)
-                   go_to_training()
-                   sleep(0.5)
-                   do_train(results)
-                   info(f"[URA] most_support_card training found → Train {results.upper()}.")
-                   return
+                    sleep(0.5)
+                    go_to_training()
+                    sleep(0.5)
+                    do_train(results)
+                    info(
+                        f"[URA] most_support_card training found → Train {results.upper()}."
+                    )
+                    return
 
     if result == "fallback":
         info(f"[URA] Use most_support_card.")
@@ -414,7 +492,9 @@ def ura_logic() -> str:
                 go_to_training()
                 sleep(0.5)
                 do_train(results)
-                info(f"[URA] most_support_card training found → Train {results.upper()}.")
+                info(
+                    f"[URA] most_support_card training found → Train {results.upper()}."
+                )
                 return
 
     if "Finale" in year:
