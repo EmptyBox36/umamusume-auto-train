@@ -173,7 +173,7 @@ def decide_race_for_goal(year, turn, criteria, keywords):
     criteria_text = criteria or ""
     criteria_text = criteria_text.lower()
 
-    if any(word in criteria_text for word in keywords):
+    if any(word.lower() in criteria_text for word in keywords):
         info("Criteria word found. Trying to find races.")
 
         if state.DONE_DEBUT:
@@ -181,28 +181,25 @@ def decide_race_for_goal(year, turn, criteria, keywords):
             if any(w in criteria_text for w in GRADED_TRIGGERS):
                 info(f'"progress" or "fan" is in criteria text.')
 
-                # Get races for this year
-                race_list = constants.RACE_LOOKUP.get(year, [])
-                if not race_list:
-                    return False, None
-
-                if turn <= 3:
-                    ALLOWED_GRADES = {"G1", "G2", "G3", "OP"}
-                else:
-                    ALLOWED_GRADES = {"G1"}
-
-                filtered = [r for r in race_list if r.get("grade") in ALLOWED_GRADES]
-                if not filtered:
-                    info("No allow graded races available for this turn.")
-                    return False, None
-
                 if "G1" in criteria_text or "GI" in criteria_text:
                     info('Goal mentions "G1"; restricting to only G1 races.')
                     filtered = [r for r in filtered if r.get("grade") == "G1"]
-
-                    if not filtered:
-                        info("No G1 races available for this year.")
+                else:
+                    # Get races for this year
+                    race_list = constants.RACE_LOOKUP.get(year, [])
+                    if not race_list:
                         return False, None
+
+                    if turn <= 2:
+                        ALLOWED_GRADES = {"G1", "G2", "G3", "OP"}
+                    else:
+                        ALLOWED_GRADES = {"G1"}
+
+                filtered = [r for r in race_list if r.get("grade") in ALLOWED_GRADES]
+
+                if not filtered:
+                    info("No races available for this turn.")
+                    return False, None
 
                 current_fans = state.FAN_COUNT
                 
@@ -325,11 +322,20 @@ def check_fans_for_upcoming_schedule() -> bool:
     if required_fans <= 0 or current_fans == -1 or current_fans >= required_fans:
         return False
 
+    debug(f"{next_race['name']} in {gap} turn(s) require {required_fans} fans, but currently have {state.FAN_COUNT} fans")
+
+    from utils.process import check_fan, do_race
+    debug("re-checking the fans count")
+    check_fan()
+    current_fans = state.FAN_COUNT
+    debug(f"current fans counts is {state.FAN_COUNT}")
+
+    if required_fans <= 0 or current_fans == -1 or current_fans >= required_fans:
+        return False
+
     # Use the same graded-race finder, but with a fan/progress-style criteria.
     fake_criteria = "fan"
     keywords = ("fan", "Maiden", "Progress")
-
-    from utils.process import do_race
 
     # Use current year/turn-left like other logic
     year = state.CURRENT_YEAR

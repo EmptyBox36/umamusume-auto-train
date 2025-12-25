@@ -143,7 +143,7 @@ def score_choice(choice_row):
             overflow_penalty_weight = 2.0
 
             if energy_gain > 100:
-                overflow_penalty_weight = 0.4
+                overflow_penalty_weight = 1.0
 
             overflow_mult = 1.0 - (overflow_ratio * overflow_penalty_weight)
 
