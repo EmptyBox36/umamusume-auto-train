@@ -39,5 +39,4 @@ config.json
 /data/skills.json
 /local_settings.json
 /core/logic_old.py
-/scrapers/support_cards
 /scraper/support_cards
