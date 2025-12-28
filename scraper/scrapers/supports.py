@@ -7,7 +7,7 @@ from .base_pw import BaseScraperPW, create_pw, close_pw
 
 
 def goto_with_retry(page, url: str, base: str, tries: int = 3, delay: float = 2.0):
-    target = urljoin(base, url)  # makes /path -> https://gametora.com/path
+    target = urljoin(base, url)
     for attempt in range(1, tries + 1):
         try:
             page.goto(target, wait_until="domcontentloaded")
@@ -77,7 +77,6 @@ class SupportCardScraper(BaseScraperPW):
                         temp_dict = {}
                         self.process_training_events(page, name, temp_dict)
 
-                        # keep your current behavior: self.data.update(temp_dict) :contentReference[oaicite:15]{index=15}
                         self.data.update(temp_dict)
                         break
 

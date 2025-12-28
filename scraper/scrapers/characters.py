@@ -63,8 +63,6 @@ class CharacterScraper(BaseScraperPW):
 
                 while attempt < max_link_retry:
                     try:
-                        # Your Selenium code restarts every character (i % 1 == 0). :contentReference[oaicite:10]{index=10}
-                        # In Playwright, restart the context/page instead (lighter than restarting OS process).
                         context.close()
                         context = browser.new_context()
                         page = context.new_page()

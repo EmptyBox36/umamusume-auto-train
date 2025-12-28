@@ -6,14 +6,12 @@ from typing import Optional, Dict, List, Any
 
 from playwright.sync_api import sync_playwright, Page, Browser, BrowserContext, TimeoutError as PWTimeoutError
 
-from utils.utils import clean_event_title  # same as selenium base.py
-from .base import parse_outcome  # reuse your existing parsing logic as-is
+from utils.utils import clean_event_title
+from .base import parse_outcome
 
 
-# Keep same XPaths you already use in selenium base.py
 TOOLTIP_VISIBLE = "//div[contains(@class,'tippy-content')]"
 TOOLTIP_HEADER_REL = ".//div[1]"
-
 
 def create_pw(headless: bool = True):
     """
@@ -103,7 +101,6 @@ class BaseScraperPW:
         stats: Dict[str, dict] = {}
 
         for idx, row in enumerate(tooltip_rows, 1):
-            # row is a Locator (from tooltip.locator(...).nth(i))
             option_div = row.locator("xpath=.//div[contains(@class, 'sc-') and contains(@class, '-2 ')]")
             if option_div.count() == 0:
                 option_div = row
@@ -153,7 +150,6 @@ class BaseScraperPW:
             try:
                 ev.click()
             except Exception:
-                # force click as fallback (Playwright supports force=True)
                 ev.click(force=True)
 
             time.sleep(0.4)
@@ -193,7 +189,6 @@ class BaseScraperPW:
                 logging.info(f"Training event {tooltip_title} ({j + 1}/{total}) already scraped. Skipping.")
                 continue
 
-            # Option rows
             rows_locator = tooltip_root.first.locator("xpath=.//div[contains(@class, 'sc-') and contains(@class, '-0 ')]")
             row_count = rows_locator.count()
             if row_count == 0:
