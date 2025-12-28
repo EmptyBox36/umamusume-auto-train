@@ -399,12 +399,15 @@ def check_fan():
         fan_check_region = constants.SCREEN_MIDDLE_REGION
     else:
         fan_check_region = None
-    click("assets/buttons/info_btn.png", region=fan_check_region)
+
+    if click("assets/buttons/info_btn.png", region=fan_check_region, confidence=0.9):
     sleep(0.5)
     check_debut_status()
     check_fans()
     sleep(0.5)
     click("assets/buttons/close_btn.png")
+    else:
+        debug("info button not found")
 
 def race_process():
     race_prep()
