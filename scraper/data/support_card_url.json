@@ -1,0 +1,639 @@
+[
+  {
+    "name": "43, 8, 1",
+    "character": "Nakayama Festa",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6242692/a1b006c47ea03bef109a1753e53d676d.png/show"
+  },
+  {
+    "name": "7 More Centimeters",
+    "character": "Air Shakur",
+    "type": "Wit",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216999/6bac71aff0bb69cd1f4d3b0a9cffc62b.png/show"
+  },
+  {
+    "name": "Beware! Halloween Night!",
+    "character": "Tamamo Cross",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6194858/aef5ed0ba6a2576e58d2f2a034d54647.png/show"
+  },
+  {
+    "name": "Beyond This Shining Moment",
+    "character": "Silence Suzuka",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216910/aa4e4ba1a9a3668f44f2aa386298385c.png/show"
+  },
+  {
+    "name": "BNWinner!",
+    "character": "Winning Ticket",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4217000/fddfb473ee49dd370770216053b5f8ab.png/show"
+  },
+  {
+    "name": "Breakaway Battleship",
+    "character": "Gold Ship",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216912/ad2ffcd0c5a83b819990da8aeacf4040.png/show"
+  },
+  {
+    "name": "Champion's Passion",
+    "character": "El Condor Pasa",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216923/1472686860a94fb146fde06ce54e8b1f.png/show"
+  },
+  {
+    "name": "Cutie Pie with Shining Eyes",
+    "character": "Curren Chan",
+    "type": "Wit",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6261712/fe60db3a2bdbabd9d0baf22130fae22b.png/show"
+  },
+  {
+    "name": "Dancing Light into the Night",
+    "character": "Yukino Bijin",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6261700/b4f464cd1b6472771f39417caca3fa57.png/show"
+  },
+  {
+    "name": "Daring to Dream",
+    "character": "Nice Nature",
+    "type": "Wit",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6086655/77647ff80a234772a65fd6fd449c8eda.png/show"
+  },
+  {
+    "name": "Double Carrot Punch!",
+    "character": "Biko Pegasus",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216915/273ed12209143b4b32b2664c5ac70333.png/show"
+  },
+  {
+    "name": "Dream Big!",
+    "character": "Tokai Teio",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216909/51948a362a139d9db95f858673d39164.png/show"
+  },
+  {
+    "name": "Dreams Do Come True!",
+    "character": "Winning Ticket",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4241068/b4f4cfe7abe0b4309e5fc0766987344b.png/show"
+  },
+  {
+    "name": "Eat Fast! Yum Fast!",
+    "character": "Sakura Bakushin O",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216997/9199c689e4fae87c75764644e1833aae.png/show"
+  },
+  {
+    "name": "Even the Littlest Bud",
+    "character": "Nishino Flower",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216919/54fb7e8c2ee829ca0d4ec498ca151171.png/show"
+  },
+  {
+    "name": "Fairest Fleur",
+    "character": "Grass Wonder",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216914/d3a5be46db7cb56fbdb09a397bb2c3da.png/show"
+  },
+  {
+    "name": "Fiery Discipline",
+    "character": "Yaeno Muteki",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4237780/22199a75c4856c2b7cf4a62f924319d1.png/show"
+  },
+  {
+    "name": "Fire at My Heels",
+    "character": "Kitasan Black",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4218616/5381cc866a49ad65f83876f47662001e.png/show"
+  },
+  {
+    "name": "Foolproof Plan",
+    "character": "Seiun Sky",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216918/ae698c30c34fe8a17261eeab497483e7.png/show"
+  },
+  {
+    "name": "Full-Blown Tantrum",
+    "character": "Winning Ticket",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6016543/21ed3b6f7fe7235bc944bb252dc9e98b.png/show"
+  },
+  {
+    "name": "Get Lots of Hugs for Me",
+    "character": "Oguri Cap",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4217003/518c8eddab55c3f267dce7ef379fddc2.png/show"
+  },
+  {
+    "name": "Go Ahead and Laugh",
+    "character": "Mejiro Palmer",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4217014/a8135fb8f5e9321ab1481e325bf13107.png/show"
+  },
+  {
+    "name": "Happiness Just around the Bend",
+    "character": "Rice Shower",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6114397/cd956f5a6bd4b723d9a982e4355274f0.png/show"
+  },
+  {
+    "name": "Head-On Fight!",
+    "character": "Bamboo Memory",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4265537/8175e07d8fd54c9db7442efbd1167136.png/show"
+  },
+  {
+    "name": "Hometown Cheers",
+    "character": "Yukino Bijin",
+    "type": "Wit",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4218903/869d49a4cf1ba071c652ddcf73df7a64.png/show"
+  },
+  {
+    "name": "It's All Mine!",
+    "character": "Sweep Tosho",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6016547/2798bc830e1bf9abd02c90ead8164e69.png/show"
+  },
+  {
+    "name": "Just Keep Going",
+    "character": "Matikane Tannhauser",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4220093/f5f333c012b66df055ff4ba4d39b1074.png/show"
+  },
+  {
+    "name": "Magical Heroine",
+    "character": "Zenno Rob Roy",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6194857/3140096dd7c0e56fc72d23db2db17353.png/show"
+  },
+  {
+    "name": "Mini☆Vacation",
+    "character": "Daiwa Scarlet",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6016542/d74ef657b6cb291ea598dea28198006b.png/show"
+  },
+  {
+    "name": "My Thoughts, My Desires",
+    "character": "Mejiro Dober",
+    "type": "Wit",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4253944/755c8a4932d0d26a397f6a46c92371f7.png/show"
+  },
+  {
+    "name": "My Umadol Way! ☆",
+    "character": "Smart Falcon",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4217001/fe4cac07008576090fd964b3d38632c1.png/show"
+  },
+  {
+    "name": "Paint the Sky Red",
+    "character": "Seiun Sky",
+    "type": "Wit",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4265540/5238d14d098b14423656d4dda3597741.png/show"
+  },
+  {
+    "name": "Peak Sakura Season",
+    "character": "Sakura Chiyono O",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4240303/fe95aa0a90beae0552e3b2590c7d0c1b.png/show"
+  },
+  {
+    "name": "Piece of Mind",
+    "character": "Super Creek",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216916/3c352856b5348f43d8c4f057c6a40b84.png/show"
+  },
+  {
+    "name": "Planned Perfection",
+    "character": "Riko Kashimoto",
+    "type": "Pal",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6114398/dd1ddf8824181a9f204347c733ff04f2.png/show"
+  },
+  {
+    "name": "Princess Bride",
+    "character": "Kawakami Princess",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4240310/7e1e1c8e33168b4776b94edab682fa01.png/show"
+  },
+  {
+    "name": "Run (my) way",
+    "character": "Gold City",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216998/31975f7313b9d90e516b11a8fb401d16.png/show"
+  },
+  {
+    "name": "Showered in Joy",
+    "character": "Rice Shower",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216940/e66e67fb539011f5dcc2538201d78d7b.png/show"
+  },
+  {
+    "name": "Split the Sky, White Lightning!",
+    "character": "Tamamo Cross",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216995/100f8901e234bb4b2095dba2ae40f1ce.png/show"
+  },
+  {
+    "name": "That Time I Became the Strongest",
+    "character": "Gold Ship",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4265535/0ee8574957219b1df6d026df96a2ccdd.png/show"
+  },
+  {
+    "name": "The Brightest Star in Japan",
+    "character": "Special Week",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216993/16c750efec8532117bc9ed533cf6fa0d.png/show"
+  },
+  {
+    "name": "The Ghost Finds Halloween Magic",
+    "character": "Mihono Bourbon",
+    "type": "Wit",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6194890/8dcbc8ea75c47357af3243f8758b56c3.png/show"
+  },
+  {
+    "name": "The Setting Sun and Rising Stars",
+    "character": "Special Week",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4217015/153838608e154b6d9fc4f2739cab45c7.png/show"
+  },
+  {
+    "name": "The Whistling Arrow's Taunt",
+    "character": "Narita Brian",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6261701/d0e1967440808fa5789c37f2eb4bd520.png/show"
+  },
+  {
+    "name": "The Will to Overtake",
+    "character": "Satono Diamond",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4218617/68c4c7cdcd26a13fa87c5f083a7548e0.png/show"
+  },
+  {
+    "name": "Tonight, We Waltz",
+    "character": "King Halo",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4265538/ec50d2bfb95fac3ea272eb1ae10f96ae.png/show"
+  },
+  {
+    "name": "Tracen Reception",
+    "character": "Tazuna Hayakawa",
+    "type": "Pal",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216917/9b0f5878cb94b64a49393cb84ecc54d8.png/show"
+  },
+  {
+    "name": "Turbo Booooost!",
+    "character": "Twin Turbo",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4217002/2b9c281107ec3d4154f7fcc2b2f4cf43.png/show"
+  },
+  {
+    "name": "Two Pieces",
+    "character": "Narita Brian",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/5999066/86be0ae4e735c6322c615dcdcb854e58.png/show"
+  },
+  {
+    "name": "Urara's Day Off!",
+    "character": "Haru Urara",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216978/65131316552f0e4da5eab402d6dc82be.png/show"
+  },
+  {
+    "name": "Warm Heart, Soft Steps",
+    "character": "Ikuno Dictus",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6175644/991b125a25f0add8624945fc2d012646.png/show"
+  },
+  {
+    "name": "Watch My Star Fly!",
+    "character": "Ines Fujin",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216996/83890ed399ec6f42c8d7e17d88e8d6ce.png/show"
+  },
+  {
+    "name": "Wave of Gratitude",
+    "character": "Fine Motion",
+    "type": "Wit",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216994/d4101a28256f6e1f77751492dd3d66c0.png/show"
+  },
+  {
+    "name": "Who Wants the First Bite?",
+    "character": "Hishi Akebono",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4240308/6bac02aa70f8f486171c2bab8ef4fcd5.png/show"
+  },
+  {
+    "name": "Wild Rider",
+    "character": "Vodka",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216913/4d6bd93fa56fbfc5e0cd0030d2e2a9f6.png/show"
+  },
+  {
+    "name": "Winning Dream",
+    "character": "Silence Suzuka",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6098494/f5858d36d8d294374fac0d2f65cf3c8b.png/show"
+  },
+  {
+    "name": "Winning Pitch",
+    "character": "Mejiro Ryan",
+    "type": "Guts",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/5979043/e1fa392cfced3efa5833c6f8383121ca.png/show"
+  },
+  {
+    "name": "Your Team Ace",
+    "character": "Mejiro McQueen",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.co/4216967/4f3a2e381dc8d111a93fe38c85ad99af.png/show"
+  },
+  {
+    "name": "///WARNING GATE///",
+    "character": "Shinko Windy",
+    "type": "Speed",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4265539/f87e48b64e3000ff0f36d297bc598588.png/show"
+  },
+  {
+    "name": "5:00 a.m.-Right on Schedule",
+    "character": "Eishin Flash",
+    "type": "Speed",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216988/65712f78efdb6c1097a6f28ede3bf38a.png/show"
+  },
+  {
+    "name": "A Marvelous ☆ Plan",
+    "character": "Marvelous Sunday",
+    "type": "Wit",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216934/8ed4f64c8e2d6d323ef3c37497d037cc.png/show"
+  },
+  {
+    "name": "City Girl 101",
+    "character": "Yukino Bijin",
+    "type": "Guts",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216955/c4e8c1d6bdfaca1788be4f880ced0d8c.png/show"
+  },
+  {
+    "name": "Cute + Cute = ?",
+    "character": "Mayano Top Gun",
+    "type": "Stamina",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216926/2bc1f9e84ecbf9679cdd487ffeaf9e26.png/show"
+  },
+  {
+    "name": "Digital's Recharge Station",
+    "character": "Agnes Digital",
+    "type": "Power",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4217008/9b0fff05441ee19ba7d325d87970381a.png/show"
+  },
+  {
+    "name": "Experimental Studies on Subject A",
+    "character": "Agnes Tachyon",
+    "type": "Wit",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4217009/addcf67073760c7d6819b1de161f8ac4.png/show"
+  },
+  {
+    "name": "Fate's Forecast",
+    "character": "Matikane Fukukitaru",
+    "type": "Wit",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216987/5379a2f017eb00497a1964a0000d1e61.png/show"
+  },
+  {
+    "name": "Fighting for Fortune",
+    "character": "Meisho Doto",
+    "type": "Guts",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216956/9de8f34382a448c0c7b0d554f8785764.png/show"
+  },
+  {
+    "name": "First-Rate Plan",
+    "character": "King Halo",
+    "type": "Speed",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216928/014824fcd1d9de631eccb6a433409cee.png/show"
+  },
+  {
+    "name": "Grma, Ramen ♪",
+    "character": "Fine Motion",
+    "type": "Power",
+    "rarity": "SR",
+    "image_url": "https://img.game8.jp/6175645/d2d1f94b481dc4276227a689d2b93c6b.png/show"
+  },
+  {
+    "name": "Ignore the Stares",
+    "character": "Mejiro Dober",
+    "type": "Wit",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216921/91b37320035a93c4d4797d5ad49278ea.png/show"
+  },
+  {
+    "name": "It's Just Water",
+    "character": "Nice Nature",
+    "type": "Guts",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216986/1293ea3dc08e0b8251cb32e9c203fbd8.png/show"
+  },
+  {
+    "name": "Lamplit Training of a Witch-to-Be",
+    "character": "Sweep Tosho",
+    "type": "Speed",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216948/9e6f130e4e2f5be3b66861c4c92da8fa.png/show"
+  },
+  {
+    "name": "Let's Get This Party Lit!",
+    "character": "Daitaku Helios",
+    "type": "Power",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216925/cdc63377f6c99bceb7fa4aad1ebdf636.png/show"
+  },
+  {
+    "name": "Lifting Your Spirits",
+    "character": "Nishino Flower",
+    "type": "Power",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4231268/c0730360dd0ff078fd0d4ffbe002f2ab.png/show"
+  },
+  {
+    "name": "Messing Around",
+    "character": "Nice Nature",
+    "type": "Wit",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4220989/f10dfe2e4cecd3e18a7534b2a791023c.png/show"
+  },
+  {
+    "name": "My Heart Will Go On",
+    "character": "Mejiro Ardan",
+    "type": "Wit",
+    "rarity": "SR",
+    "image_url": "https://img.game8.jp/5979044/20be67c0059e892cd25d5a4e32497cce.png/show"
+  },
+  {
+    "name": "My Solo Drawn to Raindrop Drums",
+    "character": "Manhattan Cafe",
+    "type": "Stamina",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216952/f1b0919a543ae5bbbf7675dca6303063.png/show"
+  },
+  {
+    "name": "Never Skip Warm-Ups",
+    "character": "Ikuno Dictus",
+    "type": "Wit",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4217012/b411b9e36183d24fda36f781bc9e6a1a.png/show"
+  },
+  {
+    "name": "Nothing Escapes the Vice Prez",
+    "character": "Air Groove",
+    "type": "Guts",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4217007/0616c623d3f8c40f45c449cbb823efe3.png/show"
+  },
+  {
+    "name": "Nothing Hard Work Can't Solve!",
+    "character": "Daiwa Scarlet",
+    "type": "Wit",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4217004/a1dca6a3b7dc01d7260b61354206572b.png/show"
+  },
+  {
+    "name": "On and Off the Court",
+    "character": "Mejiro Ryan",
+    "type": "Power",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216982/b37eb45e683a42665e0cd32a8db2eb9d.png/show"
+  },
+  {
+    "name": "Pal-Assisted Training",
+    "character": "Mihono Bourbon",
+    "type": "Power",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216922/d680f1ccee2313f552d68ef0df152c09.png/show"
+  },
+  {
+    "name": "Poolside High Tides",
+    "character": "Narita Taishin",
+    "type": "Speed",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216949/dd886bfcb235062c2e41b877c42aaa4b.png/show"
+  },
+  {
+    "name": "Reach to the Top!",
+    "character": "Hishi Amazon",
+    "type": "Power",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216976/2534fb62fff784e4c60681a94f8d463f.png/show"
+  },
+  {
+    "name": "The Brightest Star Shines On",
+    "character": "Sirius Symboli",
+    "type": "Guts",
+    "rarity": "SR",
+    "image_url": "https://img.game8.jp/6242690/72ca483ca015fbf77da322a30b04c1cf.png/show"
+  },
+  {
+    "name": "The Perfect Book for You",
+    "character": "Zenno Rob Roy",
+    "type": "Stamina",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4240325/bf5c49a492d10f49ce2b5eefb46f2618.png/show"
+  },
+  {
+    "name": "The World's My Oyster",
+    "character": "Seeking the Pearl",
+    "type": "Guts",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4240304/7c375b9abd0e8d964e5cd7342bddbbb9.png/show"
+  },
+  {
+    "name": "Trainer's Teamwork",
+    "character": "Aoi Kiryuin",
+    "type": "Pal",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4216935/100f6b7ab85435cdc59451e65415ded4.png/show"
+  },
+  {
+    "name": "Trial Initiation",
+    "character": "Biwa Hayahide",
+    "type": "Power",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4217006/afec7558fcd9f4114e494bd8d383efe0.png/show"
+  },
+  {
+    "name": "Turf as Nails",
+    "character": "Tosen Jordan",
+    "type": "Stamina",
+    "rarity": "SR",
+    "image_url": "https://img.game8.jp/6086656/859d375ffc3dbe2b81b30cce2af958dd.png/show"
+  },
+  {
+    "name": "Well, Look Who's Home",
+    "character": "Fuji Kiseki",
+    "type": "Wit",
+    "rarity": "SR",
+    "image_url": "https://img.game8.co/4217005/0ae89a5a90396fd64a70e7e3ac7ff61f.png/show"
+  }
+]

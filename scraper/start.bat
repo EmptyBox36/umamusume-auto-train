@@ -1,16 +1,19 @@
 @echo off
 echo Select scraper to run:
-echo 1. Skills
-echo 2. Characters
-echo 3. Supports
-echo 4. Races
-echo 0. Main Database Update (Characters/Supports)
+echo 1. Skills Data
+echo 2. Characters Event
+echo 3. Supports Event
+echo 4. Support Images
+echo 5. Races Data
+echo 0. Main Database Update (Characters / Supports / Support Images)
+
 set /p choice="Enter number: "
 
 if "%choice%"=="1" set scraper=skills
 if "%choice%"=="2" set scraper=characters
 if "%choice%"=="3" set scraper=supports
-if "%choice%"=="4" set scraper=races
+if "%choice%"=="4" set scraper=support_images
+if "%choice%"=="5" set scraper=races
 if "%choice%"=="0" set scraper=
 
 set "PYEXE="

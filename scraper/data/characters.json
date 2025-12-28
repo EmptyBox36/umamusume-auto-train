@@ -20522,39 +20522,39 @@
                 }
             }
         },
-        "Get Well Soon!": {
+        "After the Arima Kinen: Royal Inheritance": {
             "choices": {
                 "1": "Choice 1",
                 "2": "Choice 2"
             },
             "stats": {
                 "1": {
-                    "Friendship": 0.0,
+                    "Friendship": 4.0,
                     "Guts": 0.0,
-                    "HP": 0.0,
+                    "HP": -15.0,
                     "Max Energy": 0.0,
-                    "Mood": -1.0,
+                    "Mood": 0.0,
                     "Power": 0.0,
                     "Skill Hint": [],
-                    "Skill Pts": 0.0,
+                    "Skill Pts": 45.0,
                     "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0,
                     "random": false
                 },
                 "2": {
-                    "Friendship": 0.0,
+                    "Friendship": 8.0,
                     "Guts": 0.0,
-                    "HP": 0.0,
+                    "HP": -45.0,
                     "Max Energy": 0.0,
-                    "Mood": -1.0,
+                    "Mood": 0.0,
                     "Power": 0.0,
                     "Skill Hint": [],
-                    "Skill Pts": 0.0,
+                    "Skill Pts": 65.0,
                     "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0,
-                    "random": true
+                    "random": false
                 }
             }
         },
@@ -21516,7 +21516,7 @@
                 }
             }
         },
-        "Get Well Soon!": {
+        "After the Japanese Derby: Standing Tall": {
             "choices": {
                 "1": "Choice 1",
                 "2": "Choice 2"
@@ -21525,12 +21525,12 @@
                 "1": {
                     "Friendship": 0.0,
                     "Guts": 0.0,
-                    "HP": 0.0,
+                    "HP": -15.0,
                     "Max Energy": 0.0,
-                    "Mood": -1.0,
+                    "Mood": 0.0,
                     "Power": 0.0,
                     "Skill Hint": [],
-                    "Skill Pts": 0.0,
+                    "Skill Pts": 45.0,
                     "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0,
@@ -21539,16 +21539,16 @@
                 "2": {
                     "Friendship": 0.0,
                     "Guts": 0.0,
-                    "HP": 0.0,
+                    "HP": -30.0,
                     "Max Energy": 0.0,
-                    "Mood": -1.0,
+                    "Mood": 0.0,
                     "Power": 0.0,
                     "Skill Hint": [],
-                    "Skill Pts": 0.0,
+                    "Skill Pts": 65.0,
                     "Speed": 0.0,
                     "Stamina": 0.0,
                     "Wit": 0.0,
-                    "random": true
+                    "random": false
                 }
             }
         },
