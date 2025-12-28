@@ -1,5 +1,3 @@
-from ast import Constant
-from sqlite3 import PrepareProtocol
 import cv2
 import numpy as np
 import re
@@ -504,6 +502,11 @@ def check_fans_after_race(region):
 
     return FAN_COUNT
 
+def check_credit():
+  img = enhanced_screenshot(constants.CLAW_EVENT_REGION)
+  text = extract_text(img)
+  return text
+
 def check_skill_pts():
   img = enhanced_screenshot(constants.SKILL_PTS_REGION)
   text = extract_number(img)
@@ -676,7 +679,6 @@ def debug_window(screen, x=-1400, y=-100):
   cv2.imshow("image", screen)
   cv2.waitKey(0)
 
-# Get event name
 def get_event_name():
   img = enhanced_screenshot(constants.EVENT_NAME_REGION)
   text = extract_text(img)

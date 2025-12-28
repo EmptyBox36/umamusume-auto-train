@@ -4,11 +4,12 @@ from PIL import ImageGrab
 pyautogui.useImageNotFoundException(False)
 
 import core.state as state
-from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, check_unity, stop_bot, check_stats, get_virtual_turn
+from core.state import check_turn, check_mood, check_current_year, check_criteria, check_energy_level, check_unity, stop_bot, check_stats, get_virtual_turn, check_credit
 
 from utils.log import info, warning, error, debug
 import utils.constants as constants
 
+from utils.log import info, warning, error, debug
 from core.recognizer import is_btn_active, match_template, multi_match_templates
 from utils.process import event_choice, check_fan, race_process, after_race
 from utils.tools import click, sleep, wait_for_image, get_secs
@@ -28,7 +29,12 @@ templates = {
   "retry": "assets/buttons/retry_btn.png",
   "close": "assets/unity_cup/close_btn.png",
   "complete": "assets/buttons/complete_btn.png",
-  "view_result":"assets/buttons/view_results.png"
+  "view_result":"assets/buttons/view_results.png",
+  "start_carrer":"assets/buttons/start_carrer.png",
+  "back_btn":"assets/buttons/back_btn.png",
+  "retry": "assets/buttons/retry_btn.png",
+  "claw_credit": "assets/buttons/claw_credit.png",
+  "claw_result": "assets/buttons/claw_result.png",
 }
 
 def career_lobby():
@@ -74,7 +80,24 @@ def career_lobby():
       continue
     if click(boxes=matches["close"], text="close"):
       continue
-    if click(img="assets/buttons/back_btn.png"):
+    if click(boxes=matches["back_btn"], text="back"):
+      continue
+    if matches["claw_credit"]:
+      credits = check_credit()
+      if credits == "CREDIT 3":
+        click_and_hold(img="assets/buttons/claw_btn.png", text="Claw 1 found.", duration_ms=1888)
+        sleep(5)
+        continue
+      if credits == "CREDIT 2":
+        click_and_hold(img="assets/buttons/claw_btn.png", text="Claw 2 found.", duration_ms=944)
+        sleep(5)
+        continue
+      if credits == "CREDIT 1":
+        click_and_hold(img="assets/buttons/claw_btn.png", text="Claw 3 found.", duration_ms=490)
+        sleep(5)
+        continue
+    if matches["claw_result"]:
+      click(img="assets/buttons/ok_2_btn.png", minSearch=get_secs(0.7))
       continue
 
     if not matches["tazuna"]:
