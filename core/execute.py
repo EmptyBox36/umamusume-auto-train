@@ -30,7 +30,6 @@ templates = {
   "close": "assets/unity_cup/close_btn.png",
   "complete": "assets/buttons/complete_btn.png",
   "view_result":"assets/buttons/view_results.png",
-  "start_carrer":"assets/buttons/start_carrer.png",
   "back_btn":"assets/buttons/back_btn.png",
   "retry": "assets/buttons/retry_btn.png",
   "claw_credit": "assets/buttons/claw_credit.png",
