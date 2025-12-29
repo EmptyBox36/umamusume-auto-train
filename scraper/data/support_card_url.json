@@ -196,6 +196,13 @@
     "image_url": "https://img.game8.jp/6194857/3140096dd7c0e56fc72d23db2db17353.png/show"
   },
   {
+    "name": "Make! Some! NOISE!",
+    "character": "Daitaku Helios",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6323965/2027da139c07918831f3d5eaebc89d7b.png/show"
+  },
+  {
     "name": "Mini☆Vacation",
     "character": "Daiwa Scarlet",
     "type": "Power",
@@ -425,6 +432,13 @@
     "type": "Wit",
     "rarity": "SR",
     "image_url": "https://img.game8.co/4216934/8ed4f64c8e2d6d323ef3c37497d037cc.png/show"
+  },
+  {
+    "name": "An Annoying Supervisor",
+    "character": "Vodka",
+    "type": "Speed",
+    "rarity": "SR",
+    "image_url": "https://img.game8.jp/6323966/f114185183057275130bb063bbf95f8a.png/show"
   },
   {
     "name": "City Girl 101",

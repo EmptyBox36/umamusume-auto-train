@@ -1,4 +1,116 @@
 {
+    "(❯) A Legendary Smile in the House!": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -5.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 15.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 0.0,
+                "Guts": 0.0,
+                "HP": 10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Pace Chaser Corners ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 15.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Encounter With the Sun ☆": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 10.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Smiles Forever": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 10.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Long Shot ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
     "(❯) #CurrenPotential": {
         "choices": {
             "1": "Choice 1",
@@ -5797,6 +5909,44 @@
             }
         }
     },
+    "(❯) Slacking Off at Sundown": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 10.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Mile Corners ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 5.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": true
+            }
+        }
+    },
     "(❯❯) Oil and Water": {
         "choices": {
             "1": "Choice 1",
@@ -6623,80 +6773,6 @@
                 "Power": 0.0,
                 "Skill Hint": [
                     "Watchful Eye"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            }
-        }
-    },
-    "Encounter With the Sun ☆": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 10.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            }
-        }
-    },
-    "Smiles Forever": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 10.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 5.0,
-                "Stamina": 0.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Long Shot ○"
                 ],
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
