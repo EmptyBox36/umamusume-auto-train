@@ -6,7 +6,7 @@ from utils.log import info, warning, error, debug
 from utils.strings import clean_event_name 
 import core.state as state
 
-ALL_EVENT_KEYS: set[str] = set()          # union of all events (normalized)
+ALL_EVENT_KEYS: set[str] = set()
 EVENT_TOTALS: dict[str, int] = {}
 SKILL_HINT_BY_EVENT = {}
 CHARACTER_BY_EVENT = {}

@@ -1,140 +1,110 @@
-import time, re, logging
-from selenium.webdriver.common.by import By
+import time
+import re
+import logging
+from urllib.parse import urljoin
 
-from .base import BaseScraper, create_chromedriver
-from utils.utils import clean_event_title, COMMON_EVENT_TITLES
+from playwright.sync_api import TimeoutError as PWTimeoutError
 
-def _go(driver, url, tries=2):
+from .base_pw import BaseScraperPW, create_pw, close_pw
+
+
+def goto_with_retry(page, url: str, base: str, tries: int = 3, delay: float = 2.0):
+    target = urljoin(base, url)  # makes /path -> https://gametora.com/path
     for attempt in range(1, tries + 1):
         try:
-            driver.get(url)
+            page.goto(target, wait_until="domcontentloaded")
             return True
-
         except Exception as e:
-            msg = str(e)
-            logging.error(f"_go error on attempt {attempt}/{tries}: {msg}")
-
-            # Detect broken chrome/CDP session
-            if "HTTPConnectionPool" in msg or "Read timed out" in msg or "Repeated tooltip title detected" in msg:
-                return "RESTART"
-
-            # Normal retry
+            logging.error(f"goto error {attempt}/{tries}: {e}")
             try:
-                driver.execute_script("window.stop();")
+                page.evaluate("window.stop()")
             except Exception:
                 pass
-            time.sleep(2)
-
-    return False
-
-def load_with_retry(driver, url: str, max_retry: int = 3, delay: float = 10.0):
-    for attempt in range(1, max_retry + 1):
-        try:
-            driver.get(url)
-            return True  # success
-        except Exception as e:
-            logging.error(f"Load failed ({attempt}/{max_retry}) for {url}: {e}")
             time.sleep(delay)
     return False
 
-class CharacterScraper(BaseScraper):
+class CharacterScraper(BaseScraperPW):
     def __init__(self):
         super().__init__("https://gametora.com/umamusume/characters", "characters.json")
 
+    def _sort_by_name(self, page):
+        row = page.locator("xpath=//div[contains(@class, 'filters_sort_row')]").first
+        first = row.locator("xpath=.//select[1]").first
+        first.select_option("name")
+        time.sleep(0.1)
+        second = row.locator("xpath=.//select[2]").first
+        second.select_option("asc")
+        time.sleep(0.1)
+
     def start(self):
-        driver = create_chromedriver()
-        driver.get(self.url)
-        time.sleep(5)
-        self.handle_cookie_consent(driver)
-        self._sort_by_name(driver)
+        pw, browser, context, page = create_pw(headless=True)
+        try:
+            page.goto(self.url, wait_until="domcontentloaded")
+            time.sleep(3)
 
-        grid = driver.find_element(By.XPATH, "//div[contains(@class, 'sc-70f2d7f-0')]")
-        items = [a for a in grid.find_elements(By.CSS_SELECTOR, "a.sc-73e3e686-1") if a.is_displayed()]
-        logging.info(f"Found {len(items)} characters.")
-        links = [a.get_attribute("href") for a in items]
+            self.handle_cookie_consent(page)
+            self._sort_by_name(page)
 
-        for i, link in enumerate(links):
-            max_link_retry = 3
-            attempt = 0
+            grid = page.locator("xpath=//div[contains(@class, 'sc-70f2d7f-0')]").first
+            items = grid.locator("css=a.sc-73e3e686-1")
+            links = []
+            for i in range(items.count()):
+                a = items.nth(i)
+                if a.is_visible():
+                    href = a.get_attribute("href")
+                    if href:
+                        links.append(href)
 
-            while attempt < max_link_retry:
-                try:
-                    if i % 1 == 0:
-                        driver.quit()
-                        driver = create_chromedriver()
-                        _ = _go(driver, self.url)
-                        time.sleep(1)
+            logging.info(f"Found {len(links)} characters.")
 
-                    logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
+            for i, link in enumerate(links):
+                max_link_retry = 3
+                attempt = 0
 
-                    result = _go(driver, link, tries=5)
+                while attempt < max_link_retry:
+                    try:
+                        context.close()
+                        context = browser.new_context()
+                        page = context.new_page()
+                        page.set_default_timeout(15_000)
+                        page.set_default_navigation_timeout(15_000)
 
-                    if result == "RESTART":
-                        logging.warning("Restarting Chrome due to connection failure...")
-                        driver.quit()
-                        driver = create_chromedriver()
-                        _ = _go(driver, self.url)
-                        time.sleep(1)
-                        # retry the SAME link again
-                        if _go(driver, link, tries=5) is not True:
-                            if not load_with_retry(driver, link, max_retry=5, delay=10):
-                                raise RuntimeError(f"Could not load {link} after Chrome restart")
-                    elif result is False:
-                        logging.warning("Normal _go failure, trying extended retries...")
-                        if not load_with_retry(driver, link, max_retry=5, delay=10):
+                        goto_with_retry(page, self.url, base=self.url, tries=3)
+                        time.sleep(0.5)
+                        self.handle_cookie_consent(page)
+                        self._sort_by_name(page)
+
+                        logging.info(f"Navigating to {link} ({i + 1}/{len(links)})")
+                        if not goto_with_retry(page, link, base=self.url, tries=5):
                             raise RuntimeError(f"Could not load {link}")
 
-                    time.sleep(3)
+                        time.sleep(1.0)
 
-                    raw_h1 = driver.find_element(
-                        By.CSS_SELECTOR, "h1[class*='utils_headingXl']"
-                    ).text.strip()
-                    m = re.match(r"^(.*?)(?:\s*\(([^)]+)\))?$", raw_h1)
-                    base = m.group(1).strip()
-                    variant = m.group(2)
-                    name = f"{base} ({variant})" if variant else base
+                        raw_h1 = page.locator("css=h1[class*='utils_headingXl']").first.inner_text().strip()
+                        m = re.match(r"^(.*?)(?:\s*\(([^)]+)\))?$", raw_h1)
+                        base = m.group(1).strip()
+                        variant = m.group(2)
+                        name = f"{base} ({variant})" if variant else base
 
-                    attempt_data = {}
+                        attempt_data = {}
+                        self.process_training_events(page, name, attempt_data)
+                        self.data[name] = attempt_data
+                        break
 
-                    self.process_training_events(driver, name, attempt_data)
+                    except Exception as e:
+                        attempt += 1
+                        logging.error(
+                            f"Error while processing {link} ({i + 1}/{len(links)}), "
+                            f"attempt {attempt}/{max_link_retry}: {e}"
+                        )
+                        if attempt >= max_link_retry:
+                            raise
 
-                    self.data[name] = attempt_data
+            self.save_data()
 
-                    # success: break out of while and move to next character
-                    break
-
-                except Exception as e:
-                    msg = str(e)
-                    attempt += 1
-                    logging.error(
-                        f"Error while processing {link} ({i + 1}/{len(links)}), "
-                        f"attempt {attempt}/{max_link_retry}: {msg}"
-                    )
-
-                    # if Chrome/CDP is broken, restart driver and retry this character
-                    if "HTTPConnectionPool" in msg or "Read timed out" in msg or "Repeated tooltip title detected" in msg:
-                        driver.quit()
-                        driver = create_chromedriver()
-                        _ = _go(driver, self.url)
-                        time.sleep(2)
-                        # loop continues, retry same link
-                        continue
-
-                    # other unexpected errors: re-raise immediately
-                    raise
-
-            else:
-                # while exhausted without break
-                raise RuntimeError(f"Could not process {link} after {max_link_retry} attempts")
-        
-        self.save_data()
-        driver.quit()
-
-    def _sort_by_name(self, driver):
-        row = driver.find_element(By.XPATH, "//div[contains(@class, 'filters_sort_row')]")
-        first = row.find_element(By.XPATH, ".//select[1]")
-        first.click(); time.sleep(0.1)
-        first.find_element(By.XPATH, ".//option[@value='name']").click(); time.sleep(0.1)
-        second = row.find_element(By.XPATH, ".//select[2]")
-        second.click(); time.sleep(0.1)
-        second.find_element(By.XPATH, ".//option[@value='asc']").click(); time.sleep(0.1)
+        finally:
+            try:
+                context.close()
+            except Exception:
+                pass
+            close_pw(pw, browser)

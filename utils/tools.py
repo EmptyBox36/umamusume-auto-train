@@ -63,7 +63,7 @@ def click(img: str = None, confidence: float = 0.8, minSearch:float = 2, click: 
 
   return False
 
-def wait_for_image(img_path, timeout=10, confidence=0.8, region=None, interval=0.15):
+def wait_for_image(img_path, timeout=10, confidence=0.8, region=None, interval=0.15, minSearch:float = 2):
     """ 
     Returns:
         (True, box) if image found
@@ -73,9 +73,9 @@ def wait_for_image(img_path, timeout=10, confidence=0.8, region=None, interval=0
 
     while time.time() - start < get_secs(timeout):
         if region:
-            box = pyautogui.locateOnScreen(img_path, confidence=confidence, region=region)
+            box = pyautogui.locateOnScreen(img_path, confidence=confidence, minSearchTime=minSearch, region=region)
         else:
-            box = pyautogui.locateOnScreen(img_path, confidence=confidence)
+            box = pyautogui.locateOnScreen(img_path, confidence=confidence, minSearchTime=minSearch)
         if box:
             return True, box
         time.sleep(get_secs(interval))

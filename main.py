@@ -69,7 +69,7 @@ def main():
         state.reload_config()
         state.stop_event.clear()
 
-        from core.EventsDatabase import load_event_databases, dump_event
+        from core.EventsDatabase import load_event_databases
         load_event_databases()
 
         from core.execute import career_lobby
@@ -83,7 +83,6 @@ def main():
         error(f"Error in main thread: {error_message}")
     finally:
         debug("[BOT] Stopped.")
-
 
 def hotkey_listener():
   while True:

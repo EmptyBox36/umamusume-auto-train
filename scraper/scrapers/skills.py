@@ -1,42 +1,60 @@
-import time, re, logging
-from selenium.webdriver.common.by import By
-from .base import BaseScraper, create_chromedriver
+import time
+import re
+import logging
 
-class SkillScraper(BaseScraper):
+from .base_pw import BaseScraperPW, create_pw, close_pw
+
+
+class SkillScraper(BaseScraperPW):
     def __init__(self):
         super().__init__("https://gametora.com/umamusume/skills", "./data/skills.json")
 
     def start(self):
-        driver = create_chromedriver()
-        driver.get(self.url)
-        time.sleep(5)
-        self.handle_cookie_consent(driver)
+        pw, browser, context, page = create_pw(headless=True)
+        try:
+            page.goto(self.url, wait_until="domcontentloaded")
+            time.sleep(3)
+            self.handle_cookie_consent(page)
 
-        btn = driver.find_element(By.XPATH, "//div[contains(@class, 'utils_padbottom_half')]//button[contains(@class, 'filters_button_moreless')]")
-        btn.click(); time.sleep(0.1)
-        driver.find_element(By.XPATH, "//input[contains(@id, 'showIdCheckbox')]").click(); time.sleep(0.1)
-        driver.find_element(By.XPATH, "//input[contains(@id, 'showUniqueCharCheckbox')]").click(); time.sleep(0.1)
+            # Expand filters
+            page.locator(
+                "xpath=//div[contains(@class, 'utils_padbottom_half')]"
+                "//button[contains(@class, 'filters_button_moreless')]"
+            ).first.click()
+            time.sleep(0.1)
 
-        rows = driver.find_elements(By.XPATH, "//div[contains(@class, 'skills_table_row_ja')]")
-        logging.info(f"Found {len(rows)} non-hidden and hidden skill rows.")
+            # Show ID
+            page.locator("xpath=//input[contains(@id, 'showIdCheckbox')]").first.click()
+            time.sleep(0.1)
 
-        result = []
-        for i, row in enumerate(rows):
-            name = row.find_element(By.XPATH, ".//div[contains(@class, 'skills_table_jpname')]").text.strip()
-            desc = row.find_element(By.XPATH, ".//div[contains(@class, 'skills_table_desc')]").text.strip()
+            # Show unique char
+            page.locator("xpath=//input[contains(@id, 'showUniqueCharCheckbox')]").first.click()
+            time.sleep(0.1)
 
-            m = re.search(r'\((\d+)\)$', desc)
-            sid = int(m.group(1)) if m else None
-            clean = re.sub(r'\s*\(\d+\)$', '', desc) if m else desc
+            rows = page.locator("xpath=//div[contains(@class, 'skills_table_row_ja')]")
+            n = rows.count()
+            logging.info(f"Found {n} non-hidden and hidden skill rows.")
 
-            if name:
-                result.append({
-                    "id": sid,
-                    "name": name,
-                    "description": clean
-                })
-                logging.info(f"Scraped skill ({i + 1}/{len(rows)}): {name}")
+            result = []
+            for i in range(n):
+                row = rows.nth(i)
+                name = row.locator("xpath=.//div[contains(@class, 'skills_table_jpname')]").first.inner_text().strip()
+                desc = row.locator("xpath=.//div[contains(@class, 'skills_table_desc')]").first.inner_text().strip()
 
-        self.data = result
-        self.save_data()
-        driver.quit()
+                m = re.search(r"\((\d+)\)$", desc)
+                sid = int(m.group(1)) if m else None
+                clean = re.sub(r"\s*\(\d+\)$", "", desc) if m else desc
+
+                if name:
+                    result.append({"id": sid, "name": name, "description": clean})
+                    logging.info(f"Scraped skill ({i + 1}/{n}): {name}")
+
+            self.data = result
+            self.save_data()
+
+        finally:
+            try:
+                context.close()
+            except Exception:
+                pass
+            close_pw(pw, browser)

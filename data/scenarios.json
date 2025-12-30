@@ -14,7 +14,7 @@
           "Mood": 0.0,
           "Power": 0.0,
           "Skill": 0.0,
-          "Skill Hint": "",
+          "Skill Hint": [],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 10.0,
@@ -28,7 +28,7 @@
           "Mood": 0.0,
           "Power": 0.0,
           "Skill": 0.0,
-          "Skill Hint": "",
+          "Skill Hint": [],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 0.0,
@@ -50,7 +50,7 @@
           "Mood": 0.0,
           "Power": 10.0,
           "Skill": 0.0,
-          "Skill Hint": "",
+          "Skill Hint": [],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 0.0,
@@ -64,7 +64,7 @@
           "Mood": 0.0,
           "Power": 0.0,
           "Skill": 0.0,
-          "Skill Hint": "",
+          "Skill Hint": [],
           "Skill Pts": 0.0,
           "Speed": 10.0,
           "Stamina": 0.0,
@@ -86,7 +86,9 @@
           "Mood": 0.0,
           "Power": 20.0,
           "Skill": 0.0,
-          "Skill Hint": "Beeline Burst",
+          "Skill Hint": [
+            "Beeline Burst"
+          ],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 0.0,
@@ -100,7 +102,9 @@
           "Mood": 0.0,
           "Power": 0.0,
           "Skill": 0.0,
-          "Skill Hint": "Breath of Fresh Air",
+          "Skill Hint": [
+            "Breath of Fresh Air"
+          ],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 20.0,
@@ -127,7 +131,9 @@
           "Mood": 0.0,
           "Power": 0.0,
           "Skill": 0.0,
-          "Skill Hint": "Mile Maven",
+          "Skill Hint": [
+            "Mile Maven"
+          ],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 0.0,
@@ -141,7 +147,9 @@
           "Mood": 0.0,
           "Power": 0.0,
           "Skill": 0.0,
-          "Skill Hint": "Clairvoyance",
+          "Skill Hint": [
+            "Clairvoyance"
+          ],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 0.0,
@@ -155,7 +163,9 @@
           "Mood": 0.0,
           "Power": 0.0,
           "Skill": 0.0,
-          "Skill Hint": "Indomitable",
+          "Skill Hint": [
+            "Indomitable"
+          ],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 0.0,
@@ -169,7 +179,9 @@
           "Mood": 0.0,
           "Power": 0.0,
           "Skill": 0.0,
-          "Skill Hint": "Cooldown",
+          "Skill Hint": [
+            "Cooldown"
+          ],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 0.0,
@@ -183,7 +195,9 @@
           "Mood": 0.0,
           "Power": 0.0,
           "Skill": 0.0,
-          "Skill Hint": "No Stopping Me!",
+          "Skill Hint": [
+            "No Stopping Me!"
+          ],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 0.0,
@@ -205,7 +219,7 @@
           "Mood": 0.0,
           "Power": 0.0,
           "Skill": 0.0,
-          "Skill Hint": "",
+          "Skill Hint": [],
           "Skill Pts": 0.0,
           "Speed": 0.0,
           "Stamina": 0.0,
@@ -219,7 +233,7 @@
           "Mood": 0.0,
           "Power": 9999.0,
           "Skill": 0.0,
-          "Skill Hint": "",
+          "Skill Hint": [],
           "Skill Pts": 0.0,
           "Speed": 9999.0,
           "Stamina": 9999.0,

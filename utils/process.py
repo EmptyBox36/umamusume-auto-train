@@ -253,7 +253,7 @@ def race_prep():
     # these two are mutually exclusive, so we only use preferred position if positions by race is not enabled.
     if state.ENABLE_POSITIONS_BY_RACE:
       sleep(0.5)
-      click(img="assets/buttons/info_btn.png", minSearch=get_secs(10), region=constants.SCREEN_TOP_REGION)
+      click(img="assets/buttons/info_btn.png", minSearch=get_secs(10), region=constants.SCREEN_HEADER_REGION)
       sleep(0.5)
       #find race text, get part inside parentheses using regex, strip whitespaces and make it lowercase for our usage
       race_info_text = get_race_type()
@@ -398,13 +398,16 @@ def check_fan():
     if "Unity" in state.SCENARIO_NAME:
         fan_check_region = constants.SCREEN_MIDDLE_REGION
     else:
-        fan_check_region = None
-    click("assets/buttons/info_btn.png", region=fan_check_region)
+        fan_check_region = constants.SCREEN_TOP_REGION
+
+    if click("assets/buttons/info_btn.png", region=fan_check_region, confidence=0.9):
     sleep(0.5)
     check_debut_status()
     check_fans()
     sleep(0.5)
     click("assets/buttons/close_btn.png")
+    else:
+        debug("info button not found")
 
 def race_process():
     race_prep()
