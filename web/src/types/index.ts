@@ -13,6 +13,7 @@ export type Skill = {
   desire_skill: string[];
   skill_blacklist?: string[];
   preset_name?: string;
+  umalator_url?: string;
   max_cost?: number;
   min_discount?: number;
 };

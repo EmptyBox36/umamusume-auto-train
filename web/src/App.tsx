@@ -580,6 +580,17 @@ function App() {
                           </option>
                         ))}
                       </select>
+                      {/* Show custom Umalator URL field only when no preset is selected */}
+                      {(skill?.preset_name ?? "") === "" && (
+                        <div className="mt-2">
+                          <label className="text-sm font-medium text-primary">Custom Umalator URL</label>
+                          <Input
+                            className="mt-1 w-full"
+                            value={(skill?.umalator_url ?? "") as string}
+                            onChange={(e) => updateConfig("skill", { ...skill, umalator_url: e.target.value })}
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

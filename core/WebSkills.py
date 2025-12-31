@@ -17,9 +17,6 @@ from utils.tools import click, sleep
 # CONFIG
 # =========================
 
-PRESET_NAME = "Scorpio Cup"
-RUNNING_STYLE = "late"  # front | late | pace | end
-
 RUNNING_STYLE_MAP = {
     "front": "Front Runner",
     "late": "Late Surger",
@@ -175,9 +172,9 @@ def clean_number(value: str) -> float:
 
 
 def run_umalator_sim(
-    preset_name=PRESET_NAME,
+    preset_name,
     uma_stats=state.STAT_CAPS,
-    running_style=RUNNING_STYLE,
+    running_style=None,
     url=UMALATOR_URL,
 ):
     with sync_playwright() as p:
@@ -317,9 +314,17 @@ def select_best_skills_by_mean():
     OCR can NEVER introduce new skills
     """
     preset_name = getattr(state, "SKILL_PRESET_NAME", "") or ""
+    # Determine which Umalator URL to use:
+    # - If a preset is selected, use the default UMALATOR_URL
+    # - If no preset is selected, use a custom URL from config (state.SKILL_UMALATOR_URL)
     if not preset_name.strip():
-        info("No race preset selected (preset_name empty) — skipping Umalator run")
-        return []
+        custom_url = getattr(state, "SKILL_UMALATOR_URL", "") or ""
+        if not custom_url.strip():
+            info("No race preset selected (preset_name empty) — skipping Umalator run")
+            return []
+        url_to_use = custom_url
+    else:
+        url_to_use = UMALATOR_URL
 
     # --- Read SP ---
     screen = enhanced_screenshot(CAREER_COMPLETE_SP_REGION)
@@ -347,9 +352,10 @@ def select_best_skills_by_mean():
     # --- OCR scan (collect mode) ---
     scan_ctx = {
         "mode": "collect",
-        "skills": [],
-        "MAX_COST": 999,
-        "MIN_DISCOUNT": 0,
+        "collected_skills": [],
+        "skills_to_buy": [],
+        "max_cost": 999,
+        "min_discount": 0,
         "found": False,
     }
 
@@ -360,7 +366,7 @@ def select_best_skills_by_mean():
     click(img="assets/buttons/back_btn.png")
     sleep(0.5)
 
-    if not scan_ctx["skills"]:
+    if not scan_ctx["collected_skills"]:
         info("No matching skills found. Exiting early.")
         return []
     
@@ -369,7 +375,7 @@ def select_best_skills_by_mean():
 
     # --- Run Umalator ---
     uma_results = run_umalator_sim(
-        preset_name=preset_name, uma_stats=umastats, running_style=state.PREFERRED_POSITION
+        preset_name=preset_name, uma_stats=umastats, running_style=state.PREFERRED_POSITION, url=url_to_use
     )
 
     if not uma_results:
@@ -387,9 +393,10 @@ def select_best_skills_by_mean():
     # --- Merge OCR → Umalator (UMA-gated) ---
     merged = []
 
-    for ingame in scan_ctx["skills"]:
+    for ingame in scan_ctx["collected_skills"]:
         for uma_name, mean in allowed_uma.items():
-            if is_skill_match(ingame["name"], [uma_name]):
+            matched, _ = is_skill_match(ingame["name"], [uma_name])
+            if matched:
                 base_cost = int(ingame["cost"])
                 adjusted_cost = adjust_skill_cost(uma_name, base_cost)
 
@@ -439,10 +446,11 @@ def select_best_skills_by_mean():
     # --- Buy phase (guarded) ---
     buy_ctx = {
         "mode": "buy",
-        "skills": selected,
-        "MAX_COST": 999,
-        "MIN_DISCOUNT": 0,
+        "skills_to_buy": selected,
+        "max_cost": 999,
+        "min_discount": 0,
         "found": False,
+        "collect_all_skills": True,
     }
 
     click(img="assets/buttons/finale_skills.png")
