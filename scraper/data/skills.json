@@ -576,8 +576,8 @@
     },
     {
         "id": 204142,
-        "name": "あふれる活力",
-        "description": "Not translated yet"
+        "name": "Overflowing Vitality",
+        "description": "Medium/Long・If your base Stamina is at least 1200, it will be further increased by 40"
     },
     {
         "id": 200064,
@@ -601,8 +601,8 @@
     },
     {
         "id": 204141,
-        "name": "気丈夫",
-        "description": "Not translated yet"
+        "name": "Stout-Hearted",
+        "description": "Medium/Long・If your base Stamina is at least 1200, your Stamina and Speed stats are increased by 60"
     },
     {
         "id": 200033,
@@ -711,8 +711,8 @@
     },
     {
         "id": 107602111,
-        "name": "初空高く、花宴",
-        "description": "Not translated yet"
+        "name": "First Sky, Flower Feast",
+        "description": "Medium/Long・If your base Stamina is at least 1200, your Stamina and Speed stats are increased by 80"
     },
     {
         "id": 200151,
@@ -1001,7 +1001,7 @@
     },
     {
         "id": 106302111,
-        "name": "梅仰ぎ、漕ぐ計路",
+        "name": "Rowing Beneath Plum Blossoms",
         "description": "Not translated yet"
     },
     {
@@ -2736,22 +2736,22 @@
     },
     {
         "id": 204122,
-        "name": "勝負を懸けて",
-        "description": "Not translated yet"
+        "name": "Putting All on the Line",
+        "description": "If you're spurting on the Final Straight, your speed will slightly increase; the effect is stronger if you have plenty of stamina left"
     },
     {
         "id": 204032,
-        "name": "労を惜しまず",
-        "description": "Not translated yet"
+        "name": "Spare No Effort",
+        "description": "Medium・At a random point on a random Middle Leg corner, your speed will slightly increase"
     },
     {
         "id": 204042,
-        "name": "華麗な足取り",
+        "name": "Gorgeous Step",
         "description": "Not translated yet"
     },
     {
         "id": 204072,
-        "name": "気持ちを乗せて",
+        "name": "With Feelings Aboard",
         "description": "Not translated yet"
     },
     {
@@ -3561,22 +3561,22 @@
     },
     {
         "id": 204121,
-        "name": "遥か先へ",
-        "description": "Not translated yet"
+        "name": "To the Far Beyond",
+        "description": "If you're spurting on the Final Straight, your speed will increase; it will increase greatly if you have plenty of stamina left"
     },
     {
         "id": 204031,
         "name": "千鍛万錬",
-        "description": "Not translated yet"
+        "description": "Medium・At a random point on a random Middle Leg corner, your speed will increase"
     },
     {
         "id": 204041,
-        "name": "錦上添花",
+        "name": "Crowning Beauty",
         "description": "Not translated yet"
     },
     {
         "id": 204071,
-        "name": "順風満帆",
+        "name": "Smooth Sailing",
         "description": "Not translated yet"
     },
     {
@@ -4716,8 +4716,8 @@
     },
     {
         "id": 101351,
-        "name": "黄金を訪ねて",
-        "description": "Not translated yet"
+        "name": "In Search of Gold",
+        "description": "Betweener/Chaser・In the second half of the race, your speed will slightly increase; (2000+ m races only) then, when you start spurting, your acceleration will increase"
     },
     {
         "id": 110631,
@@ -4726,7 +4726,7 @@
     },
     {
         "id": 110761,
-        "name": "春光・Bon appétit",
+        "name": "Spring Light: Bon Appétit",
         "description": "Not translated yet"
     },
     {
@@ -6291,38 +6291,38 @@
     },
     {
         "id": 113501111,
-        "name": "見果てぬ旅路",
-        "description": "Not translated yet"
+        "name": "Unfinished Journey",
+        "description": "Betweener・If you're spurting on the Final Straight, your speed will greatly increase; if your mood is Great, you will use a little extra stamina and your speed will increase tremendously"
     },
     {
         "id": 113501211,
-        "name": "針が交わる時",
-        "description": "Not translated yet"
+        "name": "When the Clock Hands Cross",
+        "description": "Betweener・Medium・Two thirds through the race, you will get a speed boost; then, if you try to overtake someone during the Final Corner, then if you're a good position with 400 m remaining, your speed will increase"
     },
     {
         "id": 113501221,
-        "name": "旅の心得",
-        "description": "Not translated yet"
+        "name": "Traveler's Knowledge",
+        "description": "Betweener・Long・If you're in the middle of the pack on any straight during the second half of the race, your speed will increase; then, with 1000 m remaining, you will get a slight speed boost"
     },
     {
         "id": 101701121,
-        "name": "陰りなき王道",
-        "description": "Not translated yet"
+        "name": "Unclouded Noble Path",
+        "description": "Long・If you're trying to overtake someone in the Final Leg, you will get a speed boost and your acceleration will slightly increase"
     },
     {
         "id": 105602121,
-        "name": "怒涛のラッキー大猛進！",
+        "name": "Lucky Mad Rush!",
         "description": "Not translated yet"
     },
     {
         "id": 106302211,
-        "name": "春道踏破",
+        "name": "Treading the Spring Path",
         "description": "Not translated yet"
     },
     {
         "id": 107602211,
-        "name": "春めき、Lumière",
-        "description": "Not translated yet"
+        "name": "Spring Awakened: Lumière",
+        "description": "Betweener・Long・If you try to overtake someone in the second half of the race, your speed will greatly increase; then, at a random point during the first half of the Last Spurt, your speed will slightly increase"
     },
     {
         "id": 200342,
@@ -6581,8 +6581,8 @@
     },
     {
         "id": 204162,
-        "name": "押しの一手",
-        "description": "Not translated yet"
+        "name": "Committed Push",
+        "description": "Runner/Leader・When there's less than 600 m remaining in the Final Leg, and you're either first or trying to overtake someone in the first half of the pack, your acceleration will slightly increase"
     },
     {
         "id": 200341,

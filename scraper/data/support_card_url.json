@@ -70,6 +70,13 @@
     "image_url": "https://img.game8.jp/6086655/77647ff80a234772a65fd6fd449c8eda.png/show"
   },
   {
+    "name": "Dazzling Day in the Snow",
+    "character": "Marvelous Sunday",
+    "type": "Power",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6346031/4546e1d6214f74ac3146d2e41cb713b4.png/show"
+  },
+  {
     "name": "Double Carrot Punch!",
     "character": "Biko Pegasus",
     "type": "Speed",
@@ -231,6 +238,13 @@
     "image_url": "https://img.game8.co/4265540/5238d14d098b14423656d4dda3597741.png/show"
   },
   {
+    "name": "Party Formation",
+    "character": "Mayano Top Gun",
+    "type": "Speed",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6346020/b48b87bcd6fbe1c83ba01b65556935ee.png/show"
+  },
+  {
     "name": "Peak Sakura Season",
     "character": "Sakura Chiyono O",
     "type": "Stamina",
@@ -278,6 +292,13 @@
     "type": "Stamina",
     "rarity": "SSR",
     "image_url": "https://img.game8.co/4216995/100f8901e234bb4b2095dba2ae40f1ce.png/show"
+  },
+  {
+    "name": "Strict Shopper",
+    "character": "Narita Taishin",
+    "type": "Wit",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6346019/70506babecdf51a49e9f8e0d8b63ef04.png/show"
   },
   {
     "name": "That Time I Became the Strongest",
