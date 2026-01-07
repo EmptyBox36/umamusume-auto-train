@@ -1,4 +1,4 @@
-﻿import json, re, time, logging
+﻿import json, re, time, logging, contextlib, os, signal
 from typing import Optional
 from pathlib import Path
 from typing import List, Dict
@@ -15,10 +15,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from utils.utils import clean_event_title, STAT_KEYS, ALIASES, DIVIDER_RE, IGNORE_PATTERNS, ALL_STATS, COMMON_EVENT_TITLES, RAND_SPLIT_RE
 
 TOOLTIP_VISIBLE = "//div[contains(@class,'tippy-content')]"
-# header is the first div inside tippy-content that holds the event title text
 TOOLTIP_HEADER_REL = ".//div[1]"
 
-# ---- helpers ----
 def blank_stats():
     d = {k: 0.0 for k in STAT_KEYS}
     # collect all skill hints for this outcome as a list
@@ -173,6 +171,57 @@ def create_chromedriver():
     driver.set_page_load_timeout(15)
     driver.set_script_timeout(15)
     return driver
+
+def safe_quit_driver(driver):
+    """
+    Best-effort shutdown for undetected_chromedriver / selenium.
+    1) driver.quit()
+    2) if chromedriver service PID still exists, terminate it (and children if psutil is available)
+    """
+    if driver is None:
+        return
+
+    # normal quit
+    with contextlib.suppress(Exception):
+        driver.quit()
+
+    # kill of service process if still alive
+    pid = None
+    try:
+        svc = getattr(driver, "service", None)
+        proc = getattr(svc, "process", None)
+        pid = getattr(proc, "pid", None)
+    except Exception:
+        pid = None
+
+    if not pid:
+        return
+
+    # Prefer psutil if installed; otherwise fallback to os.kill (may be limited on Windows)
+    try:
+        import psutil
+        with contextlib.suppress(Exception):
+            p = psutil.Process(pid)
+            for c in p.children(recursive=True):
+                with contextlib.suppress(Exception):
+                    c.terminate()
+            with contextlib.suppress(Exception):
+                p.terminate()
+
+            gone, alive = psutil.wait_procs([p], timeout=3)
+            for a in alive:
+                with contextlib.suppress(Exception):
+                    a.kill()
+    except Exception:
+        if os.name == "nt":
+            with contextlib.suppress(Exception):
+                os.system(f"taskkill /PID {pid} /T /F >NUL 2>&1")
+        else:
+            with contextlib.suppress(Exception):
+                os.kill(pid, signal.SIGTERM)
+            time.sleep(0.2)
+            with contextlib.suppress(Exception):
+                os.kill(pid, signal.SIGKILL)
 
 class BaseScraper:
     def __init__(self, url: str, output_filename: str):

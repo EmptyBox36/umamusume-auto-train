@@ -2,3 +2,4 @@ beautifulsoup4==4.13.4
 undetected-chromedriver==3.5.5
 playwright>=1.42.0
 requests>=2.31.0
+psutil
