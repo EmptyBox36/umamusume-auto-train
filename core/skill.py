@@ -50,6 +50,7 @@ def is_skill_match(
         "pace",
         "late",
         "end",
+        "distance",
         "ignited spirit",
         "burning spirit",
     ]

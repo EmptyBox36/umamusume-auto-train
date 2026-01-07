@@ -135,7 +135,7 @@ def adjust_skill_cost(name: str, cost: int) -> int:
     return cost
 
 
-def wait_for_results_to_stabilize(page, check_interval=3, max_wait=30):
+def wait_for_results_to_stabilize(page, check_interval=10, max_wait=30):
     start = time.time()
     previous = None
 
@@ -357,6 +357,7 @@ def select_best_skills_by_mean():
         "max_cost": 999,
         "min_discount": 0,
         "found": False,
+        "collect_all_skills": True,
     }
 
     click(img="assets/buttons/finale_skills.png")
@@ -450,7 +451,6 @@ def select_best_skills_by_mean():
         "max_cost": 999,
         "min_discount": 0,
         "found": False,
-        "collect_all_skills": True,
     }
 
     click(img="assets/buttons/finale_skills.png")

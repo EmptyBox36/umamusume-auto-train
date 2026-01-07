@@ -1,32 +1,36 @@
 {
   "presets": [
     {
-      "label": "Scorpio Cup",
+      "label": "Sagittarius Cup",
       "value": "0"
     },
     {
-      "label": "Libra Cup",
+      "label": "Scorpio Cup",
       "value": "1"
     },
     {
-      "label": "Virgo Cup",
+      "label": "Libra Cup",
       "value": "2"
     },
     {
-      "label": "Leo Cup",
+      "label": "Virgo Cup",
       "value": "3"
     },
     {
-      "label": "Cancer Cup",
+      "label": "Leo Cup",
       "value": "4"
     },
     {
-      "label": "Gemini Cup",
+      "label": "Cancer Cup",
       "value": "5"
     },
     {
-      "label": "Taurus Cup",
+      "label": "Gemini Cup",
       "value": "6"
+    },
+    {
+      "label": "Taurus Cup",
+      "value": "7"
     }
   ]
 }
