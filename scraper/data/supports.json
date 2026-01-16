@@ -1,4 +1,116 @@
 {
+    "(❯❯) Discovery": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 15.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Long Corners ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": true
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 15.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Solo Nighttime Run": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 10.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 10.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 5.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "A Taste of Silence": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 15.0,
+                "Speed": 0.0,
+                "Stamina": 5.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Non-Standard Distance ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
     "(❯) Just Because ♪": {
         "choices": {
             "1": "Choice 1",
@@ -6264,6 +6376,118 @@
             }
         }
     },
+    "(❯❯) A Good Ruckus!": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 3.0,
+                "HP": -5.0,
+                "Max Energy": 0.0,
+                "Mood": 2.0,
+                "Power": 3.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 3.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -5.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Oi Racecourse ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 10.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Let's Tussle! Booyah!": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": -5.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 15.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 5.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 1.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
+    "Mikoshi, Heave Ho!": {
+        "choices": {
+            "1": "Choice 1",
+            "2": "Choice 2"
+        },
+        "stats": {
+            "1": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [],
+                "Skill Pts": 15.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            },
+            "2": {
+                "Friendship": 5.0,
+                "Guts": 0.0,
+                "HP": 0.0,
+                "Max Energy": 0.0,
+                "Mood": 0.0,
+                "Power": 0.0,
+                "Skill Hint": [
+                    "Kyoto Racecourse ○"
+                ],
+                "Skill Pts": 0.0,
+                "Speed": 0.0,
+                "Stamina": 0.0,
+                "Wit": 0.0,
+                "random": false
+            }
+        }
+    },
     "(❯) Slacking Off at Sundown": {
         "choices": {
             "1": "Choice 1",
@@ -7584,80 +7808,6 @@
                 "Skill Pts": 0.0,
                 "Speed": 0.0,
                 "Stamina": 10.0,
-                "Wit": 0.0,
-                "random": false
-            }
-        }
-    },
-    "Solo Nighttime Run": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 10.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 10.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 5.0,
-                "Wit": 0.0,
-                "random": false
-            }
-        }
-    },
-    "A Taste of Silence": {
-        "choices": {
-            "1": "Choice 1",
-            "2": "Choice 2"
-        },
-        "stats": {
-            "1": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [],
-                "Skill Pts": 15.0,
-                "Speed": 0.0,
-                "Stamina": 5.0,
-                "Wit": 0.0,
-                "random": false
-            },
-            "2": {
-                "Friendship": 5.0,
-                "Guts": 0.0,
-                "HP": 0.0,
-                "Max Energy": 0.0,
-                "Mood": 0.0,
-                "Power": 0.0,
-                "Skill Hint": [
-                    "Non-Standard Distance ○"
-                ],
-                "Skill Pts": 0.0,
-                "Speed": 0.0,
-                "Stamina": 0.0,
                 "Wit": 0.0,
                 "random": false
             }

@@ -2755,6 +2755,11 @@
         "description": "Not translated yet"
     },
     {
+        "id": 204132,
+        "name": "大志を抱いて",
+        "description": "Not translated yet"
+    },
+    {
         "id": 200331,
         "name": "Professor of Curvature",
         "description": "Increase velocity on a corner with skilled turning."
@@ -3577,6 +3582,16 @@
     {
         "id": 204071,
         "name": "Smooth Sailing",
+        "description": "Not translated yet"
+    },
+    {
+        "id": 203231,
+        "name": "ハジける闘志",
+        "description": "Not translated yet"
+    },
+    {
+        "id": 204131,
+        "name": "有志竟成",
         "description": "Not translated yet"
     },
     {
@@ -4728,6 +4743,11 @@
         "id": 110761,
         "name": "Spring Light: Bon Appétit",
         "description": "If you're in the middle of the pack during the second half of the Final Corner, your speed will increase; (Long only) if you were blocked from the side in the Middle Leg, your speed will increase tremendously instead"
+    },
+    {
+        "id": 111241,
+        "name": "暁霞を拓き、朝を掴む",
+        "description": "Not translated yet"
     },
     {
         "id": 200333,
@@ -6323,6 +6343,16 @@
         "id": 107602211,
         "name": "Spring Awakened: Lumière",
         "description": "Betweener・Long・If you try to overtake someone in the second half of the race, your speed will greatly increase; then, at a random point during the first half of the Last Spurt, your speed will slightly increase"
+    },
+    {
+        "id": 112402111,
+        "name": "風上に立て",
+        "description": "Not translated yet"
+    },
+    {
+        "id": 112402211,
+        "name": "ハジける風雲児",
+        "description": "Not translated yet"
     },
     {
         "id": 200342,
