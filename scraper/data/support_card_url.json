@@ -217,6 +217,13 @@
     "image_url": "https://img.game8.jp/6016542/d74ef657b6cb291ea598dea28198006b.png/show"
   },
   {
+    "name": "My Solo Spun in Spiraling Runs",
+    "character": "Manhattan Cafe",
+    "type": "Stamina",
+    "rarity": "SSR",
+    "image_url": "https://img.game8.jp/6374824/374be4d8d36e755c25984e946503b151.png/show"
+  },
+  {
     "name": "My Thoughts, My Desires",
     "character": "Mejiro Dober",
     "type": "Wit",
@@ -537,6 +544,13 @@
     "type": "Speed",
     "rarity": "SR",
     "image_url": "https://img.game8.co/4216948/9e6f130e4e2f5be3b66861c4c92da8fa.png/show"
+  },
+  {
+    "name": "Laughing through the Mud",
+    "character": "Inari One",
+    "type": "Power",
+    "rarity": "SR",
+    "image_url": "https://img.game8.jp/6374826/06ed01789fea258f8dd66030805fddb3.png/show"
   },
   {
     "name": "Let's Get This Party Lit!",

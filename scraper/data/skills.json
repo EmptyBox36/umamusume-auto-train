@@ -2747,11 +2747,16 @@
     {
         "id": 204042,
         "name": "Gorgeous Step",
-        "description": "Not translated yet"
+        "description": "Medium・If you overtake someone after the first 5 seconds of the race, you will get a slight speed boost"
     },
     {
         "id": 204072,
         "name": "With Feelings Aboard",
+        "description": "Not translated yet"
+    },
+    {
+        "id": 204132,
+        "name": "大志を抱いて",
         "description": "Not translated yet"
     },
     {
@@ -3572,11 +3577,21 @@
     {
         "id": 204041,
         "name": "Crowning Beauty",
-        "description": "Not translated yet"
+        "description": "Medium・If you overtake someone after the first 5 seconds of the race, you will get a speed boost"
     },
     {
         "id": 204071,
         "name": "Smooth Sailing",
+        "description": "Not translated yet"
+    },
+    {
+        "id": 203231,
+        "name": "ハジける闘志",
+        "description": "Not translated yet"
+    },
+    {
+        "id": 204131,
+        "name": "有志竟成",
         "description": "Not translated yet"
     },
     {
@@ -4722,11 +4737,16 @@
     {
         "id": 110631,
         "name": "千歳、廻りて",
-        "description": "Not translated yet"
+        "description": "If you're trying to overtake someone or someone is trying to overtake you during the first half of the Middle Leg, you will get a speed boost; (Medium only) then, if you're near the front at a random point during the second half of the Middle Leg, your speed will increase"
     },
     {
         "id": 110761,
         "name": "Spring Light: Bon Appétit",
+        "description": "If you're in the middle of the pack during the second half of the Final Corner, your speed will increase; (Long only) if you were blocked from the side in the Middle Leg, your speed will increase tremendously instead"
+    },
+    {
+        "id": 111241,
+        "name": "暁霞を拓き、朝を掴む",
         "description": "Not translated yet"
     },
     {
@@ -6312,7 +6332,7 @@
     {
         "id": 105602121,
         "name": "Lucky Mad Rush!",
-        "description": "Not translated yet"
+        "description": "Long・If you're trying to overtake someone during the Final Leg, your acceleration will slightly increase; then, if you try to overtake someone during the first half of the Last Spurt, your speed will increase"
     },
     {
         "id": 106302211,
@@ -6323,6 +6343,16 @@
         "id": 107602211,
         "name": "Spring Awakened: Lumière",
         "description": "Betweener・Long・If you try to overtake someone in the second half of the race, your speed will greatly increase; then, at a random point during the first half of the Last Spurt, your speed will slightly increase"
+    },
+    {
+        "id": 112402111,
+        "name": "風上に立て",
+        "description": "Not translated yet"
+    },
+    {
+        "id": 112402211,
+        "name": "ハジける風雲児",
+        "description": "Not translated yet"
     },
     {
         "id": 200342,
